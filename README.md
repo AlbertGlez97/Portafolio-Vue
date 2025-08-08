@@ -467,10 +467,20 @@ Implementación con CSS variables y clases dinámicas:
 ```json
 {
   "dev": "vite",
-  "build": "vue-tsc && vite build",
+  "build": "vite build",
   "preview": "vite preview",
-  "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix"
+  "lint": "eslint . --ext .vue,.ts"
 }
+```
+
+### Lint y Formateo
+
+```bash
+# Ejecutar ESLint
+npm run lint
+
+# Formatear con Prettier
+npx prettier . --write
 ```
 
 ### Convenciones de Código
