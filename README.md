@@ -126,6 +126,13 @@ npm run preview
 yarn preview
 ```
 
+6. **Ejecutar pruebas**
+```bash
+npm test
+# o
+yarn test
+```
+
 ## 🏗 Arquitectura del Código
 
 ### Composition API
@@ -469,7 +476,7 @@ Implementación con CSS variables y clases dinámicas:
   "dev": "vite",
   "build": "vite build",
   "preview": "vite preview",
-  "lint": "eslint . --ext .vue,.ts"
+  "test": "vitest"
 }
 ```
 
