@@ -215,6 +215,7 @@ onUnmounted(() => {
   justify-content: center;
   min-width: 40px;
   height: 40px;
+  z-index: 999;
 }
 
 .control-btn:hover {
