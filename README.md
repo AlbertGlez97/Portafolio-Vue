@@ -480,6 +480,16 @@ Implementación con CSS variables y clases dinámicas:
 }
 ```
 
+### Lint y Formateo
+
+```bash
+# Ejecutar ESLint
+npm run lint
+
+# Formatear con Prettier
+npx prettier . --write
+```
+
 ### Convenciones de Código
 - **Nombres de componentes**: PascalCase
 - **Nombres de archivos**: kebab-case para vistas, PascalCase para componentes
