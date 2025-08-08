@@ -108,9 +108,10 @@ const translations = {
 }
 
 export const useMainStore = defineStore('main', () => {
+  
   // State
   const currentLanguage = ref<'es' | 'en'>('es')
-  const isDarkMode = ref(true)
+  const isDarkMode = ref(window.matchMedia('(prefers-color-scheme: dark)').matches)
   const isMenuOpen = ref(false)
 
   // Getters
