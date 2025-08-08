@@ -1,0 +1,153 @@
+{
+  "technical": {
+    "frontend": [
+      {
+        "name": "Vue.js",
+        "level": "Avanzado",
+        "percentage": 90,
+        "icon": "vue",
+        "description": "Framework progresivo para construir interfaces de usuario"
+      },
+      {
+        "name": "Svelte",
+        "level": "Avanzado", 
+        "percentage": 85,
+        "icon": "svelte",
+        "description": "Framework moderno para aplicaciones web rápidas"
+      },
+      {
+        "name": "TypeScript",
+        "level": "Avanzado",
+        "percentage": 85,
+        "icon": "typescript",
+        "description": "JavaScript con tipado estático para mejor desarrollo"
+      },
+      {
+        "name": "JavaScript",
+        "level": "Experto",
+        "percentage": 95,
+        "icon": "javascript",
+        "description": "Lenguaje de programación fundamental para web"
+      },
+      {
+        "name": "HTML5",
+        "level": "Experto",
+        "percentage": 95,
+        "icon": "html",
+        "description": "Lenguaje de marcado para estructurar contenido web"
+      },
+      {
+        "name": "CSS3 / Sass",
+        "level": "Avanzado",
+        "percentage": 90,
+        "icon": "css",
+        "description": "Estilos y preprocesadores para diseño web"
+      },
+      {
+        "name": "Bootstrap",
+        "level": "Avanzado",
+        "percentage": 85,
+        "icon": "bootstrap",
+        "description": "Framework CSS para desarrollo responsive"
+      }
+    ],
+    "backend": [
+      {
+        "name": ".NET 6 MVC",
+        "level": "Intermedio",
+        "percentage": 50,
+        "icon": "dotnet",
+        "description": "Framework para aplicaciones web robustas"
+      },
+      {
+        "name": "APIs RESTful",
+        "level": "Avanzado",
+        "percentage": 85,
+        "icon": "api",
+        "description": "Diseño e implementación de servicios web"
+      },
+      {
+        "name": "SQL Server",
+        "level": "Intermedio",
+        "percentage": 70,
+        "icon": "database",
+        "description": "Base de datos relacional de Microsoft"
+      },
+      {
+        "name": "Node.js",
+        "level": "Intermedio",
+        "percentage": 75,
+        "icon": "nodejs",
+        "description": "Runtime de JavaScript para backend"
+      }
+    ]
+  },
+  "tools": [
+    {
+      "name": "Git",
+      "level": "Avanzado",
+      "icon": "git",
+      "description": "Control de versiones distribuido"
+    },
+    {
+      "name": "GitLab",
+      "level": "Avanzado", 
+      "icon": "gitlab",
+      "description": "Plataforma DevOps completa"
+    },
+    {
+      "name": "Docker",
+      "level": "Intermedio",
+      "icon": "docker",
+      "description": "Containerización de aplicaciones"
+    },
+    {
+      "name": "Selenium",
+      "level": "Intermedio",
+      "icon": "selenium",
+      "description": "Automatización de pruebas web"
+    }
+  ],
+  "methodologies": [
+    {
+      "name": "Scrum",
+      "level": "Avanzado",
+      "icon": "scrum",
+      "description": "Marco de trabajo ágil para desarrollo"
+    },
+    {
+      "name": "Redux",
+      "level": "Avanzado",
+      "icon": "redux", 
+      "description": "Gestión de estado predecible"
+    },
+    {
+      "name": "Responsive Design",
+      "level": "Experto",
+      "icon": "responsive",
+      "description": "Diseño adaptativo para múltiples dispositivos"
+    }
+  ],
+  "soft": [
+    {
+      "name": "Comunicación Efectiva",
+      "icon": "communication",
+      "description": "Clara al explicar soluciones técnicas a clientes y analistas"
+    },
+    {
+      "name": "Trabajo en Equipo", 
+      "icon": "teamwork",
+      "description": "Colaborativo con equipos multidisciplinarios y apoyo entre áreas"
+    },
+    {
+      "name": "Pensamiento Analítico",
+      "icon": "analytics",
+      "description": "Solución práctica a requerimientos complejos"
+    },
+    {
+      "name": "Gestión del Tiempo",
+      "icon": "time",
+      "description": "Cumplimiento puntual de entregas y documentación de avances"
+    }
+  ]
+}

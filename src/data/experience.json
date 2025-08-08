@@ -1,0 +1,79 @@
+{
+  "jobs": [
+    {
+      "id": 1,
+      "title": "Front-End Developer",
+      "company": "Sye Software (SAT)",
+      "period": "Junio 2024 - Presente",
+      "duration": "Trabajo Actual",
+      "type": "current",
+      "description": "Responsable único del Front-End del módulo de Consultas en el sistema SICOJ del SAT, compuesto por más de 7 módulos jurídicos.",
+      "achievements": [
+        "Desarrollé componentes reutilizables en Svelte con TypeScript",
+        "Integré servicios RESTful desde .NET 6 MVC",
+        "Implementé gestión de estado con Redux",
+        "Reconocido por entregar el módulo más avanzado entre todos",
+        "Mantuve el ritmo del proyecto sin apoyo directo"
+      ],
+      "technologies": [
+        "Svelte",
+        "TypeScript", 
+        "Redux",
+        ".NET 6 MVC",
+        "GitLab",
+        "Docker",
+        "Scrum"
+      ],
+      "icon": "frontend"
+    },
+    {
+      "id": 2,
+      "title": "Full Stack Developer",
+      "company": "Towa Software",
+      "period": "Mayo 2022 - Mayo 2024",
+      "duration": "2 años",
+      "type": "previous",
+      "description": "Desarrollo para el cliente MI4P (EE.UU. y Canadá), enfocado en soluciones para empresas de impresión.",
+      "achievements": [
+        "Construcción de interfaces reactivas en Razor con inyección de Vue.js",
+        "Pruebas automatizadas con Selenium",
+        "Apoyo ocasional al backend corrigiendo bugs en .NET 6",
+        "Manipulación de datos en SQL Server",
+        "Participación en desarrollo del sistema de cobranza ShoppingCart usando Vue puro"
+      ],
+      "technologies": [
+        "Vue.js",
+        "Razor",
+        "Selenium",
+        ".NET 6",
+        "SQL Server",
+        "JavaScript"
+      ],
+      "icon": "fullstack"
+    },
+    {
+      "id": 3,
+      "title": "Full Stack Developer (Prácticas)",
+      "company": "StrApps Consulting",
+      "period": "Septiembre 2021 - Enero 2022",
+      "duration": "5 meses",
+      "type": "internship",
+      "description": "Diseño de vistas en .NET 6 MVC, jQuery y Bootstrap para un modelo de crédito de cobranzas.",
+      "achievements": [
+        "Diseño de vistas en .NET 6 MVC con jQuery y Bootstrap",
+        "Creación de sitios WordPress",
+        "Control de versiones en GitHub bajo metodología Scrum",
+        "Desarrollo de modelo de crédito de cobranzas"
+      ],
+      "technologies": [
+        ".NET 6 MVC",
+        "jQuery",
+        "Bootstrap",
+        "WordPress",
+        "GitHub",
+        "Scrum"
+      ],
+      "icon": "internship"
+    }
+  ]
+}

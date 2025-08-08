@@ -1,0 +1,97 @@
+{
+  "profile": {
+    "name": "Albert González",
+    "title": "Front-End Developer",
+    "description": {
+      "es": "Desarrollador Front-End con más de 3 años de experiencia en la construcción de sistemas empresariales complejos para instituciones públicas y privadas. Dominio en tecnologías modernas como Svelte, Vue.js y TypeScript. Reconocido por la entrega constante de módulos funcionales, colaborativos y escalables.",
+      "en": "Front-End Developer with over 3 years of experience building complex enterprise systems for public and private institutions. Specialized in Vue.js, TypeScript and modern technologies."
+    },
+    "image": "/profile/albert-gonzalez.jpg"
+  },
+  "contact": {
+    "email": "albert.gonzalez@email.com",
+    "phone": "+52 (555) 123-4567",
+    "location": "Ciudad de México, México",
+    "linkedin": "linkedin.com/in/albertglez97",
+    "github": "github.com/albertglez97"
+  },
+  "about": {
+    "goals": {
+      "shortTerm": {
+        "es": "Avanzar de nivel semi-senior a senior, fortalecer mi inglés técnico y aportar valor en proyectos con impacto.",
+        "en": "Advance from semi-senior to senior level, strengthen my technical English and add value to impactful projects."
+      },
+      "longTerm": {
+        "es": "Trabajar en el extranjero, dominar tecnologías emergentes como inteligencia artificial y especializarme en microservicios backend.",
+        "en": "Work abroad, master emerging technologies like artificial intelligence and specialize in backend microservices."
+      }
+    },
+    "interests": [
+      {
+        "title": {
+          "es": "Componentes Reutilizables",
+          "en": "Reusable Components"
+        },
+        "description": {
+          "es": "Diseño de componentes que beneficien múltiples módulos y mejoren la eficiencia del desarrollo.",
+          "en": "Designing components that benefit multiple modules and improve development efficiency."
+        },
+        "icon": "components"
+      },
+      {
+        "title": {
+          "es": "Reuniones con Clientes",
+          "en": "Client Meetings"
+        },
+        "description": {
+          "es": "Participar en reuniones para comprender a fondo el negocio y los procesos de los clientes.",
+          "en": "Participating in meetings to deeply understand business and client processes."
+        },
+        "icon": "meetings"
+      },
+      {
+        "title": {
+          "es": "Inteligencia Artificial",
+          "en": "Artificial Intelligence"
+        },
+        "description": {
+          "es": "Explorar herramientas de IA y crear asistentes inteligentes para mejorar la experiencia del usuario.",
+          "en": "Exploring AI tools and creating intelligent assistants to improve user experience."
+        },
+        "icon": "ai"
+      }
+    ]
+  },
+  "achievements": [
+    {
+      "title": {
+        "es": "Reconocimiento por liderar solo el desarrollo del módulo Consultas en el SAT",
+        "en": "Recognition for single-handedly leading the development of the Queries module at SAT"
+      },
+      "description": {
+        "es": "Manteniendo alto rendimiento y entregando el módulo más avanzado del proyecto.",
+        "en": "Maintaining high performance and delivering the most advanced module of the project."
+      }
+    },
+    {
+      "title": {
+        "es": "Considerado clave durante recorte de personal",
+        "en": "Considered key during staff reduction"
+      },
+      "description": {
+        "es": "Por desempeño destacado y contribuciones esenciales al equipo.",
+        "en": "Due to outstanding performance and essential contributions to the team."
+      }
+    },
+    {
+      "title": {
+        "es": "Asignación de tareas adicionales",
+        "en": "Assignment of additional tasks"
+      },
+      "description": {
+        "es": "Por ser resolutivo ante problemas técnicos complejos.",
+        "en": "For being resourceful in solving complex technical problems."
+      }
+    }
+  ]
+}

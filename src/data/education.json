@@ -1,0 +1,123 @@
+{
+  "academic": {
+    "degree": "Ingeniería en Informática",
+    "institution": "Tecnológico de Estudios Superiores de Ecatepec",
+    "period": "2016 - 2022",
+    "status": "Titulado",
+    "description": "Formación sólida en desarrollo de software, bases de datos, metodologías de desarrollo y fundamentos de la informática. Titulado con cédula profesional, con enfoque en tecnologías modernas y mejores prácticas de desarrollo.",
+    "subjects": [
+      {
+        "name": "Desarrollo de Software",
+        "icon": "code"
+      },
+      {
+        "name": "Bases de Datos",
+        "icon": "database"
+      },
+      {
+        "name": "Metodologías Ágiles",
+        "icon": "agile"
+      },
+      {
+        "name": "Arquitectura de Software",
+        "icon": "architecture"
+      },
+      {
+        "name": "Algoritmos y Estructuras",
+        "icon": "algorithm"
+      },
+      {
+        "name": "Redes y Sistemas",
+        "icon": "network"
+      }
+    ]
+  },
+  "certifications": [
+    {
+      "id": 1,
+      "title": "Curso de Introducción a la Automatización de Pruebas",
+      "provider": "Platzi",
+      "icon": "testing",
+      "description": "Fundamentos de testing automatizado, herramientas y mejores prácticas para asegurar la calidad del software."
+    },
+    {
+      "id": 2,
+      "title": "Curso de Terminal y Línea de Comandos",
+      "provider": "Platzi",
+      "icon": "terminal",
+      "description": "Dominio de la terminal, comandos esenciales y automatización de tareas para mejorar la productividad."
+    },
+    {
+      "id": 3,
+      "title": "Backend con Node.js: API REST con Express.js",
+      "provider": "Platzi",
+      "icon": "nodejs",
+      "description": "Desarrollo de APIs RESTful con Node.js y Express, incluyendo autenticación, validación y mejores prácticas."
+    },
+    {
+      "id": 4,
+      "title": "Curso Profesional de JavaScript",
+      "provider": "Platzi",
+      "icon": "javascript",
+      "description": "JavaScript avanzado, ES6+, programación funcional, asíncrona y patrones de diseño modernos."
+    },
+    {
+      "id": 5,
+      "title": "Configuración de Entorno en Linux",
+      "provider": "Platzi",
+      "icon": "linux",
+      "description": "Configuración y optimización de entornos de desarrollo en sistemas Linux para máxima productividad."
+    },
+    {
+      "id": 6,
+      "title": "JavaScript Engine (V8) y el Navegador",
+      "provider": "Platzi",
+      "icon": "browser",
+      "description": "Funcionamiento interno del motor V8, optimización de código y comprensión profunda del runtime de JavaScript."
+    },
+    {
+      "id": 7,
+      "title": "Curso Práctico de Frontend Developer",
+      "provider": "Platzi",
+      "icon": "frontend",
+      "description": "Desarrollo frontend moderno, HTML5, CSS3, JavaScript, responsive design y mejores prácticas de UI/UX."
+    }
+  ],
+  "philosophy": [
+    {
+      "title": "Aprendizaje Continuo",
+      "icon": "learning",
+      "description": "Mantengo una mentalidad de crecimiento constante, siempre buscando nuevas tecnologías y metodologías para mejorar mis habilidades profesionales."
+    },
+    {
+      "title": "Aprendizaje Práctico",
+      "icon": "practice",
+      "description": "Prefiero el aprendizaje hands-on, aplicando inmediatamente los conocimientos adquiridos en proyectos reales para consolidar el aprendizaje."
+    },
+    {
+      "title": "Compartir Conocimiento",
+      "icon": "share",
+      "description": "Creo en el poder de compartir conocimiento con la comunidad, participando activamente en foros y ayudando a otros desarrolladores."
+    }
+  ],
+  "goals": [
+    {
+      "id": 1,
+      "title": "Inglés Técnico Avanzado",
+      "period": "Corto Plazo (6 meses)",
+      "description": "Fortalecer mi inglés técnico para comunicación efectiva en equipos internacionales y acceso a documentación técnica avanzada."
+    },
+    {
+      "id": 2,
+      "title": "Inteligencia Artificial y Machine Learning",
+      "period": "Mediano Plazo (1 año)",
+      "description": "Explorar tecnologías emergentes de IA para crear asistentes inteligentes y mejorar la experiencia del usuario en aplicaciones web."
+    },
+    {
+      "id": 3,
+      "title": "Microservicios y Arquitectura Backend",
+      "period": "Largo Plazo (2 años)",
+      "description": "Especializarme en arquitectura de microservicios, contenedores y tecnologías cloud para desarrollo backend escalable."
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "featured": [
+    {
+      "id": 1,
+      "title": "Atotonilco Estudio",
+      "type": "Destacado",
+      "description": "Sitio web profesional creado para promocionar los servicios de un estudio fotográfico. Desarrollado con enfoque en la experiencia visual y diseño responsivo para mostrar el portafolio de manera atractiva.",
+      "features": [
+        "Diseño responsivo y moderno",
+        "Galería de imágenes optimizada",
+        "Formulario de contacto funcional",
+        "Optimización SEO",
+        "Carga rápida de imágenes"
+      ],
+      "technologies": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "jQuery",
+        "Bootstrap",
+        "C#",
+        ".NET MVC 6"
+      ],
+      "metrics": {
+        "responsive": "100%",
+        "performance": "A+",
+        "seo": "SEO Optimizado"
+      },
+      "image": "/projects/atotonilco.jpg",
+      "url": "https://atotonilco-estudio.com",
+      "github": "https://github.com/albertglez/atotonilco-estudio"
+    },
+    {
+      "id": 2,
+      "title": "Carnal MX",
+      "type": "Destacado",
+      "description": "Plataforma web para un proyecto artístico de crónica contemporánea sobre la Ciudad de México. Incluye galería interactiva, blog de contenido y sistema de suscripciones para seguidores del proyecto.",
+      "features": [
+        "Galería interactiva de contenido",
+        "Sistema de blog integrado",
+        "Suscripciones de usuarios",
+        "Diseño editorial moderno",
+        "Optimización para móviles"
+      ],
+      "technologies": [
+        "Vue.js",
+        "Nuxt.js",
+        "TypeScript",
+        "Sass",
+        "Node.js",
+        "MongoDB",
+        "Express.js"
+      ],
+      "metrics": {
+        "responsive": "100%",
+        "performance": "A",
+        "seo": "Optimizado"
+      },
+      "image": "/projects/carnal-mx.jpg",
+      "url": "https://carnal-mx.com",
+      "github": "https://github.com/albertglez/carnal-mx"
+    }
+  ],
+  "other": [
+    {
+      "id": 3,
+      "title": "Sistema SICOJ - Módulo Consultas",
+      "type": "Profesional",
+      "description": "Módulo de consultas jurídicas para el Sistema Integral de Control de Juicios del SAT. Desarrollo completo del frontend con componentes reutilizables y gestión de estado avanzada.",
+      "features": [
+        "Componentes reutilizables en Svelte",
+        "Gestión de estado con Redux",
+        "Integración con APIs .NET",
+        "Validaciones dinámicas",
+        "Manejo de errores robusto"
+      ],
+      "technologies": [
+        "Svelte",
+        "TypeScript",
+        "Redux",
+        ".NET 6 MVC",
+        "GitLab",
+        "Docker"
+      ],
+      "company": "Sye Software (SAT)",
+      "confidential": true
+    },
+    {
+      "id": 4,
+      "title": "ShoppingCart System",
+      "type": "Profesional",
+      "description": "Sistema de cobranza y carrito de compras para empresa de impresión. Desarrollo con Vue.js puro y integración con sistemas de pago.",
+      "features": [
+        "Carrito de compras dinámico",
+        "Integración con pasarelas de pago",
+        "Gestión de inventario",
+        "Panel administrativo",
+        "Reportes de ventas"
+      ],
+      "technologies": [
+        "Vue.js",
+        "JavaScript",
+        ".NET 6",
+        "SQL Server",
+        "Bootstrap"
+      ],
+      "company": "Towa Software",
+      "confidential": false
+    }
+  ]
+}
