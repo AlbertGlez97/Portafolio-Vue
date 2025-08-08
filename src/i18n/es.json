@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Mí",
+    "experience": "Experiencia",
+    "education": "Educación",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "position": "Front-End Developer",
+    "description": "Desarrollador Front-End con más de 3 años de experiencia en la construcción de sistemas empresariales complejos. Especializado en Vue.js, TypeScript y tecnologías modernas.",
+    "downloadCV": "Descargar CV",
+    "contactMe": "Contáctame"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description": "Desarrollador Front-End con más de 3 años de experiencia en la construcción de sistemas empresariales complejos para instituciones públicas y privadas. Dominio en tecnologías modernas como Svelte, Vue.js y TypeScript. Reconocido por la entrega constante de módulos funcionales, colaborativos y escalables.",
+    "goals": {
+      "shortTerm": "Corto Plazo: Avanzar de nivel semi-senior a senior, fortalecer mi inglés técnico y aportar valor en proyectos con impacto.",
+      "longTerm": "Largo Plazo: Trabajar en el extranjero, dominar tecnologías emergentes como inteligencia artificial y especializarme en microservicios backend."
+    }
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Hablemos sobre tu próximo proyecto",
+    "info": "Información de Contacto",
+    "form": {
+      "title": "Envíame un mensaje",
+      "name": "Nombre",
+      "email": "Correo Electrónico",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "send": "Enviar Mensaje"
+    }
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "madeWith": "Hecho con",
+    "by": "por Albert González"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "Lo sentimos, la página que buscas no existe o ha sido movida.",
+    "goHome": "Ir al Inicio",
+    "goBack": "Volver Atrás",
+    "usefulLinks": "Enlaces Útiles"
+  }
+}
