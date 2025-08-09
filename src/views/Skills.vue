@@ -19,13 +19,13 @@
               <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M4,6H20V16H4M20,18A2,2 0 0,0 22,16V6C22,4.89 21.1,4 20,4H4C2.89,4 2,4.89 2,6V16A2,2 0 0,0 4,18H0V20H24V18H20Z"/>
               </svg>
-              <h3>Frontend Development</h3>
+              <h3>{{ t.skills.frontend }}</h3>
             </div>
             
             <div class="skills-list">
               <SkillBar 
-                v-for="skill in skillsData.technical.frontend" 
-                :key="skill.name"
+                v-for="skill in skillsData.technical.frontend"
+                :key="skill.name.en"
                 :skill="skill"
               />
             </div>
@@ -37,13 +37,13 @@
               <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M4,6H20V16H4M20,18A2,2 0 0,0 22,16V6C22,4.89 21.1,4 20,4H4C2.89,4 2,4.89 2,6V16A2,2 0 0,0 4,18H0V20H24V18H20Z"/>
               </svg>
-              <h3>Backend Development</h3>
+              <h3>{{ t.skills.backend }}</h3>
             </div>
             
             <div class="skills-list">
               <SkillBar 
-                v-for="skill in skillsData.technical.backend" 
-                :key="skill.name"
+                v-for="skill in skillsData.technical.backend"
+                :key="skill.name.en"
                 :skill="skill"
               />
             </div>
@@ -65,12 +65,12 @@
               <h3>{{ t.skills.tools }}</h3>
               <div class="tools-list">
                 <span 
-                  v-for="tool in skillsData.tools" 
-                  :key="tool.name"
+                  v-for="tool in skillsData.tools"
+                  :key="tool.name.en"
                   class="tool-tag"
-                  :title="tool.description"
+                  :title="tool.description[currentLanguage]"
                 >
-                  {{ tool.name }}
+                  {{ tool.name[currentLanguage] }}
                 </span>
               </div>
             </div>
@@ -84,12 +84,12 @@
               <h3>{{ t.skills.methodologies }}</h3>
               <div class="tools-list">
                 <span 
-                  v-for="methodology in skillsData.methodologies" 
-                  :key="methodology.name"
+                  v-for="methodology in skillsData.methodologies"
+                  :key="methodology.name.en"
                   class="tool-tag"
-                  :title="methodology.description"
+                  :title="methodology.description[currentLanguage]"
                 >
-                  {{ methodology.name }}
+                  {{ methodology.name[currentLanguage] }}
                 </span>
               </div>
             </div>
@@ -102,8 +102,8 @@
         <h2 class="section-title">{{ t.skills.soft }}</h2>
         <div class="soft-skills-grid">
           <div 
-            v-for="skill in skillsData.soft" 
-            :key="skill.name"
+            v-for="skill in skillsData.soft"
+            :key="skill.name.en"
             class="soft-skill-item animate-fadeInUp"
           >
             <div class="skill-icon">
@@ -115,8 +115,8 @@
               </svg>
             </div>
             <div class="skill-content">
-              <h3>{{ skill.name }}</h3>
-              <p>{{ skill.description }}</p>
+              <h3>{{ skill.name[currentLanguage] }}</h3>
+              <p>{{ skill.description[currentLanguage] }}</p>
             </div>
           </div>
         </div>
@@ -134,7 +134,7 @@ import type { SkillsData } from '../interfaces'
 
 const mainStore = useMainStore()
 const skillsStore = useSkillsStore()
-const { t } = storeToRefs(mainStore)
+const { t, currentLanguage } = storeToRefs(mainStore)
 const { getSkills } = storeToRefs(skillsStore)
 const skillsData: SkillsData = getSkills.value
 </script>
