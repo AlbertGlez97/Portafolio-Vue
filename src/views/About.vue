@@ -298,7 +298,8 @@
 <script setup lang="ts">
 import { useMainStore } from "../stores/main";
 import { usePersonalStore } from "../stores/personal";
-import type { PersonalData } from "../interfaces";
+// Importamos el modelo del dominio
+import type { PersonalData } from "../domain/personal/Personal";
 import { storeToRefs } from "pinia";
 
 const mainStore = useMainStore();

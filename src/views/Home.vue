@@ -56,200 +56,63 @@
     </section>
 
     <!-- Quick Overview Section -->
-    <section class="overview section">
-      <div class="container">
-        <div class="overview-grid">
-          <div class="overview-card animate-fadeInUp">
-            <div class="card-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"
-                />
-              </svg>
-            </div>
-            <h3>3+ Años</h3>
-            <p>de experiencia en desarrollo Front-End</p>
-          </div>
-
-          <div class="overview-card animate-fadeInUp">
-            <div class="card-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"
-                />
-              </svg>
-            </div>
-            <h3>Vue.js & TypeScript</h3>
-            <p>Especialización en tecnologías modernas</p>
-          </div>
-
-          <div class="overview-card animate-fadeInUp">
-            <div class="card-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M12,2L13.09,8.26L22,9L13.09,9.74L12,16L10.91,9.74L2,9L10.91,8.26L12,2Z"
-                />
-              </svg>
-            </div>
-            <h3>Proyectos Exitosos</h3>
-            <p>Sistemas empresariales y aplicaciones web</p>
-          </div>
-
-          <div class="overview-card animate-fadeInUp">
-            <div class="card-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M16,6L18.29,8.29L13.41,13.17L9.41,9.17L2,16.59L3.41,18L9.41,12L13.41,16L20.29,9.12L22,10.83V6H16Z"
-                />
-              </svg>
-            </div>
-            <h3>Crecimiento Continuo</h3>
-            <p>Aprendizaje constante y mejora profesional</p>
+      <section class="overview section">
+        <div class="container">
+          <div class="overview-grid">
+            <OverviewCard
+              v-for="(item, index) in overviewItems"
+              :key="index"
+              :title="getTranslatedText(item.title)"
+              :description="getTranslatedText(item.description)"
+            >
+              <template #icon>
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path :d="item.icon" />
+                </svg>
+              </template>
+            </OverviewCard>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Featured Projects Preview -->
-    <section class="featured-projects section">
-      <div class="container">
-        <h2 class="section-title">Proyectos Destacados</h2>
-        <div class="projects-grid">
-          <div class="project-card animate-fadeInUp">
-            <div class="project-image">
-              <div class="project-placeholder">
-                <svg
-                  width="60"
-                  height="60"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M4,6H20V16H4M20,18A2,2 0 0,0 22,16V6C22,4.89 21.1,4 20,4H4C2.89,4 2,4.89 2,6V16A2,2 0 0,0 4,18H0V20H24V18H20Z"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3>Atotonilco Estudio</h3>
-              <p>
-                Sitio web para promocionar servicios de estudio fotográfico con
-                diseño responsivo y enfoque visual.
-              </p>
-              <div class="project-tech">
-                <TechIcon
-                  v-for="techKey in atotonilcoTechs"
-                  :key="techKey"
-                  :tech-data="technologiesData[techKey]"
-                />
-              </div>
-              <a
-                href="https://www.atotonilcoestudio.com/"
-                target="_blank"
-                class="project-link"
-              >
-                Ver Proyecto
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"
-                  />
-                </svg>
-              </a>
-            </div>
+      <!-- Featured Projects Preview -->
+      <section class="featured-projects section">
+        <div class="container">
+          <h2 class="section-title">{{ t.home.featured.title }}</h2>
+          <div class="projects-grid">
+            <FeaturedProject
+              v-for="project in featuredProjects"
+              :key="project.title.en"
+              :project="project"
+            />
           </div>
 
-          <div class="project-card animate-fadeInUp">
-            <div class="project-image">
-              <div class="project-placeholder">
-                <svg
-                  width="60"
-                  height="60"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M4,6H20V16H4M20,18A2,2 0 0,0 22,16V6C22,4.89 21.1,4 20,4H4C2.89,4 2,4.89 2,6V16A2,2 0 0,0 4,18H0V20H24V18H20Z"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3>Carnal MX</h3>
-              <p>
-                Proyecto artístico de crónica contemporánea sobre la Ciudad de
-                México con panel administrativo y APIs REST.
-              </p>
-              <div class="project-tech">
-                <TechIcon
-                  v-for="techKey in carnalMxTechs"
-                  :key="techKey"
-                  :tech-data="technologiesData[techKey]"
-                />
-              </div>
-              <a
-                href="https://www.carnalmx.com/"
-                target="_blank"
-                class="project-link"
-              >
-                Ver Proyecto
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"
-                  />
-                </svg>
-              </a>
-            </div>
+          <div class="projects-cta">
+            <router-link to="/projects" class="btn btn-primary">
+              {{ t.home.featured.viewAll }}
+            </router-link>
           </div>
         </div>
-
-        <div class="projects-cta">
-          <router-link to="/projects" class="btn btn-primary">
-            Ver Todos los Proyectos
-          </router-link>
-        </div>
-      </div>
-    </section>
+      </section>
   </main>
 </template>
 
 <script setup lang="ts">
 import { useMainStore } from "../stores/main";
 import { storeToRefs } from "pinia";
-import TechIcon from "../components/TechIcon.vue";
+import OverviewCard from "../components/OverviewCard.vue";
+import FeaturedProject from "../components/FeaturedProject.vue";
+import projectsData from "../data/projects.json";
 import technologiesData from "../data/technologies.json";
 
 const store = useMainStore();
 const { t } = storeToRefs(store);
+const { getTranslatedText } = store;
 
 // Función para hacer scroll suave a la sección overview
 const scrollToOverview = () => {
@@ -262,19 +125,60 @@ const scrollToOverview = () => {
   }
 };
 
-// Definir las tecnologías para cada proyecto
-const atotonilcoTechs: (keyof typeof technologiesData)[] = [
-  "html",
-  "css",
-  "javascript",
-  "dotnet",
+// Datos para el resumen rápido de la sección overview
+interface OverviewItem {
+  icon: string;
+  title: { es: string; en: string };
+  description: { es: string; en: string };
+}
+
+const overviewItems: OverviewItem[] = [
+  {
+    icon: "M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z",
+    title: { es: "3+ Años", en: "3+ Years" },
+    description: {
+      es: "de experiencia en desarrollo Front-End",
+      en: "of Front-End development experience",
+    },
+  },
+  {
+    icon: "M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z",
+    title: { es: "Vue.js & TypeScript", en: "Vue.js & TypeScript" },
+    description: {
+      es: "Especialización en tecnologías modernas",
+      en: "Specialization in modern technologies",
+    },
+  },
+  {
+    icon: "M12,2L13.09,8.26L22,9L13.09,9.74L12,16L10.91,9.74L2,9L10.91,8.26L12,2Z",
+    title: { es: "Proyectos Exitosos", en: "Successful Projects" },
+    description: {
+      es: "Sistemas empresariales y aplicaciones web",
+      en: "Enterprise systems and web applications",
+    },
+  },
+  {
+    icon: "M16,6L18.29,8.29L13.41,13.17L9.41,9.17L2,16.59L3.41,18L9.41,12L13.41,16L20.29,9.12L22,10.83V6H16Z",
+    title: { es: "Crecimiento Continuo", en: "Continuous Growth" },
+    description: {
+      es: "Aprendizaje constante y mejora profesional",
+      en: "Constant learning and professional improvement",
+    },
+  },
 ];
-const carnalMxTechs: (keyof typeof technologiesData)[] = [
-  "html",
-  "bootstrap",
-  "csharp",
-  "sqlserver",
-];
+
+// Proyectos destacados que se mostrarán en el home
+const projectTechMap: Record<number, (keyof typeof technologiesData)[]> = {
+  1: ["html", "css", "javascript", "dotnet"],
+  2: ["html", "bootstrap", "csharp", "sqlserver"],
+};
+
+const featuredProjects = projectsData.featured.slice(0, 2).map(project => ({
+  title: project.title,
+  description: project.description,
+  url: project.url,
+  techs: projectTechMap[project.id as keyof typeof projectTechMap],
+}));
 </script>
 
 <style scoped>
@@ -441,40 +345,6 @@ const carnalMxTechs: (keyof typeof technologiesData)[] = [
   gap: var(--spacing-lg);
 }
 
-.overview-card {
-  background-color: var(--bg-primary);
-  padding: var(--spacing-xl);
-  border-radius: var(--border-radius-lg);
-  text-align: center;
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
-  border: 1px solid rgba(76, 175, 80, 0.1);
-}
-
-.overview-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--primary-light);
-}
-
-.card-icon {
-  display: flex;
-  justify-content: center;
-  margin-bottom: var(--spacing-md);
-  color: var(--primary-color);
-}
-
-.overview-card h3 {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
-  color: var(--text-primary);
-  margin-bottom: var(--spacing-sm);
-}
-
-.overview-card p {
-  color: var(--text-secondary);
-  margin: 0;
-}
 
 .featured-projects {
   background-color: var(--bg-primary);
@@ -487,75 +357,6 @@ const carnalMxTechs: (keyof typeof technologiesData)[] = [
   margin-bottom: var(--spacing-xl);
 }
 
-.project-card {
-  background-color: var(--bg-primary);
-  border-radius: var(--border-radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  transition: all var(--transition-normal);
-  border: 1px solid rgba(76, 175, 80, 0.1);
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--primary-light);
-}
-
-.project-image {
-  height: 200px;
-  background: linear-gradient(
-    135deg,
-    rgba(76, 175, 80, 0.1),
-    rgba(255, 193, 7, 0.1)
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.project-placeholder {
-  color: var(--primary-color);
-  opacity: 0.7;
-}
-
-.project-content {
-  padding: var(--spacing-lg);
-}
-
-.project-content h3 {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
-  color: var(--text-primary);
-  margin-bottom: var(--spacing-sm);
-}
-
-.project-content p {
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: var(--spacing-md);
-}
-
-.project-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-md);
-}
-
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  color: var(--primary-color);
-  font-weight: var(--font-weight-medium);
-  transition: all var(--transition-fast);
-}
-
-.project-link:hover {
-  color: var(--primary-dark);
-  gap: var(--spacing-sm);
-}
 
 .projects-cta {
   text-align: center;
@@ -614,10 +415,6 @@ const carnalMxTechs: (keyof typeof technologiesData)[] = [
   .image-placeholder {
     width: 250px;
     height: 250px;
-  }
-
-  .overview-card {
-    padding: var(--spacing-lg);
   }
 
   .projects-grid {

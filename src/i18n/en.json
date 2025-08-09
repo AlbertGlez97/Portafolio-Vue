@@ -15,6 +15,12 @@
     "downloadCV": "Download CV",
     "contactMe": "Contact Me"
   },
+  "home": {
+    "featured": {
+      "title": "Featured Projects",
+      "viewAll": "View All Projects"
+    }
+  },
   "about": {
     "title": "About Me",
     "description": "Front-End Developer with over 3 years of experience building complex enterprise systems for public and private institutions. Expertise in modern technologies like Svelte, Vue.js and TypeScript. Recognized for consistently delivering functional, collaborative and scalable modules.",
