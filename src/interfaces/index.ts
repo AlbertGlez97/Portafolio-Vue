@@ -36,14 +36,3 @@ export type {
   TechnologyBubble
 } from './Projects'
 
-// Personal interfaces
-export type {
-  MultiLanguageText,
-  Profile,
-  Contact,
-  Goals,
-  Interest,
-  About,
-  Achievement,
-  PersonalData
-} from './Personal'
