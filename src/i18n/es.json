@@ -15,6 +15,12 @@
     "downloadCV": "Descargar CV",
     "contactMe": "Contáctame"
   },
+  "home": {
+    "featured": {
+      "title": "Proyectos Destacados",
+      "viewAll": "Ver Todos los Proyectos"
+    }
+  },
   "about": {
     "title": "Sobre Mí",
     "description": "Desarrollador Front-End con más de 3 años de experiencia en la construcción de sistemas empresariales complejos para instituciones públicas y privadas. Dominio en tecnologías modernas como Svelte, Vue.js y TypeScript. Reconocido por la entrega constante de módulos funcionales, colaborativos y escalables.",
