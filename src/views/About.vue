@@ -91,61 +91,45 @@
 
       <!-- Professional Journey -->
       <section class="journey section">
-        <h2 class="section-title">Mi Trayectoria Profesional</h2>
+        <h2 class="section-title">{{ t.about.journey.title }}</h2>
         <div class="journey-timeline">
           <div class="timeline-item animate-fadeInLeft">
             <div class="timeline-marker"></div>
             <div class="timeline-content">
-              <div class="timeline-date">2024 - Presente</div>
-              <h3>Front-End Developer Senior</h3>
-              <h4>Sye Software (SAT)</h4>
-              <p>
-                Responsable único del Front-End del módulo de Consultas en el
-                sistema SICOJ del SAT. Desarrollo con Svelte, TypeScript y
-                Redux, reconocido por entregar el módulo más avanzado del
-                proyecto.
-              </p>
+              <div class="timeline-date">{{ t.about.journey.item1.date }}</div>
+              <h3>{{ t.about.journey.item1.role }}</h3>
+              <h4>{{ t.about.journey.item1.company }}</h4>
+              <p>{{ t.about.journey.item1.description }}</p>
             </div>
           </div>
 
           <div class="timeline-item animate-fadeInRight">
             <div class="timeline-marker"></div>
             <div class="timeline-content">
-              <div class="timeline-date">2022 - 2024</div>
-              <h3>Full Stack Developer</h3>
-              <h4>Towa Software</h4>
-              <p>
-                Desarrollo para cliente MI4P (EE.UU. y Canadá), construcción de
-                interfaces reactivas con Razor y Vue.js, pruebas automatizadas
-                con Selenium y desarrollo del sistema ShoppingCart.
-              </p>
+              <div class="timeline-date">{{ t.about.journey.item2.date }}</div>
+              <h3>{{ t.about.journey.item2.role }}</h3>
+              <h4>{{ t.about.journey.item2.company }}</h4>
+              <p>{{ t.about.journey.item2.description }}</p>
             </div>
           </div>
 
           <div class="timeline-item animate-fadeInLeft">
             <div class="timeline-marker"></div>
             <div class="timeline-content">
-              <div class="timeline-date">2021 - 2022</div>
-              <h3>Full Stack Developer (Prácticas)</h3>
-              <h4>StrApps Consulting</h4>
-              <p>
-                Diseño de vistas en .NET 6 MVC, jQuery y Bootstrap. Creación de
-                sitios WordPress y control de versiones en GitHub bajo
-                metodología Scrum.
-              </p>
+              <div class="timeline-date">{{ t.about.journey.item3.date }}</div>
+              <h3>{{ t.about.journey.item3.role }}</h3>
+              <h4>{{ t.about.journey.item3.company }}</h4>
+              <p>{{ t.about.journey.item3.description }}</p>
             </div>
           </div>
 
           <div class="timeline-item animate-fadeInRight">
             <div class="timeline-marker"></div>
             <div class="timeline-content">
-              <div class="timeline-date">2016 - 2022</div>
-              <h3>Ingeniería en Informática</h3>
-              <h4>Tecnológico de Estudios Superiores de Ecatepec</h4>
-              <p>
-                Titulado con cédula profesional. Formación sólida en desarrollo
-                de software, bases de datos y metodologías de desarrollo.
-              </p>
+              <div class="timeline-date">{{ t.about.journey.item4.date }}</div>
+              <h3>{{ t.about.journey.item4.role }}</h3>
+              <h4>{{ t.about.journey.item4.company }}</h4>
+              <p>{{ t.about.journey.item4.description }}</p>
             </div>
           </div>
         </div>

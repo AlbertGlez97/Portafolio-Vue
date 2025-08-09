@@ -5,13 +5,13 @@
       <section class="projects-hero section">
         <div class="hero-content animate-fadeInUp">
           <h1 class="section-title">{{ t.nav.projects }}</h1>
-          <p class="hero-subtitle">Proyectos destacados y desarrollos profesionales</p>
+          <p class="hero-subtitle">{{ t.projects.subtitle }}</p>
         </div>
       </section>
 
       <!-- Featured Projects -->
       <section class="featured-projects section">
-        <h2 class="section-title">Proyectos Destacados</h2>
+        <h2 class="section-title">{{ t.projects.featured }}</h2>
         <div class="projects-grid featured">
           <ProjectCard 
             v-for="project in projectsData.featured" 
@@ -24,7 +24,7 @@
 
       <!-- Other Projects -->
       <section class="other-projects section">
-        <h2 class="section-title">Otros Proyectos</h2>
+        <h2 class="section-title">{{ t.projects.others }}</h2>
         <div class="projects-grid">
           <ProjectCard 
             v-for="project in projectsData.other" 
@@ -38,7 +38,7 @@
       <!-- Project Stats -->
       <section class="project-stats section">
         <div class="stats-content">
-          <h2 class="section-title">Estadísticas de Proyectos</h2>
+          <h2 class="section-title">{{ t.projects.stats }}</h2>
           <div class="stats-grid">
             <div class="stat-item animate-fadeInUp">
               <div class="stat-icon">
@@ -47,7 +47,7 @@
                 </svg>
               </div>
               <div class="stat-number">{{ totalProjects }}</div>
-              <div class="stat-label">Proyectos Completados</div>
+              <div class="stat-label">{{ t.projects.completed }}</div>
             </div>
 
             <div class="stat-item animate-fadeInUp">
@@ -57,7 +57,7 @@
                 </svg>
               </div>
               <div class="stat-number">{{ uniqueTechnologies }}</div>
-              <div class="stat-label">Tecnologías Utilizadas</div>
+              <div class="stat-label">{{ t.projects.technologiesUsed }}</div>
             </div>
 
             <div class="stat-item animate-fadeInUp">
@@ -67,7 +67,7 @@
                 </svg>
               </div>
               <div class="stat-number">{{ featuredProjects }}</div>
-              <div class="stat-label">Proyectos Destacados</div>
+              <div class="stat-label">{{ t.projects.featuredCount }}</div>
             </div>
 
             <div class="stat-item animate-fadeInUp">
@@ -77,7 +77,7 @@
                 </svg>
               </div>
               <div class="stat-number">100%</div>
-              <div class="stat-label">Responsive Design</div>
+              <div class="stat-label">{{ t.projects.responsive }}</div>
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@
       <!-- Technologies Used -->
       <section class="technologies-section section">
         <div class="tech-content">
-          <h2 class="section-title">Tecnologías en Proyectos</h2>
+          <h2 class="section-title">{{ t.projects.techSection }}</h2>
           <div class="tech-cloud">
             <template v-for="tech in allTechnologies" :key="tech.name">
               <TechIcon 

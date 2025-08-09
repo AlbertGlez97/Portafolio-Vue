@@ -5,7 +5,7 @@
       <section class="experience-hero section">
         <div class="hero-content animate-fadeInUp">
           <h1 class="section-title">{{ t.nav.experience }}</h1>
-          <p class="hero-subtitle">Mi trayectoria en el desarrollo Front-End y Full-Stack</p>
+          <p class="hero-subtitle">{{ t.experience.subtitle }}</p>
         </div>
       </section>
 
@@ -119,12 +119,12 @@ const experienceData: ExperienceData = getExperience.value
 
 /* Posicionamiento del punto verde para tarjetas impares - centrado en la línea */
 .timeline-container .experience-card:nth-child(odd)::before {
-  right: -11px; /* Centrado perfectamente en la línea de 3px */
+  right: -8px; /* Centrado perfectamente en la línea de 3px */
 }
 
 /* Posicionamiento del punto verde para tarjetas pares - centrado en la línea */
 .timeline-container .experience-card:nth-child(even)::before {
-  left: -11px; /* Centrado perfectamente en la línea de 3px */
+  left: -8px; /* Centrado perfectamente en la línea de 3px */
 }
 
 /* Estilos responsive para tablets */

@@ -5,13 +5,13 @@
       <section class="skills-hero section">
         <div class="hero-content animate-fadeInUp">
           <h1 class="section-title">{{ t.nav.skills }}</h1>
-          <p class="hero-subtitle">Mi stack tecnológico y competencias profesionales</p>
+          <p class="hero-subtitle">{{ t.skills.subtitle }}</p>
         </div>
       </section>
 
       <!-- Technical Skills -->
       <section class="technical-skills section">
-        <h2 class="section-title">Habilidades Técnicas</h2>
+        <h2 class="section-title">{{ t.skills.technical }}</h2>
         <div class="skills-grid">
           <!-- Frontend Skills -->
           <div class="skill-category">
@@ -54,7 +54,7 @@
       <!-- Tools & Technologies -->
       <section class="tools-section section">
         <div class="tools-content">
-          <h2 class="section-title">Herramientas y Tecnologías</h2>
+          <h2 class="section-title">{{ t.skills.toolsTech }}</h2>
           <div class="tools-grid">
             <div class="tool-category">
               <div class="category-icon">
@@ -62,7 +62,7 @@
                   <path d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2Z"/>
                 </svg>
               </div>
-              <h3>Herramientas</h3>
+              <h3>{{ t.skills.tools }}</h3>
               <div class="tools-list">
                 <span 
                   v-for="tool in skillsData.tools" 
@@ -81,7 +81,7 @@
                   <path d="M16,4C18.11,4 20.11,4.89 21.61,6.39C23.11,7.89 24,9.89 24,12A8,8 0 0,1 16,20H5A5,5 0 0,1 0,15A5,5 0 0,1 5,10C5.59,10 6.16,10.13 6.69,10.36C7.61,7.24 10.57,5 14,5C14.68,5 15.34,5.11 16,5.28V4Z"/>
                 </svg>
               </div>
-              <h3>Metodologías</h3>
+              <h3>{{ t.skills.methodologies }}</h3>
               <div class="tools-list">
                 <span 
                   v-for="methodology in skillsData.methodologies" 
@@ -99,7 +99,7 @@
 
       <!-- Soft Skills -->
       <section class="soft-skills section">
-        <h2 class="section-title">Habilidades Blandas</h2>
+        <h2 class="section-title">{{ t.skills.soft }}</h2>
         <div class="soft-skills-grid">
           <div 
             v-for="skill in skillsData.soft" 

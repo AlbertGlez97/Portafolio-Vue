@@ -21,22 +21,77 @@
     "goals": {
       "shortTerm": "Corto Plazo: Avanzar de nivel semi-senior a senior, fortalecer mi inglés técnico y aportar valor en proyectos con impacto.",
       "longTerm": "Largo Plazo: Trabajar en el extranjero, dominar tecnologías emergentes como inteligencia artificial y especializarme en microservicios backend."
+    },
+    "journey": {
+      "title": "Mi Trayectoria Profesional",
+      "item1": {
+        "date": "2024 - Presente",
+        "role": "Front-End Developer Senior",
+        "company": "Sye Software (SAT)",
+        "description": "Responsable único del Front-End del módulo de Consultas en el sistema SICOJ del SAT. Desarrollo con Svelte, TypeScript y Redux, reconocido por entregar el módulo más avanzado del proyecto."
+      },
+      "item2": {
+        "date": "2022 - 2024",
+        "role": "Full Stack Developer",
+        "company": "Towa Software",
+        "description": "Desarrollo para cliente MI4P (EE.UU. y Canadá), construcción de interfaces reactivas con Razor y Vue.js, pruebas automatizadas con Selenium y desarrollo del sistema ShoppingCart."
+      },
+      "item3": {
+        "date": "2021 - 2022",
+        "role": "Full Stack Developer (Prácticas)",
+        "company": "StrApps Consulting",
+        "description": "Diseño de vistas en .NET 6 MVC, jQuery y Bootstrap. Creación de sitios WordPress y control de versiones en GitHub bajo metodología Scrum."
+      },
+      "item4": {
+        "date": "2016 - 2022",
+        "role": "Ingeniería en Informática",
+        "company": "Tecnológico de Estudios Superiores de Ecatepec",
+        "description": "Titulado con cédula profesional. Formación sólida en desarrollo de software, bases de datos y metodologías de desarrollo."
+      }
     }
   },
   "contact": {
     "title": "Contacto",
     "subtitle": "Hablemos sobre tu próximo proyecto",
     "info": "Información de Contacto",
+    "details": {
+      "email": "Email",
+      "phone": "Teléfono",
+      "location": "Ubicación",
+      "linkedin": "LinkedIn"
+    },
+    "follow": "Sígueme en:",
+    "cta": {
+      "title": "¿Listo para trabajar juntos?",
+      "description": "Estoy disponible para nuevos proyectos y oportunidades de colaboración.",
+      "downloadCV": "Descargar CV",
+      "connectLinkedIn": "Conectar en LinkedIn"
+    },
     "form": {
       "title": "Envíame un mensaje",
       "name": "Nombre",
       "email": "Correo Electrónico",
       "subject": "Asunto",
       "message": "Mensaje",
-      "send": "Enviar Mensaje"
+      "send": "Enviar Mensaje",
+      "sending": "Enviando...",
+      "success": "¡Mensaje enviado exitosamente! Te contactaré pronto.",
+      "error": "Hubo un error al enviar el mensaje. Por favor intenta nuevamente.",
+      "errors": {
+        "nameRequired": "El nombre es requerido",
+        "nameMin": "El nombre debe tener al menos 2 caracteres",
+        "emailRequired": "El email es requerido",
+        "emailInvalid": "Por favor ingresa un email válido",
+        "subjectRequired": "El asunto es requerido",
+        "subjectMin": "El asunto debe tener al menos 5 caracteres",
+        "messageRequired": "El mensaje es requerido",
+        "messageMin": "El mensaje debe tener al menos 10 caracteres"
+      }
     }
   },
   "footer": {
+    "description": "Front-End Developer especializado en Vue.js, TypeScript y tecnologías modernas.",
+    "location": "Ciudad de México, México",
     "rights": "Todos los derechos reservados",
     "madeWith": "Hecho con",
     "by": "por Albert González"
@@ -47,5 +102,51 @@
     "goHome": "Ir al Inicio",
     "goBack": "Volver Atrás",
     "usefulLinks": "Enlaces Útiles"
+  },
+  "education": {
+    "subtitle": "Mi formación académica y certificaciones profesionales",
+    "academic": "Formación Académica",
+    "studyAreas": "Áreas de Estudio:",
+    "certifications": "Certificaciones Profesionales",
+    "philosophy": "Filosofía de Aprendizaje",
+    "goals": "Objetivos de Aprendizaje"
+  },
+  "skills": {
+    "subtitle": "Mi stack tecnológico y competencias profesionales",
+    "technical": "Habilidades Técnicas",
+    "toolsTech": "Herramientas y Tecnologías",
+    "tools": "Herramientas",
+    "methodologies": "Metodologías",
+    "soft": "Habilidades Blandas"
+  },
+  "projects": {
+    "subtitle": "Proyectos destacados y desarrollos profesionales",
+    "featured": "Proyectos Destacados",
+    "others": "Otros Proyectos",
+    "stats": "Estadísticas de Proyectos",
+    "completed": "Proyectos Completados",
+    "technologiesUsed": "Tecnologías Utilizadas",
+    "featuredCount": "Proyectos Destacados",
+    "responsive": "Diseño Responsivo",
+    "techSection": "Tecnologías en Proyectos"
+  },
+  "experience": {
+    "subtitle": "Mi trayectoria en el desarrollo Front-End y Full-Stack"
+  },
+  "projectCard": {
+    "features": "Características Principales:",
+    "technologies": "Tecnologías Utilizadas:",
+    "viewProject": "Ver Proyecto",
+    "confidential": "Proyecto confidencial"
+  },
+  "experienceCard": {
+    "achievements": "Logros Principales:",
+    "technologies": "Tecnologías Utilizadas:"
+  },
+  "navbar": {
+    "switchToEnglish": "Cambiar a Inglés",
+    "switchToSpanish": "Cambiar a Español",
+    "lightMode": "Modo Claro",
+    "darkMode": "Modo Oscuro"
   }
 }

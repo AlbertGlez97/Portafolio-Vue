@@ -14,7 +14,7 @@
         <div class="contact-grid">
           <!-- Contact Information -->
           <div class="contact-info animate-fadeInLeft">
-            <h2>Información de Contacto</h2>
+            <h2>{{ t.contact.info }}</h2>
             <div class="info-items">
               <div class="info-item">
                 <div class="info-icon">
@@ -23,7 +23,7 @@
                   </svg>
                 </div>
                 <div class="info-content">
-                  <h3>Email</h3>
+                  <h3>{{ t.contact.details.email }}</h3>
                   <p>albert.gonzalez@email.com</p>
                 </div>
               </div>
@@ -35,7 +35,7 @@
                   </svg>
                 </div>
                 <div class="info-content">
-                  <h3>Teléfono</h3>
+                  <h3>{{ t.contact.details.phone }}</h3>
                   <p>+52 (555) 123-4567</p>
                 </div>
               </div>
@@ -47,8 +47,8 @@
                   </svg>
                 </div>
                 <div class="info-content">
-                  <h3>Ubicación</h3>
-                  <p>Ciudad de México, México</p>
+                  <h3>{{ t.contact.details.location }}</h3>
+                  <p>{{ t.footer.location }}</p>
                 </div>
               </div>
 
@@ -59,7 +59,7 @@
                   </svg>
                 </div>
                 <div class="info-content">
-                  <h3>LinkedIn</h3>
+                  <h3>{{ t.contact.details.linkedin }}</h3>
                   <p>linkedin.com/in/albertglez97</p>
                 </div>
               </div>
@@ -67,7 +67,7 @@
 
             <!-- Social Links -->
             <div class="social-links">
-              <h3>Sígueme en:</h3>
+              <h3>{{ t.contact.follow }}</h3>
               <div class="social-buttons">
                 <a 
                   href="https://www.linkedin.com/in/albertglez97" 
@@ -163,7 +163,7 @@
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="loading">
                     <path d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z"/>
                   </svg>
-                  Enviando...
+                  {{ t.contact.form.sending }}
                 </span>
               </button>
 
@@ -185,8 +185,8 @@
       <!-- Call to Action -->
       <section class="cta-section section">
         <div class="cta-content animate-fadeInUp">
-          <h2>¿Listo para trabajar juntos?</h2>
-          <p>Estoy disponible para nuevos proyectos y oportunidades de colaboración.</p>
+          <h2>{{ t.contact.cta.title }}</h2>
+          <p>{{ t.contact.cta.description }}</p>
           <div class="cta-actions">
             <a 
               href="/CV_Albert_Gonzalez.pdf" 
@@ -196,15 +196,15 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
               </svg>
-              Descargar CV
+              {{ t.contact.cta.downloadCV }}
             </a>
-            <a 
-              href="https://www.linkedin.com/in/albertglez97" 
-              target="_blank" 
+            <a
+              href="https://www.linkedin.com/in/albertglez97"
+              target="_blank"
               rel="noopener noreferrer"
               class="btn btn-primary"
             >
-              Conectar en LinkedIn
+              {{ t.contact.cta.connectLinkedIn }}
             </a>
           </div>
         </div>
@@ -258,37 +258,37 @@ const validateForm = (): boolean => {
 
   // Name validation
   if (!form.name.trim()) {
-    errors.name = 'El nombre es requerido'
+    errors.name = t.value.contact.form.errors.nameRequired
     isValid = false
   } else if (form.name.trim().length < 2) {
-    errors.name = 'El nombre debe tener al menos 2 caracteres'
+    errors.name = t.value.contact.form.errors.nameMin
     isValid = false
   }
 
   // Email validation
   if (!form.email.trim()) {
-    errors.email = 'El email es requerido'
+    errors.email = t.value.contact.form.errors.emailRequired
     isValid = false
   } else if (!validateEmail(form.email)) {
-    errors.email = 'Por favor ingresa un email válido'
+    errors.email = t.value.contact.form.errors.emailInvalid
     isValid = false
   }
 
   // Subject validation
   if (!form.subject.trim()) {
-    errors.subject = 'El asunto es requerido'
+    errors.subject = t.value.contact.form.errors.subjectRequired
     isValid = false
   } else if (form.subject.trim().length < 5) {
-    errors.subject = 'El asunto debe tener al menos 5 caracteres'
+    errors.subject = t.value.contact.form.errors.subjectMin
     isValid = false
   }
 
   // Message validation
   if (!form.message.trim()) {
-    errors.message = 'El mensaje es requerido'
+    errors.message = t.value.contact.form.errors.messageRequired
     isValid = false
   } else if (form.message.trim().length < 10) {
-    errors.message = 'El mensaje debe tener al menos 10 caracteres'
+    errors.message = t.value.contact.form.errors.messageMin
     isValid = false
   }
 
@@ -310,7 +310,7 @@ const handleSubmit = async () => {
     
     // Simulate success
     submitStatus.value = 'success'
-    submitMessage.value = '¡Mensaje enviado exitosamente! Te contactaré pronto.'
+    submitMessage.value = t.value.contact.form.success
     
     // Reset form
     Object.keys(form).forEach(key => {
@@ -319,7 +319,7 @@ const handleSubmit = async () => {
     
   } catch (error) {
     submitStatus.value = 'error'
-    submitMessage.value = 'Hubo un error al enviar el mensaje. Por favor intenta nuevamente.'
+    submitMessage.value = t.value.contact.form.error
   } finally {
     isSubmitting.value = false
     
