@@ -2,22 +2,25 @@
   "jobs": [
     {
       "id": 1,
-      "title": "Front-End Developer",
+      "title": { "es": "Front-End Developer", "en": "Front-End Developer" },
       "company": "Sye Software (SAT)",
-      "period": "Junio 2024 - Presente",
-      "duration": "Trabajo Actual",
+      "period": { "es": "Junio 2024 - Presente", "en": "June 2024 - Present" },
+      "duration": { "es": "Trabajo Actual", "en": "Current Job" },
       "type": "current",
-      "description": "Responsable único del Front-End del módulo de Consultas en el sistema SICOJ del SAT, compuesto por más de 7 módulos jurídicos.",
+      "description": {
+        "es": "Responsable único del Front-End del módulo de Consultas en el sistema SICOJ del SAT, compuesto por más de 7 módulos jurídicos.",
+        "en": "Sole Front-End responsible for the Consultations module in the SAT's SICOJ system, composed of more than 7 legal modules."
+      },
       "achievements": [
-        "Desarrollé componentes reutilizables en Svelte con TypeScript",
-        "Integré servicios RESTful desde .NET 6 MVC",
-        "Implementé gestión de estado con Redux",
-        "Reconocido por entregar el módulo más avanzado entre todos",
-        "Mantuve el ritmo del proyecto sin apoyo directo"
+        { "es": "Desarrollé componentes reutilizables en Svelte con TypeScript", "en": "Developed reusable Svelte components with TypeScript" },
+        { "es": "Integré servicios RESTful desde .NET 6 MVC", "en": "Integrated RESTful services from .NET 6 MVC" },
+        { "es": "Implementé gestión de estado con Redux", "en": "Implemented state management with Redux" },
+        { "es": "Reconocido por entregar el módulo más avanzado entre todos", "en": "Recognized for delivering the most advanced module of all" },
+        { "es": "Mantuve el ritmo del proyecto sin apoyo directo", "en": "Maintained project pace without direct support" }
       ],
       "technologies": [
         "Svelte",
-        "TypeScript", 
+        "TypeScript",
         "Redux",
         ".NET 6 MVC",
         "GitLab",
@@ -28,18 +31,21 @@
     },
     {
       "id": 2,
-      "title": "Full Stack Developer",
+      "title": { "es": "Full Stack Developer", "en": "Full Stack Developer" },
       "company": "Towa Software",
-      "period": "Mayo 2022 - Mayo 2024",
-      "duration": "2 años",
+      "period": { "es": "Mayo 2022 - Mayo 2024", "en": "May 2022 - May 2024" },
+      "duration": { "es": "2 años", "en": "2 years" },
       "type": "previous",
-      "description": "Desarrollo para el cliente MI4P (EE.UU. y Canadá), enfocado en soluciones para empresas de impresión.",
+      "description": {
+        "es": "Desarrollo para el cliente MI4P (EE.UU. y Canadá), enfocado en soluciones para empresas de impresión.",
+        "en": "Development for client MI4P (USA and Canada), focused on solutions for printing companies."
+      },
       "achievements": [
-        "Construcción de interfaces reactivas en Razor con inyección de Vue.js",
-        "Pruebas automatizadas con Selenium",
-        "Apoyo ocasional al backend corrigiendo bugs en .NET 6",
-        "Manipulación de datos en SQL Server",
-        "Participación en desarrollo del sistema de cobranza ShoppingCart usando Vue puro"
+        { "es": "Construcción de interfaces reactivas en Razor con inyección de Vue.js", "en": "Built reactive interfaces in Razor with Vue.js injection" },
+        { "es": "Pruebas automatizadas con Selenium", "en": "Automated tests with Selenium" },
+        { "es": "Apoyo ocasional al backend corrigiendo bugs en .NET 6", "en": "Occasional backend support fixing bugs in .NET 6" },
+        { "es": "Manipulación de datos en SQL Server", "en": "Data manipulation in SQL Server" },
+        { "es": "Participación en desarrollo del sistema de cobranza ShoppingCart usando Vue puro", "en": "Participated in developing the ShoppingCart billing system using pure Vue" }
       ],
       "technologies": [
         "Vue.js",
@@ -53,17 +59,20 @@
     },
     {
       "id": 3,
-      "title": "Full Stack Developer (Prácticas)",
+      "title": { "es": "Full Stack Developer (Prácticas)", "en": "Full Stack Developer (Internship)" },
       "company": "StrApps Consulting",
-      "period": "Septiembre 2021 - Enero 2022",
-      "duration": "5 meses",
+      "period": { "es": "Septiembre 2021 - Enero 2022", "en": "September 2021 - January 2022" },
+      "duration": { "es": "5 meses", "en": "5 months" },
       "type": "internship",
-      "description": "Diseño de vistas en .NET 6 MVC, jQuery y Bootstrap para un modelo de crédito de cobranzas.",
+      "description": {
+        "es": "Diseño de vistas en .NET 6 MVC, jQuery y Bootstrap para un modelo de crédito de cobranzas.",
+        "en": "Designed .NET 6 MVC views with jQuery and Bootstrap for a collections credit model."
+      },
       "achievements": [
-        "Diseño de vistas en .NET 6 MVC con jQuery y Bootstrap",
-        "Creación de sitios WordPress",
-        "Control de versiones en GitHub bajo metodología Scrum",
-        "Desarrollo de modelo de crédito de cobranzas"
+        { "es": "Diseño de vistas en .NET 6 MVC con jQuery y Bootstrap", "en": "Designed .NET 6 MVC views with jQuery and Bootstrap" },
+        { "es": "Creación de sitios WordPress", "en": "Created WordPress sites" },
+        { "es": "Control de versiones en GitHub bajo metodología Scrum", "en": "Version control in GitHub under Scrum methodology" },
+        { "es": "Desarrollo de modelo de crédito de cobranzas", "en": "Developed collections credit model" }
       ],
       "technologies": [
         ".NET 6 MVC",

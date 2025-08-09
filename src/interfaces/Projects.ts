@@ -1,15 +1,17 @@
+import { MultiLanguageText } from './Personal'
+
 export interface ProjectMetrics {
   responsive: string
   performance: string
-  seo: string
+  seo: MultiLanguageText
 }
 
 export interface Project {
   id: number
-  title: string
-  type: string
-  description: string
-  features?: string[]
+  title: MultiLanguageText
+  type: MultiLanguageText
+  description: MultiLanguageText
+  features?: MultiLanguageText[]
   technologies: string[]
   metrics?: ProjectMetrics
   image?: string

@@ -20,7 +20,10 @@
     "description": "Front-End Developer with over 3 years of experience building complex enterprise systems for public and private institutions. Expertise in modern technologies like Svelte, Vue.js and TypeScript. Recognized for consistently delivering functional, collaborative and scalable modules.",
     "goals": {
       "shortTerm": "Short Term: Advance from semi-senior to senior level, strengthen my technical English and add value to impactful projects.",
-      "longTerm": "Long Term: Work abroad, master emerging technologies like artificial intelligence and specialize in backend microservices."
+      "longTerm": "Long Term: Work abroad, master emerging technologies like artificial intelligence and specialize in backend microservices.",
+      "title": "Professional Goals",
+      "shortTitle": "Short Term",
+      "longTitle": "Long Term"
     },
     "journey": {
       "title": "Professional Journey",
@@ -47,6 +50,26 @@
         "role": "Computer Engineering",
         "company": "Tecnológico de Estudios Superiores de Ecatepec",
         "description": "Graduated with professional license. Strong background in software development, databases and development methodologies."
+      }
+    },
+    "interestsTitle": "Interests and Passions",
+    "softSkills": {
+      "title": "Soft Skills",
+      "communication": {
+        "title": "Effective Communication",
+        "description": "Clear when explaining technical solutions to clients and analysts."
+      },
+      "teamwork": {
+        "title": "Teamwork",
+        "description": "Collaborative with multidisciplinary teams and supportive across areas."
+      },
+      "analytical": {
+        "title": "Analytical Thinking",
+        "description": "Practical solution to complex requirements."
+      },
+      "timeManagement": {
+        "title": "Time Management",
+        "description": "Timely completion of deliveries and documentation of progress."
       }
     }
   },

@@ -5,7 +5,7 @@ export interface MultiLanguageText {
 
 export interface Profile {
   name: string
-  title: string
+  title: MultiLanguageText
   description: MultiLanguageText
   image: string
 }
@@ -13,7 +13,7 @@ export interface Profile {
 export interface Contact {
   email: string
   phone: string
-  location: string
+  location: MultiLanguageText
   linkedin: string
   github: string
 }

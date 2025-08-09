@@ -20,7 +20,10 @@
     "description": "Desarrollador Front-End con más de 3 años de experiencia en la construcción de sistemas empresariales complejos para instituciones públicas y privadas. Dominio en tecnologías modernas como Svelte, Vue.js y TypeScript. Reconocido por la entrega constante de módulos funcionales, colaborativos y escalables.",
     "goals": {
       "shortTerm": "Corto Plazo: Avanzar de nivel semi-senior a senior, fortalecer mi inglés técnico y aportar valor en proyectos con impacto.",
-      "longTerm": "Largo Plazo: Trabajar en el extranjero, dominar tecnologías emergentes como inteligencia artificial y especializarme en microservicios backend."
+      "longTerm": "Largo Plazo: Trabajar en el extranjero, dominar tecnologías emergentes como inteligencia artificial y especializarme en microservicios backend.",
+      "title": "Objetivos Profesionales",
+      "shortTitle": "Corto Plazo",
+      "longTitle": "Largo Plazo"
     },
     "journey": {
       "title": "Mi Trayectoria Profesional",
@@ -47,6 +50,26 @@
         "role": "Ingeniería en Informática",
         "company": "Tecnológico de Estudios Superiores de Ecatepec",
         "description": "Titulado con cédula profesional. Formación sólida en desarrollo de software, bases de datos y metodologías de desarrollo."
+      }
+    },
+    "interestsTitle": "Intereses y Pasiones",
+    "softSkills": {
+      "title": "Habilidades Blandas",
+      "communication": {
+        "title": "Comunicación Efectiva",
+        "description": "Clara al explicar soluciones técnicas a clientes y analistas."
+      },
+      "teamwork": {
+        "title": "Trabajo en Equipo",
+        "description": "Colaborativo con equipos multidisciplinarios y apoyo entre áreas."
+      },
+      "analytical": {
+        "title": "Pensamiento Analítico",
+        "description": "Solución práctica a requerimientos complejos."
+      },
+      "timeManagement": {
+        "title": "Gestión del Tiempo",
+        "description": "Cumplimiento puntual de entregas y documentación de avances."
       }
     }
   },

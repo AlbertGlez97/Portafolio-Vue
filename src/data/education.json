@@ -1,123 +1,147 @@
 {
   "academic": {
-    "degree": "Ingeniería en Informática",
+    "degree": { "es": "Ingeniería en Informática", "en": "Computer Engineering" },
     "institution": "Tecnológico de Estudios Superiores de Ecatepec",
     "period": "2016 - 2022",
-    "status": "Titulado",
-    "description": "Formación sólida en desarrollo de software, bases de datos, metodologías de desarrollo y fundamentos de la informática. Titulado con cédula profesional, con enfoque en tecnologías modernas y mejores prácticas de desarrollo.",
+    "status": { "es": "Titulado", "en": "Graduated" },
+    "description": {
+      "es": "Formación sólida en desarrollo de software, bases de datos, metodologías de desarrollo y fundamentos de la informática. Titulado con cédula profesional, con enfoque en tecnologías modernas y mejores prácticas de desarrollo.",
+      "en": "Solid training in software development, databases, development methodologies and computer science fundamentals. Graduated with professional license, focused on modern technologies and best development practices."
+    },
     "subjects": [
-      {
-        "name": "Desarrollo de Software",
-        "icon": "code"
-      },
-      {
-        "name": "Bases de Datos",
-        "icon": "database"
-      },
-      {
-        "name": "Metodologías Ágiles",
-        "icon": "agile"
-      },
-      {
-        "name": "Arquitectura de Software",
-        "icon": "architecture"
-      },
-      {
-        "name": "Algoritmos y Estructuras",
-        "icon": "algorithm"
-      },
-      {
-        "name": "Redes y Sistemas",
-        "icon": "network"
-      }
+      { "name": { "es": "Desarrollo de Software", "en": "Software Development" }, "icon": "code" },
+      { "name": { "es": "Bases de Datos", "en": "Databases" }, "icon": "database" },
+      { "name": { "es": "Metodologías Ágiles", "en": "Agile Methodologies" }, "icon": "agile" },
+      { "name": { "es": "Arquitectura de Software", "en": "Software Architecture" }, "icon": "architecture" },
+      { "name": { "es": "Algoritmos y Estructuras", "en": "Algorithms and Structures" }, "icon": "algorithm" },
+      { "name": { "es": "Redes y Sistemas", "en": "Networks and Systems" }, "icon": "network" }
     ]
   },
   "certifications": [
     {
       "id": 1,
-      "title": "Curso de Introducción a la Automatización de Pruebas",
+      "title": { "es": "Curso de Introducción a la Automatización de Pruebas", "en": "Introduction to Test Automation Course" },
       "provider": "Platzi",
       "icon": "testing",
-      "description": "Fundamentos de testing automatizado, herramientas y mejores prácticas para asegurar la calidad del software."
+      "description": {
+        "es": "Fundamentos de testing automatizado, herramientas y mejores prácticas para asegurar la calidad del software.",
+        "en": "Fundamentals of automated testing, tools and best practices to ensure software quality."
+      }
     },
     {
       "id": 2,
-      "title": "Curso de Terminal y Línea de Comandos",
+      "title": { "es": "Curso de Terminal y Línea de Comandos", "en": "Terminal and Command Line Course" },
       "provider": "Platzi",
       "icon": "terminal",
-      "description": "Dominio de la terminal, comandos esenciales y automatización de tareas para mejorar la productividad."
+      "description": {
+        "es": "Dominio de la terminal, comandos esenciales y automatización de tareas para mejorar la productividad.",
+        "en": "Mastery of the terminal, essential commands and task automation to improve productivity."
+      }
     },
     {
       "id": 3,
-      "title": "Backend con Node.js: API REST con Express.js",
+      "title": { "es": "Backend con Node.js: API REST con Express.js", "en": "Backend with Node.js: REST API with Express.js" },
       "provider": "Platzi",
       "icon": "nodejs",
-      "description": "Desarrollo de APIs RESTful con Node.js y Express, incluyendo autenticación, validación y mejores prácticas."
+      "description": {
+        "es": "Desarrollo de APIs RESTful con Node.js y Express, incluyendo autenticación, validación y mejores prácticas.",
+        "en": "Development of RESTful APIs with Node.js and Express, including authentication, validation and best practices."
+      }
     },
     {
       "id": 4,
-      "title": "Curso Profesional de JavaScript",
+      "title": { "es": "Curso Profesional de JavaScript", "en": "Professional JavaScript Course" },
       "provider": "Platzi",
       "icon": "javascript",
-      "description": "JavaScript avanzado, ES6+, programación funcional, asíncrona y patrones de diseño modernos."
+      "description": {
+        "es": "JavaScript avanzado, ES6+, programación funcional, asíncrona y patrones de diseño modernos.",
+        "en": "Advanced JavaScript, ES6+, functional programming, asynchronous programming and modern design patterns."
+      }
     },
     {
       "id": 5,
-      "title": "Configuración de Entorno en Linux",
+      "title": { "es": "Configuración de Entorno en Linux", "en": "Environment Configuration in Linux" },
       "provider": "Platzi",
       "icon": "linux",
-      "description": "Configuración y optimización de entornos de desarrollo en sistemas Linux para máxima productividad."
+      "description": {
+        "es": "Configuración y optimización de entornos de desarrollo en sistemas Linux para máxima productividad.",
+        "en": "Configuration and optimization of development environments in Linux systems for maximum productivity."
+      }
     },
     {
       "id": 6,
-      "title": "JavaScript Engine (V8) y el Navegador",
+      "title": { "es": "JavaScript Engine (V8) y el Navegador", "en": "JavaScript Engine (V8) and the Browser" },
       "provider": "Platzi",
       "icon": "browser",
-      "description": "Funcionamiento interno del motor V8, optimización de código y comprensión profunda del runtime de JavaScript."
+      "description": {
+        "es": "Funcionamiento interno del motor V8, optimización de código y comprensión profunda del runtime de JavaScript.",
+        "en": "Internal workings of the V8 engine, code optimization and deep understanding of the JavaScript runtime."
+      }
     },
     {
       "id": 7,
-      "title": "Curso Práctico de Frontend Developer",
+      "title": { "es": "Curso Práctico de Frontend Developer", "en": "Practical Frontend Developer Course" },
       "provider": "Platzi",
       "icon": "frontend",
-      "description": "Desarrollo frontend moderno, HTML5, CSS3, JavaScript, responsive design y mejores prácticas de UI/UX."
+      "description": {
+        "es": "Desarrollo frontend moderno, HTML5, CSS3, JavaScript, responsive design y mejores prácticas de UI/UX.",
+        "en": "Modern frontend development, HTML5, CSS3, JavaScript, responsive design and UI/UX best practices."
+      }
     }
   ],
   "philosophy": [
     {
-      "title": "Aprendizaje Continuo",
+      "title": { "es": "Aprendizaje Continuo", "en": "Continuous Learning" },
       "icon": "learning",
-      "description": "Mantengo una mentalidad de crecimiento constante, siempre buscando nuevas tecnologías y metodologías para mejorar mis habilidades profesionales."
+      "description": {
+        "es": "Mantengo una mentalidad de crecimiento constante, siempre buscando nuevas tecnologías y metodologías para mejorar mis habilidades profesionales.",
+        "en": "I maintain a constant growth mindset, always seeking new technologies and methodologies to improve my professional skills."
+      }
     },
     {
-      "title": "Aprendizaje Práctico",
+      "title": { "es": "Aprendizaje Práctico", "en": "Practical Learning" },
       "icon": "practice",
-      "description": "Prefiero el aprendizaje hands-on, aplicando inmediatamente los conocimientos adquiridos en proyectos reales para consolidar el aprendizaje."
+      "description": {
+        "es": "Prefiero el aprendizaje hands-on, aplicando inmediatamente los conocimientos adquiridos en proyectos reales para consolidar el aprendizaje.",
+        "en": "I prefer hands-on learning, immediately applying acquired knowledge in real projects to consolidate learning."
+      }
     },
     {
-      "title": "Compartir Conocimiento",
+      "title": { "es": "Compartir Conocimiento", "en": "Sharing Knowledge" },
       "icon": "share",
-      "description": "Creo en el poder de compartir conocimiento con la comunidad, participando activamente en foros y ayudando a otros desarrolladores."
+      "description": {
+        "es": "Creo en el poder de compartir conocimiento con la comunidad, participando activamente en foros y ayudando a otros desarrolladores.",
+        "en": "I believe in the power of sharing knowledge with the community, actively participating in forums and helping other developers."
+      }
     }
   ],
   "goals": [
     {
       "id": 1,
-      "title": "Inglés Técnico Avanzado",
-      "period": "Corto Plazo (6 meses)",
-      "description": "Fortalecer mi inglés técnico para comunicación efectiva en equipos internacionales y acceso a documentación técnica avanzada."
+      "title": { "es": "Inglés Técnico Avanzado", "en": "Advanced Technical English" },
+      "period": { "es": "Corto Plazo (6 meses)", "en": "Short Term (6 months)" },
+      "description": {
+        "es": "Fortalecer mi inglés técnico para comunicación efectiva en equipos internacionales y acceso a documentación técnica avanzada.",
+        "en": "Strengthen my technical English for effective communication in international teams and access to advanced technical documentation."
+      }
     },
     {
       "id": 2,
-      "title": "Inteligencia Artificial y Machine Learning",
-      "period": "Mediano Plazo (1 año)",
-      "description": "Explorar tecnologías emergentes de IA para crear asistentes inteligentes y mejorar la experiencia del usuario en aplicaciones web."
+      "title": { "es": "Inteligencia Artificial y Machine Learning", "en": "Artificial Intelligence and Machine Learning" },
+      "period": { "es": "Mediano Plazo (1 año)", "en": "Mid Term (1 year)" },
+      "description": {
+        "es": "Explorar tecnologías emergentes de IA para crear asistentes inteligentes y mejorar la experiencia del usuario en aplicaciones web.",
+        "en": "Explore emerging AI technologies to create intelligent assistants and improve user experience in web applications."
+      }
     },
     {
       "id": 3,
-      "title": "Microservicios y Arquitectura Backend",
-      "period": "Largo Plazo (2 años)",
-      "description": "Especializarme en arquitectura de microservicios, contenedores y tecnologías cloud para desarrollo backend escalable."
+      "title": { "es": "Microservicios y Arquitectura Backend", "en": "Microservices and Backend Architecture" },
+      "period": { "es": "Largo Plazo (2 años)", "en": "Long Term (2 years)" },
+      "description": {
+        "es": "Especializarme en arquitectura de microservicios, contenedores y tecnologías cloud para desarrollo backend escalable.",
+        "en": "Specialize in microservices architecture, containers and cloud technologies for scalable backend development."
+      }
     }
   ]
 }

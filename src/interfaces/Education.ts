@@ -1,36 +1,38 @@
+import { MultiLanguageText } from './Personal'
+
 export interface Subject {
-  name: string
+  name: MultiLanguageText
   icon: string
 }
 
 export interface AcademicEducation {
-  degree: string
+  degree: MultiLanguageText
   institution: string
   period: string
-  status: string
-  description: string
+  status: MultiLanguageText
+  description: MultiLanguageText
   subjects: Subject[]
 }
 
 export interface Certification {
   id: number
-  title: string
+  title: MultiLanguageText
   provider: string
   icon: string
-  description: string
+  description: MultiLanguageText
 }
 
 export interface Philosophy {
-  title: string
+  title: MultiLanguageText
   icon: string
-  description: string
+  description: MultiLanguageText
 }
 
 export interface Goal {
   id: number
-  title: string
-  period: string
-  description: string
+  title: MultiLanguageText
+  period: MultiLanguageText
+  description: MultiLanguageText
 }
 
 export interface EducationData {

@@ -32,8 +32,8 @@
                 />
               </svg>
             </div>
-            <h3>Ubicación</h3>
-            <p>Ciudad de México, México</p>
+            <h3>{{ t.contact.details.location }}</h3>
+            <p>{{ getTranslatedText(personalData.contact.location) }}</p>
           </div>
 
           <div class="info-card animate-fadeInUp">
@@ -66,8 +66,8 @@
                 />
               </svg>
             </div>
-            <h3>Teléfono</h3>
-            <p>+52 (555) 123-4567</p>
+            <h3>{{ t.contact.details.phone }}</h3>
+            <p>{{ personalData.contact.phone }}</p>
           </div>
 
           <div class="info-card animate-fadeInUp">
@@ -83,8 +83,8 @@
                 />
               </svg>
             </div>
-            <h3>LinkedIn</h3>
-            <p>linkedin.com/in/albertglez97</p>
+            <h3>{{ t.contact.details.linkedin }}</h3>
+            <p>{{ personalData.contact.linkedin }}</p>
           </div>
         </div>
       </section>
@@ -137,7 +137,7 @@
 
       <!-- Goals & Objectives -->
       <section class="goals section">
-        <h2 class="section-title">Objetivos Profesionales</h2>
+        <h2 class="section-title">{{ t.about.goals.title }}</h2>
         <div class="goals-grid">
           <div class="goal-card animate-fadeInUp">
             <div class="goal-icon">
@@ -152,8 +152,8 @@
                 />
               </svg>
             </div>
-            <h3>Corto Plazo</h3>
-            <p>{{ t.about.goals.shortTerm }}</p>
+            <h3>{{ t.about.goals.shortTitle }}</h3>
+            <p>{{ getTranslatedText(personalData.about.goals.shortTerm) }}</p>
           </div>
 
           <div class="goal-card animate-fadeInUp">
@@ -169,17 +169,21 @@
                 />
               </svg>
             </div>
-            <h3>Largo Plazo</h3>
-            <p>{{ t.about.goals.longTerm }}</p>
+            <h3>{{ t.about.goals.longTitle }}</h3>
+            <p>{{ getTranslatedText(personalData.about.goals.longTerm) }}</p>
           </div>
         </div>
       </section>
 
       <!-- Interests & Passions -->
       <section class="interests section">
-        <h2 class="section-title">Intereses y Pasiones</h2>
+        <h2 class="section-title">{{ t.about.interestsTitle }}</h2>
         <div class="interests-grid">
-          <div class="interest-card animate-fadeInUp">
+          <div
+            v-for="interest in personalData.about.interests"
+            :key="interest.title.en"
+            class="interest-card animate-fadeInUp"
+          >
             <div class="interest-icon">
               <svg
                 width="40"
@@ -188,62 +192,27 @@
                 fill="currentColor"
               >
                 <path
+                  v-if="interest.icon === 'components'"
                   d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"
                 />
-              </svg>
-            </div>
-            <h3>Componentes Reutilizables</h3>
-            <p>
-              Diseño de componentes que beneficien múltiples módulos y mejoren
-              la eficiencia del desarrollo.
-            </p>
-          </div>
-
-          <div class="interest-card animate-fadeInUp">
-            <div class="interest-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
                 <path
+                  v-else-if="interest.icon === 'meetings'"
                   d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z"
                 />
-              </svg>
-            </div>
-            <h3>Reuniones con Clientes</h3>
-            <p>
-              Participar en reuniones para comprender a fondo el negocio y los
-              procesos de los clientes.
-            </p>
-          </div>
-
-          <div class="interest-card animate-fadeInUp">
-            <div class="interest-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
                 <path
+                  v-else
                   d="M17.5,12A1.5,1.5 0 0,1 16,10.5A1.5,1.5 0 0,1 17.5,9A1.5,1.5 0 0,1 19,10.5A1.5,1.5 0 0,1 17.5,12M14.5,8A1.5,1.5 0 0,1 13,6.5A1.5,1.5 0 0,1 14.5,5A1.5,1.5 0 0,1 16,6.5A1.5,1.5 0 0,1 14.5,8M9.5,8A1.5,1.5 0 0,1 8,6.5A1.5,1.5 0 0,1 9.5,5A1.5,1.5 0 0,1 11,6.5A1.5,1.5 0 0,1 9.5,8M6.5,12A1.5,1.5 0 0,1 5,10.5A1.5,1.5 0 0,1 6.5,9A1.5,1.5 0 0,1 8,10.5A1.5,1.5 0 0,1 6.5,12M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A8.5,8.5 0 0,0 20.5,12.5A8.5,8.5 0 0,0 12,3Z"
                 />
               </svg>
             </div>
-            <h3>Inteligencia Artificial</h3>
-            <p>
-              Explorar herramientas de IA y crear asistentes inteligentes para
-              mejorar la experiencia del usuario.
-            </p>
+            <h3>{{ getTranslatedText(interest.title) }}</h3>
+            <p>{{ getTranslatedText(interest.description) }}</p>
           </div>
         </div>
       </section>
-
       <!-- Soft Skills -->
       <section class="soft-skills section">
-        <h2 class="section-title">Habilidades Blandas</h2>
+        <h2 class="section-title">{{ t.about.softSkills.title }}</h2>
         <div class="skills-grid">
           <div class="skill-item animate-fadeInUp">
             <div class="skill-icon">
@@ -259,10 +228,8 @@
               </svg>
             </div>
             <div class="skill-content">
-              <h3>Comunicación Efectiva</h3>
-              <p>
-                Clara al explicar soluciones técnicas a clientes y analistas.
-              </p>
+              <h3>{{ t.about.softSkills.communication.title }}</h3>
+              <p>{{ t.about.softSkills.communication.description }}</p>
             </div>
           </div>
 
@@ -280,11 +247,8 @@
               </svg>
             </div>
             <div class="skill-content">
-              <h3>Trabajo en Equipo</h3>
-              <p>
-                Colaborativo con equipos multidisciplinarios y apoyo entre
-                áreas.
-              </p>
+              <h3>{{ t.about.softSkills.teamwork.title }}</h3>
+              <p>{{ t.about.softSkills.teamwork.description }}</p>
             </div>
           </div>
 
@@ -302,8 +266,8 @@
               </svg>
             </div>
             <div class="skill-content">
-              <h3>Pensamiento Analítico</h3>
-              <p>Solución práctica a requerimientos complejos.</p>
+              <h3>{{ t.about.softSkills.analytical.title }}</h3>
+              <p>{{ t.about.softSkills.analytical.description }}</p>
             </div>
           </div>
 
@@ -321,10 +285,8 @@
               </svg>
             </div>
             <div class="skill-content">
-              <h3>Gestión del Tiempo</h3>
-              <p>
-                Cumplimiento puntual de entregas y documentación de avances.
-              </p>
+              <h3>{{ t.about.softSkills.timeManagement.title }}</h3>
+              <p>{{ t.about.softSkills.timeManagement.description }}</p>
             </div>
           </div>
         </div>
@@ -335,10 +297,16 @@
 
 <script setup lang="ts">
 import { useMainStore } from "../stores/main";
+import { usePersonalStore } from "../stores/personal";
+import type { PersonalData } from "../interfaces";
 import { storeToRefs } from "pinia";
 
-const store = useMainStore();
-const { t } = storeToRefs(store);
+const mainStore = useMainStore();
+const personalStore = usePersonalStore();
+const { t } = storeToRefs(mainStore);
+const { getTranslatedText } = mainStore;
+const { getPersonal } = storeToRefs(personalStore);
+const personalData: PersonalData = getPersonal.value;
 </script>
 
 <style scoped>
