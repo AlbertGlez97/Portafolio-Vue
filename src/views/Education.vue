@@ -21,11 +21,11 @@
                 </svg>
               </div>
               <div class="degree-details">
-                <h3>{{ educationData.academic.degree }}</h3>
+                <h3>{{ getTranslatedText(educationData.academic.degree) }}</h3>
                 <h4>{{ educationData.academic.institution }}</h4>
                 <div class="degree-meta">
                   <span class="period">{{ educationData.academic.period }}</span>
-                  <span class="status completed">{{ educationData.academic.status }}</span>
+                  <span class="status completed">{{ getTranslatedText(educationData.academic.status) }}</span>
                 </div>
               </div>
             </div>
@@ -37,14 +37,14 @@
           </div>
           
           <div class="card-content">
-            <p class="degree-description">{{ educationData.academic.description }}</p>
+            <p class="degree-description">{{ getTranslatedText(educationData.academic.description) }}</p>
             
             <div class="subjects-covered">
               <h5>{{ t.education.studyAreas }}</h5>
               <div class="subjects-grid">
                 <div 
                   v-for="subject in educationData.academic.subjects" 
-                  :key="subject.name"
+                  :key="subject.name.en"
                   class="subject-item"
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -55,7 +55,7 @@
                     <path v-else-if="subject.icon === 'algorithm'" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z"/>
                     <path v-else d="M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19M18.5,18.5V13.2A3.26,3.26 0 0,0 15.24,9.94C14.39,9.94 13.4,10.46 12.92,11.24V10.13H10.13V18.5H12.92V13.57C12.92,12.8 13.54,12.17 14.31,12.17A1.4,1.4 0 0,1 15.71,13.57V18.5H18.5M6.88,8.56A1.68,1.68 0 0,0 8.56,6.88C8.56,5.95 7.81,5.19 6.88,5.19A1.69,1.69 0 0,0 5.19,6.88C5.19,7.81 5.95,8.56 6.88,8.56M8.27,18.5V10.13H5.5V18.5H8.27Z"/>
                   </svg>
-                  <span>{{ subject.name }}</span>
+                  <span>{{ getTranslatedText(subject.name) }}</span>
                 </div>
               </div>
             </div>
@@ -83,7 +83,7 @@
           <div class="philosophy-grid">
             <div 
               v-for="philosophy in educationData.philosophy" 
-              :key="philosophy.title"
+              :key="philosophy.title.en"
               class="philosophy-card animate-fadeInUp"
             >
               <div class="philosophy-icon">
@@ -93,8 +93,8 @@
                   <path v-else d="M16,4C18.11,4 20.11,4.89 21.61,6.39C23.11,7.89 24,9.89 24,12A8,8 0 0,1 16,20H5A5,5 0 0,1 0,15A5,5 0 0,1 5,10C5.59,10 6.16,10.13 6.69,10.36C7.61,7.24 10.57,5 14,5C14.68,5 15.34,5.11 16,5.28V4Z"/>
                 </svg>
               </div>
-              <h3>{{ philosophy.title }}</h3>
-              <p>{{ philosophy.description }}</p>
+              <h3>{{ getTranslatedText(philosophy.title) }}</h3>
+              <p>{{ getTranslatedText(philosophy.description) }}</p>
             </div>
           </div>
         </div>
@@ -115,10 +115,10 @@
                 <span class="goal-number">{{ goal.id }}</span>
               </div>
               <div class="goal-content">
-                <h3>{{ goal.title }}</h3>
-                <p>{{ goal.description }}</p>
+                <h3>{{ getTranslatedText(goal.title) }}</h3>
+                <p>{{ getTranslatedText(goal.description) }}</p>
                 <div class="goal-timeline-info">
-                  <span class="goal-period">{{ goal.period }}</span>
+                  <span class="goal-period">{{ getTranslatedText(goal.period) }}</span>
                 </div>
               </div>
             </div>
@@ -139,6 +139,7 @@ import type { EducationData } from '../interfaces'
 const mainStore = useMainStore()
 const educationStore = useEducationStore()
 const { t } = storeToRefs(mainStore)
+const { getTranslatedText } = mainStore
 const { getEducation } = storeToRefs(educationStore)
 const educationData: EducationData = getEducation.value
 </script>

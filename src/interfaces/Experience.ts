@@ -1,12 +1,14 @@
+import { MultiLanguageText } from './Personal'
+
 export interface Job {
   id: number
-  title: string
+  title: MultiLanguageText
   company: string
-  period: string
-  duration: string
+  period: MultiLanguageText
+  duration: MultiLanguageText
   type: 'current' | 'previous' | 'internship'
-  description: string
-  achievements: string[]
+  description: MultiLanguageText
+  achievements: MultiLanguageText[]
   technologies: string[]
   icon: string
 }

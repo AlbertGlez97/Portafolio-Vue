@@ -2,15 +2,18 @@
   "featured": [
     {
       "id": 1,
-      "title": "Atotonilco Estudio",
-      "type": "Destacado",
-      "description": "Sitio web profesional creado para promocionar los servicios de un estudio fotográfico. Desarrollado con enfoque en la experiencia visual y diseño responsivo para mostrar el portafolio de manera atractiva.",
+      "title": { "es": "Atotonilco Estudio", "en": "Atotonilco Studio" },
+      "type": { "es": "Destacado", "en": "Featured" },
+      "description": {
+        "es": "Sitio web profesional creado para promocionar los servicios de un estudio fotográfico. Desarrollado con enfoque en la experiencia visual y diseño responsivo para mostrar el portafolio de manera atractiva.",
+        "en": "Professional website created to promote the services of a photo studio. Developed with focus on visual experience and responsive design to showcase the portfolio attractively."
+      },
       "features": [
-        "Diseño responsivo y moderno",
-        "Galería de imágenes optimizada",
-        "Formulario de contacto funcional",
-        "Optimización SEO",
-        "Carga rápida de imágenes"
+        { "es": "Diseño responsivo y moderno", "en": "Responsive and modern design" },
+        { "es": "Galería de imágenes optimizada", "en": "Optimized image gallery" },
+        { "es": "Formulario de contacto funcional", "en": "Functional contact form" },
+        { "es": "Optimización SEO", "en": "SEO optimization" },
+        { "es": "Carga rápida de imágenes", "en": "Fast image loading" }
       ],
       "technologies": [
         "HTML5",
@@ -24,7 +27,7 @@
       "metrics": {
         "responsive": "100%",
         "performance": "A+",
-        "seo": "SEO Optimizado"
+        "seo": { "es": "SEO Optimizado", "en": "SEO Optimized" }
       },
       "image": "/projects/atotonilco.jpg",
       "url": "https://atotonilco-estudio.com",
@@ -32,15 +35,18 @@
     },
     {
       "id": 2,
-      "title": "Carnal MX",
-      "type": "Destacado",
-      "description": "Plataforma web para un proyecto artístico de crónica contemporánea sobre la Ciudad de México. Incluye galería interactiva, blog de contenido y sistema de suscripciones para seguidores del proyecto.",
+      "title": { "es": "Carnal MX", "en": "Carnal MX" },
+      "type": { "es": "Destacado", "en": "Featured" },
+      "description": {
+        "es": "Plataforma web para un proyecto artístico de crónica contemporánea sobre la Ciudad de México. Incluye galería interactiva, blog de contenido y sistema de suscripciones para seguidores del proyecto.",
+        "en": "Web platform for an artistic contemporary chronicle project about Mexico City. Includes interactive gallery, content blog and subscription system for project followers."
+      },
       "features": [
-        "Galería interactiva de contenido",
-        "Sistema de blog integrado",
-        "Suscripciones de usuarios",
-        "Diseño editorial moderno",
-        "Optimización para móviles"
+        { "es": "Galería interactiva de contenido", "en": "Interactive content gallery" },
+        { "es": "Sistema de blog integrado", "en": "Integrated blog system" },
+        { "es": "Suscripciones de usuarios", "en": "User subscriptions" },
+        { "es": "Diseño editorial moderno", "en": "Modern editorial design" },
+        { "es": "Optimización para móviles", "en": "Mobile optimization" }
       ],
       "technologies": [
         "Vue.js",
@@ -54,7 +60,7 @@
       "metrics": {
         "responsive": "100%",
         "performance": "A",
-        "seo": "Optimizado"
+        "seo": { "es": "Optimizado", "en": "Optimized" }
       },
       "image": "/projects/carnal-mx.jpg",
       "url": "https://carnal-mx.com",
@@ -64,15 +70,18 @@
   "other": [
     {
       "id": 3,
-      "title": "Sistema SICOJ - Módulo Consultas",
-      "type": "Profesional",
-      "description": "Módulo de consultas jurídicas para el Sistema Integral de Control de Juicios del SAT. Desarrollo completo del frontend con componentes reutilizables y gestión de estado avanzada.",
+      "title": { "es": "Sistema SICOJ - Módulo Consultas", "en": "SICOJ System - Consultations Module" },
+      "type": { "es": "Profesional", "en": "Professional" },
+      "description": {
+        "es": "Módulo de consultas jurídicas para el Sistema Integral de Control de Juicios del SAT. Desarrollo completo del frontend con componentes reutilizables y gestión de estado avanzada.",
+        "en": "Legal consultation module for the SAT's Comprehensive Control of Trials System. Complete frontend development with reusable components and advanced state management."
+      },
       "features": [
-        "Componentes reutilizables en Svelte",
-        "Gestión de estado con Redux",
-        "Integración con APIs .NET",
-        "Validaciones dinámicas",
-        "Manejo de errores robusto"
+        { "es": "Componentes reutilizables en Svelte", "en": "Reusable components in Svelte" },
+        { "es": "Gestión de estado con Redux", "en": "State management with Redux" },
+        { "es": "Integración con APIs .NET", "en": "Integration with .NET APIs" },
+        { "es": "Validaciones dinámicas", "en": "Dynamic validations" },
+        { "es": "Manejo de errores robusto", "en": "Robust error handling" }
       ],
       "technologies": [
         "Svelte",
@@ -87,15 +96,18 @@
     },
     {
       "id": 4,
-      "title": "ShoppingCart System",
-      "type": "Profesional",
-      "description": "Sistema de cobranza y carrito de compras para empresa de impresión. Desarrollo con Vue.js puro y integración con sistemas de pago.",
+      "title": { "es": "ShoppingCart System", "en": "ShoppingCart System" },
+      "type": { "es": "Profesional", "en": "Professional" },
+      "description": {
+        "es": "Sistema de cobranza y carrito de compras para empresa de impresión. Desarrollo con Vue.js puro y integración con sistemas de pago.",
+        "en": "Billing and shopping cart system for a printing company. Developed with pure Vue.js and integration with payment systems."
+      },
       "features": [
-        "Carrito de compras dinámico",
-        "Integración con pasarelas de pago",
-        "Gestión de inventario",
-        "Panel administrativo",
-        "Reportes de ventas"
+        { "es": "Carrito de compras dinámico", "en": "Dynamic shopping cart" },
+        { "es": "Integración con pasarelas de pago", "en": "Integration with payment gateways" },
+        { "es": "Gestión de inventario", "en": "Inventory management" },
+        { "es": "Panel administrativo", "en": "Admin panel" },
+        { "es": "Reportes de ventas", "en": "Sales reports" }
       ],
       "technologies": [
         "Vue.js",

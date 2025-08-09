@@ -1,5 +1,5 @@
 <template>
-  <div class="project-card" :class="{ 'featured': project.type === 'Destacado' }">
+  <div class="project-card" :class="{ 'featured': badgeClass === 'featured' }">
     <div class="project-image">
       <div class="image-placeholder">
         <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor">
@@ -10,22 +10,22 @@
     
     <div class="project-content">
       <div class="project-header">
-        <h3>{{ project.title }}</h3>
+        <h3>{{ getTranslatedText(project.title) }}</h3>
         <span v-if="project.type" class="project-badge" :class="badgeClass">
-          {{ project.type }}
+          {{ getTranslatedText(project.type) }}
         </span>
       </div>
       
-      <p class="project-description">{{ project.description }}</p>
+      <p class="project-description">{{ getTranslatedText(project.description) }}</p>
       
       <div v-if="project.features" class="project-features">
         <h5>{{ t.projectCard.features }}</h5>
         <ul class="features-list">
-          <li v-for="feature in project.features" :key="feature" class="feature-item">
+          <li v-for="feature in project.features" :key="feature.en" class="feature-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="check-icon">
               <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
             </svg>
-            {{ feature }}
+            {{ getTranslatedText(feature) }}
           </li>
         </ul>
       </div>
@@ -53,7 +53,7 @@
           <span class="metric-label">Performance</span>
         </div>
         <div class="metric">
-          <span class="metric-value">{{ project.metrics.seo }}</span>
+          <span class="metric-value">{{ getTranslatedText(project.metrics.seo) }}</span>
           <span class="metric-label">SEO</span>
         </div>
       </div>
@@ -105,11 +105,13 @@ const props = defineProps<ProjectCardProps>()
 
 const mainStore = useMainStore()
 const { t } = storeToRefs(mainStore)
+const { getTranslatedText } = mainStore
 
 const badgeClass = computed(() => {
-  const type = props.project.type.toLowerCase()
-  if (type.includes('destacado') || type.includes('featured')) return 'featured'
-  if (type.includes('profesional') || type.includes('professional')) return 'professional'
+  const typeEs = props.project.type.es.toLowerCase()
+  const typeEn = props.project.type.en.toLowerCase()
+  if (typeEs.includes('destacado') || typeEn.includes('featured')) return 'featured'
+  if (typeEs.includes('profesional') || typeEn.includes('professional')) return 'professional'
   return 'default'
 })
 </script>

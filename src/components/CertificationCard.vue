@@ -16,15 +16,19 @@
         <span class="badge-text">{{ certification.provider }}</span>
       </div>
     </div>
-    <h3>{{ certification.title }}</h3>
-    <p>{{ certification.description }}</p>
+    <h3>{{ getTranslatedText(certification.title) }}</h3>
+    <p>{{ getTranslatedText(certification.description) }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
 import type { CertificationCardProps } from '../interfaces'
+import { useMainStore } from '../stores/main'
 
 defineProps<CertificationCardProps>()
+
+const mainStore = useMainStore()
+const { getTranslatedText } = mainStore
 </script>
 
 <style scoped>

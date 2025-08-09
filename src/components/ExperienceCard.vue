@@ -10,28 +10,28 @@
           </svg>
         </div>
         <div class="job-details">
-          <h3>{{ job.title }}</h3>
+          <h3>{{ getTranslatedText(job.title) }}</h3>
           <h4>{{ job.company }}</h4>
           <div class="job-meta">
-            <span class="period">{{ job.period }}</span>
-            <span v-if="job.type === 'current'" class="status current">{{ job.duration }}</span>
-            <span v-else class="status">{{ job.duration }}</span>
+            <span class="period">{{ getTranslatedText(job.period) }}</span>
+            <span v-if="job.type === 'current'" class="status current">{{ getTranslatedText(job.duration) }}</span>
+            <span v-else class="status">{{ getTranslatedText(job.duration) }}</span>
           </div>
         </div>
       </div>
     </div>
     
     <div class="card-content">
-      <p class="job-description">{{ job.description }}</p>
+      <p class="job-description">{{ getTranslatedText(job.description) }}</p>
       
       <div class="achievements">
         <h5>{{ t.experienceCard.achievements }}</h5>
         <ul class="achievements-list">
-          <li v-for="achievement in job.achievements" :key="achievement" class="achievement-item">
+          <li v-for="achievement in job.achievements" :key="achievement.en" class="achievement-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="check-icon">
               <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
             </svg>
-            {{ achievement }}
+            {{ getTranslatedText(achievement) }}
           </li>
         </ul>
       </div>
@@ -62,6 +62,7 @@ defineProps<ExperienceCardProps>()
 
 const mainStore = useMainStore()
 const { t } = storeToRefs(mainStore)
+const { getTranslatedText } = mainStore
 
 // Función para obtener la clave de tecnología desde el nombre
 const getTechKey = (techName: string): keyof typeof technologiesData | null => {
