@@ -27,16 +27,44 @@
     "title": "Contact",
     "subtitle": "Let's talk about your next project",
     "info": "Contact Information",
+    "details": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "linkedin": "LinkedIn"
+    },
+    "follow": "Follow me on:",
+    "cta": {
+      "title": "Ready to work together?",
+      "description": "I'm available for new projects and collaboration opportunities.",
+      "downloadCV": "Download CV",
+      "connectLinkedIn": "Connect on LinkedIn"
+    },
     "form": {
       "title": "Send me a message",
       "name": "Name",
       "email": "Email",
       "subject": "Subject",
       "message": "Message",
-      "send": "Send Message"
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! I will contact you soon.",
+      "error": "There was an error sending the message. Please try again.",
+      "errors": {
+        "nameRequired": "Name is required",
+        "nameMin": "Name must be at least 2 characters",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email",
+        "subjectRequired": "Subject is required",
+        "subjectMin": "Subject must be at least 5 characters",
+        "messageRequired": "Message is required",
+        "messageMin": "Message must be at least 10 characters"
+      }
     }
   },
   "footer": {
+    "description": "Front-End Developer specialized in Vue.js, TypeScript and modern technologies.",
+    "location": "Mexico City, Mexico",
     "rights": "All rights reserved",
     "madeWith": "Made with",
     "by": "by Albert González"
@@ -47,5 +75,51 @@
     "goHome": "Go Home",
     "goBack": "Go Back",
     "usefulLinks": "Useful Links"
+  },
+  "education": {
+    "subtitle": "My academic background and professional certifications",
+    "academic": "Academic Education",
+    "studyAreas": "Areas of Study:",
+    "certifications": "Professional Certifications",
+    "philosophy": "Learning Philosophy",
+    "goals": "Learning Goals"
+  },
+  "skills": {
+    "subtitle": "My tech stack and professional competencies",
+    "technical": "Technical Skills",
+    "toolsTech": "Tools & Technologies",
+    "tools": "Tools",
+    "methodologies": "Methodologies",
+    "soft": "Soft Skills"
+  },
+  "projects": {
+    "subtitle": "Featured projects and professional developments",
+    "featured": "Featured Projects",
+    "others": "Other Projects",
+    "stats": "Project Statistics",
+    "completed": "Completed Projects",
+    "technologiesUsed": "Technologies Used",
+    "featuredCount": "Featured Projects",
+    "responsive": "Responsive Design",
+    "techSection": "Technologies in Projects"
+  },
+  "experience": {
+    "subtitle": "My journey in Front-End and Full-Stack development"
+  },
+  "projectCard": {
+    "features": "Main Features:",
+    "technologies": "Technologies Used:",
+    "viewProject": "View Project",
+    "confidential": "Confidential project"
+  },
+  "experienceCard": {
+    "achievements": "Key Achievements:",
+    "technologies": "Technologies Used:"
+  },
+  "navbar": {
+    "switchToEnglish": "Switch to English",
+    "switchToSpanish": "Switch to Spanish",
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode"
   }
 }

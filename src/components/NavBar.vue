@@ -23,19 +23,19 @@
         <!-- Controls -->
         <div class="navbar-controls">
           <!-- Language Toggle -->
-          <button 
-            @click="toggleLanguage" 
+          <button
+            @click="toggleLanguage"
             class="control-btn language-btn"
-            :title="currentLanguage === 'es' ? 'Switch to English' : 'Cambiar a Español'"
+            :title="currentLanguage === 'es' ? t.navbar.switchToEnglish : t.navbar.switchToSpanish"
           >
             {{ currentLanguage === 'es' ? 'EN' : 'ES' }}
           </button>
 
           <!-- Dark Mode Toggle -->
-          <button 
-            @click="toggleDarkMode" 
+          <button
+            @click="toggleDarkMode"
             class="control-btn theme-btn"
-            :title="isDarkMode ? 'Modo Claro' : 'Modo Oscuro'"
+            :title="isDarkMode ? t.navbar.lightMode : t.navbar.darkMode"
           >
             <span v-if="isDarkMode">☀️</span>
             <span v-else>🌙</span>
