@@ -25,7 +25,7 @@
       <p class="job-description">{{ job.description }}</p>
       
       <div class="achievements">
-        <h5>Logros Principales:</h5>
+        <h5>{{ t.experienceCard.achievements }}</h5>
         <ul class="achievements-list">
           <li v-for="achievement in job.achievements" :key="achievement" class="achievement-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="check-icon">
@@ -37,7 +37,7 @@
       </div>
       
       <div class="technologies">
-        <h5>Tecnologías Utilizadas:</h5>
+        <h5>{{ t.experienceCard.technologies }}</h5>
         <div class="tech-icons">
           <template v-for="tech in job.technologies" :key="tech">
             <TechIcon 
@@ -55,8 +55,13 @@
 import type { ExperienceCardProps } from '../interfaces'
 import TechIcon from './TechIcon.vue'
 import technologiesData from '../data/technologies.json'
+import { useMainStore } from '../stores/main'
+import { storeToRefs } from 'pinia'
 
 defineProps<ExperienceCardProps>()
+
+const mainStore = useMainStore()
+const { t } = storeToRefs(mainStore)
 
 // Función para obtener la clave de tecnología desde el nombre
 const getTechKey = (techName: string): keyof typeof technologiesData | null => {

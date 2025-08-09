@@ -5,7 +5,7 @@
       <section class="experience-hero section">
         <div class="hero-content animate-fadeInUp">
           <h1 class="section-title">{{ t.nav.experience }}</h1>
-          <p class="hero-subtitle">Mi trayectoria en el desarrollo Front-End y Full-Stack</p>
+          <p class="hero-subtitle">{{ t.experience.subtitle }}</p>
         </div>
       </section>
 

@@ -19,7 +19,7 @@
       <p class="project-description">{{ project.description }}</p>
       
       <div v-if="project.features" class="project-features">
-        <h5>Características Principales:</h5>
+        <h5>{{ t.projectCard.features }}</h5>
         <ul class="features-list">
           <li v-for="feature in project.features" :key="feature" class="feature-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="check-icon">
@@ -31,7 +31,7 @@
       </div>
       
       <div class="project-technologies">
-        <h5>Tecnologías Utilizadas:</h5>
+        <h5>{{ t.projectCard.technologies }}</h5>
         <div class="tech-tags">
           <span 
             v-for="tech in project.technologies" 
@@ -69,7 +69,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
             <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
           </svg>
-          Ver Proyecto
+          {{ t.projectCard.viewProject }}
         </a>
         <a 
           v-if="project.github" 
@@ -89,7 +89,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z"/>
         </svg>
-        Proyecto confidencial - {{ project.company }}
+        {{ t.projectCard.confidential }} - {{ project.company }}
       </div>
     </div>
   </div>
@@ -98,8 +98,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { ProjectCardProps } from '../interfaces'
+import { useMainStore } from '../stores/main'
+import { storeToRefs } from 'pinia'
 
 const props = defineProps<ProjectCardProps>()
+
+const mainStore = useMainStore()
+const { t } = storeToRefs(mainStore)
 
 const badgeClass = computed(() => {
   const type = props.project.type.toLowerCase()

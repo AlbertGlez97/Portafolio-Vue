@@ -8,7 +8,7 @@
             <span class="logo-text">Albert González</span>
           </div>
           <p class="footer-description">
-            Front-End Developer especializado en Vue.js, TypeScript y tecnologías modernas.
+            {{ t.footer.description }}
           </p>
           <div class="social-links">
             <a 
@@ -63,7 +63,7 @@
             </p>
             <p class="contact-item">
               <span class="contact-icon">📍</span>
-              <span>Ciudad de México, México</span>
+              <span>{{ t.footer.location }}</span>
             </p>
           </div>
         </div>

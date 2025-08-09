@@ -5,13 +5,13 @@
       <section class="education-hero section">
         <div class="hero-content animate-fadeInUp">
           <h1 class="section-title">{{ t.nav.education }}</h1>
-          <p class="hero-subtitle">Mi formación académica y certificaciones profesionales</p>
+          <p class="hero-subtitle">{{ t.education.subtitle }}</p>
         </div>
       </section>
 
       <!-- Academic Education -->
       <section class="academic-section section">
-        <h2 class="section-title">Formación Académica</h2>
+        <h2 class="section-title">{{ t.education.academic }}</h2>
         <div class="education-card main-degree animate-fadeInUp">
           <div class="card-header">
             <div class="degree-info">
@@ -40,7 +40,7 @@
             <p class="degree-description">{{ educationData.academic.description }}</p>
             
             <div class="subjects-covered">
-              <h5>Áreas de Estudio:</h5>
+              <h5>{{ t.education.studyAreas }}</h5>
               <div class="subjects-grid">
                 <div 
                   v-for="subject in educationData.academic.subjects" 
@@ -65,7 +65,7 @@
 
       <!-- Professional Certifications -->
       <section class="certifications-section section">
-        <h2 class="section-title">Certificaciones Profesionales</h2>
+        <h2 class="section-title">{{ t.education.certifications }}</h2>
         <div class="certifications-grid">
           <CertificationCard 
             v-for="certification in educationData.certifications" 
@@ -79,7 +79,7 @@
       <!-- Learning Philosophy -->
       <section class="philosophy-section section">
         <div class="philosophy-content">
-          <h2 class="section-title">Filosofía de Aprendizaje</h2>
+          <h2 class="section-title">{{ t.education.philosophy }}</h2>
           <div class="philosophy-grid">
             <div 
               v-for="philosophy in educationData.philosophy" 
@@ -103,7 +103,7 @@
       <!-- Future Learning Goals -->
       <section class="future-goals-section section">
         <div class="goals-content">
-          <h2 class="section-title">Objetivos de Aprendizaje</h2>
+          <h2 class="section-title">{{ t.education.goals }}</h2>
           <div class="goals-timeline">
             <div 
               v-for="goal in educationData.goals" 
