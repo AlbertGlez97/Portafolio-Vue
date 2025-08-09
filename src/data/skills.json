@@ -2,152 +2,219 @@
   "technical": {
     "frontend": [
       {
-        "name": "Vue.js",
-        "level": "Avanzado",
+        "name": { "es": "Vue.js", "en": "Vue.js" },
+        "level": { "es": "Avanzado", "en": "Advanced" },
         "percentage": 90,
         "icon": "vue",
-        "description": "Framework progresivo para construir interfaces de usuario"
+        "description": {
+          "es": "Framework progresivo para construir interfaces de usuario",
+          "en": "Progressive framework for building user interfaces"
+        }
       },
       {
-        "name": "Svelte",
-        "level": "Avanzado", 
+        "name": { "es": "Svelte", "en": "Svelte" },
+        "level": { "es": "Avanzado", "en": "Advanced" },
         "percentage": 85,
         "icon": "svelte",
-        "description": "Framework moderno para aplicaciones web rápidas"
+        "description": {
+          "es": "Framework moderno para aplicaciones web rápidas",
+          "en": "Modern framework for fast web applications"
+        }
       },
       {
-        "name": "TypeScript",
-        "level": "Avanzado",
+        "name": { "es": "TypeScript", "en": "TypeScript" },
+        "level": { "es": "Avanzado", "en": "Advanced" },
         "percentage": 85,
         "icon": "typescript",
-        "description": "JavaScript con tipado estático para mejor desarrollo"
+        "description": {
+          "es": "JavaScript con tipado estático para mejor desarrollo",
+          "en": "JavaScript with static typing for better development"
+        }
       },
       {
-        "name": "JavaScript",
-        "level": "Experto",
+        "name": { "es": "JavaScript", "en": "JavaScript" },
+        "level": { "es": "Experto", "en": "Expert" },
         "percentage": 95,
         "icon": "javascript",
-        "description": "Lenguaje de programación fundamental para web"
+        "description": {
+          "es": "Lenguaje de programación fundamental para web",
+          "en": "Fundamental programming language for the web"
+        }
       },
       {
-        "name": "HTML5",
-        "level": "Experto",
+        "name": { "es": "HTML5", "en": "HTML5" },
+        "level": { "es": "Experto", "en": "Expert" },
         "percentage": 95,
         "icon": "html",
-        "description": "Lenguaje de marcado para estructurar contenido web"
+        "description": {
+          "es": "Lenguaje de marcado para estructurar contenido web",
+          "en": "Markup language for structuring web content"
+        }
       },
       {
-        "name": "CSS3 / Sass",
-        "level": "Avanzado",
+        "name": { "es": "CSS3 / Sass", "en": "CSS3 / Sass" },
+        "level": { "es": "Avanzado", "en": "Advanced" },
         "percentage": 90,
         "icon": "css",
-        "description": "Estilos y preprocesadores para diseño web"
+        "description": {
+          "es": "Estilos y preprocesadores para diseño web",
+          "en": "Styles and preprocessors for web design"
+        }
       },
       {
-        "name": "Bootstrap",
-        "level": "Avanzado",
+        "name": { "es": "Bootstrap", "en": "Bootstrap" },
+        "level": { "es": "Avanzado", "en": "Advanced" },
         "percentage": 85,
         "icon": "bootstrap",
-        "description": "Framework CSS para desarrollo responsive"
+        "description": {
+          "es": "Framework CSS para desarrollo responsive",
+          "en": "CSS framework for responsive development"
+        }
       }
     ],
     "backend": [
       {
-        "name": ".NET 6 MVC",
-        "level": "Intermedio",
+        "name": { "es": ".NET 6 MVC", "en": ".NET 6 MVC" },
+        "level": { "es": "Intermedio", "en": "Intermediate" },
         "percentage": 50,
         "icon": "dotnet",
-        "description": "Framework para aplicaciones web robustas"
+        "description": {
+          "es": "Framework para aplicaciones web robustas",
+          "en": "Framework for robust web applications"
+        }
       },
       {
-        "name": "APIs RESTful",
-        "level": "Avanzado",
+        "name": { "es": "APIs RESTful", "en": "RESTful APIs" },
+        "level": { "es": "Avanzado", "en": "Advanced" },
         "percentage": 85,
         "icon": "api",
-        "description": "Diseño e implementación de servicios web"
+        "description": {
+          "es": "Diseño e implementación de servicios web",
+          "en": "Design and implementation of web services"
+        }
       },
       {
-        "name": "SQL Server",
-        "level": "Intermedio",
+        "name": { "es": "SQL Server", "en": "SQL Server" },
+        "level": { "es": "Intermedio", "en": "Intermediate" },
         "percentage": 70,
         "icon": "database",
-        "description": "Base de datos relacional de Microsoft"
+        "description": {
+          "es": "Base de datos relacional de Microsoft",
+          "en": "Microsoft relational database"
+        }
       },
       {
-        "name": "Node.js",
-        "level": "Intermedio",
+        "name": { "es": "Node.js", "en": "Node.js" },
+        "level": { "es": "Intermedio", "en": "Intermediate" },
         "percentage": 75,
         "icon": "nodejs",
-        "description": "Runtime de JavaScript para backend"
+        "description": {
+          "es": "Runtime de JavaScript para backend",
+          "en": "JavaScript runtime for backend"
+        }
       }
     ]
   },
   "tools": [
     {
-      "name": "Git",
-      "level": "Avanzado",
+      "name": { "es": "Git", "en": "Git" },
+      "level": { "es": "Avanzado", "en": "Advanced" },
       "icon": "git",
-      "description": "Control de versiones distribuido"
+      "description": {
+        "es": "Control de versiones distribuido",
+        "en": "Distributed version control"
+      }
     },
     {
-      "name": "GitLab",
-      "level": "Avanzado", 
+      "name": { "es": "GitLab", "en": "GitLab" },
+      "level": { "es": "Avanzado", "en": "Advanced" },
       "icon": "gitlab",
-      "description": "Plataforma DevOps completa"
+      "description": {
+        "es": "Plataforma DevOps completa",
+        "en": "Complete DevOps platform"
+      }
     },
     {
-      "name": "Docker",
-      "level": "Intermedio",
+      "name": { "es": "Docker", "en": "Docker" },
+      "level": { "es": "Intermedio", "en": "Intermediate" },
       "icon": "docker",
-      "description": "Containerización de aplicaciones"
+      "description": {
+        "es": "Containerización de aplicaciones",
+        "en": "Application containerization"
+      }
     },
     {
-      "name": "Selenium",
-      "level": "Intermedio",
+      "name": { "es": "Selenium", "en": "Selenium" },
+      "level": { "es": "Intermedio", "en": "Intermediate" },
       "icon": "selenium",
-      "description": "Automatización de pruebas web"
+      "description": {
+        "es": "Automatización de pruebas web",
+        "en": "Web testing automation"
+      }
     }
   ],
   "methodologies": [
     {
-      "name": "Scrum",
-      "level": "Avanzado",
+      "name": { "es": "Scrum", "en": "Scrum" },
+      "level": { "es": "Avanzado", "en": "Advanced" },
       "icon": "scrum",
-      "description": "Marco de trabajo ágil para desarrollo"
+      "description": {
+        "es": "Marco de trabajo ágil para desarrollo",
+        "en": "Agile framework for development"
+      }
     },
     {
-      "name": "Redux",
-      "level": "Avanzado",
-      "icon": "redux", 
-      "description": "Gestión de estado predecible"
+      "name": { "es": "Redux", "en": "Redux" },
+      "level": { "es": "Avanzado", "en": "Advanced" },
+      "icon": "redux",
+      "description": {
+        "es": "Gestión de estado predecible",
+        "en": "Predictable state management"
+      }
     },
     {
-      "name": "Responsive Design",
-      "level": "Experto",
+      "name": { "es": "Responsive Design", "en": "Responsive Design" },
+      "level": { "es": "Experto", "en": "Expert" },
       "icon": "responsive",
-      "description": "Diseño adaptativo para múltiples dispositivos"
+      "description": {
+        "es": "Diseño adaptativo para múltiples dispositivos",
+        "en": "Adaptive design for multiple devices"
+      }
     }
   ],
   "soft": [
     {
-      "name": "Comunicación Efectiva",
+      "name": { "es": "Comunicación Efectiva", "en": "Effective Communication" },
       "icon": "communication",
-      "description": "Clara al explicar soluciones técnicas a clientes y analistas"
+      "description": {
+        "es": "Clara al explicar soluciones técnicas a clientes y analistas",
+        "en": "Clear when explaining technical solutions to clients and analysts"
+      }
     },
     {
-      "name": "Trabajo en Equipo", 
+      "name": { "es": "Trabajo en Equipo", "en": "Teamwork" },
       "icon": "teamwork",
-      "description": "Colaborativo con equipos multidisciplinarios y apoyo entre áreas"
+      "description": {
+        "es": "Colaborativo con equipos multidisciplinarios y apoyo entre áreas",
+        "en": "Collaborative with multidisciplinary teams and supportive across areas"
+      }
     },
     {
-      "name": "Pensamiento Analítico",
+      "name": { "es": "Pensamiento Analítico", "en": "Analytical Thinking" },
       "icon": "analytics",
-      "description": "Solución práctica a requerimientos complejos"
+      "description": {
+        "es": "Solución práctica a requerimientos complejos",
+        "en": "Practical approach to solving complex requirements"
+      }
     },
     {
-      "name": "Gestión del Tiempo",
+      "name": { "es": "Gestión del Tiempo", "en": "Time Management" },
       "icon": "time",
-      "description": "Cumplimiento puntual de entregas y documentación de avances"
+      "description": {
+        "es": "Cumplimiento puntual de entregas y documentación de avances",
+        "en": "Timely fulfillment of deliverables and progress documentation"
+      }
     }
   ]
 }
+

@@ -117,7 +117,9 @@
     "toolsTech": "Tools & Technologies",
     "tools": "Tools",
     "methodologies": "Methodologies",
-    "soft": "Soft Skills"
+    "soft": "Soft Skills",
+    "frontend": "Frontend Development",
+    "backend": "Backend Development"
   },
   "projects": {
     "subtitle": "Featured projects and professional developments",

@@ -1,29 +1,31 @@
+import type { MultiLanguageText } from './Personal'
+
 export interface Skill {
-  name: string
-  level: string
+  name: MultiLanguageText
+  level: MultiLanguageText
   percentage: number
   icon: string
-  description: string
+  description: MultiLanguageText
 }
 
 export interface Tool {
-  name: string
-  level: string
+  name: MultiLanguageText
+  level: MultiLanguageText
   icon: string
-  description: string
+  description: MultiLanguageText
 }
 
 export interface Methodology {
-  name: string
-  level: string
+  name: MultiLanguageText
+  level: MultiLanguageText
   icon: string
-  description: string
+  description: MultiLanguageText
 }
 
 export interface SoftSkill {
-  name: string
+  name: MultiLanguageText
   icon: string
-  description: string
+  description: MultiLanguageText
 }
 
 export interface TechnicalSkills {

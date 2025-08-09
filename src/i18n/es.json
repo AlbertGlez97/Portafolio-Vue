@@ -117,7 +117,9 @@
     "toolsTech": "Herramientas y Tecnologías",
     "tools": "Herramientas",
     "methodologies": "Metodologías",
-    "soft": "Habilidades Blandas"
+    "soft": "Habilidades Blandas",
+    "frontend": "Desarrollo Frontend",
+    "backend": "Desarrollo Backend"
   },
   "projects": {
     "subtitle": "Proyectos destacados y desarrollos profesionales",

@@ -1,8 +1,8 @@
 <template>
   <div class="skill-bar">
     <div class="skill-info">
-      <span class="skill-name">{{ skill.name }}</span>
-      <span class="skill-level" :class="levelClass">{{ skill.level }}</span>
+      <span class="skill-name">{{ skill.name[currentLanguage] }}</span>
+      <span class="skill-level" :class="levelClass">{{ skill.level[currentLanguage] }}</span>
     </div>
     <div class="progress-bar">
       <div 
@@ -15,12 +15,17 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useMainStore } from '../stores/main'
 import type { SkillBarProps } from '../interfaces'
 
 const props = defineProps<SkillBarProps>()
 
+const mainStore = useMainStore()
+const { currentLanguage } = storeToRefs(mainStore)
+
 const levelClass = computed(() => {
-  const level = props.skill.level.toLowerCase()
+  const level = props.skill.level[currentLanguage.value].toLowerCase()
   if (level.includes('experto') || level.includes('expert')) return 'expert'
   if (level.includes('avanzado') || level.includes('advanced')) return 'advanced'
   if (level.includes('intermedio') || level.includes('intermediate')) return 'intermediate'

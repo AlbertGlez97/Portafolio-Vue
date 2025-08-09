@@ -25,11 +25,19 @@ export const useSkillsStore = defineStore('skills', () => {
   // Actions
   const getSkillByName = (name: string) => {
     const allSkills = [...skills.technical.frontend, ...skills.technical.backend]
-    return allSkills.find(skill => skill.name.toLowerCase() === name.toLowerCase())
+    return allSkills.find(
+      skill =>
+        skill.name.es.toLowerCase() === name.toLowerCase() ||
+        skill.name.en.toLowerCase() === name.toLowerCase()
+    )
   }
 
   const getToolByName = (name: string) => {
-    return skills.tools.find(tool => tool.name.toLowerCase() === name.toLowerCase())
+    return skills.tools.find(
+      tool =>
+        tool.name.es.toLowerCase() === name.toLowerCase() ||
+        tool.name.en.toLowerCase() === name.toLowerCase()
+    )
   }
 
   return {
