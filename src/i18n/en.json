@@ -21,6 +21,33 @@
     "goals": {
       "shortTerm": "Short Term: Advance from semi-senior to senior level, strengthen my technical English and add value to impactful projects.",
       "longTerm": "Long Term: Work abroad, master emerging technologies like artificial intelligence and specialize in backend microservices."
+    },
+    "journey": {
+      "title": "Professional Journey",
+      "item1": {
+        "date": "2024 - Present",
+        "role": "Senior Front-End Developer",
+        "company": "Sye Software (SAT)",
+        "description": "Sole Front-End responsible for the SICOJ system's Consultations module at SAT. Developed with Svelte, TypeScript and Redux, recognized for delivering the project's most advanced module."
+      },
+      "item2": {
+        "date": "2022 - 2024",
+        "role": "Full Stack Developer",
+        "company": "Towa Software",
+        "description": "Development for MI4P client (USA and Canada), building reactive interfaces with Razor and Vue.js, automated testing with Selenium and development of the ShoppingCart system."
+      },
+      "item3": {
+        "date": "2021 - 2022",
+        "role": "Full Stack Developer (Internship)",
+        "company": "StrApps Consulting",
+        "description": ".NET 6 MVC view design with jQuery and Bootstrap. Created WordPress sites and managed version control in GitHub under Scrum methodology."
+      },
+      "item4": {
+        "date": "2016 - 2022",
+        "role": "Computer Engineering",
+        "company": "Tecnológico de Estudios Superiores de Ecatepec",
+        "description": "Graduated with professional license. Strong background in software development, databases and development methodologies."
+      }
     }
   },
   "contact": {

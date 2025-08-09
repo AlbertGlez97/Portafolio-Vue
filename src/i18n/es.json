@@ -21,6 +21,33 @@
     "goals": {
       "shortTerm": "Corto Plazo: Avanzar de nivel semi-senior a senior, fortalecer mi inglés técnico y aportar valor en proyectos con impacto.",
       "longTerm": "Largo Plazo: Trabajar en el extranjero, dominar tecnologías emergentes como inteligencia artificial y especializarme en microservicios backend."
+    },
+    "journey": {
+      "title": "Mi Trayectoria Profesional",
+      "item1": {
+        "date": "2024 - Presente",
+        "role": "Front-End Developer Senior",
+        "company": "Sye Software (SAT)",
+        "description": "Responsable único del Front-End del módulo de Consultas en el sistema SICOJ del SAT. Desarrollo con Svelte, TypeScript y Redux, reconocido por entregar el módulo más avanzado del proyecto."
+      },
+      "item2": {
+        "date": "2022 - 2024",
+        "role": "Full Stack Developer",
+        "company": "Towa Software",
+        "description": "Desarrollo para cliente MI4P (EE.UU. y Canadá), construcción de interfaces reactivas con Razor y Vue.js, pruebas automatizadas con Selenium y desarrollo del sistema ShoppingCart."
+      },
+      "item3": {
+        "date": "2021 - 2022",
+        "role": "Full Stack Developer (Prácticas)",
+        "company": "StrApps Consulting",
+        "description": "Diseño de vistas en .NET 6 MVC, jQuery y Bootstrap. Creación de sitios WordPress y control de versiones en GitHub bajo metodología Scrum."
+      },
+      "item4": {
+        "date": "2016 - 2022",
+        "role": "Ingeniería en Informática",
+        "company": "Tecnológico de Estudios Superiores de Ecatepec",
+        "description": "Titulado con cédula profesional. Formación sólida en desarrollo de software, bases de datos y metodologías de desarrollo."
+      }
     }
   },
   "contact": {

@@ -119,12 +119,12 @@ const experienceData: ExperienceData = getExperience.value
 
 /* Posicionamiento del punto verde para tarjetas impares - centrado en la línea */
 .timeline-container .experience-card:nth-child(odd)::before {
-  right: -11px; /* Centrado perfectamente en la línea de 3px */
+  right: -8px; /* Centrado perfectamente en la línea de 3px */
 }
 
 /* Posicionamiento del punto verde para tarjetas pares - centrado en la línea */
 .timeline-container .experience-card:nth-child(even)::before {
-  left: -11px; /* Centrado perfectamente en la línea de 3px */
+  left: -8px; /* Centrado perfectamente en la línea de 3px */
 }
 
 /* Estilos responsive para tablets */
