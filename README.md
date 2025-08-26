@@ -564,14 +564,3 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 **Albert González**
 - LinkedIn: [linkedin.com/in/albertglez97](https://www.linkedin.com/in/albertglez97)
 - Email: [tu-email@ejemplo.com]
-
-## 🙏 Agradecimientos
-
-- Vue.js team por el excelente framework
-- Pinia team por la gestión de estado
-- Vite team por las herramientas de desarrollo
-- Comunidad open source por las inspiraciones
-
----
-
-⭐ Si este proyecto te ha sido útil, ¡no olvides darle una estrella!
