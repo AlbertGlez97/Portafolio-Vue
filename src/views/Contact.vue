@@ -97,7 +97,8 @@
 
           <!-- Contact Form -->
           <div class="contact-form-container animate-fadeInRight">
-            <form @submit.prevent="handleSubmit" class="contact-form">
+            <!-- Contact form submits data to Formspree -->
+            <form @submit.prevent="onSubmit" class="contact-form">
               <h2>{{ t.contact.form.title }}</h2>
               
               <div class="form-group">
@@ -105,7 +106,7 @@
                 <input 
                   type="text" 
                   id="name" 
-                  v-model="form.name"
+                  v-model="name"
                   :class="{ error: errors.name }"
                   required
                 >
@@ -117,7 +118,7 @@
                 <input 
                   type="email" 
                   id="email" 
-                  v-model="form.email"
+                  v-model="email"
                   :class="{ error: errors.email }"
                   required
                 >
@@ -129,7 +130,7 @@
                 <input 
                   type="text" 
                   id="subject" 
-                  v-model="form.subject"
+                  v-model="subject"
                   :class="{ error: errors.subject }"
                   required
                 >
@@ -140,7 +141,7 @@
                 <label for="message">{{ t.contact.form.message }} *</label>
                 <textarea 
                   id="message" 
-                  v-model="form.message"
+                  v-model="message"
                   :class="{ error: errors.message }"
                   rows="6"
                   required
@@ -151,9 +152,9 @@
               <button 
                 type="submit" 
                 class="btn btn-primary submit-btn"
-                :disabled="isSubmitting"
+                :disabled="isLoading"
               >
-                <span v-if="!isSubmitting">
+                <span v-if="!isLoading">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"/>
                   </svg>
@@ -168,14 +169,15 @@
               </button>
 
               <!-- Success/Error Messages -->
-              <div v-if="submitMessage" class="submit-message" :class="submitStatus">
-                <svg v-if="submitStatus === 'success'" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <!-- Display success or error message -->
+              <div v-if="successMessage || errorMessage" class="submit-message" :class="successMessage ? 'success' : 'error'">
+                <svg v-if="successMessage" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
                 </svg>
                 <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
                 </svg>
-                {{ submitMessage }}
+                {{ successMessage || errorMessage }}
               </div>
             </form>
           </div>
@@ -217,17 +219,17 @@
 import { ref, reactive } from 'vue'
 import { useMainStore } from '../stores/main'
 import { storeToRefs } from 'pinia'
+// Service used to send the form data to Formspree
+import { sendContactForm, ContactFormData } from '../api/contact'
 
 const store = useMainStore()
 const { t } = storeToRefs(store)
 
-// Form data
-const form = reactive({
-  name: '',
-  email: '',
-  subject: '',
-  message: ''
-})
+// Form fields
+const name = ref('')
+const email = ref('')
+const subject = ref('')
+const message = ref('')
 
 // Form validation
 const errors = reactive({
@@ -237,10 +239,10 @@ const errors = reactive({
   message: ''
 })
 
-// Form state
-const isSubmitting = ref(false)
-const submitMessage = ref('')
-const submitStatus = ref<'success' | 'error'>('success')
+// Loading and feedback state
+const isLoading = ref(false)
+const successMessage = ref('')
+const errorMessage = ref('')
 
 // Validation functions
 const validateEmail = (email: string): boolean => {
@@ -257,37 +259,37 @@ const validateForm = (): boolean => {
   let isValid = true
 
   // Name validation
-  if (!form.name.trim()) {
+  if (!name.value.trim()) {
     errors.name = t.value.contact.form.errors.nameRequired
     isValid = false
-  } else if (form.name.trim().length < 2) {
+  } else if (name.value.trim().length < 2) {
     errors.name = t.value.contact.form.errors.nameMin
     isValid = false
   }
 
   // Email validation
-  if (!form.email.trim()) {
+  if (!email.value.trim()) {
     errors.email = t.value.contact.form.errors.emailRequired
     isValid = false
-  } else if (!validateEmail(form.email)) {
+  } else if (!validateEmail(email.value)) {
     errors.email = t.value.contact.form.errors.emailInvalid
     isValid = false
   }
 
   // Subject validation
-  if (!form.subject.trim()) {
+  if (!subject.value.trim()) {
     errors.subject = t.value.contact.form.errors.subjectRequired
     isValid = false
-  } else if (form.subject.trim().length < 5) {
+  } else if (subject.value.trim().length < 5) {
     errors.subject = t.value.contact.form.errors.subjectMin
     isValid = false
   }
 
   // Message validation
-  if (!form.message.trim()) {
+  if (!message.value.trim()) {
     errors.message = t.value.contact.form.errors.messageRequired
     isValid = false
-  } else if (form.message.trim().length < 10) {
+  } else if (message.value.trim().length < 10) {
     errors.message = t.value.contact.form.errors.messageMin
     isValid = false
   }
@@ -295,37 +297,43 @@ const validateForm = (): boolean => {
   return isValid
 }
 
-// Form submission
-const handleSubmit = async () => {
+// Sends the form data using the contact service
+const onSubmit = async () => {
   if (!validateForm()) {
     return
   }
 
-  isSubmitting.value = true
-  submitMessage.value = ''
+  isLoading.value = true
+  successMessage.value = ''
+  errorMessage.value = ''
 
   try {
-    // Simulate form submission (replace with actual API call)
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    // Simulate success
-    submitStatus.value = 'success'
-    submitMessage.value = t.value.contact.form.success
-    
-    // Reset form
-    Object.keys(form).forEach(key => {
-      form[key as keyof typeof form] = ''
-    })
-    
+    const data: ContactFormData = {
+      name: name.value,
+      email: email.value,
+      subject: subject.value,
+      message: message.value
+    }
+
+    // Invoke service that sends data to Formspree
+    await sendContactForm(data)
+    successMessage.value = t.value.contact.form.success
+
+    // Reset fields
+    name.value = ''
+    email.value = ''
+    subject.value = ''
+    message.value = ''
   } catch (error) {
-    submitStatus.value = 'error'
-    submitMessage.value = t.value.contact.form.error
+    // Handle API errors
+    errorMessage.value = t.value.contact.form.error
   } finally {
-    isSubmitting.value = false
-    
-    // Clear message after 5 seconds
+    isLoading.value = false
+
+    // Clear messages after 5 seconds
     setTimeout(() => {
-      submitMessage.value = ''
+      successMessage.value = ''
+      errorMessage.value = ''
     }, 5000)
   }
 }
