@@ -1,15 +1,18 @@
 <template>
+  <!-- Contenedor que aloja el canvas 3D o el fallback plano -->
   <div
     ref="container"
     class="tech-galaxy"
     :style="{ width: resolvedWidth, height: resolvedHeight }"
   >
+    <!-- Canvas renderizado con Three.js; accesible vía aria-label -->
     <canvas
       v-if="show3D"
       ref="canvas"
       role="img"
       aria-label="Visualización 3D de tecnologías"
     ></canvas>
+    <!-- Fallback accesible cuando WebGL no está disponible -->
     <div v-else class="tech-fallback">
       <TechBadge
         v-for="tech in technologies"
@@ -41,16 +44,21 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import TechBadge from './TechBadge.vue'
 import { createTextSprite, disposeTextSpriteCache } from '../lib/createTextSprite'
 
+/**
+ * Visualización en forma de galaxia de etiquetas de tecnología.
+ * Cada nombre se convierte en un sprite de texto con profundidad y rotación.
+ */
+
 interface Props {
-  technologies: string[]
-  width?: number | string
-  height?: number | string
-  autoRotate?: boolean
-  autoRotateSpeed?: number
-  radius?: number
-  enableDamping?: boolean
-  dampingFactor?: number
-  particleDensity?: number
+  technologies: string[] // lista de etiquetas a mostrar
+  width?: number | string // ancho del canvas o contenedor
+  height?: number | string // alto del canvas o contenedor
+  autoRotate?: boolean // activa rotación automática de la esfera
+  autoRotateSpeed?: number // velocidad de dicha rotación
+  radius?: number // radio de la esfera que posiciona los sprites
+  enableDamping?: boolean // suavizado de movimiento con OrbitControls
+  dampingFactor?: number // intensidad del damping
+  particleDensity?: number // cantidad de partículas de fondo
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -64,8 +72,10 @@ const props = withDefaults(defineProps<Props>(), {
   particleDensity: 500
 })
 
+// Evento emitido al seleccionar un sprite
 const emit = defineEmits<{ (e: 'select', tech: string): void }>()
 
+// Referencias DOM y banderas de renderizado
 const container = ref<HTMLDivElement | null>(null)
 const canvas = ref<HTMLCanvasElement | null>(null)
 const show3D = ref(true)
@@ -75,11 +85,12 @@ let scene: Scene
 let camera: PerspectiveCamera
 let controls: OrbitControls
 let animationId = 0
-const sprites: Sprite[] = []
-const raycaster = new Raycaster()
+const sprites: Sprite[] = [] // colección de etiquetas 3D
+const raycaster = new Raycaster() // detección de interacción
 const mouse = new Vector2()
-let hovered: Sprite | null = null
+let hovered: Sprite | null = null // sprite actualmente bajo el cursor
 
+// Normaliza medidas numéricas a valores CSS
 const resolvedWidth = computed(() =>
   typeof props.width === 'number' ? `${props.width}px` : props.width
 )
@@ -87,6 +98,7 @@ const resolvedHeight = computed(() =>
   typeof props.height === 'number' ? `${props.height}px` : props.height
 )
 
+// Verifica si el navegador soporta WebGL
 function isWebGLAvailable(): boolean {
   try {
     const canvas = document.createElement('canvas')
@@ -99,10 +111,12 @@ function isWebGLAvailable(): boolean {
   }
 }
 
+// Respeta la preferencia de movimiento reducido del usuario
 const prefersReducedMotion = window.matchMedia(
   '(prefers-reduced-motion: reduce)'
 ).matches
 
+// Inicializa escena Three.js al montar el componente
 onMounted(() => {
   if (!isWebGLAvailable() || prefersReducedMotion) {
     show3D.value = false
@@ -115,6 +129,7 @@ onMounted(() => {
   container.value?.addEventListener('click', onClick)
 })
 
+// Limpieza completa de recursos WebGL al destruir el componente
 onBeforeUnmount(() => {
   if (!show3D.value) return
   cancelAnimationFrame(animationId)
@@ -138,6 +153,7 @@ onBeforeUnmount(() => {
 })
 
 function init() {
+  // Configuración básica del renderer y cámara
   renderer = new WebGLRenderer({
     canvas: canvas.value!,
     antialias: true,
@@ -155,6 +171,7 @@ function init() {
   )
   camera.position.set(0, 0, props.radius * 3)
 
+  // Controles de órbita con auto-rotación opcional
   controls = new OrbitControls(camera, renderer.domElement)
   controls.enableDamping = props.enableDamping
   controls.dampingFactor = props.dampingFactor
@@ -163,12 +180,13 @@ function init() {
   controls.minDistance = props.radius * 1.2
   controls.maxDistance = props.radius * 4
 
+  // Iluminación suave y direccional
   const ambient = new AmbientLight(0xffffff, 0.6)
   const directional = new DirectionalLight(0xffffff, 0.5)
   directional.position.set(1, 1, 1)
   scene.add(ambient, directional)
 
-  // Star field
+  // Campo estelar como fondo
   const starGeometry = new BufferGeometry()
   const positions: number[] = []
   const distance = props.radius * 5
@@ -189,7 +207,7 @@ function init() {
   const stars = new Points(starGeometry, starMaterial)
   scene.add(stars)
 
-  // Technology sprites on a sphere
+  // Sprites de texto distribuidos en esfera (método Fibonacci)
   const N = props.technologies.length
   const radius = props.radius
   for (let i = 0; i < N; i++) {
@@ -208,6 +226,7 @@ function init() {
 
 function animate() {
   animationId = requestAnimationFrame(animate)
+  // Ajusta escala y opacidad según distancia para simular profundidad
   sprites.forEach(sprite => {
     const dist = camera.position.distanceTo(sprite.position)
     const min = props.radius * 0.8
@@ -222,6 +241,7 @@ function animate() {
   renderer.render(scene, camera)
 }
 
+// Actualiza viewport al cambiar tamaño del contenedor
 function onResize() {
   if (!container.value) return
   const w = container.value.clientWidth
@@ -231,6 +251,7 @@ function onResize() {
   camera.updateProjectionMatrix()
 }
 
+// Detecta sprites bajo el cursor y aplica efecto hover
 function onPointerMove(event: PointerEvent) {
   if (!canvas.value) return
   const rect = canvas.value.getBoundingClientRect()
@@ -253,6 +274,7 @@ function onPointerMove(event: PointerEvent) {
   }
 }
 
+// Centra la cámara sobre el sprite seleccionado y emite evento
 function onClick() {
   if (hovered) {
     controls.target.copy(hovered.position)

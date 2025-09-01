@@ -1,12 +1,14 @@
 <template>
   <div class="skill-bar">
+    <!-- Encabezado con nombre y nivel traducidos -->
     <div class="skill-info">
       <span class="skill-name">{{ skill.name[currentLanguage] }}</span>
       <span class="skill-level" :class="levelClass">{{ skill.level[currentLanguage] }}</span>
     </div>
+    <!-- Barra de progreso proporcional al porcentaje -->
     <div class="progress-bar">
-      <div 
-        class="progress-fill" 
+      <div
+        class="progress-fill"
         :style="{ width: `${skill.percentage}%` }"
       ></div>
     </div>
@@ -19,11 +21,14 @@ import { storeToRefs } from 'pinia'
 import { useMainStore } from '../stores/main'
 import type { SkillBarProps } from '../interfaces'
 
+// Prop: objeto Skill a representar
 const props = defineProps<SkillBarProps>()
 
+// Idioma actual para mostrar textos correspondientes
 const mainStore = useMainStore()
 const { currentLanguage } = storeToRefs(mainStore)
 
+// Calcula clase CSS según nivel textual de la habilidad
 const levelClass = computed(() => {
   const level = props.skill.level[currentLanguage.value].toLowerCase()
   if (level.includes('experto') || level.includes('expert')) return 'expert'

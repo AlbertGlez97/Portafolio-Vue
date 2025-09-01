@@ -1,10 +1,17 @@
 <template>
+  <!-- Badge textual para tecnología o herramienta -->
   <span class="tech-badge" :class="sizeClass">{{ label }}</span>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
 
+/**
+ * Etiqueta accesible que reemplaza iconos por texto.
+ * Props:
+ * - label: texto visible en el badge
+ * - size: tamaño visual (sm/md)
+ */
 interface Props {
   label: string
   size?: 'sm' | 'md'
@@ -14,6 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
   size: 'md'
 })
 
+// Clase CSS dinámica según tamaño recibido
 const sizeClass = computed(() => `tech-badge--${props.size}`)
 </script>
 

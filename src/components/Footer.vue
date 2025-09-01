@@ -1,8 +1,10 @@
 <template>
+  <!-- Pie de página global con enlaces sociales -->
   <footer class="footer">
     <div class="footer-top">
       <div class="container">
         <h2 class="footer-name">Albert González</h2>
+        <!-- Texto traducido obtenido del store -->
         <p class="footer-description">{{ t.footer.description }}</p>
         <div class="social-links">
           <a
@@ -34,6 +36,7 @@
       <div class="container footer-bottom-content">
         <p class="copyright">© {{ currentYear }} Albert González. {{ t.footer.rights }}.</p>
         <nav class="footer-nav">
+          <!-- Navegación secundaria -->
           <router-link to="/" class="footer-nav-link">{{ t.nav.home }}</router-link>
           <router-link to="/sobre-mi" class="footer-nav-link">{{ t.nav.about }}</router-link>
           <router-link to="/contacto" class="footer-nav-link">{{ t.nav.contact }}</router-link>
@@ -50,7 +53,7 @@ import { storeToRefs } from 'pinia'
 
 const store = useMainStore()
 const { t } = storeToRefs(store)
-
+// Año actual mostrado en copyright
 const currentYear = computed(() => new Date().getFullYear())
 </script>
 

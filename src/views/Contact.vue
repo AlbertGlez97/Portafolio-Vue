@@ -224,14 +224,13 @@ import { sendContactForm, ContactFormData } from '../api/contact'
 
 const store = useMainStore()
 const { t } = storeToRefs(store)
-
-// Form fields
+// Campos del formulario controlados por refs
 const name = ref('')
 const email = ref('')
 const subject = ref('')
 const message = ref('')
 
-// Form validation
+// Estado de validación de cada campo
 const errors = reactive({
   name: '',
   email: '',
@@ -239,7 +238,7 @@ const errors = reactive({
   message: ''
 })
 
-// Loading and feedback state
+// Estado de carga y mensajes de feedback
 const isLoading = ref(false)
 const successMessage = ref('')
 const errorMessage = ref('')
@@ -297,7 +296,7 @@ const validateForm = (): boolean => {
   return isValid
 }
 
-// Sends the form data using the contact service
+// Envía los datos del formulario usando el servicio de contacto
 const onSubmit = async () => {
   if (!validateForm()) {
     return

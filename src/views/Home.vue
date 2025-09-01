@@ -1,6 +1,6 @@
 <template>
   <main class="home">
-    <!-- Hero Section -->
+    <!-- Hero Section: presentación principal -->
     <section class="hero">
       <div class="container">
         <div class="hero-content">
@@ -43,7 +43,7 @@
         </div>
       </div>
 
-      <!-- Scroll Indicator -->
+      <!-- Scroll Indicator para mover a la sección siguiente -->
       <div class="scroll-indicator">
         <div class="scroll-arrow animate-pulse" @click="scrollToOverview">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
@@ -55,7 +55,7 @@
       </div>
     </section>
 
-    <!-- Quick Overview Section -->
+    <!-- Quick Overview Section: tarjetas de datos clave -->
       <section class="overview section">
         <div class="container">
           <div class="overview-grid">
@@ -80,7 +80,7 @@
         </div>
       </section>
 
-      <!-- Featured Projects Preview -->
+      <!-- Featured Projects Preview: muestra 2 proyectos destacados -->
       <section class="featured-projects section">
         <div class="container">
           <h2 class="section-title">{{ t.home.featured.title }}</h2>
@@ -109,6 +109,7 @@ import OverviewCard from "../components/OverviewCard.vue";
 import FeaturedProject from "../components/FeaturedProject.vue";
 import projectsData from "../data/projects.json";
 
+// Acceso a traducciones y helper de texto
 const store = useMainStore();
 const { t } = storeToRefs(store);
 const { getTranslatedText } = store;

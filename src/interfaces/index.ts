@@ -1,3 +1,5 @@
+// Re-exporta interfaces de todo el dominio para facilidad de importación
+
 // Skills interfaces
 export type {
   Skill,

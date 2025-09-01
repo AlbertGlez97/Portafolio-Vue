@@ -4,30 +4,29 @@ import type { PersonalData } from '../domain/personal/Personal'
 import { GetPersonalUseCase } from '../application/personal/GetPersonalUseCase'
 import { StaticPersonalRepository } from '../infrastructure/personal/StaticPersonalRepository'
 
+/**
+ * Store que obtiene la información personal mediante la capa de aplicación.
+ * Demuestra el flujo dominio → infraestructura → aplicación.
+ */
 export const usePersonalStore = defineStore('personal', () => {
-  // Instanciamos el repositorio y el caso de uso (capa de infraestructura -> aplicación)
+  // Instanciamos el repositorio estático y el caso de uso
   const repository = new StaticPersonalRepository()
   const getPersonalUseCase = new GetPersonalUseCase(repository)
 
-  // Estado: datos personales obtenidos a través del caso de uso
+  // --- State --- datos cargados desde JSON a través del caso de uso
   const personal: PersonalData = getPersonalUseCase.execute()
 
-  // Getters: exponen la información al exterior
+  // --- Getters --- exposición de secciones para los componentes
   const getPersonal = computed(() => personal)
-
   const getProfile = computed(() => personal.profile)
-
   const getContact = computed(() => personal.contact)
-
   const getAbout = computed(() => personal.about)
-
   const getAchievements = computed(() => personal.achievements)
-
   const getGoals = computed(() => personal.about.goals)
-
   const getInterests = computed(() => personal.about.interests)
 
-  // Actions: métodos que procesan o filtran la información
+  // --- Actions --- funciones utilitarias
+  // Devuelve información de contacto ya estructurada
   const getContactInfo = () => {
     return {
       email: personal.contact.email,
@@ -38,10 +37,12 @@ export const usePersonalStore = defineStore('personal', () => {
     }
   }
 
+  // Obtiene descripción del perfil en el idioma solicitado
   const getProfileDescription = (language: 'es' | 'en' = 'es') => {
     return personal.profile.description[language]
   }
 
+  // Filtra objetivos por periodo (corto/largo plazo)
   const getGoalsByPeriod = (period: 'shortTerm' | 'longTerm') => {
     return personal.about.goals[period]
   }

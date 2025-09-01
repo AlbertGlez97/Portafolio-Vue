@@ -60,10 +60,9 @@
 import { storeToRefs } from 'pinia'
 import { useMainStore } from '../stores/main'
 import { useRouter } from 'vue-router'
-
 // Inicialización de stores y router
-const mainStore = useMainStore()
-const router = useRouter()
+const mainStore = useMainStore() // store principal con traducciones
+const router = useRouter() // instancia para navegar programáticamente
 
 // Extracción de datos reactivos
 const { t } = storeToRefs(mainStore)

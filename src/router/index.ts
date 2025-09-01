@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import { useMainStore } from '../stores/main'
 
-// Importación directa solo para la página principal (crítica)
+// Router principal con lazy loading para optimizar el bundle.
+// La vista Home se importa de forma directa al ser crítica.
 import Home from '../views/Home.vue'
 
 // Definición de tipos para meta fields
@@ -16,7 +17,8 @@ declare module 'vue-router' {
   }
 }
 
-// Definición de rutas con tipado estricto
+// Definición de rutas con tipado estricto.
+// Cada ruta declara metadatos para navegación y SEO.
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -130,7 +132,8 @@ const router = createRouter({
   routes,
   // Comportamiento de scroll mejorado
   scrollBehavior(to, from, savedPosition) {
-    // Si hay una posición guardada (navegación con botones del navegador)
+    // Controla la posición de scroll al navegar entre rutas.
+    // Si hay una posición guardada (botones del navegador)
     if (savedPosition) {
       return savedPosition
     }
@@ -145,7 +148,7 @@ const router = createRouter({
     }
     
     // Por defecto, ir al inicio de la página
-    return { 
+    return {
       top: 0,
       behavior: 'smooth'
     }
@@ -196,7 +199,7 @@ router.afterEach((to, from) => {
   }
 })
 
-// Manejo de errores de navegación
+// Manejo de errores de navegación para chunks dinámicos
 router.onError((error) => {
   console.error('Error de navegación:', error)
   
@@ -208,11 +211,11 @@ router.onError((error) => {
 
 export default router
 
-// Exportar utilidades para usar en componentes
+// Utilidad que devuelve las rutas visibles en la barra de navegación
 export const getNavigationRoutes = () => {
   return routes
     .filter(route => route.meta?.showInNav)
     .sort((a, b) => (a.meta?.order || 0) - (b.meta?.order || 0))
 }
-
+// Obtiene la ruta actual reactiva
 export const getCurrentRoute = () => router.currentRoute.value
