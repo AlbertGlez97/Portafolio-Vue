@@ -43,18 +43,6 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
-    path: '/experiencia',
-    name: 'experience',
-    component: () => import('../views/Experience.vue'),
-    meta: {
-      title: 'Experiencia',
-      description: 'Trayectoria profesional en desarrollo Front-End y Full-Stack',
-      showInNav: true,
-      icon: 'briefcase',
-      order: 3
-    }
-  },
-  {
     path: '/educacion',
     name: 'education',
     component: () => import('../views/Education.vue'),
@@ -63,7 +51,7 @@ const routes: RouteRecordRaw[] = [
       description: 'Formación académica y certificaciones profesionales',
       showInNav: true,
       icon: 'graduation-cap',
-      order: 4
+      order: 3
     }
   },
   {
@@ -75,7 +63,7 @@ const routes: RouteRecordRaw[] = [
       description: 'Tecnologías, herramientas y competencias técnicas',
       showInNav: true,
       icon: 'code',
-      order: 5
+      order: 4
     }
   },
   {
@@ -87,7 +75,7 @@ const routes: RouteRecordRaw[] = [
       description: 'Portfolio de proyectos destacados y trabajos realizados',
       showInNav: true,
       icon: 'folder',
-      order: 6
+      order: 5
     }
   },
   {
@@ -99,17 +87,13 @@ const routes: RouteRecordRaw[] = [
       description: 'Ponte en contacto para colaboraciones y oportunidades',
       showInNav: true,
       icon: 'mail',
-      order: 7
+      order: 6
     }
   },
   // Rutas de redirección para compatibilidad con URLs en inglés
   {
     path: '/about',
     redirect: '/sobre-mi'
-  },
-  {
-    path: '/experience',
-    redirect: '/experiencia'
   },
   {
     path: '/education',

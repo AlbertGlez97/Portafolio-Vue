@@ -2,7 +2,6 @@
   "nav": {
     "home": "Inicio",
     "about": "Sobre Mí",
-    "experience": "Experiencia",
     "education": "Educación",
     "skills": "Habilidades",
     "projects": "Proyectos",
@@ -37,19 +36,19 @@
         "date": "2024 - Presente",
         "role": "Front-End Developer Senior",
         "company": "Sye Software (SAT)",
-        "description": "Responsable único del Front-End del módulo de Consultas en el sistema SICOJ del SAT. Desarrollo con Svelte, TypeScript y Redux, reconocido por entregar el módulo más avanzado del proyecto."
+        "description": "Responsable único del Front-End del módulo de Consultas en el sistema SICOJ del SAT. Desarrollé componentes reutilizables en Svelte y TypeScript, integré servicios RESTful desde .NET 6 MVC y gestioné el estado con Redux. Reconocido por entregar el módulo más avanzado y mantener el ritmo del proyecto sin apoyo directo. Tecnologías: Svelte, TypeScript, Redux, .NET 6 MVC, GitLab y Docker."
       },
       "item2": {
         "date": "2022 - 2024",
         "role": "Full Stack Developer",
         "company": "Towa Software",
-        "description": "Participación en Front-End y Back-End como puente entre APIs externas y el Front-End. Trabajo con .NET 6 MVC, Entity Framework, LINQ, asincronía, inyección de dependencias y manejo de respuestas HTTP, integrando APIs de un control central externo."
+        "description": "Actué como puente entre APIs externas y el Front-End. Diseñé y consumí APIs REST, implementé .NET 6 MVC con Entity Framework y LINQ gestionando asincronía e inyección de dependencias. Construí interfaces reactivas en Razor con Vue.js y realicé pruebas automatizadas con Selenium. Tecnologías: .NET 6 MVC, Entity Framework, LINQ, C#, Vue.js, Razor, Selenium y SQL Server."
       },
       "item3": {
         "date": "2021 - 2022",
         "role": "Full Stack Developer (Prácticas)",
         "company": "StrApps Consulting",
-        "description": "Diseño de vistas en .NET 6 MVC, jQuery y Bootstrap. Creación de sitios WordPress y control de versiones en GitHub bajo metodología Scrum."
+        "description": "Prácticas diseñando vistas en .NET 6 MVC con jQuery y Bootstrap para un modelo de crédito de cobranzas. Creé sitios WordPress y controlé versiones en GitHub bajo metodología Scrum. Tecnologías: .NET 6 MVC, jQuery, Bootstrap, WordPress y GitHub."
       },
       "item4": {
         "date": "2016 - 2022",
@@ -161,18 +160,11 @@
     "responsive": "Diseño Responsivo",
     "techSection": "Tecnologías en Proyectos"
   },
-  "experience": {
-    "subtitle": "Mi trayectoria en el desarrollo Front-End y Full-Stack"
-  },
   "projectCard": {
     "features": "Características Principales:",
     "technologies": "Tecnologías Utilizadas:",
     "viewProject": "Ver Proyecto",
     "confidential": "Proyecto confidencial"
-  },
-  "experienceCard": {
-    "achievements": "Logros Principales:",
-    "technologies": "Tecnologías Utilizadas:"
   },
   "navbar": {
     "switchToEnglish": "Cambiar a Inglés",

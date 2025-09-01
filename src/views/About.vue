@@ -58,43 +58,18 @@
       <section class="journey section">
         <h2 class="section-title">{{ t.about.journey.title }}</h2>
         <div class="journey-timeline">
-          <div class="timeline-item animate-fadeInLeft">
+          <div
+            v-for="(item, index) in journeyItems"
+            :key="index"
+            class="timeline-item"
+            :class="index % 2 === 0 ? 'animate-fadeInLeft' : 'animate-fadeInRight'"
+          >
             <div class="timeline-marker"></div>
             <div class="timeline-content">
-              <div class="timeline-date">{{ t.about.journey.item1.date }}</div>
-              <h3>{{ t.about.journey.item1.role }}</h3>
-              <h4>{{ t.about.journey.item1.company }}</h4>
-              <p>{{ t.about.journey.item1.description }}</p>
-            </div>
-          </div>
-
-          <div class="timeline-item animate-fadeInRight">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">{{ t.about.journey.item2.date }}</div>
-              <h3>{{ t.about.journey.item2.role }}</h3>
-              <h4>{{ t.about.journey.item2.company }}</h4>
-              <p>{{ t.about.journey.item2.description }}</p>
-            </div>
-          </div>
-
-          <div class="timeline-item animate-fadeInLeft">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">{{ t.about.journey.item3.date }}</div>
-              <h3>{{ t.about.journey.item3.role }}</h3>
-              <h4>{{ t.about.journey.item3.company }}</h4>
-              <p>{{ t.about.journey.item3.description }}</p>
-            </div>
-          </div>
-
-          <div class="timeline-item animate-fadeInRight">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <div class="timeline-date">{{ t.about.journey.item4.date }}</div>
-              <h3>{{ t.about.journey.item4.role }}</h3>
-              <h4>{{ t.about.journey.item4.company }}</h4>
-              <p>{{ t.about.journey.item4.description }}</p>
+              <div class="timeline-date">{{ item.date }}</div>
+              <h3>{{ item.role }}</h3>
+              <h4>{{ item.company }}</h4>
+              <p>{{ item.description }}</p>
             </div>
           </div>
         </div>
@@ -210,6 +185,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue";
 import { useMainStore } from "../stores/main";
 import { usePersonalStore } from "../stores/personal";
 // Importamos el modelo del dominio
@@ -222,6 +198,11 @@ const { t } = storeToRefs(mainStore);
 const { getTranslatedText } = mainStore;
 const { getPersonal } = storeToRefs(personalStore);
 const personalData: PersonalData = getPersonal.value;
+
+const journeyItems = computed(() => {
+  const { title, ...items } = t.value.about.journey;
+  return Object.values(items);
+});
 </script>
 
 <style scoped>
