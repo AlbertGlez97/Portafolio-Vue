@@ -123,6 +123,7 @@ import SkillBar from '../components/SkillBar.vue'
 import TechBadge from '../components/TechBadge.vue'
 import type { SkillsData } from '../interfaces'
 
+// Stores para obtener traducciones y habilidades
 const mainStore = useMainStore()
 const skillsStore = useSkillsStore()
 const { t, currentLanguage } = storeToRefs(mainStore)

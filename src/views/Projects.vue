@@ -103,18 +103,20 @@ import ProjectCard from '../components/ProjectCard.vue'
 import TechGalaxy from '../components/TechGalaxy.vue'
 import type { ProjectsData } from '../interfaces'
 
+// Stores para traducciones y proyectos
 const mainStore = useMainStore()
 const projectsStore = useProjectsStore()
 const { t } = storeToRefs(mainStore)
 const { getProjects, getTotalProjects, getFeaturedProjectsCount, getUniqueTechnologies, getAllTechnologies } = storeToRefs(projectsStore)
 const projectsData: ProjectsData = getProjects.value
 
-// Use store computed values
+// Valores derivados desde la store
 const totalProjects = getTotalProjects
 const featuredProjects = getFeaturedProjectsCount
 const uniqueTechnologies = getUniqueTechnologies
 const allTechnologies = getAllTechnologies
 
+// Nombres únicos para alimentar la galaxia 3D
 const technologyNames = computed(() =>
   Array.from(new Set(allTechnologies.value.map(t => t.name)))
 )

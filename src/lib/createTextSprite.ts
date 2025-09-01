@@ -1,5 +1,6 @@
 import { CanvasTexture, Sprite, SpriteMaterial } from 'three'
 
+// Entrada de caché para evitar recrear texturas de texto
 interface CacheEntry {
   texture: CanvasTexture
   width: number

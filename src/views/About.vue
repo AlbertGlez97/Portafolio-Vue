@@ -192,13 +192,16 @@ import { usePersonalStore } from "../stores/personal";
 import type { PersonalData } from "../domain/personal/Personal";
 import { storeToRefs } from "pinia";
 
+// Stores para traducciones y datos personales
 const mainStore = useMainStore();
 const personalStore = usePersonalStore();
 const { t } = storeToRefs(mainStore);
 const { getTranslatedText } = mainStore;
 const { getPersonal } = storeToRefs(personalStore);
+// Datos personales provenientes de la capa de dominio
 const personalData: PersonalData = getPersonal.value;
 
+// Lista de eventos de la línea de tiempo profesional
 const journeyItems = computed(() => {
   const { title, ...items } = t.value.about.journey;
   return Object.values(items);

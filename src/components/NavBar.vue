@@ -1,13 +1,14 @@
 <template>
+  <!-- Navegación principal del sitio -->
   <nav class="navbar" :class="{ 'navbar-scrolled': isScrolled }">
     <div class="container">
       <div class="navbar-content">
-        <!-- Logo -->
+        <!-- Logo que redirige al inicio -->
         <router-link to="/" class="navbar-logo" @click="closeMenu">
           <span class="logo-text">AG</span>
         </router-link>
 
-        <!-- Desktop Menu -->
+        <!-- Menú de navegación en versión escritorio -->
         <ul class="navbar-menu desktop-menu">
           <li v-for="item in menuItems" :key="item.name">
             <router-link 
@@ -20,9 +21,9 @@
           </li>
         </ul>
 
-        <!-- Controls -->
+        <!-- Controles de idioma, tema y menú móvil -->
         <div class="navbar-controls">
-          <!-- Language Toggle -->
+          <!-- Interruptor de idioma -->
           <button
             @click="toggleLanguage"
             class="control-btn language-btn"
@@ -31,7 +32,7 @@
             {{ currentLanguage === 'es' ? 'EN' : 'ES' }}
           </button>
 
-          <!-- Dark Mode Toggle -->
+          <!-- Interruptor de modo oscuro/claro -->
           <button
             @click="toggleDarkMode"
             class="control-btn theme-btn"
@@ -41,7 +42,7 @@
             <span v-else>🌙</span>
           </button>
 
-          <!-- Mobile Menu Toggle -->
+          <!-- Botón hamburguesa para menú móvil -->
           <button 
             @click="toggleMenu" 
             class="control-btn mobile-menu-btn"
@@ -54,7 +55,7 @@
         </div>
       </div>
 
-      <!-- Mobile Menu -->
+      <!-- Menú lateral en móviles -->
       <div class="mobile-menu" :class="{ active: isMenuOpen }">
         <ul class="mobile-menu-list">
           <li v-for="item in menuItems" :key="item.name">
@@ -78,12 +79,15 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { useMainStore } from '../stores/main'
 import { storeToRefs } from 'pinia'
 
+// Consumo de la store global para idioma/tema/menú
 const store = useMainStore()
 const { currentLanguage, isDarkMode, isMenuOpen, t } = storeToRefs(store)
 const { toggleLanguage, toggleDarkMode, toggleMenu, closeMenu } = store
 
+// Estado local para aplicar estilo cuando se hace scroll
 const isScrolled = ref(false)
 
+// Rutas que se muestran en la navegación
 const menuItems = [
   { name: 'home', path: '/' },
   { name: 'about', path: '/sobre-mi' },
@@ -93,6 +97,7 @@ const menuItems = [
   { name: 'contact', path: '/contacto' }
 ]
 
+// Detecta desplazamiento para cambiar estilo del header
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
 }

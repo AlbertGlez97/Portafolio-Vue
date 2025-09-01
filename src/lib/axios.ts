@@ -1,9 +1,8 @@
 import axios from 'axios'
 
 /**
- * Axios instance configured for Formspree requests.
- * Setting the baseURL allows us to make requests without
- * repeating the endpoint path in each service call.
+ * Instancia de Axios preconfigurada para enviar formularios a Formspree.
+ * La baseURL evita repetir el endpoint en cada petición.
  */
 const axiosInstance = axios.create({
   baseURL: 'https://formspree.io/f/xblajzlk',

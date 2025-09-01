@@ -3,21 +3,21 @@ import { computed } from 'vue'
 import type { EducationData, Certification } from '../interfaces'
 import educationData from '../data/education.json'
 
+/**
+ * Store que gestiona formación académica, certificaciones y metas.
+ */
 export const useEducationStore = defineStore('education', () => {
-  // State
+  // --- State ---
   const education: EducationData = educationData
 
-  // Getters
+  // --- Getters ---
   const getEducation = computed(() => education)
-  
   const getAcademicEducation = computed(() => education.academic)
-  
   const getCertifications = computed(() => education.certifications)
-  
   const getPhilosophy = computed(() => education.philosophy)
-  
   const getGoals = computed(() => education.goals)
 
+  // Agrupa certificaciones por proveedor para facilitar su renderizado
   const getCertificationsByProvider = computed(() => {
     const providers: { [key: string]: Certification[] } = {}
     education.certifications.forEach(cert => {
@@ -29,19 +29,23 @@ export const useEducationStore = defineStore('education', () => {
     return providers
   })
 
+  // Número total de certificaciones registradas
   const getTotalCertifications = computed(() => education.certifications.length)
 
-  // Actions
+  // --- Actions ---
+  // Recupera una certificación por ID
   const getCertificationById = (id: number): Certification | undefined => {
     return education.certifications.find(cert => cert.id === id)
   }
 
+  // Filtra certificaciones por proveedor
   const getCertificationsByProviderName = (provider: string): Certification[] => {
-    return education.certifications.filter(cert => 
+    return education.certifications.filter(cert =>
       cert.provider.toLowerCase().includes(provider.toLowerCase())
     )
   }
 
+  // Recupera una meta por su identificador
   const getGoalById = (id: number) => {
     return education.goals.find(goal => goal.id === id)
   }
@@ -49,7 +53,7 @@ export const useEducationStore = defineStore('education', () => {
   return {
     // State
     education,
-    
+
     // Getters
     getEducation,
     getAcademicEducation,
@@ -58,7 +62,7 @@ export const useEducationStore = defineStore('education', () => {
     getGoals,
     getCertificationsByProvider,
     getTotalCertifications,
-    
+
     // Actions
     getCertificationById,
     getCertificationsByProviderName,

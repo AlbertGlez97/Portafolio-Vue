@@ -1,4 +1,5 @@
 <template>
+  <!-- Tarjeta detallada de proyecto -->
   <div class="project-card" :class="{ 'featured': badgeClass === 'featured' }">
     <div class="project-image">
       <div class="image-placeholder">
@@ -10,6 +11,7 @@
     
     <div class="project-content">
       <div class="project-header">
+        <!-- Título del proyecto y badge de tipo -->
         <h3>{{ getTranslatedText(project.title) }}</h3>
         <span v-if="project.type" class="project-badge" :class="badgeClass">
           {{ getTranslatedText(project.type) }}
@@ -30,6 +32,7 @@
         </ul>
       </div>
       
+      <!-- Tecnologías asociadas con badges de texto -->
       <div class="project-technologies">
         <h5>{{ t.projectCard.technologies }}</h5>
         <div class="tech-tags">
@@ -42,6 +45,7 @@
         </div>
       </div>
       
+      <!-- Métricas opcionales del proyecto -->
       <div v-if="project.metrics" class="project-metrics">
         <div class="metric">
           <span class="metric-value">{{ project.metrics.responsive }}</span>
@@ -57,6 +61,7 @@
         </div>
       </div>
       
+      <!-- Enlaces externos -->
       <div v-if="project.url || project.github" class="project-links">
         <a 
           v-if="project.url" 
@@ -84,6 +89,7 @@
         </a>
       </div>
       
+      <!-- Aviso de confidencialidad -->
       <div v-if="project.confidential" class="confidential-notice">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z"/>
@@ -101,12 +107,15 @@ import { useMainStore } from '../stores/main'
 import { storeToRefs } from 'pinia'
 import TechBadge from './TechBadge.vue'
 
+// Props: información del proyecto a mostrar
 const props = defineProps<ProjectCardProps>()
 
+// Traducciones y helpers desde la store principal
 const mainStore = useMainStore()
 const { t } = storeToRefs(mainStore)
 const { getTranslatedText } = mainStore
 
+// Define la clase del badge según el tipo de proyecto
 const badgeClass = computed(() => {
   const typeEs = props.project.type.es.toLowerCase()
   const typeEn = props.project.type.en.toLowerCase()

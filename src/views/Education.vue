@@ -136,11 +136,13 @@ import { useEducationStore } from '../stores/education'
 import CertificationCard from '../components/CertificationCard.vue'
 import type { EducationData } from '../interfaces'
 
+// Stores para traducciones y datos de educación
 const mainStore = useMainStore()
 const educationStore = useEducationStore()
 const { t } = storeToRefs(mainStore)
 const { getTranslatedText } = mainStore
 const { getEducation } = storeToRefs(educationStore)
+// Información académica y certificaciones
 const educationData: EducationData = getEducation.value
 </script>
 

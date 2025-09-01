@@ -1,4 +1,5 @@
 <template>
+  <!-- Tarjeta genérica para mostrar resumen de datos -->
   <div class="overview-card animate-fadeInUp">
     <div class="card-icon">
       <slot name="icon" />
@@ -10,7 +11,7 @@
 
 <script setup lang="ts">
 // Componente reutilizable para las tarjetas de resumen rápido
-// Recibe el título y la descripción ya traducidos
+// Props ya vienen traducidas desde la vista
 interface Props {
   title: string
   description: string

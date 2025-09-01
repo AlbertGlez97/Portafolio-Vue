@@ -1,5 +1,7 @@
 import axiosInstance from '../lib/axios'
 
+// Servicio HTTP que envía el formulario de contacto a Formspree
+
 // Interface describing the expected fields for the contact form
 export interface ContactFormData {
   name: string

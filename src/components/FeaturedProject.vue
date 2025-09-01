@@ -1,4 +1,5 @@
 <template>
+  <!-- Tarjeta resumida para proyectos destacados -->
   <div class="project-card animate-fadeInUp">
     <div class="project-image">
       <div class="project-placeholder">
@@ -11,6 +12,7 @@
       <h3>{{ getTranslatedText(project.title) }}</h3>
       <p>{{ getTranslatedText(project.description) }}</p>
       <div class="project-tech">
+        <!-- Lista de tecnologías en formato texto -->
         <TechBadge
           v-for="tech in project.technologies"
           :key="tech"
@@ -33,7 +35,7 @@ import TechBadge from './TechBadge.vue'
 import { useMainStore } from '../stores/main'
 import { storeToRefs } from 'pinia'
 
-// Definimos la estructura del proyecto destacado
+// Estructura esperada para cada proyecto destacado
 interface FeaturedProject {
   title: { es: string; en: string }
   description: { es: string; en: string }
@@ -41,8 +43,10 @@ interface FeaturedProject {
   technologies: string[]
 }
 
+// Prop que recibe el proyecto a mostrar
 const props = defineProps<{ project: FeaturedProject }>()
 
+// Acceso a traducciones desde la store principal
 const mainStore = useMainStore()
 const { t } = storeToRefs(mainStore)
 const { getTranslatedText } = mainStore
