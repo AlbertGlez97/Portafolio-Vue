@@ -39,7 +39,7 @@ import {
 } from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import TechBadge from './TechBadge.vue'
-import { createTextSprite } from '../lib/createTextSprite'
+import { createTextSprite, disposeTextSpriteCache } from '../lib/createTextSprite'
 
 interface Props {
   technologies: string[]
@@ -134,6 +134,7 @@ onBeforeUnmount(() => {
   window.removeEventListener('resize', onResize)
   container.value?.removeEventListener('pointermove', onPointerMove)
   container.value?.removeEventListener('click', onClick)
+  disposeTextSpriteCache()
 })
 
 function init() {
