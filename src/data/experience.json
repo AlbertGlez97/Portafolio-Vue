@@ -37,23 +37,25 @@
       "duration": { "es": "2 años", "en": "2 years" },
       "type": "previous",
       "description": {
-        "es": "Desarrollo para el cliente MI4P (EE.UU. y Canadá), enfocado en soluciones para empresas de impresión.",
-        "en": "Development for client MI4P (USA and Canada), focused on solutions for printing companies."
+        "es": "Participé tanto en Front-End como en Back-End actuando como puente entre APIs externas y el Front-End. Trabajé con .NET 6 MVC, Entity Framework, LINQ, asincronía, inyección de dependencias y manejo de respuestas HTTP, integrando APIs de un control central externo.",
+        "en": "Involved in both Front-End and Back-End as a bridge between external APIs and the frontend. Worked with .NET 6 MVC, Entity Framework, LINQ, async programming, dependency injection and HTTP response handling, integrating APIs from an external central control."
       },
       "achievements": [
-        { "es": "Construcción de interfaces reactivas en Razor con inyección de Vue.js", "en": "Built reactive interfaces in Razor with Vue.js injection" },
-        { "es": "Pruebas automatizadas con Selenium", "en": "Automated tests with Selenium" },
-        { "es": "Apoyo ocasional al backend corrigiendo bugs en .NET 6", "en": "Occasional backend support fixing bugs in .NET 6" },
-        { "es": "Manipulación de datos en SQL Server", "en": "Data manipulation in SQL Server" },
-        { "es": "Participación en desarrollo del sistema de cobranza ShoppingCart usando Vue puro", "en": "Participated in developing the ShoppingCart billing system using pure Vue" }
+        { "es": "Diseñé y consumí APIs REST para conectar sistemas externos con las aplicaciones front", "en": "Designed and consumed REST APIs to connect external systems with frontend applications" },
+        { "es": "Implementé .NET 6 MVC con Entity Framework y LINQ para gestionar datos", "en": "Implemented .NET 6 MVC with Entity Framework and LINQ for data management" },
+        { "es": "Gestioné asincronía e inyección de dependencias asegurando código escalable", "en": "Handled async programming and dependency injection ensuring scalable code" },
+        { "es": "Manejé respuestas HTTP y validaciones del lado del servidor", "en": "Handled HTTP responses and server-side validations" },
+        { "es": "Construí interfaces reactivas en Razor con Vue.js y realicé pruebas automatizadas con Selenium", "en": "Built reactive interfaces in Razor with Vue.js and performed automated testing with Selenium" }
       ],
       "technologies": [
+        ".NET 6 MVC",
+        "Entity Framework",
+        "LINQ",
+        "C#",
         "Vue.js",
         "Razor",
         "Selenium",
-        ".NET 6",
-        "SQL Server",
-        "JavaScript"
+        "SQL Server"
       ],
       "icon": "fullstack"
     },
