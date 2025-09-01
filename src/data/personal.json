@@ -1,10 +1,10 @@
 {
   "profile": {
     "name": "Albert González",
-    "title": { "es": "Desarrollador Front-End", "en": "Front-End Developer" },
+    "title": { "es": "Desarrollador Full Stack", "en": "Full Stack Developer" },
     "description": {
-      "es": "Desarrollador Front-End con más de 3 años de experiencia en la construcción de sistemas empresariales complejos para instituciones públicas y privadas. Dominio en tecnologías modernas como Svelte, Vue.js y TypeScript. Reconocido por la entrega constante de módulos funcionales, colaborativos y escalables.",
-      "en": "Front-End Developer with over 3 years of experience building complex enterprise systems for public and private institutions. Specialized in Vue.js, TypeScript and modern technologies."
+      "es": "Desarrollador Full Stack con más de 3 años de experiencia. Experto en Front-End con Svelte, Vue.js, TypeScript, CSS3 y Redux; y con práctica en Back-End utilizando .NET 6 MVC, Entity Framework, LINQ, asincronía, inyección de dependencias y APIs REST. Domino Node.js con Express, tengo conocimientos en Nest.js y trabajo con SQL Server, MongoDB y PostgreSQL. También soy Prompt Engineer capaz de crear prompts efectivos para diversas IAs, optimizando flujos de trabajo y aumentando la productividad. Me mantengo en constante actualización adoptando herramientas y frameworks de vanguardia para ser más eficiente y preciso en mis proyectos.",
+      "en": "Full Stack Developer with over 3 years of experience. Expert in Front-End using Svelte, Vue.js, TypeScript, CSS3 and Redux, and with hands-on Back-End work with .NET 6 MVC, Entity Framework, LINQ, async programming, dependency injection and REST APIs. Proficient in Node.js with Express, knowledgeable in Nest.js and experienced with SQL Server, MongoDB and PostgreSQL. Also a Prompt Engineer able to craft effective prompts for different AIs, optimizing workflows and boosting productivity. I stay constantly updated, adopting cutting-edge tools and frameworks to be more efficient and precise in my projects."
     },
     "image": "/profile/albert-gonzalez.jpg"
   },
@@ -18,12 +18,12 @@
   "about": {
     "goals": {
       "shortTerm": {
-        "es": "Avanzar de nivel semi-senior a senior, fortalecer mi inglés técnico y aportar valor en proyectos con impacto.",
-        "en": "Advance from semi-senior to senior level, strengthen my technical English and add value to impactful projects."
+        "es": "Consolidarme como Full Stack Developer con enfoque en IA y automatización, aprovechando mis habilidades en Prompt Engineering y flujos automatizados para aportar mayor valor a las empresas.",
+        "en": "Establish myself as a Full Stack Developer focused on AI and automation, leveraging my Prompt Engineering skills and automated workflows to deliver greater value to companies."
       },
       "longTerm": {
-        "es": "Trabajar en el extranjero, dominar tecnologías emergentes como inteligencia artificial y especializarme en microservicios backend.",
-        "en": "Work abroad, master emerging technologies like artificial intelligence and specialize in backend microservices."
+        "es": "Convertirme en líder tecnológico especializado en arquitectura de microservicios, sistemas escalables y adopción de IA aplicada a entornos empresariales, participando en proyectos internacionales de alto impacto.",
+        "en": "Become a technology leader specialized in microservices architecture, scalable systems and the adoption of AI in enterprise environments, working on high-impact international projects."
       }
     },
     "interests": [

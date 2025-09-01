@@ -10,8 +10,8 @@
   },
   "hero": {
     "greeting": "Hi, I'm",
-    "position": "Front-End Developer",
-    "description": "Front-End Developer with over 3 years of experience building complex enterprise systems. Specialized in Vue.js, TypeScript and modern technologies.",
+    "position": "Full Stack Developer",
+    "description": "Full Stack Developer with over 3 years of experience. Expert in Svelte, Vue.js, TypeScript, CSS3 and Redux, with practical experience in .NET 6 MVC, Entity Framework, LINQ and REST APIs. Proficient in Node.js with Express, working with SQL Server, MongoDB and PostgreSQL, and creating effective AI prompts that optimize workflows.",
     "downloadCV": "Download CV",
     "contactMe": "Contact Me"
   },
@@ -23,10 +23,10 @@
   },
   "about": {
     "title": "About Me",
-    "description": "Front-End Developer with over 3 years of experience building complex enterprise systems for public and private institutions. Expertise in modern technologies like Svelte, Vue.js and TypeScript. Recognized for consistently delivering functional, collaborative and scalable modules.",
+    "description": "Full Stack Developer with over 3 years of experience. Specialist in Front-End (Svelte, Vue.js, TypeScript, CSS3, Redux) and hands-on Back-End work with .NET 6 MVC, Entity Framework, LINQ, async programming, dependency injection and REST APIs. Proficient in Node.js with Express, familiar with Nest.js and experienced with SQL Server, MongoDB and PostgreSQL. Also a Prompt Engineer who optimizes workflows through AI.",
     "goals": {
-      "shortTerm": "Short Term: Advance from semi-senior to senior level, strengthen my technical English and add value to impactful projects.",
-      "longTerm": "Long Term: Work abroad, master emerging technologies like artificial intelligence and specialize in backend microservices.",
+      "shortTerm": "Short Term: Establish myself as a Full Stack Developer focused on AI and automation, leveraging Prompt Engineering and automated workflows to deliver greater value to companies.",
+      "longTerm": "Long Term: Become a technology leader specialized in microservices, scalable systems and the adoption of AI in enterprise environments, working on high-impact international projects.",
       "title": "Professional Goals",
       "shortTitle": "Short Term",
       "longTitle": "Long Term"
@@ -43,7 +43,7 @@
         "date": "2022 - 2024",
         "role": "Full Stack Developer",
         "company": "Towa Software",
-        "description": "Development for MI4P client (USA and Canada), building reactive interfaces with Razor and Vue.js, automated testing with Selenium and development of the ShoppingCart system."
+        "description": "Contribution to both Front-End and Back-End as a bridge between external APIs and the frontend. Worked with .NET 6 MVC, Entity Framework, LINQ, async programming, dependency injection and HTTP response handling, integrating APIs from an external central control."
       },
       "item3": {
         "date": "2021 - 2022",
@@ -119,7 +119,7 @@
     }
   },
   "footer": {
-    "description": "Front-End Developer specialized in Vue.js, TypeScript and modern technologies.",
+    "description": "Full Stack Developer specialized in Svelte, Vue.js, Node.js and .NET, focused on AI and automation.",
     "location": "Mexico City, Mexico",
     "rights": "All rights reserved",
     "madeWith": "Made with",
