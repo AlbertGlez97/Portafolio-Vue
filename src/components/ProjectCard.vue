@@ -242,7 +242,7 @@ const badgeClass = computed(() => {
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-xs);
+  gap: var(--spacing-sm);
   margin-bottom: var(--spacing-lg);
 }
 
