@@ -87,14 +87,7 @@
       <section class="technologies-section section">
         <div class="tech-content">
           <h2 class="section-title">{{ t.projects.techSection }}</h2>
-          <div class="tech-cloud">
-            <TechBadge
-              v-for="tech in allTechnologies"
-              :key="tech.name"
-              :label="tech.name"
-              size="sm"
-            />
-          </div>
+          <TechGalaxy :technologies="technologyNames" />
         </div>
       </section>
     </div>
@@ -102,11 +95,12 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useMainStore } from '../stores/main'
 import { useProjectsStore } from '../stores/projects'
 import ProjectCard from '../components/ProjectCard.vue'
-import TechBadge from '../components/TechBadge.vue'
+import TechGalaxy from '../components/TechGalaxy.vue'
 import type { ProjectsData } from '../interfaces'
 
 const mainStore = useMainStore()
@@ -120,6 +114,10 @@ const totalProjects = getTotalProjects
 const featuredProjects = getFeaturedProjectsCount
 const uniqueTechnologies = getUniqueTechnologies
 const allTechnologies = getAllTechnologies
+
+const technologyNames = computed(() =>
+  Array.from(new Set(allTechnologies.value.map(t => t.name)))
+)
 </script>
 
 <style scoped>
@@ -215,18 +213,6 @@ const allTechnologies = getAllTechnologies
   background-color: var(--bg-secondary);
 }
 
-.tech-cloud {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: var(--spacing-md);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-
-
 /* Responsive */
 @media (max-width: 1024px) {
   .projects-grid.featured {
@@ -251,10 +237,6 @@ const allTechnologies = getAllTechnologies
   .stat-number {
     font-size: var(--font-size-2xl);
   }
-
-  .tech-cloud {
-    gap: var(--spacing-sm);
-  }
 }
 
 @media (max-width: 480px) {
@@ -274,7 +256,6 @@ const allTechnologies = getAllTechnologies
   .stat-label {
     font-size: var(--font-size-sm);
   }
-
 }
 
 </style>
