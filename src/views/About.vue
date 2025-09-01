@@ -21,15 +21,9 @@
         <div class="info-grid">
           <div class="info-card animate-fadeInUp">
             <div class="card-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
                 <path
-                  d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"
-                />
+                  d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" />
               </svg>
             </div>
             <h3>{{ t.contact.details.location }}</h3>
@@ -38,49 +32,20 @@
 
           <div class="info-card animate-fadeInUp">
             <div class="card-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
                 <path
-                  d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4M20,8L12,13L4,8V6L12,11L20,6V8Z"
-                />
+                  d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4M20,8L12,13L4,8V6L12,11L20,6V8Z" />
               </svg>
             </div>
             <h3>Email</h3>
-            <p>albert.gonzalez@email.com</p>
+            <p>albert.gonzalez0297@gmail.com</p>
           </div>
 
           <div class="info-card animate-fadeInUp">
             <div class="card-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
                 <path
-                  d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"
-                />
-              </svg>
-            </div>
-            <h3>{{ t.contact.details.phone }}</h3>
-            <p>{{ personalData.contact.phone }}</p>
-          </div>
-
-          <div class="info-card animate-fadeInUp">
-            <div class="card-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19M18.5,18.5V13.2A3.26,3.26 0 0,0 15.24,9.94C14.39,9.94 13.4,10.46 12.92,11.24V10.13H10.13V18.5H12.92V13.57C12.92,12.8 13.54,12.17 14.31,12.17A1.4,1.4 0 0,1 15.71,13.57V18.5H18.5M6.88,8.56A1.68,1.68 0 0,0 8.56,6.88C8.56,5.95 7.81,5.19 6.88,5.19A1.69,1.69 0 0,0 5.19,6.88C5.19,7.81 5.95,8.56 6.88,8.56M8.27,18.5V10.13H5.5V18.5H8.27Z"
-                />
+                  d="M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19M18.5,18.5V13.2A3.26,3.26 0 0,0 15.24,9.94C14.39,9.94 13.4,10.46 12.92,11.24V10.13H10.13V18.5H12.92V13.57C12.92,12.8 13.54,12.17 14.31,12.17A1.4,1.4 0 0,1 15.71,13.57V18.5H18.5M6.88,8.56A1.68,1.68 0 0,0 8.56,6.88C8.56,5.95 7.81,5.19 6.88,5.19A1.69,1.69 0 0,0 5.19,6.88C5.19,7.81 5.95,8.56 6.88,8.56M8.27,18.5V10.13H5.5V18.5H8.27Z" />
               </svg>
             </div>
             <h3>{{ t.contact.details.linkedin }}</h3>
@@ -141,15 +106,9 @@
         <div class="goals-grid">
           <div class="goal-card animate-fadeInUp">
             <div class="goal-icon">
-              <svg
-                width="50"
-                height="50"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
+              <svg width="50" height="50" viewBox="0 0 24 24" fill="currentColor">
                 <path
-                  d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z"
-                />
+                  d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z" />
               </svg>
             </div>
             <h3>{{ t.about.goals.shortTitle }}</h3>
@@ -158,15 +117,8 @@
 
           <div class="goal-card animate-fadeInUp">
             <div class="goal-icon">
-              <svg
-                width="50"
-                height="50"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M12,2L13.09,8.26L22,9L13.09,9.74L12,16L10.91,9.74L2,9L10.91,8.26L12,2Z"
-                />
+              <svg width="50" height="50" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12,2L13.09,8.26L22,9L13.09,9.74L12,16L10.91,9.74L2,9L10.91,8.26L12,2Z" />
               </svg>
             </div>
             <h3>{{ t.about.goals.longTitle }}</h3>
@@ -179,30 +131,16 @@
       <section class="interests section">
         <h2 class="section-title">{{ t.about.interestsTitle }}</h2>
         <div class="interests-grid">
-          <div
-            v-for="interest in personalData.about.interests"
-            :key="interest.title.en"
-            class="interest-card animate-fadeInUp"
-          >
+          <div v-for="interest in personalData.about.interests" :key="interest.title.en"
+            class="interest-card animate-fadeInUp">
             <div class="interest-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  v-if="interest.icon === 'components'"
-                  d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"
-                />
-                <path
-                  v-else-if="interest.icon === 'meetings'"
-                  d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z"
-                />
-                <path
-                  v-else
-                  d="M17.5,12A1.5,1.5 0 0,1 16,10.5A1.5,1.5 0 0,1 17.5,9A1.5,1.5 0 0,1 19,10.5A1.5,1.5 0 0,1 17.5,12M14.5,8A1.5,1.5 0 0,1 13,6.5A1.5,1.5 0 0,1 14.5,5A1.5,1.5 0 0,1 16,6.5A1.5,1.5 0 0,1 14.5,8M9.5,8A1.5,1.5 0 0,1 8,6.5A1.5,1.5 0 0,1 9.5,5A1.5,1.5 0 0,1 11,6.5A1.5,1.5 0 0,1 9.5,8M6.5,12A1.5,1.5 0 0,1 5,10.5A1.5,1.5 0 0,1 6.5,9A1.5,1.5 0 0,1 8,10.5A1.5,1.5 0 0,1 6.5,12M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A8.5,8.5 0 0,0 20.5,12.5A8.5,8.5 0 0,0 12,3Z"
-                />
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                <path v-if="interest.icon === 'components'"
+                  d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+                <path v-else-if="interest.icon === 'meetings'"
+                  d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                <path v-else
+                  d="M17.5,12A1.5,1.5 0 0,1 16,10.5A1.5,1.5 0 0,1 17.5,9A1.5,1.5 0 0,1 19,10.5A1.5,1.5 0 0,1 17.5,12M14.5,8A1.5,1.5 0 0,1 13,6.5A1.5,1.5 0 0,1 14.5,5A1.5,1.5 0 0,1 16,6.5A1.5,1.5 0 0,1 14.5,8M9.5,8A1.5,1.5 0 0,1 8,6.5A1.5,1.5 0 0,1 9.5,5A1.5,1.5 0 0,1 11,6.5A1.5,1.5 0 0,1 9.5,8M6.5,12A1.5,1.5 0 0,1 5,10.5A1.5,1.5 0 0,1 6.5,9A1.5,1.5 0 0,1 8,10.5A1.5,1.5 0 0,1 6.5,12M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A8.5,8.5 0 0,0 20.5,12.5A8.5,8.5 0 0,0 12,3Z" />
               </svg>
             </div>
             <h3>{{ getTranslatedText(interest.title) }}</h3>
@@ -216,15 +154,9 @@
         <div class="skills-grid">
           <div class="skill-item animate-fadeInUp">
             <div class="skill-icon">
-              <svg
-                width="30"
-                height="30"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
                 <path
-                  d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z"
-                />
+                  d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
               </svg>
             </div>
             <div class="skill-content">
@@ -235,15 +167,9 @@
 
           <div class="skill-item animate-fadeInUp">
             <div class="skill-icon">
-              <svg
-                width="30"
-                height="30"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
                 <path
-                  d="M16,4C18.11,4 20.11,4.89 21.61,6.39C23.11,7.89 24,9.89 24,12A8,8 0 0,1 16,20H5A5,5 0 0,1 0,15A5,5 0 0,1 5,10C5.59,10 6.16,10.13 6.69,10.36C7.61,7.24 10.57,5 14,5C14.68,5 15.34,5.11 16,5.28V4M16,6A6,6 0 0,0 10,12H5A3,3 0 0,0 2,15A3,3 0 0,0 5,18H16A6,6 0 0,0 22,12A6,6 0 0,0 16,6Z"
-                />
+                  d="M16,4C18.11,4 20.11,4.89 21.61,6.39C23.11,7.89 24,9.89 24,12A8,8 0 0,1 16,20H5A5,5 0 0,1 0,15A5,5 0 0,1 5,10C5.59,10 6.16,10.13 6.69,10.36C7.61,7.24 10.57,5 14,5C14.68,5 15.34,5.11 16,5.28V4M16,6A6,6 0 0,0 10,12H5A3,3 0 0,0 2,15A3,3 0 0,0 5,18H16A6,6 0 0,0 22,12A6,6 0 0,0 16,6Z" />
               </svg>
             </div>
             <div class="skill-content">
@@ -254,15 +180,9 @@
 
           <div class="skill-item animate-fadeInUp">
             <div class="skill-icon">
-              <svg
-                width="30"
-                height="30"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
                 <path
-                  d="M9,2V8H7V2H9M17,2V8H15V2H17M12,8A4,4 0 0,1 16,12V18A4,4 0 0,1 12,22A4,4 0 0,1 8,18V12A4,4 0 0,1 12,8M12,10A2,2 0 0,0 10,12V18A2,2 0 0,0 12,20A2,2 0 0,0 14,18V12A2,2 0 0,0 12,10Z"
-                />
+                  d="M9,2V8H7V2H9M17,2V8H15V2H17M12,8A4,4 0 0,1 16,12V18A4,4 0 0,1 12,22A4,4 0 0,1 8,18V12A4,4 0 0,1 12,8M12,10A2,2 0 0,0 10,12V18A2,2 0 0,0 12,20A2,2 0 0,0 14,18V12A2,2 0 0,0 12,10Z" />
               </svg>
             </div>
             <div class="skill-content">
@@ -273,15 +193,9 @@
 
           <div class="skill-item animate-fadeInUp">
             <div class="skill-icon">
-              <svg
-                width="30"
-                height="30"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
                 <path
-                  d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"
-                />
+                  d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
               </svg>
             </div>
             <div class="skill-content">
@@ -316,11 +230,9 @@ const personalData: PersonalData = getPersonal.value;
 }
 
 .about-hero {
-  background: linear-gradient(
-    135deg,
-    rgba(76, 175, 80, 0.05) 0%,
-    rgba(255, 193, 7, 0.05) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(76, 175, 80, 0.05) 0%,
+      rgba(255, 193, 7, 0.05) 100%);
 }
 
 .hero-content {
@@ -386,11 +298,11 @@ const personalData: PersonalData = getPersonal.value;
   gap: var(--spacing-lg);
 }
 
-.info-grid > :nth-child(1) {
+.info-grid> :nth-child(1) {
   margin-left: 1rem;
 }
 
-.info-grid > :nth-child(4) {
+.info-grid> :nth-child(4) {
   margin-right: 1rem;
 }
 
@@ -446,11 +358,9 @@ const personalData: PersonalData = getPersonal.value;
   top: 0;
   bottom: 0;
   width: 3px;
-  background: linear-gradient(
-    to bottom,
-    var(--primary-color),
-    var(--accent-color)
-  );
+  background: linear-gradient(to bottom,
+      var(--primary-color),
+      var(--accent-color));
   transform: translateX(-50%);
 }
 

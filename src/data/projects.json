@@ -30,16 +30,16 @@
         "seo": { "es": "SEO Optimizado", "en": "SEO Optimized" }
       },
       "image": "/projects/atotonilco.jpg",
-      "url": "https://atotonilco-estudio.com",
-      "github": "https://github.com/albertglez/atotonilco-estudio"
+      "url": "https://www.atotonilcoestudio.com/",
+      "github": null
     },
     {
       "id": 2,
       "title": { "es": "Carnal MX", "en": "Carnal MX" },
       "type": { "es": "Destacado", "en": "Featured" },
       "description": {
-        "es": "Plataforma web para un proyecto artístico de crónica contemporánea sobre la Ciudad de México. Incluye galería interactiva, blog de contenido y sistema de suscripciones para seguidores del proyecto.",
-        "en": "Web platform for an artistic contemporary chronicle project about Mexico City. Includes interactive gallery, content blog and subscription system for project followers."
+        "es": "Plataforma web para un proyecto artístico de crónica contemporánea sobre la Ciudad de México. Incluye galería interactiva, blog de contenido.",
+        "en": "Web platform for an artistic contemporary chronicle project about Mexico City. Includes interactive gallery, content blog."
       },
       "features": [
         { "es": "Galería interactiva de contenido", "en": "Interactive content gallery" },
@@ -63,8 +63,8 @@
         "seo": { "es": "Optimizado", "en": "Optimized" }
       },
       "image": "/projects/carnal-mx.jpg",
-      "url": "https://carnal-mx.com",
-      "github": "https://github.com/albertglez/carnal-mx"
+      "url": "https://carnalmx.com/",
+      "github": null
     }
   ],
   "other": [
@@ -117,7 +117,7 @@
         "Bootstrap"
       ],
       "company": "Towa Software",
-      "confidential": false
+      "confidential": true
     }
   ]
 }
