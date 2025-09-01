@@ -9,13 +9,6 @@ export type {
   SkillBarProps
 } from './Skills'
 
-// Experience interfaces
-export type {
-  Job,
-  ExperienceData,
-  ExperienceCardProps
-} from './Experience'
-
 // Education interfaces
 export type {
   Subject,

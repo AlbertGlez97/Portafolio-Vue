@@ -33,14 +33,14 @@
                 <span>{{ t.nav.about }}</span>
               </router-link>
               
-              <router-link to="/experiencia" class="link-card">
-                <i class="icon-briefcase"></i>
-                <span>{{ t.nav.experience }}</span>
-              </router-link>
-              
               <router-link to="/proyectos" class="link-card">
                 <i class="icon-folder"></i>
                 <span>{{ t.nav.projects }}</span>
+              </router-link>
+
+              <router-link to="/habilidades" class="link-card">
+                <i class="icon-code"></i>
+                <span>{{ t.nav.skills }}</span>
               </router-link>
               
               <router-link to="/contacto" class="link-card">
@@ -236,9 +236,9 @@ const goBack = () => {
 .icon-home::before { content: '🏠'; }
 .icon-arrow-left::before { content: '←'; }
 .icon-user::before { content: '👤'; }
-.icon-briefcase::before { content: '💼'; }
 .icon-folder::before { content: '📁'; }
 .icon-mail::before { content: '✉️'; }
+.icon-code::before { content: '💻'; }
 
 /* Responsive */
 @media (max-width: 768px) {

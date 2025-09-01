@@ -2,7 +2,6 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "experience": "Experience",
     "education": "Education",
     "skills": "Skills",
     "projects": "Projects",
@@ -37,19 +36,19 @@
         "date": "2024 - Present",
         "role": "Senior Front-End Developer",
         "company": "Sye Software (SAT)",
-        "description": "Sole Front-End responsible for the SICOJ system's Consultations module at SAT. Developed with Svelte, TypeScript and Redux, recognized for delivering the project's most advanced module."
+        "description": "Responsible for the front-end of SAT's SICOJ Consultations module. Built reusable Svelte components with TypeScript, integrated RESTful services from .NET 6 MVC and managed state with Redux. Recognized for delivering the most advanced module and keeping the project on track without direct support. Technologies: Svelte, TypeScript, Redux, .NET 6 MVC, GitLab and Docker."
       },
       "item2": {
         "date": "2022 - 2024",
         "role": "Full Stack Developer",
         "company": "Towa Software",
-        "description": "Contribution to both Front-End and Back-End as a bridge between external APIs and the frontend. Worked with .NET 6 MVC, Entity Framework, LINQ, async programming, dependency injection and HTTP response handling, integrating APIs from an external central control."
+        "description": "Served as bridge between external APIs and the frontend. Designed and consumed REST APIs, implemented .NET 6 MVC with Entity Framework and LINQ managing async programming and dependency injection. Built reactive Razor interfaces with Vue.js and performed automated testing with Selenium. Technologies: .NET 6 MVC, Entity Framework, LINQ, C#, Vue.js, Razor, Selenium and SQL Server."
       },
       "item3": {
         "date": "2021 - 2022",
         "role": "Full Stack Developer (Internship)",
         "company": "StrApps Consulting",
-        "description": ".NET 6 MVC view design with jQuery and Bootstrap. Created WordPress sites and managed version control in GitHub under Scrum methodology."
+        "description": "Internship designing .NET 6 MVC views with jQuery and Bootstrap for a collections credit model. Created WordPress sites and handled version control in GitHub under Scrum methodology. Technologies: .NET 6 MVC, jQuery, Bootstrap, WordPress and GitHub."
       },
       "item4": {
         "date": "2016 - 2022",
@@ -161,18 +160,11 @@
     "responsive": "Responsive Design",
     "techSection": "Technologies in Projects"
   },
-  "experience": {
-    "subtitle": "My journey in Front-End and Full-Stack development"
-  },
   "projectCard": {
     "features": "Main Features:",
     "technologies": "Technologies Used:",
     "viewProject": "View Project",
     "confidential": "Confidential project"
-  },
-  "experienceCard": {
-    "achievements": "Key Achievements:",
-    "technologies": "Technologies Used:"
   },
   "navbar": {
     "switchToEnglish": "Switch to English",

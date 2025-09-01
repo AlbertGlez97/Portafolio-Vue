@@ -87,7 +87,6 @@ const isScrolled = ref(false)
 const menuItems = [
   { name: 'home', path: '/' },
   { name: 'about', path: '/sobre-mi' },
-  { name: 'experience', path: '/experiencia' },
   { name: 'education', path: '/educacion' },
   { name: 'skills', path: '/habilidades' },
   { name: 'projects', path: '/proyectos' },
