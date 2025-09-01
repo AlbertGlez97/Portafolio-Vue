@@ -33,13 +33,12 @@
       <div class="project-technologies">
         <h5>{{ t.projectCard.technologies }}</h5>
         <div class="tech-tags">
-          <span 
-            v-for="tech in project.technologies" 
-            :key="tech" 
-            class="tech-tag"
-          >
-            {{ tech }}
-          </span>
+          <TechBadge
+            v-for="tech in project.technologies"
+            :key="tech"
+            :label="tech"
+            size="sm"
+          />
         </div>
       </div>
       
@@ -100,6 +99,7 @@ import { computed } from 'vue'
 import type { ProjectCardProps } from '../interfaces'
 import { useMainStore } from '../stores/main'
 import { storeToRefs } from 'pinia'
+import TechBadge from './TechBadge.vue'
 
 const props = defineProps<ProjectCardProps>()
 
@@ -246,16 +246,6 @@ const badgeClass = computed(() => {
   margin-bottom: var(--spacing-lg);
 }
 
-.tech-tag {
-  background-color: rgba(76, 175, 80, 0.1);
-  color: var(--primary-dark);
-  padding: var(--spacing-xs) var(--spacing-sm);
-  border-radius: var(--border-radius-md);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  border: 1px solid rgba(76, 175, 80, 0.2);
-}
-
 .project-metrics {
   display: flex;
   justify-content: space-around;
@@ -364,11 +354,6 @@ const badgeClass = computed(() => {
 }
 
 /* Dark mode */
-:global(.dark) .tech-tag {
-  background-color: rgba(76, 175, 80, 0.2);
-  color: var(--primary-light);
-  border-color: rgba(76, 175, 80, 0.3);
-}
 
 :global(.dark) .project-badge.professional {
   background-color: rgba(33, 150, 243, 0.3);

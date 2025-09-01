@@ -88,13 +88,12 @@
         <div class="tech-content">
           <h2 class="section-title">{{ t.projects.techSection }}</h2>
           <div class="tech-cloud">
-            <template v-for="tech in allTechnologies" :key="tech.name">
-              <TechIcon 
-                v-if="getTechKey(tech.name)"
-                :tech-data="technologiesData[getTechKey(tech.name)!]"
-                class="tech-icon-item"
-              />
-            </template>
+            <TechBadge
+              v-for="tech in allTechnologies"
+              :key="tech.name"
+              :label="tech.name"
+              size="sm"
+            />
           </div>
         </div>
       </section>
@@ -107,8 +106,7 @@ import { storeToRefs } from 'pinia'
 import { useMainStore } from '../stores/main'
 import { useProjectsStore } from '../stores/projects'
 import ProjectCard from '../components/ProjectCard.vue'
-import TechIcon from '../components/TechIcon.vue'
-import technologiesData from '../data/technologies.json'
+import TechBadge from '../components/TechBadge.vue'
 import type { ProjectsData } from '../interfaces'
 
 const mainStore = useMainStore()
@@ -122,35 +120,6 @@ const totalProjects = getTotalProjects
 const featuredProjects = getFeaturedProjectsCount
 const uniqueTechnologies = getUniqueTechnologies
 const allTechnologies = getAllTechnologies
-
-// Función para obtener la clave de tecnología desde el nombre
-const getTechKey = (techName: string): keyof typeof technologiesData | null => {
-  // Mapeo de nombres de tecnologías a claves del JSON
-  const techMapping: Record<string, keyof typeof technologiesData> = {
-    'HTML5': 'html',
-    'CSS3': 'css', 
-    'JavaScript': 'javascript',
-    'jQuery': 'jquery',
-    'Bootstrap': 'bootstrap',
-    'C#': 'csharp',
-    'Vue.js': 'vue',
-    'Nuxt.js': 'nuxt',
-    'TypeScript': 'typescript',
-    'Sass': 'sass',
-    'Node.js': 'nodejs',
-    'MongoDB': 'mongodb',
-    'Express.js': 'express',
-    'Svelte': 'svelte',
-    'Redux': 'redux',
-    'SQL Server': 'sqlserver',
-    'GitLab': 'gitlab',
-    'Docker': 'docker',
-    '.NET MVC 6': 'dotnet',
-    '.NET 6': 'dotnet6'
-  }
-  
-  return techMapping[techName] || null
-}
 </script>
 
 <style scoped>
@@ -256,13 +225,7 @@ const getTechKey = (techName: string): keyof typeof technologiesData | null => {
   margin: 0 auto;
 }
 
-.tech-icon-item {
-  transition: all var(--transition-fast);
-}
 
-.tech-icon-item:hover {
-  transform: scale(1.1);
-}
 
 /* Responsive */
 @media (max-width: 1024px) {

@@ -11,10 +11,11 @@
       <h3>{{ getTranslatedText(project.title) }}</h3>
       <p>{{ getTranslatedText(project.description) }}</p>
       <div class="project-tech">
-        <TechIcon
-          v-for="techKey in project.techs"
-          :key="techKey"
-          :tech-data="technologiesData[techKey]"
+        <TechBadge
+          v-for="tech in project.technologies"
+          :key="tech"
+          :label="tech"
+          size="sm"
         />
       </div>
       <a :href="project.url" target="_blank" class="project-link">
@@ -28,8 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import TechIcon from './TechIcon.vue'
-import technologiesData from '../data/technologies.json'
+import TechBadge from './TechBadge.vue'
 import { useMainStore } from '../stores/main'
 import { storeToRefs } from 'pinia'
 
@@ -38,7 +38,7 @@ interface FeaturedProject {
   title: { es: string; en: string }
   description: { es: string; en: string }
   url: string
-  techs: (keyof typeof technologiesData)[]
+  technologies: string[]
 }
 
 const props = defineProps<{ project: FeaturedProject }>()

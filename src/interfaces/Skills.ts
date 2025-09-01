@@ -4,27 +4,23 @@ export interface Skill {
   name: MultiLanguageText
   level: MultiLanguageText
   percentage: number
-  icon: string
   description: MultiLanguageText
 }
 
 export interface Tool {
   name: MultiLanguageText
   level: MultiLanguageText
-  icon: string
   description: MultiLanguageText
 }
 
 export interface Methodology {
   name: MultiLanguageText
   level: MultiLanguageText
-  icon: string
   description: MultiLanguageText
 }
 
 export interface SoftSkill {
   name: MultiLanguageText
-  icon: string
   description: MultiLanguageText
 }
 
