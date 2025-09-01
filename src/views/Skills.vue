@@ -64,14 +64,13 @@
               </div>
               <h3>{{ t.skills.tools }}</h3>
               <div class="tools-list">
-                <span 
+                <TechBadge
                   v-for="tool in skillsData.tools"
                   :key="tool.name.en"
-                  class="tool-tag"
+                  :label="tool.name[currentLanguage]"
                   :title="tool.description[currentLanguage]"
-                >
-                  {{ tool.name[currentLanguage] }}
-                </span>
+                  size="sm"
+                />
               </div>
             </div>
 
@@ -83,14 +82,13 @@
               </div>
               <h3>{{ t.skills.methodologies }}</h3>
               <div class="tools-list">
-                <span 
+                <TechBadge
                   v-for="methodology in skillsData.methodologies"
                   :key="methodology.name.en"
-                  class="tool-tag"
+                  :label="methodology.name[currentLanguage]"
                   :title="methodology.description[currentLanguage]"
-                >
-                  {{ methodology.name[currentLanguage] }}
-                </span>
+                  size="sm"
+                />
               </div>
             </div>
           </div>
@@ -101,19 +99,11 @@
       <section class="soft-skills section">
         <h2 class="section-title">{{ t.skills.soft }}</h2>
         <div class="soft-skills-grid">
-          <div 
+          <div
             v-for="skill in skillsData.soft"
             :key="skill.name.en"
             class="soft-skill-item animate-fadeInUp"
           >
-            <div class="skill-icon">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
-                <path v-if="skill.icon === 'communication'" d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z"/>
-                <path v-else-if="skill.icon === 'teamwork'" d="M16,4C18.11,4 20.11,4.89 21.61,6.39C23.11,7.89 24,9.89 24,12A8,8 0 0,1 16,20H5A5,5 0 0,1 0,15A5,5 0 0,1 5,10C5.59,10 6.16,10.13 6.69,10.36C7.61,7.24 10.57,5 14,5C14.68,5 15.34,5.11 16,5.28V4M16,6A6,6 0 0,0 10,12H5A3,3 0 0,0 2,15A3,3 0 0,0 5,18H16A6,6 0 0,0 22,12A6,6 0 0,0 16,6Z"/>
-                <path v-else-if="skill.icon === 'analytics'" d="M9,2V8H7V2H9M17,2V8H15V2H17M12,8A4,4 0 0,1 16,12V18A4,4 0 0,1 12,22A4,4 0 0,1 8,18V12A4,4 0 0,1 12,8M12,10A2,2 0 0,0 10,12V18A2,2 0 0,0 12,20A2,2 0 0,0 14,18V12A2,2 0 0,0 12,10Z"/>
-                <path v-else d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/>
-              </svg>
-            </div>
             <div class="skill-content">
               <h3>{{ skill.name[currentLanguage] }}</h3>
               <p>{{ skill.description[currentLanguage] }}</p>
@@ -130,6 +120,7 @@ import { storeToRefs } from 'pinia'
 import { useMainStore } from '../stores/main'
 import { useSkillsStore } from '../stores/skills'
 import SkillBar from '../components/SkillBar.vue'
+import TechBadge from '../components/TechBadge.vue'
 import type { SkillsData } from '../interfaces'
 
 const mainStore = useMainStore()
@@ -255,22 +246,10 @@ const skillsData: SkillsData = getSkills.value
   justify-content: center;
 }
 
-.tool-tag {
-  background-color: rgba(76, 175, 80, 0.1);
-  color: var(--primary-dark);
-  padding: var(--spacing-xs) var(--spacing-sm);
-  border-radius: var(--border-radius-md);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  border: 1px solid rgba(76, 175, 80, 0.2);
-  transition: all var(--transition-fast);
+.tools-list .tech-badge {
   cursor: help;
 }
 
-.tool-tag:hover {
-  background-color: rgba(76, 175, 80, 0.2);
-  transform: translateY(-2px);
-}
 
 .soft-skills {
   background-color: var(--bg-primary);
@@ -283,9 +262,6 @@ const skillsData: SkillsData = getSkills.value
 }
 
 .soft-skill-item {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--spacing-md);
   background-color: var(--bg-primary);
   padding: var(--spacing-lg);
   border-radius: var(--border-radius-lg);
@@ -298,12 +274,6 @@ const skillsData: SkillsData = getSkills.value
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
   border-color: var(--primary-light);
-}
-
-.skill-icon {
-  color: var(--primary-color);
-  flex-shrink: 0;
-  margin-top: var(--spacing-xs);
 }
 
 .skill-content h3 {
@@ -361,13 +331,4 @@ const skillsData: SkillsData = getSkills.value
 }
 
 /* Dark mode */
-:global(.dark) .tool-tag {
-  background-color: rgba(76, 175, 80, 0.2);
-  color: var(--primary-light);
-  border-color: rgba(76, 175, 80, 0.3);
-}
-
-:global(.dark) .tool-tag:hover {
-  background-color: rgba(76, 175, 80, 0.3);
-}
 </style>

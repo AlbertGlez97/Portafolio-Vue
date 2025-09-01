@@ -108,7 +108,6 @@ import { storeToRefs } from "pinia";
 import OverviewCard from "../components/OverviewCard.vue";
 import FeaturedProject from "../components/FeaturedProject.vue";
 import projectsData from "../data/projects.json";
-import technologiesData from "../data/technologies.json";
 
 const store = useMainStore();
 const { t } = storeToRefs(store);
@@ -168,16 +167,11 @@ const overviewItems: OverviewItem[] = [
 ];
 
 // Proyectos destacados que se mostrarán en el home
-const projectTechMap: Record<number, (keyof typeof technologiesData)[]> = {
-  1: ["html", "css", "javascript", "dotnet"],
-  2: ["html", "bootstrap", "csharp", "sqlserver"],
-};
-
 const featuredProjects = projectsData.featured.slice(0, 2).map(project => ({
   title: project.title,
   description: project.description,
   url: project.url,
-  techs: projectTechMap[project.id as keyof typeof projectTechMap],
+  technologies: project.technologies,
 }));
 </script>
 
