@@ -1,19 +1,30 @@
 <template>
   <!-- Contenedor principal que aloja el canvas 3D o el fallback plano.
-       El fondo estático se aplica sobre este wrapper para mantener el canvas
-       libre de texturas adicionales y facilitar overlays. -->
-  <div
-    ref="container"
-    class="tech-galaxy"
-    :style="containerStyles"
-  >
-    <!-- Capa opcional que oscurece o aclara el fondo para mejorar contraste.
-         pointer-events:none evita bloquear la interacción con OrbitControls. -->
+       Se ha retirado la antigua imagen de fondo `codigoBinario.jpg` porque
+       restaba legibilidad a las etiquetas. En su lugar se emplea un gradiente
+       neutro basado en variables CSS que respeta automáticamente el modo
+       oscuro o claro. -->
+  <div ref="container" class="tech-galaxy" :style="containerStyles">
+    <!-- Capa opcional que ajusta el contraste. Usa el color de fondo actual
+         para no introducir nuevos tonos y mantiene pointer-events: none para
+         no interferir con la interacción de OrbitControls. -->
     <div
-      v-if="props.showBackground && props.overlayOpacity > 0"
+      v-if="props.overlayOpacity > 0"
       class="tech-galaxy__overlay"
       :style="{ opacity: props.overlayOpacity }"
     ></div>
+    <!-- Toggle accesible para pausar/reanudar la animación.
+         Es relevante para usuarios con "reduced motion" y se podría
+         conectar a una store global si se desea persistir la preferencia. -->
+    <button
+      v-if="props.allowPause"
+      class="tech-galaxy__toggle"
+      @click="toggleRotation"
+      :aria-pressed="isRotating"
+      :aria-label="isRotating ? 'Pausar rotación automática' : 'Reanudar rotación automática'"
+    >
+      {{ isRotating ? '⏸' : '▶' }}
+    </button>
 
     <!-- Canvas renderizado con Three.js; accesible vía aria-label -->
     <canvas
@@ -47,8 +58,6 @@ import {
   Raycaster,
   Scene,
   Sprite,
-  Texture,
-  TextureLoader,
   Vector2,
   WebGLRenderer
 } from 'three'
@@ -59,12 +68,13 @@ import { createTextSprite, disposeTextSpriteCache } from '../lib/createTextSprit
 /**
  * TechGalaxy.vue
  * ---------------
- * Visualiza una galaxia 3D de etiquetas con Three.js.
- * El fondo estático por defecto se aplica al wrapper HTML (estrategia "wrapper"),
- * lo que mantiene el texto nítido y permite overlays ligeros sin coste extra
- * en la GPU. Como alternativa se puede usar la imagen como textura de escena
- * (estrategia "scene"), pero esto implica mayor consumo de memoria y menos
- * control sobre la superposición de capas.
+ * Visualiza una galaxia 3D de etiquetas con Three.js. En versiones previas
+ * se empleaba una imagen de fondo (codigoBinario.jpg) que, aunque vistosa,
+ * dificultaba la lectura de las etiquetas. Ahora el componente utiliza un
+ * gradiente neutro basado en los tokens `--bg-primary` y `--bg-secondary`,
+ * garantizando coherencia cromática tanto en modo claro como oscuro sin
+ * introducir colores nuevos. La configuración está pensada para ser extensible
+ * y documentada para facilitar futuros ajustes (densidad, velocidad, etc.).
  */
 
 interface Props {
@@ -77,23 +87,21 @@ interface Props {
   enableDamping?: boolean // suavizado de movimiento con OrbitControls
   dampingFactor?: number // intensidad del damping
   particleDensity?: number // cantidad de partículas de fondo
-  showBackground?: boolean // activa/desactiva imagen de fondo
   overlayOpacity?: number // opacidad de la capa de contraste (0-1)
-  backgroundStrategy?: 'wrapper' | 'scene' // dónde aplicar la imagen
+  allowPause?: boolean // muestra el botón para pausar/reanudar rotación
 }
 
 const props = withDefaults(defineProps<Props>(), {
   width: '100%',
   height: 480,
   autoRotate: true,
-  autoRotateSpeed: 1,
+  autoRotateSpeed: 0.3,
   radius: 10,
   enableDamping: true,
   dampingFactor: 0.05,
   particleDensity: 500,
-  showBackground: true,
-  overlayOpacity: 0.35,
-  backgroundStrategy: 'wrapper'
+  overlayOpacity: 0.15,
+  allowPause: true
 })
 
 // Evento emitido al seleccionar un sprite
@@ -103,6 +111,12 @@ const emit = defineEmits<{ (e: 'select', tech: string): void }>()
 const container = ref<HTMLDivElement | null>(null)
 const canvas = ref<HTMLCanvasElement | null>(null)
 const show3D = ref(true)
+// Controla si la escena gira automáticamente; se inicia respetando la
+// preferencia del usuario para "reduced motion".
+const prefersReducedMotion = window.matchMedia(
+  '(prefers-reduced-motion: reduce)'
+).matches
+const isRotating = ref(props.autoRotate && !prefersReducedMotion)
 
 let renderer: WebGLRenderer
 let scene: Scene
@@ -113,7 +127,7 @@ const sprites: Sprite[] = [] // colección de etiquetas 3D
 const raycaster = new Raycaster() // detección de interacción
 const mouse = new Vector2()
 let hovered: Sprite | null = null // sprite actualmente bajo el cursor
-let sceneBgTexture: Texture | null = null // textura de fondo si se usa 'scene'
+// Ya no se utiliza textura de fondo; el gradiente se resuelve vía CSS.
 
 // Normaliza medidas numéricas a valores CSS
 const resolvedWidth = computed(() =>
@@ -123,25 +137,11 @@ const resolvedHeight = computed(() =>
   typeof props.height === 'number' ? `${props.height}px` : props.height
 )
 
-// URL procesada por Vite para asegurar hashing y cache del asset.
-// Se dispara una pre-carga manual para evitar parpadeos al montar la escena.
-const backgroundUrl = new URL('../assets/img/codigoBinario.jpg', import.meta.url).href
-const preloadImage = new Image()
-preloadImage.src = backgroundUrl
-
-// Estilos reactivos del contenedor: dimensiones + imagen de fondo si corresponde.
-const containerStyles = computed(() => {
-  const style: Record<string, string> = {
-    width: resolvedWidth.value,
-    height: resolvedHeight.value
-  }
-  if (props.showBackground && props.backgroundStrategy === 'wrapper') {
-    style.backgroundImage = `url(${backgroundUrl})`
-    style.backgroundSize = 'cover'
-    style.backgroundPosition = 'center'
-  }
-  return style
-})
+// Estilos reactivos del contenedor: solo dimensiones. El fondo se maneja con CSS.
+const containerStyles = computed(() => ({
+  width: resolvedWidth.value,
+  height: resolvedHeight.value
+}))
 
 // Verifica si el navegador soporta WebGL
 function isWebGLAvailable(): boolean {
@@ -156,16 +156,10 @@ function isWebGLAvailable(): boolean {
   }
 }
 
-// Respeta la preferencia de movimiento reducido del usuario
-const prefersReducedMotion = window.matchMedia(
-  '(prefers-reduced-motion: reduce)'
-).matches
-
 // Inicializa escena Three.js al montar el componente
 onMounted(() => {
-  if (!isWebGLAvailable() || prefersReducedMotion) {
+  if (!isWebGLAvailable()) {
     show3D.value = false
-    // El fondo CSS permanece visible en el modo de fallback
     return
   }
   init()
@@ -196,9 +190,15 @@ onBeforeUnmount(() => {
   container.value?.removeEventListener('pointermove', onPointerMove)
   container.value?.removeEventListener('click', onClick)
   disposeTextSpriteCache()
-  // Libera la textura de fondo si se utilizó como background de la escena
-  if (sceneBgTexture) sceneBgTexture.dispose()
 })
+
+// Permite pausar o reanudar la rotación automática mediante el botón
+// accesible del template. Se podría persistir en una store de Pinia si se
+// desea que la preferencia se mantenga en toda la app.
+function toggleRotation() {
+  isRotating.value = !isRotating.value
+  controls.autoRotate = isRotating.value
+}
 
 function init() {
   // Configuración básica del renderer y cámara
@@ -219,21 +219,12 @@ function init() {
   )
   camera.position.set(0, 0, props.radius * 3)
 
-  // Si se decide aplicar el fondo como textura de la escena, se carga aquí.
-  // Esta vía consume memoria de GPU y filtra la imagen, por lo que solo se
-  // habilita si se escoge la estrategia "scene".
-  if (props.showBackground && props.backgroundStrategy === 'scene') {
-    const loader = new TextureLoader()
-    sceneBgTexture = loader.load(backgroundUrl)
-    scene.background = sceneBgTexture
-  }
-
-  // Controles de órbita con auto-rotación opcional; el fondo CSS permanece
-  // fijo mientras solo la escena 3D responde a las interacciones.
+  // Controles de órbita con auto-rotación opcional. El fondo CSS permanece
+  // estático mientras la escena se mueve, reforzando la legibilidad.
   controls = new OrbitControls(camera, renderer.domElement)
   controls.enableDamping = props.enableDamping
   controls.dampingFactor = props.dampingFactor
-  controls.autoRotate = props.autoRotate
+  controls.autoRotate = isRotating.value
   controls.autoRotateSpeed = props.autoRotateSpeed
   controls.minDistance = props.radius * 1.2
   controls.maxDistance = props.radius * 4
@@ -248,6 +239,9 @@ function init() {
   const starGeometry = new BufferGeometry()
   const positions: number[] = []
   const distance = props.radius * 5
+  // Se generan partículas aleatorias alrededor de la esfera principal. El
+  // número de partículas es configurable mediante `particleDensity` para poder
+  // balancear rendimiento y sensación de profundidad.
   for (let i = 0; i < props.particleDensity; i++) {
     positions.push(
       (Math.random() - 0.5) * distance * 2,
@@ -265,7 +259,8 @@ function init() {
   const stars = new Points(starGeometry, starMaterial)
   scene.add(stars)
 
-  // Sprites de texto distribuidos en esfera (método Fibonacci)
+  // Sprites de texto distribuidos mediante una esfera de Fibonacci. Este
+  // algoritmo garantiza densidad uniforme, evitando clusters y huecos.
   const N = props.technologies.length
   const radius = props.radius
   for (let i = 0; i < N; i++) {
@@ -282,18 +277,30 @@ function init() {
   }
 }
 
+// Curva de animación principal. Se utiliza una función ease-in/ease-out para
+// que la escala de las etiquetas cambie de forma gradual según su profundidad
+// evitando saltos bruscos. Además se alterna entre texturas nítidas y
+// desenfocadas para reforzar la sensación de distancia.
 function animate() {
   animationId = requestAnimationFrame(animate)
-  // Ajusta escala y opacidad según distancia para simular profundidad
   sprites.forEach(sprite => {
     const dist = camera.position.distanceTo(sprite.position)
     const min = props.radius * 0.8
     const max = props.radius * 3
-    const ratio = Math.min(Math.max((dist - min) / (max - min), 0), 1)
-    const scale = 1.5 - ratio
+    const t = Math.min(Math.max((dist - min) / (max - min), 0), 1)
+    // easeInOutQuad: crecimiento suave que mejora la lectura
+    const eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2
+    const maxScale = 1.2
+    const minScale = 0.6 // nunca más pequeño para preservar legibilidad
+    const scale = minScale + (maxScale - minScale) * (1 - eased)
     sprite.scale.setScalar(scale)
     const material = sprite.material as any
-    material.opacity = 1 - ratio * 0.5
+    material.opacity = 1 - t * 0.6
+    const nextMap = t > 0.7 ? sprite.userData.blurMap : sprite.userData.normalMap
+    if (material.map !== nextMap) {
+      material.map = nextMap
+      material.needsUpdate = true
+    }
   })
   controls.update()
   renderer.render(scene, camera)
@@ -343,20 +350,58 @@ function onClick() {
 
 <style scoped>
 /**
- * Wrapper del canvas; se posiciona relativo para poder ubicar el overlay
- * y mantener el fondo estático detrás de la escena 3D.
+ * Wrapper del canvas. El fondo se genera con un gradiente radial basado en
+ * `--bg-primary` y `--bg-secondary` para integrarse con la paleta del sitio
+ * tanto en modo claro como oscuro. Un pseudo-elemento aporta un patrón muy
+ * sutil que evita un vacío plano sin distraer.
  */
 .tech-galaxy {
   position: relative;
+  background: var(--bg-primary);
+  background-image: radial-gradient(circle at center, var(--bg-secondary) 0%, var(--bg-primary) 70%);
+  overflow: hidden;
+}
+.tech-galaxy::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-radial-gradient(var(--bg-secondary) 0 1px, transparent 1px 2px);
+  opacity: 0.05;
+  filter: blur(1px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Capa de ajuste de contraste, siempre debajo del canvas */
 .tech-galaxy__overlay {
   position: absolute;
   inset: 0;
-  background: #000;
+  background: var(--bg-primary);
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
+}
+
+/* Botón para pausar/reanudar la animación */
+.tech-galaxy__toggle {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--border-radius-full);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  z-index: 3;
+  transition: box-shadow var(--transition-fast);
+}
+.tech-galaxy__toggle:hover {
+  box-shadow: var(--shadow-md);
 }
 
 .tech-fallback {
@@ -365,7 +410,7 @@ function onClick() {
   gap: var(--spacing-sm);
   justify-content: center;
   position: relative;
-  z-index: 1; /* sobre el overlay */
+  z-index: 2; /* sobre el overlay */
 }
 
 canvas {
@@ -373,6 +418,6 @@ canvas {
   height: 100%;
   display: block;
   position: relative;
-  z-index: 1; /* sobre el overlay */
+  z-index: 2; /* sobre el overlay */
 }
 </style>

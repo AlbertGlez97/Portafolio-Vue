@@ -5,7 +5,7 @@ Portafolio personal construido con **Vue 3**, **TypeScript** y **Vite**. Incluye
 ## Características principales
 - Diseño moderno y responsive con modo claro/oscuro.
 - Galaxia 3D de tecnologías generada con **Three.js** y `CanvasTexture`.
-- Fondo estático con `codigoBinario.jpg`, aplicado al contenedor y con overlay ajustable.
+- Fondo neutro adaptable al modo claro/oscuro con gradiente y overlay opcional.
 - Badges accesibles de texto para representar tecnologías.
 - Sección *Sobre mí* con línea de tiempo "Mi Trayectoria Profesional".
 - Traducciones completas en español e inglés.
@@ -38,12 +38,17 @@ src/
 ```
 
 ## Cómo funciona la galaxia
-Los nombres de tecnologías se convierten en sprites de texto sobre una esfera. Los controles de órbita permiten rotar la escena y el auto-rotate mantiene la animación. La escala y opacidad de cada sprite varían según la distancia a la cámara para simular profundidad.
+Los nombres de tecnologías se convierten en sprites de texto sobre una esfera. Los controles de órbita permiten rotar la escena y el auto-rotate mantiene la animación. La escala y opacidad de cada sprite varían según la distancia a la cámara para simular profundidad. La rotación ahora es más pausada y puede desactivarse con un toggle (`allowPause`). Las etiquetas lejanas usan una textura ligeramente desenfocada para reforzar la profundidad.
 
 ## Fondo de la galaxia
-La imagen `codigoBinario.jpg` se aplica como fondo del contenedor que envuelve el canvas de Three.js. Este enfoque conserva la nitidez de los textos y facilita un overlay configurable (`overlayOpacity`) para asegurar contraste. El fondo puede desactivarse (`showBackground=false`) o cargarse como textura de la escena con `backgroundStrategy="scene"`.
+La versión actual prescinde de la imagen `codigoBinario.jpg` porque restaba legibilidad. En su lugar se utiliza un gradiente neutro basado en las variables `--bg-primary` y `--bg-secondary`, que se adapta automáticamente al modo claro u oscuro. El componente incluye una capa opcional (`overlayOpacity`) para ajustar el contraste sin introducir colores nuevos.
 
-En modo fallback (sin WebGL o con *reduced motion*), la misma imagen se mantiene detrás de la lista de badges.
+En modo fallback (sin WebGL) se mantiene el mismo gradiente detrás de la lista de badges.
+
+### Configuración
+- `overlayOpacity`: controla la opacidad de la capa de contraste.
+- `autoRotateSpeed`: velocidad de rotación automática (por defecto más lenta).
+- `allowPause`: muestra un botón accesible para pausar o reanudar la animación.
 
 ## Cómo contribuir / modificar
 1. Agrega tu proyecto o skill en los archivos JSON de `src/data`.

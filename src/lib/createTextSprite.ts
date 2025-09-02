@@ -2,11 +2,17 @@ import { CanvasTexture, Sprite, SpriteMaterial } from 'three'
 
 // Entrada de caché para evitar recrear texturas de texto
 interface CacheEntry {
+  /** Textura nítida utilizada cuando el sprite está en primer plano */
   texture: CanvasTexture
+  /** Versión suavemente desenfocada para sprites lejanos; ayuda a dar
+   *  sensación de profundidad sin eliminarlos por completo. */
+  blurTexture: CanvasTexture
   width: number
   height: number
 }
 
+// Caché en memoria para reutilizar texturas de etiquetas y evitar
+// recrearlas en cada frame. Se indexa por el texto de la etiqueta.
 const cache = new Map<string, CacheEntry>()
 
 function toPx(value: string): number {
@@ -63,7 +69,10 @@ export function createTextSprite(text: string): Sprite {
     const ctx = canvas.getContext('2d')!
     const root = getComputedStyle(document.documentElement)
 
-    const fontFamily = root.getPropertyValue('font-family').trim() ||
+    // Se reutilizan los mismos tokens que el componente TechBadge de la UI
+    // para garantizar coherencia cromática entre la versión DOM y el sprite.
+    const fontFamily =
+      root.getPropertyValue('font-family').trim() ||
       'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
     const fontSize = toPx(root.getPropertyValue('--font-size-xs')) || 12
     const paddingX = toPx(root.getPropertyValue('--spacing-sm')) || 16
@@ -85,28 +94,52 @@ export function createTextSprite(text: string): Sprite {
     ctx.textAlign = 'center'
     ctx.textBaseline = 'middle'
 
-    ctx.fillStyle = hexToRgba(baseColor, 0.1)
-    ctx.strokeStyle = hexToRgba(baseColor, 0.3)
+    // Fondo translúcido y borde suave para separar la etiqueta del fondo.
+    ctx.fillStyle = hexToRgba(baseColor, 0.15)
+    ctx.strokeStyle = hexToRgba(baseColor, 0.4)
     ctx.lineWidth = 1
     drawRoundedRect(ctx, 0.5, 0.5, width - 1, height - 1, radius)
+
+    // Halo de contraste que mejora la lectura sobre fondos cambiantes.
+    ctx.shadowColor = hexToRgba(baseColor, 0.4)
+    ctx.shadowBlur = 4
 
     ctx.fillStyle = textColor
     ctx.fillText(text, width / 2, height / 2)
 
+    // Textura principal
     const texture = new CanvasTexture(canvas)
-    entry = { texture, width, height }
+
+    // Versión ligeramente desenfocada para sprites lejanos; se genera a
+    // partir del canvas original aplicando un filtro CSS.
+    const blurCanvas = document.createElement('canvas')
+    blurCanvas.width = canvas.width
+    blurCanvas.height = canvas.height
+    const bctx = blurCanvas.getContext('2d')!
+    bctx.filter = 'blur(2px)'
+    bctx.drawImage(canvas, 0, 0)
+    const blurTexture = new CanvasTexture(blurCanvas)
+
+    entry = { texture, blurTexture, width, height }
     cache.set(cacheKey, entry)
   }
 
   const material = new SpriteMaterial({ map: entry.texture, transparent: true })
   const sprite = new Sprite(material)
-  sprite.scale.set(entry.width / 100, entry.height / 100, 1)
+  // Se almacenan ambas texturas para poder alternar según profundidad.
+  sprite.userData.normalMap = entry.texture
+  sprite.userData.blurMap = entry.blurTexture
   sprite.userData.text = text
+  sprite.scale.set(entry.width / 100, entry.height / 100, 1)
   return sprite
 }
 
 /** Clears cached textures to free GPU memory. */
 export function disposeTextSpriteCache() {
-  cache.forEach(e => e.texture.dispose())
+  // Se liberan ambas texturas para evitar fugas de memoria en la GPU.
+  cache.forEach(e => {
+    e.texture.dispose()
+    e.blurTexture.dispose()
+  })
   cache.clear()
 }
