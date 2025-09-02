@@ -5,6 +5,7 @@ Portafolio personal construido con **Vue 3**, **TypeScript** y **Vite**. Incluye
 ## Características principales
 - Diseño moderno y responsive con modo claro/oscuro.
 - Galaxia 3D de tecnologías generada con **Three.js** y `CanvasTexture`.
+- Fondo estático con `codigoBinario.jpg`, aplicado al contenedor y con overlay ajustable.
 - Badges accesibles de texto para representar tecnologías.
 - Sección *Sobre mí* con línea de tiempo "Mi Trayectoria Profesional".
 - Traducciones completas en español e inglés.
@@ -38,6 +39,11 @@ src/
 
 ## Cómo funciona la galaxia
 Los nombres de tecnologías se convierten en sprites de texto sobre una esfera. Los controles de órbita permiten rotar la escena y el auto-rotate mantiene la animación. La escala y opacidad de cada sprite varían según la distancia a la cámara para simular profundidad.
+
+## Fondo de la galaxia
+La imagen `codigoBinario.jpg` se aplica como fondo del contenedor que envuelve el canvas de Three.js. Este enfoque conserva la nitidez de los textos y facilita un overlay configurable (`overlayOpacity`) para asegurar contraste. El fondo puede desactivarse (`showBackground=false`) o cargarse como textura de la escena con `backgroundStrategy="scene"`.
+
+En modo fallback (sin WebGL o con *reduced motion*), la misma imagen se mantiene detrás de la lista de badges.
 
 ## Cómo contribuir / modificar
 1. Agrega tu proyecto o skill en los archivos JSON de `src/data`.
