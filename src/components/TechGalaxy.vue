@@ -1,10 +1,20 @@
 <template>
-  <!-- Contenedor que aloja el canvas 3D o el fallback plano -->
+  <!-- Contenedor principal que aloja el canvas 3D o el fallback plano.
+       El fondo estático se aplica sobre este wrapper para mantener el canvas
+       libre de texturas adicionales y facilitar overlays. -->
   <div
     ref="container"
     class="tech-galaxy"
-    :style="{ width: resolvedWidth, height: resolvedHeight }"
+    :style="containerStyles"
   >
+    <!-- Capa opcional que oscurece o aclara el fondo para mejorar contraste.
+         pointer-events:none evita bloquear la interacción con OrbitControls. -->
+    <div
+      v-if="props.showBackground && props.overlayOpacity > 0"
+      class="tech-galaxy__overlay"
+      :style="{ opacity: props.overlayOpacity }"
+    ></div>
+
     <!-- Canvas renderizado con Three.js; accesible vía aria-label -->
     <canvas
       v-if="show3D"
@@ -12,7 +22,7 @@
       role="img"
       aria-label="Visualización 3D de tecnologías"
     ></canvas>
-    <!-- Fallback accesible cuando WebGL no está disponible -->
+    <!-- Fallback accesible cuando WebGL no está disponible; mantiene el mismo fondo -->
     <div v-else class="tech-fallback">
       <TechBadge
         v-for="tech in technologies"
@@ -37,6 +47,8 @@ import {
   Raycaster,
   Scene,
   Sprite,
+  Texture,
+  TextureLoader,
   Vector2,
   WebGLRenderer
 } from 'three'
@@ -45,8 +57,14 @@ import TechBadge from './TechBadge.vue'
 import { createTextSprite, disposeTextSpriteCache } from '../lib/createTextSprite'
 
 /**
- * Visualización en forma de galaxia de etiquetas de tecnología.
- * Cada nombre se convierte en un sprite de texto con profundidad y rotación.
+ * TechGalaxy.vue
+ * ---------------
+ * Visualiza una galaxia 3D de etiquetas con Three.js.
+ * El fondo estático por defecto se aplica al wrapper HTML (estrategia "wrapper"),
+ * lo que mantiene el texto nítido y permite overlays ligeros sin coste extra
+ * en la GPU. Como alternativa se puede usar la imagen como textura de escena
+ * (estrategia "scene"), pero esto implica mayor consumo de memoria y menos
+ * control sobre la superposición de capas.
  */
 
 interface Props {
@@ -59,6 +77,9 @@ interface Props {
   enableDamping?: boolean // suavizado de movimiento con OrbitControls
   dampingFactor?: number // intensidad del damping
   particleDensity?: number // cantidad de partículas de fondo
+  showBackground?: boolean // activa/desactiva imagen de fondo
+  overlayOpacity?: number // opacidad de la capa de contraste (0-1)
+  backgroundStrategy?: 'wrapper' | 'scene' // dónde aplicar la imagen
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -69,7 +90,10 @@ const props = withDefaults(defineProps<Props>(), {
   radius: 10,
   enableDamping: true,
   dampingFactor: 0.05,
-  particleDensity: 500
+  particleDensity: 500,
+  showBackground: true,
+  overlayOpacity: 0.35,
+  backgroundStrategy: 'wrapper'
 })
 
 // Evento emitido al seleccionar un sprite
@@ -89,6 +113,7 @@ const sprites: Sprite[] = [] // colección de etiquetas 3D
 const raycaster = new Raycaster() // detección de interacción
 const mouse = new Vector2()
 let hovered: Sprite | null = null // sprite actualmente bajo el cursor
+let sceneBgTexture: Texture | null = null // textura de fondo si se usa 'scene'
 
 // Normaliza medidas numéricas a valores CSS
 const resolvedWidth = computed(() =>
@@ -97,6 +122,26 @@ const resolvedWidth = computed(() =>
 const resolvedHeight = computed(() =>
   typeof props.height === 'number' ? `${props.height}px` : props.height
 )
+
+// URL procesada por Vite para asegurar hashing y cache del asset.
+// Se dispara una pre-carga manual para evitar parpadeos al montar la escena.
+const backgroundUrl = new URL('../assets/img/codigoBinario.jpg', import.meta.url).href
+const preloadImage = new Image()
+preloadImage.src = backgroundUrl
+
+// Estilos reactivos del contenedor: dimensiones + imagen de fondo si corresponde.
+const containerStyles = computed(() => {
+  const style: Record<string, string> = {
+    width: resolvedWidth.value,
+    height: resolvedHeight.value
+  }
+  if (props.showBackground && props.backgroundStrategy === 'wrapper') {
+    style.backgroundImage = `url(${backgroundUrl})`
+    style.backgroundSize = 'cover'
+    style.backgroundPosition = 'center'
+  }
+  return style
+})
 
 // Verifica si el navegador soporta WebGL
 function isWebGLAvailable(): boolean {
@@ -120,6 +165,7 @@ const prefersReducedMotion = window.matchMedia(
 onMounted(() => {
   if (!isWebGLAvailable() || prefersReducedMotion) {
     show3D.value = false
+    // El fondo CSS permanece visible en el modo de fallback
     return
   }
   init()
@@ -150,6 +196,8 @@ onBeforeUnmount(() => {
   container.value?.removeEventListener('pointermove', onPointerMove)
   container.value?.removeEventListener('click', onClick)
   disposeTextSpriteCache()
+  // Libera la textura de fondo si se utilizó como background de la escena
+  if (sceneBgTexture) sceneBgTexture.dispose()
 })
 
 function init() {
@@ -171,7 +219,17 @@ function init() {
   )
   camera.position.set(0, 0, props.radius * 3)
 
-  // Controles de órbita con auto-rotación opcional
+  // Si se decide aplicar el fondo como textura de la escena, se carga aquí.
+  // Esta vía consume memoria de GPU y filtra la imagen, por lo que solo se
+  // habilita si se escoge la estrategia "scene".
+  if (props.showBackground && props.backgroundStrategy === 'scene') {
+    const loader = new TextureLoader()
+    sceneBgTexture = loader.load(backgroundUrl)
+    scene.background = sceneBgTexture
+  }
+
+  // Controles de órbita con auto-rotación opcional; el fondo CSS permanece
+  // fijo mientras solo la escena 3D responde a las interacciones.
   controls = new OrbitControls(camera, renderer.domElement)
   controls.enableDamping = props.enableDamping
   controls.dampingFactor = props.dampingFactor
@@ -284,8 +342,21 @@ function onClick() {
 </script>
 
 <style scoped>
+/**
+ * Wrapper del canvas; se posiciona relativo para poder ubicar el overlay
+ * y mantener el fondo estático detrás de la escena 3D.
+ */
 .tech-galaxy {
   position: relative;
+}
+
+/* Capa de ajuste de contraste, siempre debajo del canvas */
+.tech-galaxy__overlay {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .tech-fallback {
@@ -293,11 +364,15 @@ function onClick() {
   flex-wrap: wrap;
   gap: var(--spacing-sm);
   justify-content: center;
+  position: relative;
+  z-index: 1; /* sobre el overlay */
 }
 
 canvas {
   width: 100%;
   height: 100%;
   display: block;
+  position: relative;
+  z-index: 1; /* sobre el overlay */
 }
 </style>
