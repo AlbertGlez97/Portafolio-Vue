@@ -118,7 +118,7 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: var(--z-header);
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   transition: all var(--transition-normal);
@@ -206,7 +206,7 @@ onUnmounted(() => {
   justify-content: center;
   min-width: 40px;
   height: 40px;
-  z-index: 999;
+  z-index: calc(var(--z-header) - 1);
 }
 
 .control-btn:hover {
