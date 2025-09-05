@@ -34,7 +34,12 @@
   --bg-secondary: var(--light-gray);
   --bg-dark: var(--black);
   --overlay-bg: rgba(0, 0, 0, 0.5);
-  
+
+  /* Niveles de superposición */
+  --z-header: 1000;
+  --z-overlay: 2000;
+  --z-modal: 2100;
+
   /* Sombras */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);

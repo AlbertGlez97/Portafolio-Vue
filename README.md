@@ -54,6 +54,7 @@ En modo fallback (sin WebGL) se mantiene el mismo gradiente detrás de la lista 
 El modal de autenticación reutiliza los siguientes tokens del tema:
 
 - `--overlay-bg` para el fondo del backdrop.
+- `--z-overlay` y `--z-modal` para el orden de apilamiento.
 - `--bg-primary` y `--text-primary` para el contenedor.
 - `--primary-color` y `--danger-color` en bordes, botones y estados de error.
 - `--shadow-md` para la sombra del contenedor.

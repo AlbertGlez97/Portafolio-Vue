@@ -1,45 +1,47 @@
 <template>
-  <div v-if="modelValue" class="modal-backdrop" @click.self="close">
-    <div
-      class="modal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="login-title"
-    >
-      <h2 id="login-title">{{ t.auth.title }}</h2>
-      <form @submit.prevent="submit">
-        <div class="form-group">
-          <label for="user">{{ t.auth.username }}</label>
-          <input
-            id="user"
-            ref="userInput"
-            v-model="username"
-            :class="{ error }"
-            autocomplete="username"
-          />
-        </div>
-        <div class="form-group">
-          <label for="pass">{{ t.auth.password }}</label>
-          <input
-            id="pass"
-            type="password"
-            v-model="password"
-            :class="{ error }"
-            autocomplete="current-password"
-          />
-        </div>
-        <p v-if="error" class="error-message" aria-live="polite">{{ error }}</p>
-        <div class="buttons">
-          <button type="button" class="btn btn-secondary" @click="close">
-            {{ t.auth.cancel }}
-          </button>
-          <button type="submit" class="btn btn-primary">
-            {{ t.auth.accept }}
-          </button>
-        </div>
-      </form>
+  <teleport to="body">
+    <div v-if="modelValue" class="modal-backdrop" @click.self="close">
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="login-title"
+      >
+        <h2 id="login-title">{{ t.auth.title }}</h2>
+        <form @submit.prevent="submit">
+          <div class="form-group">
+            <label for="user">{{ t.auth.username }}</label>
+            <input
+              id="user"
+              ref="userInput"
+              v-model="username"
+              :class="{ error }"
+              autocomplete="username"
+            />
+          </div>
+          <div class="form-group">
+            <label for="pass">{{ t.auth.password }}</label>
+            <input
+              id="pass"
+              type="password"
+              v-model="password"
+              :class="{ error }"
+              autocomplete="current-password"
+            />
+          </div>
+          <p v-if="error" class="error-message" aria-live="polite">{{ error }}</p>
+          <div class="buttons">
+            <button type="button" class="btn btn-secondary" @click="close">
+              {{ t.auth.cancel }}
+            </button>
+            <button type="submit" class="btn btn-primary">
+              {{ t.auth.accept }}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
+  </teleport>
 </template>
 
 <script setup lang="ts">
@@ -114,9 +116,11 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: var(--spacing-md);
+  z-index: var(--z-overlay);
 }
 
 .modal {
+  position: relative;
   background: var(--bg-primary);
   color: var(--text-primary);
   padding: var(--spacing-2xl);
@@ -126,6 +130,7 @@ onUnmounted(() => {
   box-shadow: var(--shadow-md);
   border: 1px solid color-mix(in srgb, var(--primary-color), transparent 90%);
   transition: all var(--transition-normal);
+  z-index: var(--z-modal);
 }
 
 .form-group {
