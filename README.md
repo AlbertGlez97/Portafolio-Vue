@@ -50,6 +50,16 @@ En modo fallback (sin WebGL) se mantiene el mismo gradiente detrás de la lista 
 - `autoRotateSpeed`: velocidad de rotación automática (por defecto más lenta).
 - `allowPause`: muestra un botón accesible para pausar o reanudar la animación.
 
+## Tokens de estilo del modal de login
+El modal de autenticación reutiliza los siguientes tokens del tema:
+
+- `--overlay-bg` para el fondo del backdrop.
+- `--bg-primary` y `--text-primary` para el contenedor.
+- `--primary-color` y `--danger-color` en bordes, botones y estados de error.
+- `--shadow-md` para la sombra del contenedor.
+- `--border-radius-lg` y `--border-radius-md` para los bordes redondeados.
+- `--spacing-2xl`, `--spacing-lg`, `--spacing-md` y `--spacing-sm` para el espaciado interno y externo.
+
 ## Cómo contribuir / modificar
 1. Agrega tu proyecto o skill en los archivos JSON de `src/data`.
 2. Incluye la traducción correspondiente en `src/i18n/en.json` y `es.json`.

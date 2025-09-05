@@ -171,5 +171,14 @@
     "switchToSpanish": "Cambiar a Español",
     "lightMode": "Modo Claro",
     "darkMode": "Modo Oscuro"
+  },
+  "auth": {
+    "title": "Iniciar sesión",
+    "username": "Usuario",
+    "password": "Contraseña",
+    "cancel": "Cancelar",
+    "accept": "Aceptar",
+    "errorInvalid": "Credenciales inválidas",
+    "hintDemo": "Demo: admin/admin"
   }
 }
