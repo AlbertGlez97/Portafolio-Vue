@@ -3,10 +3,8 @@
   <nav class="navbar" :class="{ 'navbar-scrolled': isScrolled }">
     <div class="container">
       <div class="navbar-content">
-        <!-- Logo que redirige al inicio -->
-        <router-link to="/" class="navbar-logo" @click="closeMenu">
-          <span class="logo-text">AG</span>
-        </router-link>
+        <!-- Logo que redirige al inicio con opción de login -->
+        <AppLogo @open-login="emit('open-login')" @navigate-home="closeMenu" />
 
         <!-- Menú de navegación en versión escritorio -->
         <ul class="navbar-menu desktop-menu">
@@ -77,7 +75,10 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useMainStore } from '../stores/main'
+import AppLogo from './AppLogo.vue'
 import { storeToRefs } from 'pinia'
+
+const emit = defineEmits(['open-login'])
 
 // Consumo de la store global para idioma/tema/menú
 const store = useMainStore()
@@ -146,21 +147,7 @@ onUnmounted(() => {
   min-height: 70px;
 }
 
-.navbar-logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
 
-.logo-text {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--primary-color);
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
 
 .navbar-menu {
   display: flex;
@@ -343,8 +330,5 @@ onUnmounted(() => {
     min-height: 60px;
   }
 
-  .logo-text {
-    font-size: var(--font-size-xl);
-  }
 }
 </style>
