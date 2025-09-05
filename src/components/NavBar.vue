@@ -40,9 +40,20 @@
             <span v-else>🌙</span>
           </button>
 
+          <!-- Icono de cierre de sesión -->
+          <button
+            v-if="isLoggedIn"
+            @click="handleLogout"
+            class="control-btn logout-btn"
+            :title="t.actions.signOut"
+            :aria-label="t.actions.signOut"
+          >
+            🚪
+          </button>
+
           <!-- Botón hamburguesa para menú móvil -->
-          <button 
-            @click="toggleMenu" 
+          <button
+            @click="toggleMenu"
             class="control-btn mobile-menu-btn"
             :class="{ active: isMenuOpen }"
           >
@@ -73,10 +84,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useMainStore } from '../stores/main'
 import AppLogo from './AppLogo.vue'
 import { storeToRefs } from 'pinia'
+import { useAuthStore } from '../stores/auth'
+import { useRouter } from 'vue-router'
 
 const emit = defineEmits(['open-login'])
 
@@ -85,11 +98,22 @@ const store = useMainStore()
 const { currentLanguage, isDarkMode, isMenuOpen, t } = storeToRefs(store)
 const { toggleLanguage, toggleDarkMode, toggleMenu, closeMenu } = store
 
+// Autenticación
+const auth = useAuthStore()
+const { isLoggedIn } = storeToRefs(auth)
+const { logout } = auth
+const router = useRouter()
+
+const handleLogout = () => {
+  logout()
+  router.push('/')
+}
+
 // Estado local para aplicar estilo cuando se hace scroll
 const isScrolled = ref(false)
 
-// Rutas que se muestran en la navegación
-const menuItems = [
+// Rutas base de navegación
+const baseMenuItems = [
   { name: 'home', path: '/' },
   { name: 'about', path: '/sobre-mi' },
   { name: 'education', path: '/educacion' },
@@ -97,6 +121,15 @@ const menuItems = [
   { name: 'projects', path: '/proyectos' },
   { name: 'contact', path: '/contacto' }
 ]
+
+// Menú dinámico que incluye el panel administrativo si hay sesión
+const menuItems = computed(() => {
+  const items = [...baseMenuItems]
+  if (isLoggedIn.value) {
+    items.push({ name: 'adminPanel', path: '/admin' })
+  }
+  return items
+})
 
 // Detecta desplazamiento para cambiar estilo del header
 const handleScroll = () => {
