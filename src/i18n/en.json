@@ -171,5 +171,14 @@
     "switchToSpanish": "Switch to Spanish",
     "lightMode": "Light Mode",
     "darkMode": "Dark Mode"
+  },
+  "auth": {
+    "title": "Sign in",
+    "username": "Username",
+    "password": "Password",
+    "cancel": "Cancel",
+    "accept": "Sign in",
+    "errorInvalid": "Invalid credentials",
+    "hintDemo": "Demo: admin/admin"
   }
 }
