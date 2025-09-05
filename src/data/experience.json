@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "start": "2023-01",
+    "current": true,
+    "role": { "es": "Desarrollador Frontend", "en": "Frontend Developer" },
+    "company": "Tech Corp",
+    "location": "Remote",
+    "summary": { "es": "Trabajo en frontend", "en": "Working on frontend" },
+    "technologies": ["Vue", "TypeScript"],
+    "featured": false,
+    "updatedAt": "2024-01-01"
+  }
+]
