@@ -31,3 +31,9 @@ export type {
   TechnologyBubble
 } from './Projects'
 
+// Experience interfaces
+export type {
+  Experience,
+  ExperiencesData
+} from './Experience'
+

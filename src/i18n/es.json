@@ -174,6 +174,12 @@
       "newAria": "Crear un nuevo proyecto",
       "newHint": "Crear un nuevo proyecto (Alt + N)"
     },
+    "experience": {
+      "header": "Gestión de Experiencia Profesional",
+      "new": "Nueva Experiencia",
+      "newTitle": "Nueva Experiencia",
+      "editTitle": "Editar Experiencia"
+    },
     "titleEs": "Título ES",
     "titleEn": "Título EN",
     "company": "Empresa",
@@ -186,6 +192,16 @@
     "yes": "Sí",
     "no": "No",
     "confirmDelete": "¿Seguro que deseas eliminar este proyecto?",
+    "period": "Periodo",
+    "start": "Inicio",
+    "end": "Fin",
+    "present": "Presente",
+    "roleEs": "Puesto ES",
+    "roleEn": "Puesto EN",
+    "current": "Actual",
+    "location": "Ubicación",
+    "summaryEs": "Resumen ES",
+    "summaryEn": "Resumen EN",
     "modal": {
       "titleNew": "Nuevo Proyecto",
       "titleEdit": "Editar Proyecto",

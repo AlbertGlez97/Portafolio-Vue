@@ -174,6 +174,12 @@
       "newAria": "Create a new project",
       "newHint": "Create a new project (Alt + N)"
     },
+    "experience": {
+      "header": "Professional Experience Management",
+      "new": "New Experience",
+      "newTitle": "New Experience",
+      "editTitle": "Edit Experience"
+    },
     "titleEs": "Title ES",
     "titleEn": "Title EN",
     "company": "Company",
@@ -186,6 +192,16 @@
     "yes": "Yes",
     "no": "No",
     "confirmDelete": "Are you sure you want to delete this project?",
+    "period": "Period",
+    "start": "Start",
+    "end": "End",
+    "present": "Present",
+    "roleEs": "Role ES",
+    "roleEn": "Role EN",
+    "current": "Current",
+    "location": "Location",
+    "summaryEs": "Summary ES",
+    "summaryEn": "Summary EN",
     "modal": {
       "titleNew": "New Project",
       "titleEdit": "Edit Project",
