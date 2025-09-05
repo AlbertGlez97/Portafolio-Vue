@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import type { ProjectsData, Project, TechnologyBubble } from '../interfaces'
 import projectsData from '../data/projects.json'
 
@@ -8,31 +8,45 @@ import projectsData from '../data/projects.json'
  */
 export const useProjectsStore = defineStore('projects', () => {
   // --- State ---
-  const projects: ProjectsData = projectsData
+  const load = (): ProjectsData => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('projects')
+      if (stored) return JSON.parse(stored)
+    }
+    return projectsData
+  }
+
+  const projects = ref<ProjectsData>(load())
+
+  const save = () => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('projects', JSON.stringify(projects.value))
+    }
+  }
 
   // --- Getters ---
-  const getProjects = computed(() => projects)
-  const getFeaturedProjects = computed(() => projects.featured)
-  const getOtherProjects = computed(() => projects.other)
-  const getAllProjects = computed(() => [...projects.featured, ...projects.other])
+  const getProjects = computed(() => projects.value)
+  const getFeaturedProjects = computed(() => projects.value.featured)
+  const getOtherProjects = computed(() => projects.value.other)
+  const getAllProjects = computed(() => [...projects.value.featured, ...projects.value.other])
 
   // Totales y métricas derivadas
   const getTotalProjects = computed(() =>
-    projects.featured.length + projects.other.length
+    projects.value.featured.length + projects.value.other.length
   )
-  const getFeaturedProjectsCount = computed(() => projects.featured.length)
+  const getFeaturedProjectsCount = computed(() => projects.value.featured.length)
 
   // Calcula burbujas de tecnologías con tamaño proporcional a frecuencia
   const getAllTechnologies = computed(() => {
     const techCount: { [key: string]: number } = {}
 
-    projects.featured.forEach(project => {
+    projects.value.featured.forEach(project => {
       project.technologies.forEach(tech => {
         techCount[tech] = (techCount[tech] || 0) + 1
       })
     })
 
-    projects.other.forEach(project => {
+    projects.value.other.forEach(project => {
       project.technologies.forEach(tech => {
         techCount[tech] = (techCount[tech] || 0) + 1
       })
@@ -46,10 +60,10 @@ export const useProjectsStore = defineStore('projects', () => {
 
   const getUniqueTechnologies = computed(() => {
     const allTechs = new Set<string>()
-    projects.featured.forEach(project => {
+    projects.value.featured.forEach(project => {
       project.technologies.forEach(tech => allTechs.add(tech))
     })
-    projects.other.forEach(project => {
+    projects.value.other.forEach(project => {
       project.technologies.forEach(tech => allTechs.add(tech))
     })
     return allTechs.size
@@ -77,6 +91,64 @@ export const useProjectsStore = defineStore('projects', () => {
     )
   }
 
+  const isFeatured = (id: number): boolean =>
+    projects.value.featured.some(p => p.id === id)
+
+  const getNextId = (): number => {
+    return (
+      Math.max(0, ...getAllProjects.value.map(p => p.id)) + 1
+    )
+  }
+
+  const addProject = (project: Project, featured = false) => {
+    if (featured) projects.value.featured.push(project)
+    else projects.value.other.push(project)
+    save()
+  }
+
+  const updateProject = (project: Project, featured = false) => {
+    const inFeatured = isFeatured(project.id)
+    if (inFeatured) {
+      const idx = projects.value.featured.findIndex(p => p.id === project.id)
+      if (idx !== -1) {
+        if (featured) projects.value.featured[idx] = project
+        else {
+          projects.value.featured.splice(idx, 1)
+          projects.value.other.push(project)
+        }
+      }
+    } else {
+      const idx = projects.value.other.findIndex(p => p.id === project.id)
+      if (idx !== -1) {
+        if (featured) {
+          projects.value.other.splice(idx, 1)
+          projects.value.featured.push(project)
+        } else {
+          projects.value.other[idx] = project
+        }
+      }
+    }
+    save()
+  }
+
+  const removeProject = (id: number) => {
+    let idx = projects.value.featured.findIndex(p => p.id === id)
+    if (idx !== -1) projects.value.featured.splice(idx, 1)
+    else {
+      idx = projects.value.other.findIndex(p => p.id === id)
+      if (idx !== -1) projects.value.other.splice(idx, 1)
+    }
+    save()
+  }
+
+  const duplicateProject = (id: number): Project | null => {
+    const original = getProjectById(id)
+    if (!original) return null
+    const copy: Project = JSON.parse(JSON.stringify(original))
+    copy.id = getNextId()
+    return copy
+  }
+
   return {
     // State
     projects,
@@ -94,6 +166,12 @@ export const useProjectsStore = defineStore('projects', () => {
     // Actions
     getProjectById,
     getProjectsByTechnology,
-    getProjectsByType
+    getProjectsByType,
+    isFeatured,
+    getNextId,
+    addProject,
+    updateProject,
+    removeProject,
+    duplicateProject
   }
 })
