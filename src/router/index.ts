@@ -192,7 +192,7 @@ router.beforeEach((to, from, next) => {
   
   // Verificar autenticación si es requerida
   if (to.meta.requiresAuth) {
-    if (authStore.isAdmin) {
+    if (authStore.isLoggedIn) {
       next()
     } else {
       next('/')

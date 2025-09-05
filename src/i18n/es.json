@@ -5,7 +5,8 @@
     "education": "Educación",
     "skills": "Habilidades",
     "projects": "Proyectos",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "adminPanel": "Panel Administrativo"
   },
   "hero": {
     "greeting": "Hola, soy",
@@ -180,5 +181,8 @@
     "accept": "Aceptar",
     "errorInvalid": "Credenciales inválidas",
     "hintDemo": "Demo: admin/admin"
+  },
+  "actions": {
+    "signOut": "Salir del modo administrador"
   }
 }
