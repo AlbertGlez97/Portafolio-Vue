@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import { useMainStore } from '../stores/main'
+import { useAuthStore } from '../stores/auth'
 
 // Router principal con lazy loading para optimizar el bundle.
 // La vista Home se importa de forma directa al ser crítica.
@@ -80,7 +81,7 @@ const routes: RouteRecordRaw[] = [
       order: 5
     }
   },
-  {
+    {
     path: '/contacto',
     name: 'contact',
     component: () => import('../views/Contact.vue'),
@@ -90,6 +91,16 @@ const routes: RouteRecordRaw[] = [
       showInNav: true,
       icon: 'mail',
       order: 6
+    }
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: () => import('../views/AdminView.vue'),
+    meta: {
+      title: 'Admin',
+      requiresAuth: true,
+      showInNav: false
     }
   },
   // Rutas de redirección para compatibilidad con URLs en inglés
@@ -158,6 +169,7 @@ const router = createRouter({
 // Guard global antes de cada navegación
 router.beforeEach((to, from, next) => {
   const mainStore = useMainStore()
+  const authStore = useAuthStore()
   
   // Actualizar el título de la página
   if (to.meta.title) {
@@ -178,11 +190,13 @@ router.beforeEach((to, from, next) => {
     mainStore.toggleMenu()
   }
   
-  // Verificar autenticación si es requerida (para futuras funcionalidades)
+  // Verificar autenticación si es requerida
   if (to.meta.requiresAuth) {
-    // Aquí se podría implementar lógica de autenticación
-    // Por ahora, permitir el acceso
-    next()
+    if (authStore.isAdmin) {
+      next()
+    } else {
+      next('/')
+    }
   } else {
     next()
   }
