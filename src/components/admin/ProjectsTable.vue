@@ -1,12 +1,21 @@
 <template>
   <div class="admin-table-wrapper">
-    <div class="table-actions">
-      <button class="btn btn-primary" @click="$emit('create')">
-        {{ t.admin.newProject }}
+    <div class="table-header">
+      <h2 id="projects-heading" class="table-title text-primary">
+        {{ t.admin.projects.header }}
+      </h2>
+      <button
+        class="btn btn-primary"
+        @click="$emit('create')"
+        :aria-label="t.admin.projects.newAria"
+        :title="t.admin.projects.newHint"
+        accesskey="n"
+      >
+        {{ t.admin.projects.new }}
       </button>
     </div>
     <div class="table-scroll">
-      <table class="admin-table">
+      <table class="admin-table" aria-labelledby="projects-heading">
         <thead>
           <tr>
             <th @click="toggleSort('id')">ID</th>
@@ -81,11 +90,16 @@ const isFeatured = (id: number) => projectsStore.isFeatured(id)
 .admin-table-wrapper {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
 }
-.table-actions {
+.table-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+.table-title {
+  margin: 0;
+  font-size: var(--font-size-lg);
 }
 .table-scroll {
   overflow-x: auto;

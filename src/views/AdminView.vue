@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useAuthStore } from '../stores/auth'
 import { useRouter } from 'vue-router'
 import { useProjectsStore, useMainStore } from '../stores'
@@ -71,6 +71,16 @@ const confirmDelete = (id: number) => {
     projectsStore.removeProject(id)
   }
 }
+
+const handleShortcut = (e: KeyboardEvent) => {
+  if (e.altKey && (e.key === 'n' || e.key === 'N')) {
+    e.preventDefault()
+    openCreate()
+  }
+}
+
+onMounted(() => window.addEventListener('keydown', handleShortcut))
+onBeforeUnmount(() => window.removeEventListener('keydown', handleShortcut))
 </script>
 
 <style scoped>

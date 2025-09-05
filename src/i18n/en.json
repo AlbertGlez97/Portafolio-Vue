@@ -168,7 +168,12 @@
     "confidential": "Confidential project"
   },
   "admin": {
-    "newProject": "New Project",
+    "projects": {
+      "header": "Portfolio Projects Management",
+      "new": "New Project",
+      "newAria": "Create a new project",
+      "newHint": "Create a new project (Alt + N)"
+    },
     "titleEs": "Title ES",
     "titleEn": "Title EN",
     "company": "Company",
