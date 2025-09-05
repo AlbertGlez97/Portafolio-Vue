@@ -1,30 +1,96 @@
 <template>
   <div class="admin-view">
-    <p>Hola</p>
-    <button @click="handleLogout">Cerrar sesión</button>
+    <ProjectsTable
+      @create="openCreate"
+      @edit="openEdit"
+      @duplicate="openDuplicate"
+      @delete="confirmDelete"
+    />
+    <ProjectModal
+      v-model="modalOpen"
+      :project="selectedProject"
+      :featured="selectedFeatured"
+    />
+    <button class="btn btn-secondary logout" @click="handleLogout">
+      {{ t.actions.signOut }}
+    </button>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useAuthStore } from '../stores/auth'
 import { useRouter } from 'vue-router'
+import { useProjectsStore, useMainStore } from '../stores'
+import ProjectsTable from '../components/admin/ProjectsTable.vue'
+import ProjectModal from '../components/admin/ProjectModal.vue'
+import type { Project } from '../interfaces'
+import { storeToRefs } from 'pinia'
 
 const auth = useAuthStore()
 const router = useRouter()
+const projectsStore = useProjectsStore()
+const mainStore = useMainStore()
+const { t } = storeToRefs(mainStore)
+
+const modalOpen = ref(false)
+const selectedProject = ref<Project | null>(null)
+const selectedFeatured = ref(false)
 
 const handleLogout = () => {
   auth.logout()
   router.push('/')
 }
+
+const openCreate = () => {
+  selectedProject.value = null
+  selectedFeatured.value = false
+  modalOpen.value = true
+}
+
+const openEdit = (id: number) => {
+  const project = projectsStore.getProjectById(id)
+  if (project) {
+    selectedProject.value = project
+    selectedFeatured.value = projectsStore.isFeatured(id)
+    modalOpen.value = true
+  }
+}
+
+const openDuplicate = (id: number) => {
+  const project = projectsStore.duplicateProject(id)
+  if (project) {
+    selectedProject.value = project
+    selectedFeatured.value = projectsStore.isFeatured(id)
+    modalOpen.value = true
+  }
+}
+
+const confirmDelete = (id: number) => {
+  if (window.confirm(t.value.admin.confirmDelete)) {
+    projectsStore.removeProject(id)
+  }
+}
+
+const handleShortcut = (e: KeyboardEvent) => {
+  if (e.altKey && (e.key === 'n' || e.key === 'N')) {
+    e.preventDefault()
+    openCreate()
+  }
+}
+
+onMounted(() => window.addEventListener('keydown', handleShortcut))
+onBeforeUnmount(() => window.removeEventListener('keydown', handleShortcut))
 </script>
 
 <style scoped>
 .admin-view {
-  min-height: 60vh;
+  padding: var(--spacing-lg);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  gap: var(--spacing-lg);
+}
+.logout {
+  align-self: flex-end;
 }
 </style>
