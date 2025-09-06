@@ -162,6 +162,46 @@
         "addTech": "Add"
       }
     },
+    "certifications": {
+      "header": "Certifications Management",
+      "new": "New Certification",
+      "modal": {
+        "titleNew": "New Certification",
+        "titleEdit": "Edit Certification",
+        "save": "Save",
+        "cancel": "Cancel"
+      }
+    },
+    "technicalSkills": {
+      "header": "Technical Skills Management",
+      "new": "New Skill",
+      "modal": {
+        "titleNew": "New Technical Skill",
+        "titleEdit": "Edit Technical Skill",
+        "save": "Save",
+        "cancel": "Cancel"
+      }
+    },
+    "tools": {
+      "header": "Tools Management",
+      "new": "New Tool",
+      "modal": {
+        "titleNew": "New Tool",
+        "titleEdit": "Edit Tool",
+        "save": "Save",
+        "cancel": "Cancel"
+      }
+    },
+    "softSkills": {
+      "header": "Soft Skills Management",
+      "new": "New Soft Skill",
+      "modal": {
+        "titleNew": "New Soft Skill",
+        "titleEdit": "Edit Soft Skill",
+        "save": "Save",
+        "cancel": "Cancel"
+      }
+    },
     "titleEs": "Title ES",
     "titleEn": "Title EN",
     "company": "Company",
@@ -184,6 +224,17 @@
     "location": "Location",
     "summaryEs": "Summary ES",
     "summaryEn": "Summary EN",
+    "provider": "Provider",
+    "icon": "Icon",
+    "descriptionEs": "Description ES",
+    "descriptionEn": "Description EN",
+    "link": "Link",
+    "category": "Category",
+    "levelEs": "Level ES",
+    "levelEn": "Level EN",
+    "percentage": "Percentage",
+    "type": "Type",
+    "customCategory": "New category",
     "modal": {
       "titleNew": "New Project",
       "titleEdit": "Edit Project",

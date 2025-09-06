@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": { "es": "Git", "en": "Git" },
+    "level": { "es": "Avanzado", "en": "Advanced" },
+    "description": { "es": "Control de versiones", "en": "Version control" },
+    "category": "tools"
+  },
+  {
+    "id": 2,
+    "name": { "es": "Scrum", "en": "Scrum" },
+    "level": { "es": "Avanzado", "en": "Advanced" },
+    "description": { "es": "Marco de trabajo ágil para desarrollo", "en": "Agile framework for development" },
+    "category": "methodologies"
+  }
+]

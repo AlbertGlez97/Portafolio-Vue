@@ -14,7 +14,7 @@ export interface AcademicEducation {
   subjects: Subject[]
 }
 
-export interface Certification {
+export interface EducationCertification {
   id: number
   title: MultiLanguageText
   provider: string
@@ -37,11 +37,11 @@ export interface Goal {
 
 export interface EducationData {
   academic: AcademicEducation
-  certifications: Certification[]
+  certifications: EducationCertification[]
   philosophy: Philosophy[]
   goals: Goal[]
 }
 
 export interface CertificationCardProps {
-  certification: Certification
+  certification: EducationCertification
 }

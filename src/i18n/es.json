@@ -162,6 +162,46 @@
         "addTech": "Agregar"
       }
     },
+    "certifications": {
+      "header": "Gestión de Certificaciones",
+      "new": "Nueva Certificación",
+      "modal": {
+        "titleNew": "Nueva Certificación",
+        "titleEdit": "Editar Certificación",
+        "save": "Guardar",
+        "cancel": "Cancelar"
+      }
+    },
+    "technicalSkills": {
+      "header": "Gestión de Habilidades Técnicas",
+      "new": "Nueva Habilidad",
+      "modal": {
+        "titleNew": "Nueva Habilidad Técnica",
+        "titleEdit": "Editar Habilidad Técnica",
+        "save": "Guardar",
+        "cancel": "Cancelar"
+      }
+    },
+    "tools": {
+      "header": "Gestión de Herramientas",
+      "new": "Nueva Herramienta",
+      "modal": {
+        "titleNew": "Nueva Herramienta",
+        "titleEdit": "Editar Herramienta",
+        "save": "Guardar",
+        "cancel": "Cancelar"
+      }
+    },
+    "softSkills": {
+      "header": "Gestión de Habilidades Blandas",
+      "new": "Nueva Habilidad Blanda",
+      "modal": {
+        "titleNew": "Nueva Habilidad Blanda",
+        "titleEdit": "Editar Habilidad Blanda",
+        "save": "Guardar",
+        "cancel": "Cancelar"
+      }
+    },
     "titleEs": "Título ES",
     "titleEn": "Título EN",
     "company": "Empresa",
@@ -184,6 +224,17 @@
     "location": "Ubicación",
     "summaryEs": "Resumen ES",
     "summaryEn": "Resumen EN",
+    "provider": "Proveedor",
+    "icon": "Ícono",
+    "descriptionEs": "Descripción ES",
+    "descriptionEn": "Descripción EN",
+    "link": "Enlace",
+    "category": "Categoría",
+    "levelEs": "Nivel ES",
+    "levelEn": "Nivel EN",
+    "percentage": "Porcentaje",
+    "type": "Tipo",
+    "customCategory": "Nueva categoría",
     "modal": {
       "titleNew": "Nuevo Proyecto",
       "titleEdit": "Editar Proyecto",

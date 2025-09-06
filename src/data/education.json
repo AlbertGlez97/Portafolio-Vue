@@ -1,94 +1,22 @@
 {
-  "academic": {
-    "degree": { "es": "Ingeniería en Informática", "en": "Computer Engineering" },
-    "institution": "Tecnológico de Estudios Superiores de Ecatepec",
-    "period": "2016 - 2022",
-    "status": { "es": "Titulado", "en": "Graduated" },
-    "description": {
-      "es": "Formación sólida en desarrollo de software, bases de datos, metodologías de desarrollo y fundamentos de la informática. Titulado con cédula profesional, con enfoque en tecnologías modernas y mejores prácticas de desarrollo.",
-      "en": "Solid training in software development, databases, development methodologies and computer science fundamentals. Graduated with professional license, focused on modern technologies and best development practices."
-    },
-    "subjects": [
-      { "name": { "es": "Desarrollo de Software", "en": "Software Development" }, "icon": "code" },
-      { "name": { "es": "Bases de Datos", "en": "Databases" }, "icon": "database" },
-      { "name": { "es": "Metodologías Ágiles", "en": "Agile Methodologies" }, "icon": "agile" },
-      { "name": { "es": "Arquitectura de Software", "en": "Software Architecture" }, "icon": "architecture" },
-      { "name": { "es": "Algoritmos y Estructuras", "en": "Algorithms and Structures" }, "icon": "algorithm" },
-      { "name": { "es": "Redes y Sistemas", "en": "Networks and Systems" }, "icon": "network" }
-    ]
-  },
-  "certifications": [
-    {
-      "id": 1,
-      "title": { "es": "Curso de Introducción a la Automatización de Pruebas", "en": "Introduction to Test Automation Course" },
-      "provider": "Platzi",
-      "icon": "testing",
+    "academic": {
+      "degree": { "es": "Ingeniería en Informática", "en": "Computer Engineering" },
+      "institution": "Tecnológico de Estudios Superiores de Ecatepec",
+      "period": "2016 - 2022",
+      "status": { "es": "Titulado", "en": "Graduated" },
       "description": {
-        "es": "Fundamentos de testing automatizado, herramientas y mejores prácticas para asegurar la calidad del software.",
-        "en": "Fundamentals of automated testing, tools and best practices to ensure software quality."
-      }
+        "es": "Formación sólida en desarrollo de software, bases de datos, metodologías de desarrollo y fundamentos de la informática. Titulado con cédula profesional, con enfoque en tecnologías modernas y mejores prácticas de desarrollo.",
+        "en": "Solid training in software development, databases, development methodologies and computer science fundamentals. Graduated with professional license, focused on modern technologies and best development practices."
+      },
+      "subjects": [
+        { "name": { "es": "Desarrollo de Software", "en": "Software Development" }, "icon": "code" },
+        { "name": { "es": "Bases de Datos", "en": "Databases" }, "icon": "database" },
+        { "name": { "es": "Metodologías Ágiles", "en": "Agile Methodologies" }, "icon": "agile" },
+        { "name": { "es": "Arquitectura de Software", "en": "Software Architecture" }, "icon": "architecture" },
+        { "name": { "es": "Algoritmos y Estructuras", "en": "Algorithms and Structures" }, "icon": "algorithm" },
+        { "name": { "es": "Redes y Sistemas", "en": "Networks and Systems" }, "icon": "network" }
+      ]
     },
-    {
-      "id": 2,
-      "title": { "es": "Curso de Terminal y Línea de Comandos", "en": "Terminal and Command Line Course" },
-      "provider": "Platzi",
-      "icon": "terminal",
-      "description": {
-        "es": "Dominio de la terminal, comandos esenciales y automatización de tareas para mejorar la productividad.",
-        "en": "Mastery of the terminal, essential commands and task automation to improve productivity."
-      }
-    },
-    {
-      "id": 3,
-      "title": { "es": "Backend con Node.js: API REST con Express.js", "en": "Backend with Node.js: REST API with Express.js" },
-      "provider": "Platzi",
-      "icon": "nodejs",
-      "description": {
-        "es": "Desarrollo de APIs RESTful con Node.js y Express, incluyendo autenticación, validación y mejores prácticas.",
-        "en": "Development of RESTful APIs with Node.js and Express, including authentication, validation and best practices."
-      }
-    },
-    {
-      "id": 4,
-      "title": { "es": "Curso Profesional de JavaScript", "en": "Professional JavaScript Course" },
-      "provider": "Platzi",
-      "icon": "javascript",
-      "description": {
-        "es": "JavaScript avanzado, ES6+, programación funcional, asíncrona y patrones de diseño modernos.",
-        "en": "Advanced JavaScript, ES6+, functional programming, asynchronous programming and modern design patterns."
-      }
-    },
-    {
-      "id": 5,
-      "title": { "es": "Configuración de Entorno en Linux", "en": "Environment Configuration in Linux" },
-      "provider": "Platzi",
-      "icon": "linux",
-      "description": {
-        "es": "Configuración y optimización de entornos de desarrollo en sistemas Linux para máxima productividad.",
-        "en": "Configuration and optimization of development environments in Linux systems for maximum productivity."
-      }
-    },
-    {
-      "id": 6,
-      "title": { "es": "JavaScript Engine (V8) y el Navegador", "en": "JavaScript Engine (V8) and the Browser" },
-      "provider": "Platzi",
-      "icon": "browser",
-      "description": {
-        "es": "Funcionamiento interno del motor V8, optimización de código y comprensión profunda del runtime de JavaScript.",
-        "en": "Internal workings of the V8 engine, code optimization and deep understanding of the JavaScript runtime."
-      }
-    },
-    {
-      "id": 7,
-      "title": { "es": "Curso Práctico de Frontend Developer", "en": "Practical Frontend Developer Course" },
-      "provider": "Platzi",
-      "icon": "frontend",
-      "description": {
-        "es": "Desarrollo frontend moderno, HTML5, CSS3, JavaScript, responsive design y mejores prácticas de UI/UX.",
-        "en": "Modern frontend development, HTML5, CSS3, JavaScript, responsive design and UI/UX best practices."
-      }
-    }
-  ],
   "philosophy": [
     {
       "title": { "es": "Aprendizaje Continuo", "en": "Continuous Learning" },
