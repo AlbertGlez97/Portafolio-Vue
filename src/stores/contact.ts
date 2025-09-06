@@ -3,8 +3,8 @@ import { ref, computed, watch } from 'vue'
 import data from '../data/personal.json'
 
 export interface ContactInfo {
-  email: string
-  phone: string
+  emails: string[]
+  phones?: string[]
   location: { es: string; en: string }
   linkedin: string
   github: string
@@ -13,23 +13,44 @@ export interface ContactInfo {
 
 const STORAGE_KEY = 'contactInfo'
 
+const adapt = (raw: any): ContactInfo => {
+  const emails = Array.isArray(raw.emails)
+    ? raw.emails
+    : raw.email
+    ? [raw.email]
+    : []
+  const phones = Array.isArray(raw.phones)
+    ? raw.phones
+    : raw.phone
+    ? [raw.phone]
+    : []
+  return {
+    emails,
+    phones: phones.length ? phones : undefined,
+    location: raw.location || { es: '', en: '' },
+    linkedin: raw.linkedin || '',
+    github: raw.github || '',
+    otherLinks: raw.otherLinks || {}
+  }
+}
+
 const load = (): ContactInfo => {
-  if (typeof window === 'undefined') return data.contact as ContactInfo
+  if (typeof window === 'undefined') return adapt(data.contact)
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
-    if (raw) return JSON.parse(raw) as ContactInfo
+    if (raw) return adapt(JSON.parse(raw))
   } catch {
     /* ignore */
   }
-  return data.contact as ContactInfo
+  return adapt(data.contact)
 }
 
 export const useContactStore = defineStore('contact', () => {
   const contact = ref<ContactInfo>(load())
 
   const getContact = computed(() => contact.value)
-  const getEmail = computed(() => contact.value.email)
-  const getPhone = computed(() => contact.value.phone)
+  const getEmails = computed(() => contact.value.emails)
+  const getPhones = computed(() => contact.value.phones)
   const getLocation = computed(() => contact.value.location)
   const getLinkedin = computed(() => contact.value.linkedin)
   const getGithub = computed(() => contact.value.github)
@@ -57,8 +78,8 @@ export const useContactStore = defineStore('contact', () => {
   return {
     contact,
     getContact,
-    getEmail,
-    getPhone,
+    getEmails,
+    getPhones,
     getLocation,
     getLinkedin,
     getGithub,

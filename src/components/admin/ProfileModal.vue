@@ -11,14 +11,57 @@
         <h2 id="profile-modal-title">{{ t.admin.profile.modal.title }}</h2>
         <form @submit.prevent="save">
           <section class="form-section">
-            <div class="form-group">
-              <label for="email">{{ t.admin.profile.fields.email }}</label>
-              <input id="email" type="email" v-model="form.email" ref="firstInput" required />
+            <div
+              class="form-group"
+              v-for="(email, idx) in form.emails"
+              :key="`email-${idx}`"
+            >
+              <label :for="`email-${idx}`">
+                {{ t.admin.profile.fields.email }} {{ idx + 1 }}
+              </label>
+              <div class="dynamic-item">
+                <input
+                  :id="`email-${idx}`"
+                  type="email"
+                  v-model="form.emails[idx]"
+                  :ref="idx === 0 ? firstInput : undefined"
+                  required
+                />
+                <button
+                  v-if="form.emails.length > 1"
+                  type="button"
+                  class="btn btn-secondary"
+                  @click="removeEmail(idx)"
+                >
+                  {{ t.admin.profile.fields.remove }}
+                </button>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="phone">{{ t.admin.profile.fields.phone }}</label>
-              <input id="phone" v-model="form.phone" />
+            <button type="button" class="btn btn-secondary" @click="addEmail">
+              {{ t.admin.profile.fields.addEmail }}
+            </button>
+            <div
+              class="form-group"
+              v-for="(phone, idx) in form.phones"
+              :key="`phone-${idx}`"
+            >
+              <label :for="`phone-${idx}`">
+                {{ t.admin.profile.fields.phone }} {{ idx + 1 }}
+              </label>
+              <div class="dynamic-item">
+                <input :id="`phone-${idx}`" v-model="form.phones[idx]" />
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  @click="removePhone(idx)"
+                >
+                  {{ t.admin.profile.fields.remove }}
+                </button>
+              </div>
             </div>
+            <button type="button" class="btn btn-secondary" @click="addPhone">
+              {{ t.admin.profile.fields.addPhone }}
+            </button>
             <div class="form-group">
               <label for="linkedin">{{ t.admin.profile.fields.linkedin }}</label>
               <input id="linkedin" v-model="form.linkedin" />
@@ -88,6 +131,7 @@ import { reactive, ref, watch, nextTick } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useMainStore } from '../../stores/main'
 import { useContactStore } from '../../stores/contact'
+import type { ContactInfo } from '../../stores/contact'
 
 const props = defineProps<{ modelValue: boolean }>()
 const emit = defineEmits(['update:modelValue'])
@@ -102,8 +146,8 @@ const firstInput = ref<HTMLInputElement | null>(null)
 
 interface OtherLink { key: string; url: string }
 interface ContactForm {
-  email: string
-  phone: string
+  emails: string[]
+  phones: string[]
   location: { es: string; en: string }
   linkedin: string
   github: string
@@ -111,8 +155,8 @@ interface ContactForm {
 }
 
 const form = reactive<ContactForm>({
-  email: '',
-  phone: '',
+  emails: [''],
+  phones: [],
   location: { es: '', en: '' },
   linkedin: '',
   github: '',
@@ -120,8 +164,10 @@ const form = reactive<ContactForm>({
 })
 
 const resetForm = () => {
-  form.email = contact.value.email
-  form.phone = contact.value.phone
+  form.emails = contact.value.emails.length
+    ? [...contact.value.emails]
+    : ['']
+  form.phones = contact.value.phones ? [...contact.value.phones] : []
   form.location.es = contact.value.location.es
   form.location.en = contact.value.location.en
   form.linkedin = contact.value.linkedin
@@ -172,13 +218,19 @@ const trapFocus = (e: KeyboardEvent) => {
 const cancel = () => emit('update:modelValue', false)
 
 const save = () => {
-  const payload = {
-    email: form.email,
-    phone: form.phone,
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  const emails = form.emails.map(e => e.trim()).filter(Boolean)
+  if (!emails[0] || !emailRegex.test(emails[0])) return
+  const phones = form.phones.map(p => p.trim()).filter(Boolean)
+  const payload: ContactInfo = {
+    emails,
     location: { ...form.location },
     linkedin: form.linkedin,
     github: form.github,
-    otherLinks: Object.fromEntries(form.otherLinks.filter(l => l.key && l.url).map(l => [l.key, l.url]))
+    otherLinks: Object.fromEntries(
+      form.otherLinks.filter(l => l.key && l.url).map(l => [l.key, l.url])
+    ),
+    ...(phones.length ? { phones } : {})
   }
   contactStore.updateContact(payload)
   contactStore.saveContact()
@@ -187,48 +239,97 @@ const save = () => {
 
 const addOtherLink = () => form.otherLinks.push({ key: '', url: '' })
 const removeOtherLink = (idx: number) => form.otherLinks.splice(idx, 1)
+const addEmail = () => form.emails.push('')
+const removeEmail = (idx: number) => form.emails.splice(idx, 1)
+const addPhone = () => form.phones.push('')
+const removePhone = (idx: number) => form.phones.splice(idx, 1)
 </script>
 
 <style scoped>
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--overlay-bg);
+  backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  padding: var(--spacing-md);
+  z-index: var(--z-overlay);
 }
 .modal {
+  position: relative;
   background: var(--bg-primary);
   color: var(--text-primary);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-2xl);
   border-radius: var(--border-radius-lg);
-  width: 90%;
-  max-width: 600px;
+  width: 100%;
+  max-width: 700px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid color-mix(in srgb, var(--primary-color), transparent 90%);
+  transition: all var(--transition-normal);
+  z-index: var(--z-modal);
 }
 .form-section {
   margin-bottom: var(--spacing-lg);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
 }
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
 }
+.form-group label {
+  margin-bottom: var(--spacing-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 2px solid color-mix(in srgb, var(--primary-color), transparent 80%);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+.form-group textarea {
+  min-height: 80px;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-color), transparent 90%);
+}
+.dynamic-item,
 .other-link {
-  flex-direction: row;
+  display: flex;
+  gap: var(--spacing-xs);
   align-items: center;
-  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
 }
 .buttons {
   display: flex;
   justify-content: flex-end;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+  flex-wrap: wrap;
+}
+.buttons .btn {
+  flex: 1 1 auto;
+}
+@media (max-width: 480px) {
+  .buttons {
+    flex-direction: column;
+  }
+  .buttons .btn {
+    width: 100%;
+  }
 }
 </style>
