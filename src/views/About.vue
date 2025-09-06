@@ -59,7 +59,7 @@
         <h2 class="section-title">{{ t.about.journey.title }}</h2>
         <div
           class="journey-timeline"
-          v-if="journeyItems.length"
+          v-if="journeyItems.value.length"
         >
           <div
             v-for="(item, index) in journeyItems.value"
@@ -72,6 +72,7 @@
               <div class="timeline-date">{{ item.period }}</div>
               <h3>{{ item.role }}</h3>
               <h4>{{ item.company }}</h4>
+              <p v-if="item.location" class="timeline-location">{{ item.location }}</p>
               <p>{{ item.description }}</p>
               <ul class="timeline-tech">
                 <li v-for="tech in item.technologies" :key="tech">{{ tech }}</li>
@@ -221,6 +222,7 @@ const journeyItems = computed(() => {
     period: `${exp.start} - ${exp.current || !exp.end ? t.value.admin.present : exp.end}`,
     role: getTranslatedText(exp.role),
     company: exp.company,
+    location: exp.location,
     description: getTranslatedText(exp.summary),
     technologies: exp.technologies
   }));
@@ -436,6 +438,10 @@ const journeyItems = computed(() => {
   color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
+}
+
+.timeline-location {
+  margin-bottom: var(--spacing-sm);
 }
 
 .timeline-tech {
