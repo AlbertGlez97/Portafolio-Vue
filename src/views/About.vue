@@ -62,7 +62,7 @@
           v-if="journeyItems.length"
         >
           <div
-            v-for="(item, index) in journeyItems"
+            v-for="(item, index) in journeyItems.value"
             :key="index"
             class="timeline-item"
             :class="index % 2 === 0 ? 'animate-fadeInLeft' : 'animate-fadeInRight'"
