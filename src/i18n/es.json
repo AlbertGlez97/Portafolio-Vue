@@ -162,6 +162,16 @@
         "addTech": "Agregar"
       }
     },
+    "certifications": {
+      "header": "Gestión de Certificaciones",
+      "new": "Nueva Certificación",
+      "modal": {
+        "titleNew": "Nueva Certificación",
+        "titleEdit": "Editar Certificación",
+        "save": "Guardar",
+        "cancel": "Cancelar"
+      }
+    },
     "titleEs": "Título ES",
     "titleEn": "Título EN",
     "company": "Empresa",
@@ -184,6 +194,11 @@
     "location": "Ubicación",
     "summaryEs": "Resumen ES",
     "summaryEn": "Resumen EN",
+    "provider": "Proveedor",
+    "icon": "Ícono",
+    "descriptionEs": "Descripción ES",
+    "descriptionEn": "Descripción EN",
+    "link": "Enlace",
     "modal": {
       "titleNew": "Nuevo Proyecto",
       "titleEdit": "Editar Proyecto",
