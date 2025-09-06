@@ -15,79 +15,47 @@
               : t.admin.certifications.modal.titleNew
           }}
         </h2>
-        <form @submit.prevent="save">
-          <section class="form-section">
-            <div class="form-group">
-              <label for="title-es">{{ t.admin.titleEs }}</label>
-              <input id="title-es" ref="firstInput" v-model="form.title.es" required />
-            </div>
-            <div class="form-group">
-              <label for="title-en">{{ t.admin.titleEn }}</label>
-              <input id="title-en" v-model="form.title.en" required />
-            </div>
-            <div class="form-group">
-              <label for="provider">{{ t.admin.provider }}</label>
-              <input id="provider" v-model="form.provider" required />
-            </div>
-          </section>
-
-          <section class="form-section">
-            <div class="form-group">
-              <label for="start">{{ t.admin.start }}</label>
-              <input id="start" type="month" v-model="form.start" required />
-            </div>
-            <div class="form-group">
-              <label for="end">{{ t.admin.end }}</label>
-              <input id="end" type="month" v-model="form.end" :disabled="form.current" />
-            </div>
-            <div class="form-group">
-              <label><input type="checkbox" v-model="form.current" /> {{ t.admin.current }}</label>
-            </div>
-            <div class="form-group">
-              <label><input type="checkbox" v-model="form.featured" /> {{ t.admin.featured }}</label>
-            </div>
-            <div class="form-group">
-              <label for="link">{{ t.admin.link }}</label>
-              <input id="link" v-model="form.link" />
-            </div>
-          </section>
-
-          <section class="form-section">
-            <h3>{{ t.admin.descriptionEs }}</h3>
-            <div class="form-group">
-              <textarea v-model="form.description.es" maxlength="600" required />
-            </div>
-            <h3>{{ t.admin.descriptionEn }}</h3>
-            <div class="form-group">
-              <textarea v-model="form.description.en" maxlength="600" required />
-            </div>
-          </section>
-
-          <section class="form-section">
-            <h3>{{ t.admin.skills }}</h3>
-            <div class="form-group">
-              <div class="chips">
-                <span v-for="(skill, idx) in form.skills" :key="idx" class="chip">
-                  {{ skill }}
-                  <button type="button" @click="removeSkill(idx)">×</button>
-                </span>
+          <form @submit.prevent="save">
+            <section class="form-section">
+              <div class="form-group">
+                <label for="title-es">{{ t.admin.titleEs }}</label>
+                <input id="title-es" ref="firstInput" v-model="form.title.es" required />
               </div>
-              <div class="tech-input">
-                <input v-model="skillInput" @keydown.enter.prevent="addSkill" />
-                <button type="button" class="btn btn-secondary" @click="addSkill">{{ t.admin.certifications.modal.addSkill }}</button>
+              <div class="form-group">
+                <label for="title-en">{{ t.admin.titleEn }}</label>
+                <input id="title-en" v-model="form.title.en" required />
               </div>
-            </div>
-          </section>
+              <div class="form-group">
+                <label for="provider">{{ t.admin.provider }}</label>
+                <input id="provider" v-model="form.provider" required />
+              </div>
+              <div class="form-group">
+                <label for="icon">{{ t.admin.icon }}</label>
+                <input id="icon" v-model="form.icon" required />
+              </div>
+            </section>
 
-          <div class="buttons">
-            <button type="button" class="btn btn-secondary" @click="cancel">{{ t.admin.certifications.modal.cancel }}</button>
-            <button type="submit" class="btn btn-primary">{{ t.admin.certifications.modal.save }}</button>
-          </div>
-        </form>
+            <section class="form-section">
+              <h3>{{ t.admin.descriptionEs }}</h3>
+              <div class="form-group">
+                <textarea v-model="form.description.es" maxlength="600" required />
+              </div>
+              <h3>{{ t.admin.descriptionEn }}</h3>
+              <div class="form-group">
+                <textarea v-model="form.description.en" maxlength="600" required />
+              </div>
+            </section>
+
+            <div class="buttons">
+              <button type="button" class="btn btn-secondary" @click="cancel">{{ t.admin.certifications.modal.cancel }}</button>
+              <button type="submit" class="btn btn-primary">{{ t.admin.certifications.modal.save }}</button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
-  </teleport>
-</template>
+    </teleport>
+  </template>
+
 
 <script setup lang="ts">
 import { reactive, ref, watch, computed, nextTick, onUnmounted, onMounted } from 'vue'
@@ -108,18 +76,12 @@ const blank: Certification = {
   id: 0,
   title: { es: '', en: '' },
   provider: '',
-  start: '',
-  end: '',
-  current: false,
+  icon: '',
   description: { es: '', en: '' },
-  skills: [],
-  link: '',
-  featured: false,
   updatedAt: ''
 }
 
 const form = reactive<Certification>({ ...blank })
-const skillInput = ref('')
 
 watch(
   () => props.certification,
@@ -179,32 +141,26 @@ const trapFocus = (e: KeyboardEvent) => {
   }
 }
 
-const addSkill = () => {
-  if (skillInput.value.trim()) {
-    form.skills.push(skillInput.value.trim())
-    skillInput.value = ''
-  }
-}
-const removeSkill = (idx: number) => form.skills.splice(idx, 1)
-
 const cancel = () => emit('update:modelValue', false)
 
 const save = () => {
-  if (!form.title.es || !form.title.en || !form.provider || !form.start || !form.description.es || !form.description.en) return
-  if (!form.current && form.end && form.end < form.start) return
+  if (
+    !form.title.es ||
+    !form.title.en ||
+    !form.provider ||
+    !form.icon ||
+    !form.description.es ||
+    !form.description.en
+  )
+    return
   if (isEdit.value) {
     certificationStore.update({ ...form })
   } else {
     certificationStore.create({
       title: form.title,
       provider: form.provider,
-      start: form.start,
-      end: form.end,
-      current: form.current,
-      description: form.description,
-      skills: form.skills,
-      link: form.link,
-      featured: form.featured
+      icon: form.icon,
+      description: form.description
     })
   }
   emit('update:modelValue', false)

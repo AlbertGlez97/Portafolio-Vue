@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed, type ComputedRef } from 'vue'
-import type { Certification } from '../interfaces'
+import type { Certification, EducationCertification } from '../interfaces'
 import certificationsData from '../data/certifications.json'
 
 interface AppStorage {
@@ -56,13 +56,17 @@ export const useCertificationStore = defineStore('certifications', () => {
   }
 
   const all: ComputedRef<Certification[]> = computed(() => items.value)
-  const sortedByDate: ComputedRef<Certification[]> = computed(() =>
-    [...items.value].sort((a, b) => {
-      if (a.current !== b.current) return a.current ? -1 : 1
-      return b.start.localeCompare(a.start)
-    })
+  const publicList: ComputedRef<Certification[]> = computed(() =>
+    [...items.value].sort((a, b) => a.id - b.id)
   )
-  const publicList: ComputedRef<Certification[]> = computed(() => sortedByDate.value ?? [])
+
+  const toEducationFormat = (cert: Certification): EducationCertification => ({
+    id: cert.id,
+    title: cert.title,
+    provider: cert.provider,
+    icon: cert.icon,
+    description: cert.description
+  })
 
   const getCertificationById = (id: number): Certification | undefined =>
     items.value.find(c => c.id === id)
@@ -107,27 +111,16 @@ export const useCertificationStore = defineStore('certifications', () => {
       scheduleSave()
     }
   }
-
-  const toggleFeatured = (id: number) => {
-    const cert = getCertificationById(id)
-    if (cert) {
-      cert.featured = !cert.featured
-      cert.updatedAt = new Date().toISOString()
-      scheduleSave()
-    }
-  }
-
   return {
     items,
     ensureLoaded,
     all,
-    sortedByDate,
     publicList,
+    toEducationFormat,
     create,
     update,
     duplicate,
     remove,
-    toggleFeatured,
     getCertificationById,
     getNextId
   }

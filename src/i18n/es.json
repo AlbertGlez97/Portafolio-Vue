@@ -169,8 +169,7 @@
         "titleNew": "Nueva Certificación",
         "titleEdit": "Editar Certificación",
         "save": "Guardar",
-        "cancel": "Cancelar",
-        "addSkill": "Agregar"
+        "cancel": "Cancelar"
       }
     },
     "titleEs": "Título ES",
@@ -196,9 +195,9 @@
     "summaryEs": "Resumen ES",
     "summaryEn": "Resumen EN",
     "provider": "Proveedor",
+    "icon": "Ícono",
     "descriptionEs": "Descripción ES",
     "descriptionEn": "Descripción EN",
-    "skills": "Habilidades",
     "link": "Enlace",
     "modal": {
       "titleNew": "Nuevo Proyecto",

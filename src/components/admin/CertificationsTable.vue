@@ -11,37 +11,26 @@
     <div class="table-scroll">
       <table class="admin-table" aria-labelledby="certifications-heading">
         <thead>
-          <tr>
-            <th>ID</th>
-            <th>{{ t.admin.titleEs }}</th>
-            <th>{{ t.admin.provider }}</th>
-            <th>{{ t.admin.period }}</th>
-            <th>{{ t.admin.link }}</th>
-            <th class="sticky-col">{{ t.admin.actions }}</th>
-          </tr>
+            <tr>
+              <th>ID</th>
+              <th>{{ t.admin.titleEs }}</th>
+              <th>{{ t.admin.provider }}</th>
+              <th>{{ t.admin.icon }}</th>
+              <th class="sticky-col">{{ t.admin.actions }}</th>
+            </tr>
         </thead>
         <tbody>
-          <tr v-for="cert in rows" :key="cert.id">
-            <td>{{ cert.id }}</td>
-            <td>{{ cert.title.es }}</td>
-            <td>{{ cert.provider }}</td>
-            <td>{{ formatPeriod(cert) }}</td>
-            <td>
-              <a
-                v-if="cert.link"
-                :href="cert.link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {{ t.admin.link }}
-              </a>
-            </td>
-            <td class="actions sticky-col">
-              <button class="btn btn-secondary" @click="$emit('edit', cert.id)">{{ t.admin.edit }}</button>
-              <button class="btn btn-secondary" @click="$emit('duplicate', cert.id)">{{ t.admin.duplicate }}</button>
-              <button class="btn btn-secondary" @click="$emit('delete', cert.id)">{{ t.admin.delete }}</button>
-            </td>
-          </tr>
+            <tr v-for="cert in rows" :key="cert.id">
+              <td>{{ cert.id }}</td>
+              <td>{{ cert.title.es }}</td>
+              <td>{{ cert.provider }}</td>
+              <td>{{ cert.icon }}</td>
+              <td class="actions sticky-col">
+                <button class="btn btn-secondary" @click="$emit('edit', cert.id)">{{ t.admin.edit }}</button>
+                <button class="btn btn-secondary" @click="$emit('duplicate', cert.id)">{{ t.admin.duplicate }}</button>
+                <button class="btn btn-secondary" @click="$emit('delete', cert.id)">{{ t.admin.delete }}</button>
+              </td>
+            </tr>
         </tbody>
       </table>
     </div>
@@ -57,18 +46,13 @@ const emit = defineEmits(['create', 'edit', 'duplicate', 'delete'])
 const certificationStore = useCertificationStore()
 const mainStore = useMainStore()
 const { t } = storeToRefs(mainStore)
-const { sortedByDate } = storeToRefs(certificationStore)
+const { publicList } = storeToRefs(certificationStore)
 
-const rows = sortedByDate
+const rows = publicList
 
 onMounted(async () => {
   await certificationStore.ensureLoaded()
 })
-
-const formatPeriod = (c: any) => {
-  const end = c.current || !c.end ? t.value.admin.present : c.end
-  return `${c.start} - ${end}`
-}
 </script>
 
 <style scoped>

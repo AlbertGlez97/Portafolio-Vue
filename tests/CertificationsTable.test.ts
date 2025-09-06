@@ -13,28 +13,23 @@ const matchMediaStub = () => ({
 
 describe('CertificationsTable', () => {
   let pinia: ReturnType<typeof createPinia>
-  beforeEach(() => {
-    window.matchMedia = window.matchMedia || matchMediaStub
-    pinia = createPinia()
-    setActivePinia(pinia)
-    const store = useCertificationStore()
-    store.items = [
-      {
-        id: 1,
-        title: { es: 'Cert', en: 'Cert' },
-        provider: 'Prov',
-        start: '2024-01',
-        end: '',
-        current: true,
-        description: { es: 'd', en: 'd' },
-        skills: [],
-        link: '',
-        featured: false,
-        updatedAt: ''
-      }
-    ]
-    store.ensureLoaded = async () => {}
-  })
+    beforeEach(() => {
+      window.matchMedia = window.matchMedia || matchMediaStub
+      pinia = createPinia()
+      setActivePinia(pinia)
+      const store = useCertificationStore()
+      store.items = [
+        {
+          id: 1,
+          title: { es: 'Cert', en: 'Cert' },
+          provider: 'Prov',
+          icon: 'icon',
+          description: { es: 'd', en: 'd' },
+          updatedAt: ''
+        }
+      ]
+      store.ensureLoaded = async () => {}
+    })
 
   it('emits table events', async () => {
     const wrapper = mount(CertificationsTable, { global: { plugins: [pinia] } })
