@@ -19,8 +19,7 @@
         <thead>
           <tr>
             <th @click="toggleSort('id')">ID</th>
-            <th @click="toggleSort('title')">{{ t.admin.titleEs }}</th>
-            <th>{{ t.admin.titleEn }}</th>
+            <th @click="toggleSort('title')">{{ t.admin.title }}</th>
             <th>{{ t.admin.company }}</th>
             <th>{{ t.admin.featured }}</th>
             <th>{{ t.admin.tech }}</th>
@@ -30,8 +29,7 @@
         <tbody>
           <tr v-for="project in sortedProjects" :key="project.id">
             <td>{{ project.id }}</td>
-            <td>{{ project.title.es }}</td>
-            <td>{{ project.title.en }}</td>
+            <td>{{ project.title[lang] ?? project.title.es }}</td>
             <td>{{ project.company || '-' }}</td>
             <td>{{ isFeatured(project.id) ? t.admin.yes : t.admin.no }}</td>
             <td>{{ project.technologies.join(', ') }}</td>
@@ -55,7 +53,8 @@ import { storeToRefs } from 'pinia'
 const emit = defineEmits(['create', 'edit', 'duplicate', 'delete'])
 const projectsStore = useProjectsStore()
 const mainStore = useMainStore()
-const { t } = storeToRefs(mainStore)
+const { t, currentLanguage } = storeToRefs(mainStore)
+const lang = currentLanguage
 
 const sortKey = ref<'id' | 'title'>('id')
 const sortAsc = ref(true)
@@ -65,8 +64,8 @@ const projects = computed(() => projectsStore.getAllProjects)
 const sortedProjects = computed(() => {
   return [...projects.value].sort((a, b) => {
     if (sortKey.value === 'title') {
-      const aTitle = a.title.es.toLowerCase()
-      const bTitle = b.title.es.toLowerCase()
+      const aTitle = (a.title[lang.value] ?? a.title.es).toLowerCase()
+      const bTitle = (b.title[lang.value] ?? b.title.es).toLowerCase()
       return sortAsc.value
         ? aTitle.localeCompare(bTitle)
         : bTitle.localeCompare(aTitle)

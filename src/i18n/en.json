@@ -202,6 +202,11 @@
         "cancel": "Cancel"
       }
     },
+    "title": "Title",
+    "role": "Role",
+    "description": "Description",
+    "name": "Name",
+    "level": "Level",
     "titleEs": "Title ES",
     "titleEn": "Title EN",
     "company": "Company",

@@ -19,14 +19,14 @@
         <thead>
           <tr>
             <th @click="toggleSort('id')">ID</th>
-            <th @click="toggleSort('name')">{{ t.admin.titleEs }}</th>
+            <th @click="toggleSort('name')">{{ t.admin.name }}</th>
             <th class="sticky-col">{{ t.admin.actions }}</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="skill in rows" :key="skill.id">
             <td>{{ skill.id }}</td>
-            <td>{{ skill.name.es }}</td>
+            <td>{{ skill.name[lang] ?? skill.name.es }}</td>
             <td class="actions sticky-col">
               <button class="btn btn-secondary" @click="$emit('edit', skill.id)">{{ t.admin.edit }}</button>
               <button class="btn btn-secondary" @click="$emit('duplicate', skill.id)">{{ t.admin.duplicate }}</button>
@@ -47,7 +47,8 @@ import { useSoftSkillStore, useMainStore } from '../../stores'
 const emit = defineEmits(['create', 'edit', 'duplicate', 'delete'])
 const softStore = useSoftSkillStore()
 const mainStore = useMainStore()
-const { t } = storeToRefs(mainStore)
+const { t, currentLanguage } = storeToRefs(mainStore)
+const lang = currentLanguage
 const { items } = storeToRefs(softStore)
 
 const sortKey = ref<'id' | 'name'>('id')
@@ -56,8 +57,8 @@ const sortAsc = ref(true)
 const rows = computed(() => {
   return [...items.value].sort((a, b) => {
     if (sortKey.value === 'name') {
-      const aName = a.name.es.toLowerCase()
-      const bName = b.name.es.toLowerCase()
+      const aName = (a.name[lang.value] ?? a.name.es).toLowerCase()
+      const bName = (b.name[lang.value] ?? b.name.es).toLowerCase()
       return sortAsc.value
         ? aName.localeCompare(bName)
         : bName.localeCompare(aName)
