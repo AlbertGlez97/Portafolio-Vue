@@ -12,6 +12,9 @@ const SAVE_DELAY = 300
 
 export const useExperienceStore = defineStore('experience', () => {
   // --- State -------------------------------------------------------------
+  const items = ref<Experience[]>([])
+  const initialized = ref(false)
+
   const load = (): Experience[] => {
     if (typeof window === 'undefined') return experienceData as Experience[]
     try {
@@ -26,8 +29,11 @@ export const useExperienceStore = defineStore('experience', () => {
     return experienceData as Experience[]
   }
 
-  // Reactive array of experiences
-  const items = ref<Experience[]>(load())
+  const ensureLoaded = async () => {
+    if (initialized.value) return
+    items.value = load()
+    initialized.value = true
+  }
 
   // Persist to localStorage with a small debounce
   let saveTimer: number | null = null
@@ -43,12 +49,15 @@ export const useExperienceStore = defineStore('experience', () => {
   }
 
   // --- Getters ----------------------------------------------------------
-  const getExperiences = computed(() => items.value)
-  const getSortedExperiences = computed(() =>
-    [...items.value].sort((a, b) => b.start.localeCompare(a.start))
+  const all = computed(() => items.value)
+  const sortedByPeriod = computed(() =>
+    [...items.value].sort((a, b) => {
+      if (a.current !== b.current) return a.current ? -1 : 1
+      return b.start.localeCompare(a.start)
+    })
   )
   // Lista pública usada por el timeline
-  const publicList = computed(() => getSortedExperiences.value)
+  const publicList = computed(() => sortedByPeriod.value)
 
   const getExperienceById = (id: number): Experience | undefined =>
     items.value.find(e => e.id === id)
@@ -111,9 +120,10 @@ export const useExperienceStore = defineStore('experience', () => {
   return {
     // state
     items,
+    ensureLoaded,
     // getters
-    getExperiences,
-    getSortedExperiences,
+    all,
+    sortedByPeriod,
     publicList,
     // actions
     create,

@@ -27,7 +27,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="exp in exps" :key="exp.id">
+          <tr v-for="exp in exps.value" :key="exp.id">
             <td>{{ exp.id }}</td>
             <td>{{ formatPeriod(exp) }}</td>
             <td>{{ exp.role.es }}</td>
@@ -48,7 +48,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useExperienceStore, useMainStore } from '../../stores'
 import { storeToRefs } from 'pinia'
 
@@ -58,7 +58,11 @@ const mainStore = useMainStore()
 const { t } = storeToRefs(mainStore)
 
 // Obtiene la lista ordenada directamente del store
-const exps = computed(() => experienceStore.getSortedExperiences.value)
+const exps = computed(() => experienceStore.sortedByPeriod)
+
+onMounted(async () => {
+  await experienceStore.ensureLoaded()
+})
 
 const formatPeriod = (exp: any) => {
   const end = exp.current || !exp.end ? t.value.admin.present : exp.end

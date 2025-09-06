@@ -123,7 +123,10 @@ const handleShortcut = (e: KeyboardEvent) => {
   }
 }
 
-onMounted(() => window.addEventListener('keydown', handleShortcut))
+onMounted(async () => {
+  await experienceStore.ensureLoaded()
+  window.addEventListener('keydown', handleShortcut)
+})
 onBeforeUnmount(() => window.removeEventListener('keydown', handleShortcut))
 </script>
 
