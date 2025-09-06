@@ -191,12 +191,20 @@ const save = () => {
   if (!form.start || !form.role.es || !form.role.en || !form.company || !form.summary.es || !form.summary.en)
     return
   if (!form.current && form.end && form.end < form.start) return
-  form.updatedAt = new Date().toISOString()
   if (isEdit.value) {
-    experienceStore.updateExperience({ ...form })
+    experienceStore.update({ ...form })
   } else {
-    form.id = experienceStore.getNextId()
-    experienceStore.addExperience({ ...form })
+    experienceStore.create({
+      start: form.start,
+      end: form.end,
+      current: form.current,
+      role: form.role,
+      company: form.company,
+      location: form.location,
+      summary: form.summary,
+      technologies: form.technologies,
+      featured: form.featured
+    })
   }
   emit('update:modelValue', false)
 }

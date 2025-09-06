@@ -16,9 +16,9 @@
       <table class="admin-table" aria-labelledby="experience-heading">
         <thead>
           <tr>
-            <th @click="toggleSort('id')">ID</th>
+            <th>ID</th>
             <th>{{ t.admin.period }}</th>
-            <th @click="toggleSort('role')">{{ t.admin.roleEs }}</th>
+            <th>{{ t.admin.roleEs }}</th>
             <th>{{ t.admin.roleEn }}</th>
             <th>{{ t.admin.company }}</th>
             <th>{{ t.admin.current }}</th>
@@ -27,7 +27,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="exp in sorted" :key="exp.id">
+          <tr v-for="exp in exps" :key="exp.id">
             <td>{{ exp.id }}</td>
             <td>{{ formatPeriod(exp) }}</td>
             <td>{{ exp.role.es }}</td>
@@ -48,7 +48,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { useExperienceStore, useMainStore } from '../../stores'
 import { storeToRefs } from 'pinia'
 
@@ -57,31 +57,8 @@ const experienceStore = useExperienceStore()
 const mainStore = useMainStore()
 const { t } = storeToRefs(mainStore)
 
-const sortKey = ref<'id' | 'role'>('id')
-const sortAsc = ref(true)
-
-const exps = computed(() => experienceStore.getExperiences)
-
-const sorted = computed(() => {
-  return [...exps.value].sort((a, b) => {
-    if (sortKey.value === 'role') {
-      const aTitle = a.role.es.toLowerCase()
-      const bTitle = b.role.es.toLowerCase()
-      return sortAsc.value
-        ? aTitle.localeCompare(bTitle)
-        : bTitle.localeCompare(aTitle)
-    }
-    return sortAsc.value ? a.id - b.id : b.id - a.id
-  })
-})
-
-const toggleSort = (key: 'id' | 'role') => {
-  if (sortKey.value === key) sortAsc.value = !sortAsc.value
-  else {
-    sortKey.value = key
-    sortAsc.value = true
-  }
-}
+// Obtiene la lista ordenada directamente del store
+const exps = computed(() => experienceStore.getSortedExperiences.value)
 
 const formatPeriod = (exp: any) => {
   const end = exp.current || !exp.end ? t.value.admin.present : exp.end

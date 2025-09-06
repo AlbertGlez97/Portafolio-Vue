@@ -102,16 +102,17 @@ const openEditExp = (id: number) => {
 }
 
 const openDuplicateExp = (id: number) => {
-  const exp = experienceStore.duplicateExperience(id)
-  if (exp) {
-    selectedExperience.value = exp
+  const newId = experienceStore.duplicate(id)
+  if (newId !== undefined) {
+    const exp = experienceStore.getExperienceById(newId)
+    selectedExperience.value = exp || null
     modalExpOpen.value = true
   }
 }
 
 const confirmDeleteExp = (id: number) => {
   if (window.confirm(t.value.admin.confirmDelete)) {
-    experienceStore.removeExperience(id)
+    experienceStore.remove(id)
   }
 }
 
