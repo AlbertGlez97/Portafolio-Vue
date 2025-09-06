@@ -27,7 +27,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="exp in rows.value" :key="exp.id">
+          <tr v-for="exp in rows" :key="exp.id">
             <td>{{ exp.id }}</td>
             <td>{{ formatPeriod(exp) }}</td>
             <td>{{ exp.role.es }}</td>
@@ -48,7 +48,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import { useExperienceStore, useMainStore } from '../../stores'
 import { storeToRefs } from 'pinia'
 
@@ -56,9 +56,10 @@ const emit = defineEmits(['create', 'edit', 'duplicate', 'delete'])
 const experienceStore = useExperienceStore()
 const mainStore = useMainStore()
 const { t } = storeToRefs(mainStore)
+const { sortedByPeriod } = storeToRefs(experienceStore)
 
 // Lista reactiva de experiencias del store
-const rows = computed(() => experienceStore.sortedByPeriod.value)
+const rows = sortedByPeriod
 
 onMounted(async () => {
   await experienceStore.ensureLoaded()

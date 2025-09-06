@@ -59,7 +59,7 @@
         <h2 class="section-title">{{ t.about.journey.title }}</h2>
         <div
           class="journey-timeline"
-          v-if="Array.isArray(journeyItems.value)"
+          v-if="journeyItems.length"
         >
           <div
             v-for="(item, index) in journeyItems.value"
@@ -211,13 +211,13 @@ const personalData: PersonalData = getPersonal.value;
 
 // Lista de eventos de la línea de tiempo profesional sincronizada con el store
 const experienceStore = useExperienceStore();
+const { publicList } = storeToRefs(experienceStore);
 onMounted(async () => {
   await experienceStore.ensureLoaded();
 });
 
 const journeyItems = computed(() => {
-  const list = experienceStore.publicList.value || [];
-  return list.map(exp => ({
+  return publicList.value.map(exp => ({
     period: `${exp.start} - ${exp.current || !exp.end ? t.value.admin.present : exp.end}`,
     role: getTranslatedText(exp.role),
     company: exp.company,
