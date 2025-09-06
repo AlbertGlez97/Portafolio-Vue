@@ -27,7 +27,7 @@
               </svg>
             </div>
             <h3>{{ t.contact.details.location }}</h3>
-            <p>{{ getTranslatedText(personalData.contact.location) }}</p>
+            <p>{{ getTranslatedText(personalData?.contact?.location ?? '') }}</p>
           </div>
 
           <div class="info-card animate-fadeInUp">
@@ -49,7 +49,7 @@
               </svg>
             </div>
             <h3>{{ t.contact.details.linkedin }}</h3>
-            <p>{{ personalData.contact.linkedin }}</p>
+            <p>{{ personalData?.contact?.linkedin ?? '' }}</p>
           </div>
         </div>
       </section>
@@ -57,9 +57,10 @@
       <!-- Professional Journey -->
       <section class="journey section">
         <h2 class="section-title">{{ t.about.journey.title }}</h2>
+        <div v-if="loading">Loading...</div>
         <div
           class="journey-timeline"
-          v-if="journeyItems.value.length"
+          v-else-if="journeyItems.length"
         >
           <div
             v-for="(item, index) in journeyItems"
@@ -95,7 +96,7 @@
               </svg>
             </div>
             <h3>{{ t.about.goals.shortTitle }}</h3>
-            <p>{{ getTranslatedText(personalData.about.goals.shortTerm) }}</p>
+            <p>{{ getTranslatedText(personalData?.about?.goals?.shortTerm ?? '') }}</p>
           </div>
 
           <div class="goal-card animate-fadeInUp">
@@ -105,7 +106,7 @@
               </svg>
             </div>
             <h3>{{ t.about.goals.longTitle }}</h3>
-            <p>{{ getTranslatedText(personalData.about.goals.longTerm) }}</p>
+            <p>{{ getTranslatedText(personalData?.about?.goals?.longTerm ?? '') }}</p>
           </div>
         </div>
       </section>
@@ -114,8 +115,11 @@
       <section class="interests section">
         <h2 class="section-title">{{ t.about.interestsTitle }}</h2>
         <div class="interests-grid">
-          <div v-for="interest in personalData.about.interests" :key="interest.title.en"
-            class="interest-card animate-fadeInUp">
+          <div
+            v-for="interest in personalData?.about?.interests ?? []"
+            :key="interest?.title?.en"
+            class="interest-card animate-fadeInUp"
+          >
             <div class="interest-icon">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
                 <path v-if="interest.icon === 'components'"
@@ -126,8 +130,8 @@
                   d="M17.5,12A1.5,1.5 0 0,1 16,10.5A1.5,1.5 0 0,1 17.5,9A1.5,1.5 0 0,1 19,10.5A1.5,1.5 0 0,1 17.5,12M14.5,8A1.5,1.5 0 0,1 13,6.5A1.5,1.5 0 0,1 14.5,5A1.5,1.5 0 0,1 16,6.5A1.5,1.5 0 0,1 14.5,8M9.5,8A1.5,1.5 0 0,1 8,6.5A1.5,1.5 0 0,1 9.5,5A1.5,1.5 0 0,1 11,6.5A1.5,1.5 0 0,1 9.5,8M6.5,12A1.5,1.5 0 0,1 5,10.5A1.5,1.5 0 0,1 6.5,9A1.5,1.5 0 0,1 8,10.5A1.5,1.5 0 0,1 6.5,12M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A8.5,8.5 0 0,0 20.5,12.5A8.5,8.5 0 0,0 12,3Z" />
               </svg>
             </div>
-            <h3>{{ getTranslatedText(interest.title) }}</h3>
-            <p>{{ getTranslatedText(interest.description) }}</p>
+            <h3>{{ getTranslatedText(interest?.title ?? '') }}</h3>
+            <p>{{ getTranslatedText(interest?.description ?? '') }}</p>
           </div>
         </div>
       </section>
@@ -193,7 +197,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useMainStore } from "../stores/main";
 import { usePersonalStore } from "../stores/personal";
 import { useExperienceStore } from "../stores";
@@ -208,23 +212,32 @@ const { t } = storeToRefs(mainStore);
 const { getTranslatedText } = mainStore;
 const { getPersonal } = storeToRefs(personalStore);
 // Datos personales provenientes de la capa de dominio
-const personalData: PersonalData = getPersonal.value;
+const personalData: PersonalData | null = getPersonal.value || null;
 
 // Lista de eventos de la línea de tiempo profesional sincronizada con el store
 const experienceStore = useExperienceStore();
 const { publicList } = storeToRefs(experienceStore);
+const loading = ref(true);
 onMounted(async () => {
-  await experienceStore.ensureLoaded();
+  try {
+    await experienceStore.ensureLoaded();
+  } catch (err) {
+    console.error(err);
+  } finally {
+    loading.value = false;
+  }
 });
 
 const journeyItems = computed(() => {
-  return publicList.value.map(exp => ({
-    period: `${exp.start} - ${exp.current || !exp.end ? t.value.admin.present : exp.end}`,
-    role: getTranslatedText(exp.role),
-    company: exp.company,
+  return (publicList.value ?? []).map(exp => ({
+    period: `${exp.start} - ${
+      exp.current || !exp.end ? t.value.admin.present : exp.end ?? ''
+    }`,
+    role: getTranslatedText(exp.role ?? ''),
+    company: exp.company ?? '',
     location: exp.location,
-    description: getTranslatedText(exp.summary),
-    technologies: exp.technologies
+    description: getTranslatedText(exp.summary ?? ''),
+    technologies: exp.technologies ?? []
   }));
 });
 </script>
