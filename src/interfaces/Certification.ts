@@ -20,6 +20,7 @@ export interface Certification {
   link?: string
   featured?: boolean
   updatedAt?: string
+
 }
 
 export type CertificationsData = Certification[]

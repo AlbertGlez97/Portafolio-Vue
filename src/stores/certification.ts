@@ -111,7 +111,6 @@ export const useCertificationStore = defineStore('certifications', () => {
       scheduleSave()
     }
   }
-
   return {
     items,
     ensureLoaded,
