@@ -202,6 +202,24 @@
         "cancel": "Cancelar"
       }
     },
+    "profile": {
+      "modal": {
+        "title": "Editar información del perfil",
+        "save": "Guardar",
+        "cancel": "Cancelar"
+      },
+      "fields": {
+        "email": "Correo electrónico",
+        "phone": "Teléfono",
+        "locationEs": "Ubicación (ES)",
+        "locationEn": "Ubicación (EN)",
+        "linkedin": "LinkedIn",
+        "github": "GitHub",
+        "otherLinks": "Otros enlaces",
+        "add": "Añadir",
+        "remove": "Eliminar"
+      }
+    },
     "title": "Título",
     "role": "Puesto",
     "description": "Descripción",
@@ -281,6 +299,7 @@
     "hintDemo": "Demo: admin/admin"
   },
   "actions": {
-    "signOut": "Salir del modo administrador"
+    "signOut": "Salir del modo administrador",
+    "editProfile": "Editar información del perfil"
   }
 }

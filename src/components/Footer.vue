@@ -8,7 +8,7 @@
         <p class="footer-description">{{ t.footer.description }}</p>
         <div class="social-links">
           <a
-            href="https://www.linkedin.com/in/albertglez97"
+            :href="formatLink(contact.linkedin)"
             target="_blank"
             rel="noopener noreferrer"
             class="social-link"
@@ -19,7 +19,7 @@
             </svg>
           </a>
           <a
-            href="https://github.com/albertglez97"
+            :href="formatLink(contact.github)"
             target="_blank"
             rel="noopener noreferrer"
             class="social-link"
@@ -49,12 +49,20 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useMainStore } from '../stores/main'
+import { useContactStore } from '../stores/contact'
 import { storeToRefs } from 'pinia'
 
-const store = useMainStore()
-const { t } = storeToRefs(store)
+const mainStore = useMainStore()
+const contactStore = useContactStore()
+const { t } = storeToRefs(mainStore)
+const { contact } = storeToRefs(contactStore)
 // Año actual mostrado en copyright
 const currentYear = computed(() => new Date().getFullYear())
+
+const formatLink = (url: string): string => {
+  if (!url) return '#'
+  return url.startsWith('http') ? url : `https://${url}`
+}
 </script>
 
 <style scoped>

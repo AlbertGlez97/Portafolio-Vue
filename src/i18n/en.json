@@ -202,6 +202,24 @@
         "cancel": "Cancel"
       }
     },
+    "profile": {
+      "modal": {
+        "title": "Edit profile information",
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "fields": {
+        "email": "Email",
+        "phone": "Phone",
+        "locationEs": "Location (ES)",
+        "locationEn": "Location (EN)",
+        "linkedin": "LinkedIn",
+        "github": "GitHub",
+        "otherLinks": "Other links",
+        "add": "Add",
+        "remove": "Remove"
+      }
+    },
     "title": "Title",
     "role": "Role",
     "description": "Description",
@@ -281,6 +299,7 @@
     "hintDemo": "Demo: admin/admin"
   },
   "actions": {
-    "signOut": "Sign out of admin mode"
+    "signOut": "Sign out of admin mode",
+    "editProfile": "Edit profile information"
   }
 }
