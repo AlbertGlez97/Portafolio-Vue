@@ -62,7 +62,7 @@
           v-if="journeyItems.length"
         >
           <div
-            v-for="(item, index) in journeyItems.value"
+            v-for="(item, index) in journeyItems"
             :key="index"
             class="timeline-item"
             :class="index % 2 === 0 ? 'animate-fadeInLeft' : 'animate-fadeInRight'"
@@ -72,6 +72,7 @@
               <div class="timeline-date">{{ item.period }}</div>
               <h3>{{ item.role }}</h3>
               <h4>{{ item.company }}</h4>
+              <p v-if="item.location" class="timeline-location">{{ item.location }}</p>
               <p>{{ item.description }}</p>
               <ul class="timeline-tech">
                 <li v-for="tech in item.technologies" :key="tech">{{ tech }}</li>
@@ -221,6 +222,7 @@ const journeyItems = computed(() => {
     period: `${exp.start} - ${exp.current || !exp.end ? t.value.admin.present : exp.end}`,
     role: getTranslatedText(exp.role),
     company: exp.company,
+    location: exp.location,
     description: getTranslatedText(exp.summary),
     technologies: exp.technologies
   }));
@@ -264,7 +266,7 @@ const journeyItems = computed(() => {
   width: 300px;
   height: 300px;
   border-radius: var(--border-radius-full);
-  background-image: url("/src/assets/img/fotoPerfil2.jpg");
+  background-image: url("@/assets/img/fotoPerfil2.jpg");
   background-size: cover;
   border: 3px dashed var(--primary-light);
   display: flex;
@@ -436,6 +438,10 @@ const journeyItems = computed(() => {
   color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
+}
+
+.timeline-location {
+  margin-bottom: var(--spacing-sm);
 }
 
 .timeline-tech {

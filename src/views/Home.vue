@@ -271,7 +271,7 @@ const featuredProjects = projectsData.featured.slice(0, 2).map(project => ({
   width: 350px;
   height: 350px;
   border-radius: var(--border-radius-full);
-  background-image: url('/src/assets/img/fotoPerfil.jpg');
+  background-image: url('@/assets/img/fotoPerfil.jpg');
   background-size: cover;
   border: 3px dashed var(--primary-light);
   display: flex;
