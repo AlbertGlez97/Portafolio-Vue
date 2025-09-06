@@ -55,6 +55,10 @@
       @delete="confirmDeleteSoft"
     />
     <SoftSkillsModal v-model="modalSoftOpen" :skill="selectedSoftSkill" />
+    <ProfileModal v-model="modalProfileOpen" />
+    <button class="btn btn-secondary edit-profile" @click="openEditProfile">
+      {{ t.actions.editProfile }}
+    </button>
     <button class="btn btn-secondary logout" @click="handleLogout">
       {{ t.actions.signOut }}
     </button>
@@ -72,7 +76,8 @@ import {
   useCertificationStore,
   useTechnicalSkillsStore,
   useToolStore,
-  useSoftSkillStore
+  useSoftSkillStore,
+  useContactStore
 } from '../stores'
 import ProjectsTable from '../components/admin/ProjectsTable.vue'
 import ProjectModal from '../components/admin/ProjectModal.vue'
@@ -86,6 +91,7 @@ import ToolsTable from '../components/admin/ToolsTable.vue'
 import ToolsModal from '../components/admin/ToolsModal.vue'
 import SoftSkillsTable from '../components/admin/SoftSkillsTable.vue'
 import SoftSkillsModal from '../components/admin/SoftSkillsModal.vue'
+import ProfileModal from '../components/admin/ProfileModal.vue'
 import type {
   Project,
   Experience,
@@ -104,6 +110,7 @@ const certificationStore = useCertificationStore()
 const technicalStore = useTechnicalSkillsStore()
 const toolStore = useToolStore()
 const softStore = useSoftSkillStore()
+useContactStore()
 const mainStore = useMainStore()
 const { t } = storeToRefs(mainStore)
 
@@ -125,10 +132,15 @@ const selectedTool = ref<ToolEntry | null>(null)
 
 const modalSoftOpen = ref(false)
 const selectedSoftSkill = ref<SoftSkillEntry | null>(null)
+const modalProfileOpen = ref(false)
 
 const handleLogout = () => {
   auth.logout()
   router.push('/')
+}
+
+const openEditProfile = () => {
+  modalProfileOpen.value = true
 }
 
 const openCreate = () => {
@@ -315,6 +327,9 @@ onBeforeUnmount(() => window.removeEventListener('keydown', handleShortcut))
   gap: var(--spacing-lg);
 }
 .logout {
+  align-self: flex-end;
+}
+.edit-profile {
   align-self: flex-end;
 }
 </style>

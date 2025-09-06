@@ -24,7 +24,7 @@
                 </div>
                 <div class="info-content">
                   <h3>{{ t.contact.details.email }}</h3>
-                  <p>albert.gonzalez@email.com</p>
+                  <p>{{ contact.email }}</p>
                 </div>
               </div>
 
@@ -36,7 +36,7 @@
                 </div>
                 <div class="info-content">
                   <h3>{{ t.contact.details.phone }}</h3>
-                  <p>+52 (555) 123-4567</p>
+                  <p>{{ contact.phone }}</p>
                 </div>
               </div>
 
@@ -48,7 +48,7 @@
                 </div>
                 <div class="info-content">
                   <h3>{{ t.contact.details.location }}</h3>
-                  <p>{{ t.footer.location }}</p>
+                  <p>{{ contact.location[currentLanguage] }}</p>
                 </div>
               </div>
 
@@ -60,7 +60,7 @@
                 </div>
                 <div class="info-content">
                   <h3>{{ t.contact.details.linkedin }}</h3>
-                  <p>linkedin.com/in/albertglez97</p>
+                  <p>{{ contact.linkedin }}</p>
                 </div>
               </div>
             </div>
@@ -69,9 +69,9 @@
             <div class="social-links">
               <h3>{{ t.contact.follow }}</h3>
               <div class="social-buttons">
-                <a 
-                  href="https://www.linkedin.com/in/albertglez97" 
-                  target="_blank" 
+                <a
+                  :href="formatLink(contact.linkedin)"
+                  target="_blank"
                   rel="noopener noreferrer"
                   class="social-btn linkedin"
                 >
@@ -80,9 +80,9 @@
                   </svg>
                   LinkedIn
                 </a>
-                <a 
-                  href="https://github.com/albertglez97" 
-                  target="_blank" 
+                <a
+                  :href="formatLink(contact.github)"
+                  target="_blank"
                   rel="noopener noreferrer"
                   class="social-btn github"
                 >
@@ -218,12 +218,15 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import { useMainStore } from '../stores/main'
+import { useContactStore } from '../stores/contact'
 import { storeToRefs } from 'pinia'
 // Service used to send the form data to Formspree
 import { sendContactForm, ContactFormData } from '../api/contact'
 
-const store = useMainStore()
-const { t } = storeToRefs(store)
+const mainStore = useMainStore()
+const contactStore = useContactStore()
+const { t, currentLanguage } = storeToRefs(mainStore)
+const { contact } = storeToRefs(contactStore)
 // Campos del formulario controlados por refs
 const name = ref('')
 const email = ref('')
@@ -335,6 +338,11 @@ const onSubmit = async () => {
       errorMessage.value = ''
     }, 5000)
   }
+}
+
+const formatLink = (url: string): string => {
+  if (!url) return '#'
+  return url.startsWith('http') ? url : `https://${url}`
 }
 </script>
 
