@@ -27,7 +27,7 @@
               </svg>
             </div>
             <h3>{{ t.contact.details.location }}</h3>
-            <p>{{ getTranslatedText(personalData?.contact?.location ?? '') }}</p>
+            <p>{{ contact.location[currentLanguage] }}</p>
           </div>
 
           <div class="info-card animate-fadeInUp">
@@ -38,7 +38,9 @@
               </svg>
             </div>
             <h3>Email</h3>
-            <p>albert.gonzalez0297@gmail.com</p>
+            <p v-for="(email, idx) in contact.emails" :key="`email-${idx}`">
+              {{ email }}
+            </p>
           </div>
 
           <div class="info-card animate-fadeInUp">
@@ -49,7 +51,23 @@
               </svg>
             </div>
             <h3>{{ t.contact.details.linkedin }}</h3>
-            <p>{{ personalData?.contact?.linkedin ?? '' }}</p>
+            <p>{{ contact.linkedin }}</p>
+          </div>
+
+          <div
+            class="info-card animate-fadeInUp"
+            v-for="(url, name) in contact.otherLinks"
+            :key="name"
+          >
+            <div class="card-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M10,17L15,12L10,7V10H2V14H10V17Z"
+                />
+              </svg>
+            </div>
+            <h3>{{ name }}</h3>
+            <p>{{ url }}</p>
           </div>
         </div>
       </section>
@@ -201,6 +219,7 @@ import { computed, onMounted, ref } from "vue";
 import { useMainStore } from "../stores/main";
 import { usePersonalStore } from "../stores/personal";
 import { useExperienceStore } from "../stores";
+import { useContactStore } from "../stores/contact";
 // Importamos el modelo del dominio
 import type { PersonalData } from "../domain/personal/Personal";
 import { storeToRefs } from "pinia";
@@ -208,9 +227,11 @@ import { storeToRefs } from "pinia";
 // Stores para traducciones y datos personales
 const mainStore = useMainStore();
 const personalStore = usePersonalStore();
-const { t } = storeToRefs(mainStore);
+const contactStore = useContactStore();
+const { t, currentLanguage } = storeToRefs(mainStore);
 const { getTranslatedText } = mainStore;
 const { getPersonal } = storeToRefs(personalStore);
+const { contact } = storeToRefs(contactStore);
 // Datos personales provenientes de la capa de dominio
 const personalData: PersonalData | null = getPersonal.value || null;
 
