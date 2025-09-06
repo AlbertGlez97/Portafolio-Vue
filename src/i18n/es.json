@@ -217,6 +217,8 @@
         "github": "GitHub",
         "otherLinks": "Otros enlaces",
         "add": "Añadir",
+        "addEmail": "Añadir correo",
+        "addPhone": "Añadir teléfono",
         "remove": "Eliminar"
       }
     },
