@@ -9,7 +9,11 @@
         ref="modalRef"
       >
         <h2 id="experience-modal-title">
-          {{ isEdit ? t.admin.experience.editTitle : t.admin.experience.newTitle }}
+          {{
+            isEdit
+              ? t.admin.experience.modal.titleEdit
+              : t.admin.experience.modal.titleNew
+          }}
         </h2>
         <form @submit.prevent="save">
           <section class="form-section">
@@ -70,14 +74,14 @@
               </div>
               <div class="tech-input">
                 <input v-model="techInput" @keydown.enter.prevent="addTech" />
-                <button type="button" class="btn btn-secondary" @click="addTech">{{ t.admin.modal.addTech }}</button>
+                <button type="button" class="btn btn-secondary" @click="addTech">{{ t.admin.experience.modal.addTech }}</button>
               </div>
             </div>
           </section>
 
           <div class="buttons">
-            <button type="button" class="btn btn-secondary" @click="cancel">{{ t.admin.modal.cancel }}</button>
-            <button type="submit" class="btn btn-primary">{{ t.admin.modal.save }}</button>
+            <button type="button" class="btn btn-secondary" @click="cancel">{{ t.admin.experience.modal.cancel }}</button>
+            <button type="submit" class="btn btn-primary">{{ t.admin.experience.modal.save }}</button>
           </div>
         </form>
       </div>
@@ -86,7 +90,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, watch, computed, nextTick, onUnmounted } from 'vue'
+import { reactive, ref, watch, computed, nextTick, onUnmounted, onMounted } from 'vue'
 import { useExperienceStore, useMainStore } from '../../stores'
 import type { Experience } from '../../interfaces'
 import { storeToRefs } from 'pinia'
@@ -157,6 +161,10 @@ onUnmounted(() => {
   document.body.style.overflow = ''
 })
 
+onMounted(async () => {
+  await experienceStore.ensureLoaded()
+})
+
 const trapFocus = (e: KeyboardEvent) => {
   if (e.key !== 'Tab' || !modalRef.value) return
   const focusables = modalRef.value.querySelectorAll<HTMLElement>(
@@ -219,40 +227,80 @@ const save = () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md);
+  z-index: var(--z-overlay);
 }
 .modal {
+  position: relative;
   background: var(--bg-primary);
   color: var(--text-primary);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-2xl);
+  border-radius: var(--border-radius-lg);
+  width: 100%;
+  max-width: 700px;
   max-height: 90vh;
   overflow-y: auto;
-  width: 600px;
-  outline: none;
+  box-shadow: var(--shadow-md);
+  border: 1px solid color-mix(in srgb, var(--primary-color), transparent 90%);
+  transition: all var(--transition-normal);
+  z-index: var(--z-modal);
 }
 .form-section {
-  margin-bottom: var(--spacing-md);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
 }
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+.form-group label {
+  margin-bottom: var(--spacing-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 2px solid color-mix(in srgb, var(--primary-color), transparent 80%);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+.form-group textarea {
+  min-height: 80px;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-color), transparent 90%);
 }
 .chips {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
 }
 .chip {
-  background: var(--bg-secondary);
-  padding: 2px 6px;
-  border-radius: 4px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 4px;
+  padding: 0 var(--spacing-xs);
+  border-radius: var(--border-radius-md);
+  background: var(--primary-color);
+  color: var(--bg-primary);
+  font-size: var(--font-size-sm);
+}
+.chip button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  margin-left: var(--spacing-xs);
 }
 .tech-input {
   display: flex;
@@ -263,5 +311,17 @@ const save = () => {
   justify-content: flex-end;
   gap: var(--spacing-sm);
   margin-top: var(--spacing-md);
+  flex-wrap: wrap;
+}
+.buttons .btn {
+  flex: 1 1 auto;
+}
+@media (max-width: 480px) {
+  .buttons {
+    flex-direction: column;
+  }
+  .buttons .btn {
+    width: 100%;
+  }
 }
 </style>

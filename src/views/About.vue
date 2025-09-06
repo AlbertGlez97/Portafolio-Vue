@@ -57,7 +57,10 @@
       <!-- Professional Journey -->
       <section class="journey section">
         <h2 class="section-title">{{ t.about.journey.title }}</h2>
-        <div class="journey-timeline">
+        <div
+          class="journey-timeline"
+          v-if="journeyItems.length"
+        >
           <div
             v-for="(item, index) in journeyItems"
             :key="index"
@@ -76,6 +79,7 @@
             </div>
           </div>
         </div>
+        <p v-else>{{ t.about.journey.empty }}</p>
       </section>
 
       <!-- Goals & Objectives -->
@@ -188,7 +192,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { useMainStore } from "../stores/main";
 import { usePersonalStore } from "../stores/personal";
 import { useExperienceStore } from "../stores";
@@ -207,15 +211,20 @@ const personalData: PersonalData = getPersonal.value;
 
 // Lista de eventos de la línea de tiempo profesional sincronizada con el store
 const experienceStore = useExperienceStore();
-const journeyItems = computed(() =>
-  experienceStore.publicList.value.map(exp => ({
+const { publicList } = storeToRefs(experienceStore);
+onMounted(async () => {
+  await experienceStore.ensureLoaded();
+});
+
+const journeyItems = computed(() => {
+  return publicList.value.map(exp => ({
     period: `${exp.start} - ${exp.current || !exp.end ? t.value.admin.present : exp.end}`,
     role: getTranslatedText(exp.role),
     company: exp.company,
     description: getTranslatedText(exp.summary),
     technologies: exp.technologies
-  }))
-);
+  }));
+});
 </script>
 
 <style scoped>

@@ -32,31 +32,8 @@
       "longTitle": "Long Term"
     },
     "journey": {
-      "title": "Professional Journey",
-      "item1": {
-        "date": "2024 - Present",
-        "role": "Senior Front-End Developer",
-        "company": "Sye Software (SAT)",
-        "description": "Responsible for the front-end of SAT's SICOJ Consultations module. Built reusable Svelte components with TypeScript, integrated RESTful services from .NET 6 MVC and managed state with Redux. Recognized for delivering the most advanced module and keeping the project on track without direct support. Technologies: Svelte, TypeScript, Redux, .NET 6 MVC, GitLab and Docker."
-      },
-      "item2": {
-        "date": "2022 - 2024",
-        "role": "Full Stack Developer",
-        "company": "Towa Software",
-        "description": "Served as bridge between external APIs and the frontend. Designed and consumed REST APIs, implemented .NET 6 MVC with Entity Framework and LINQ managing async programming and dependency injection. Built reactive Razor interfaces with Vue.js and performed automated testing with Selenium. Technologies: .NET 6 MVC, Entity Framework, LINQ, C#, Vue.js, Razor, Selenium and SQL Server."
-      },
-      "item3": {
-        "date": "2021 - 2022",
-        "role": "Full Stack Developer (Internship)",
-        "company": "StrApps Consulting",
-        "description": "Internship designing .NET 6 MVC views with jQuery and Bootstrap for a collections credit model. Created WordPress sites and handled version control in GitHub under Scrum methodology. Technologies: .NET 6 MVC, jQuery, Bootstrap, WordPress and GitHub."
-      },
-      "item4": {
-        "date": "2016 - 2022",
-        "role": "Computer Engineering",
-        "company": "Tecnológico de Estudios Superiores de Ecatepec",
-        "description": "Graduated with professional license. Strong background in software development, databases and development methodologies."
-      }
+      "title": "My Professional Journey",
+      "empty": "No experiences"
     },
     "interestsTitle": "Interests and Passions",
     "softSkills": {
@@ -177,8 +154,13 @@
     "experience": {
       "header": "Professional Experience Management",
       "new": "New Experience",
-      "newTitle": "New Experience",
-      "editTitle": "Edit Experience"
+      "modal": {
+        "titleNew": "New Experience",
+        "titleEdit": "Edit Experience",
+        "save": "Save",
+        "cancel": "Cancel",
+        "addTech": "Add"
+      }
     },
     "titleEs": "Title ES",
     "titleEn": "Title EN",

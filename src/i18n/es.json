@@ -33,30 +33,7 @@
     },
     "journey": {
       "title": "Mi Trayectoria Profesional",
-      "item1": {
-        "date": "2024 - Presente",
-        "role": "Front-End Developer Senior",
-        "company": "Sye Software (SAT)",
-        "description": "Responsable único del Front-End del módulo de Consultas en el sistema SICOJ del SAT. Desarrollé componentes reutilizables en Svelte y TypeScript, integré servicios RESTful desde .NET 6 MVC y gestioné el estado con Redux. Reconocido por entregar el módulo más avanzado y mantener el ritmo del proyecto sin apoyo directo. Tecnologías: Svelte, TypeScript, Redux, .NET 6 MVC, GitLab y Docker."
-      },
-      "item2": {
-        "date": "2022 - 2024",
-        "role": "Full Stack Developer",
-        "company": "Towa Software",
-        "description": "Actué como puente entre APIs externas y el Front-End. Diseñé y consumí APIs REST, implementé .NET 6 MVC con Entity Framework y LINQ gestionando asincronía e inyección de dependencias. Construí interfaces reactivas en Razor con Vue.js y realicé pruebas automatizadas con Selenium. Tecnologías: .NET 6 MVC, Entity Framework, LINQ, C#, Vue.js, Razor, Selenium y SQL Server."
-      },
-      "item3": {
-        "date": "2021 - 2022",
-        "role": "Full Stack Developer (Prácticas)",
-        "company": "StrApps Consulting",
-        "description": "Prácticas diseñando vistas en .NET 6 MVC con jQuery y Bootstrap para un modelo de crédito de cobranzas. Creé sitios WordPress y controlé versiones en GitHub bajo metodología Scrum. Tecnologías: .NET 6 MVC, jQuery, Bootstrap, WordPress y GitHub."
-      },
-      "item4": {
-        "date": "2016 - 2022",
-        "role": "Ingeniería en Informática",
-        "company": "Tecnológico de Estudios Superiores de Ecatepec",
-        "description": "Titulado con cédula profesional. Formación sólida en desarrollo de software, bases de datos y metodologías de desarrollo."
-      }
+      "empty": "No hay experiencias"
     },
     "interestsTitle": "Intereses y Pasiones",
     "softSkills": {
@@ -177,8 +154,13 @@
     "experience": {
       "header": "Gestión de Experiencia Profesional",
       "new": "Nueva Experiencia",
-      "newTitle": "Nueva Experiencia",
-      "editTitle": "Editar Experiencia"
+      "modal": {
+        "titleNew": "Nueva Experiencia",
+        "titleEdit": "Editar Experiencia",
+        "save": "Guardar",
+        "cancel": "Cancelar",
+        "addTech": "Agregar"
+      }
     },
     "titleEs": "Título ES",
     "titleEn": "Título EN",
