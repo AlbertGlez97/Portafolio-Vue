@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { computed } from 'vue'
-import type { EducationData, Certification } from '../interfaces'
+import type { EducationData, EducationCertification } from '../interfaces'
 import educationData from '../data/education.json'
 
 /**
@@ -19,7 +19,7 @@ export const useEducationStore = defineStore('education', () => {
 
   // Agrupa certificaciones por proveedor para facilitar su renderizado
   const getCertificationsByProvider = computed(() => {
-    const providers: { [key: string]: Certification[] } = {}
+    const providers: { [key: string]: EducationCertification[] } = {}
     education.certifications.forEach(cert => {
       if (!providers[cert.provider]) {
         providers[cert.provider] = []
@@ -34,12 +34,12 @@ export const useEducationStore = defineStore('education', () => {
 
   // --- Actions ---
   // Recupera una certificación por ID
-  const getCertificationById = (id: number): Certification | undefined => {
+  const getCertificationById = (id: number): EducationCertification | undefined => {
     return education.certifications.find(cert => cert.id === id)
   }
 
   // Filtra certificaciones por proveedor
-  const getCertificationsByProviderName = (provider: string): Certification[] => {
+  const getCertificationsByProviderName = (provider: string): EducationCertification[] => {
     return education.certifications.filter(cert =>
       cert.provider.toLowerCase().includes(provider.toLowerCase())
     )

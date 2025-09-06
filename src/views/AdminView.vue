@@ -21,6 +21,16 @@
       v-model="modalExpOpen"
       :experience="selectedExperience"
     />
+    <CertificationsTable
+      @create="openCreateCert"
+      @edit="openEditCert"
+      @duplicate="openDuplicateCert"
+      @delete="confirmDeleteCert"
+    />
+    <CertificationModal
+      v-model="modalCertOpen"
+      :certification="selectedCertification"
+    />
     <button class="btn btn-secondary logout" @click="handleLogout">
       {{ t.actions.signOut }}
     </button>
@@ -31,18 +41,21 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useAuthStore } from '../stores/auth'
 import { useRouter } from 'vue-router'
-import { useProjectsStore, useMainStore, useExperienceStore } from '../stores'
+import { useProjectsStore, useMainStore, useExperienceStore, useCertificationStore } from '../stores'
 import ProjectsTable from '../components/admin/ProjectsTable.vue'
 import ProjectModal from '../components/admin/ProjectModal.vue'
 import ExperienceTable from '../components/admin/ExperienceTable.vue'
 import ExperienceModal from '../components/admin/ExperienceModal.vue'
-import type { Project, Experience } from '../interfaces'
+import CertificationsTable from '../components/admin/CertificationsTable.vue'
+import CertificationModal from '../components/admin/CertificationModal.vue'
+import type { Project, Experience, Certification } from '../interfaces'
 import { storeToRefs } from 'pinia'
 
 const auth = useAuthStore()
 const router = useRouter()
 const projectsStore = useProjectsStore()
 const experienceStore = useExperienceStore()
+const certificationStore = useCertificationStore()
 const mainStore = useMainStore()
 const { t } = storeToRefs(mainStore)
 
@@ -52,6 +65,9 @@ const selectedFeatured = ref(false)
 
 const modalExpOpen = ref(false)
 const selectedExperience = ref<Experience | null>(null)
+
+const modalCertOpen = ref(false)
+const selectedCertification = ref<Certification | null>(null)
 
 const handleLogout = () => {
   auth.logout()
@@ -116,6 +132,34 @@ const confirmDeleteExp = (id: number) => {
   }
 }
 
+const openCreateCert = () => {
+  selectedCertification.value = null
+  modalCertOpen.value = true
+}
+
+const openEditCert = (id: number) => {
+  const cert = certificationStore.getCertificationById(id)
+  if (cert) {
+    selectedCertification.value = cert
+    modalCertOpen.value = true
+  }
+}
+
+const openDuplicateCert = (id: number) => {
+  const newId = certificationStore.duplicate(id)
+  if (newId !== undefined) {
+    const cert = certificationStore.getCertificationById(newId)
+    selectedCertification.value = cert || null
+    modalCertOpen.value = true
+  }
+}
+
+const confirmDeleteCert = (id: number) => {
+  if (window.confirm(t.value.admin.confirmDelete)) {
+    certificationStore.remove(id)
+  }
+}
+
 const handleShortcut = (e: KeyboardEvent) => {
   if (e.altKey && (e.key === 'n' || e.key === 'N')) {
     e.preventDefault()
@@ -125,6 +169,7 @@ const handleShortcut = (e: KeyboardEvent) => {
 
 onMounted(async () => {
   await experienceStore.ensureLoaded()
+  await certificationStore.ensureLoaded()
   window.addEventListener('keydown', handleShortcut)
 })
 onBeforeUnmount(() => window.removeEventListener('keydown', handleShortcut))

@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": { "es": "Certificación Vue", "en": "Vue Certification" },
+    "provider": "Vue School",
+    "start": "2023-01",
+    "current": true,
+    "description": { "es": "Curso avanzado de Vue", "en": "Advanced Vue course" },
+    "skills": ["Vue", "TypeScript"],
+    "link": "https://example.com",
+    "featured": false,
+    "updatedAt": "2024-01-01"
+  }
+]
