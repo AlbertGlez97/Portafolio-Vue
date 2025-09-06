@@ -8,7 +8,7 @@ export interface ContactInfo {
   location: { es: string; en: string }
   linkedin: string
   github: string
-  otherLinks?: Record<string, string>
+  otherLinks: Record<string, string>
 }
 
 const STORAGE_KEY = 'contactInfo'
@@ -54,6 +54,7 @@ export const useContactStore = defineStore('contact', () => {
   const getLocation = computed(() => contact.value.location)
   const getLinkedin = computed(() => contact.value.linkedin)
   const getGithub = computed(() => contact.value.github)
+  const getOtherLinks = computed(() => contact.value.otherLinks)
 
   const updateContact = (newContact: ContactInfo) => {
     contact.value = { ...newContact }
@@ -83,6 +84,7 @@ export const useContactStore = defineStore('contact', () => {
     getLocation,
     getLinkedin,
     getGithub,
+    getOtherLinks,
     updateContact,
     saveContact,
     resetContact
