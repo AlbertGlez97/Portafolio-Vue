@@ -18,8 +18,7 @@
           <tr>
             <th>ID</th>
             <th>{{ t.admin.period }}</th>
-            <th>{{ t.admin.roleEs }}</th>
-            <th>{{ t.admin.roleEn }}</th>
+            <th>{{ t.admin.role }}</th>
             <th>{{ t.admin.company }}</th>
             <th>{{ t.admin.current }}</th>
             <th>{{ t.admin.featured }}</th>
@@ -30,8 +29,7 @@
           <tr v-for="exp in rows" :key="exp.id">
             <td>{{ exp.id }}</td>
             <td>{{ formatPeriod(exp) }}</td>
-            <td>{{ exp.role.es }}</td>
-            <td>{{ exp.role.en }}</td>
+            <td>{{ exp.role[lang] ?? exp.role.es }}</td>
             <td>{{ exp.company }}</td>
             <td>{{ exp.current ? t.admin.yes : t.admin.no }}</td>
             <td>{{ exp.featured ? t.admin.yes : t.admin.no }}</td>
@@ -55,7 +53,8 @@ import { storeToRefs } from 'pinia'
 const emit = defineEmits(['create', 'edit', 'duplicate', 'delete'])
 const experienceStore = useExperienceStore()
 const mainStore = useMainStore()
-const { t } = storeToRefs(mainStore)
+const { t, currentLanguage } = storeToRefs(mainStore)
+const lang = currentLanguage
 const { sortedByPeriod } = storeToRefs(experienceStore)
 
 // Lista reactiva de experiencias del store

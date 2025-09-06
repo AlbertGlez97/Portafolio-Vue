@@ -202,6 +202,11 @@
         "cancel": "Cancelar"
       }
     },
+    "title": "Título",
+    "role": "Puesto",
+    "description": "Descripción",
+    "name": "Nombre",
+    "level": "Nivel",
     "titleEs": "Título ES",
     "titleEn": "Título EN",
     "company": "Empresa",

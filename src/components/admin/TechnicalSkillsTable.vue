@@ -19,9 +19,9 @@
         <thead>
           <tr>
             <th @click="toggleSort('id')">ID</th>
-            <th @click="toggleSort('name')">{{ t.admin.titleEs }}</th>
+            <th @click="toggleSort('name')">{{ t.admin.name }}</th>
             <th>{{ t.admin.category }}</th>
-            <th>{{ t.admin.levelEs }}</th>
+            <th>{{ t.admin.level }}</th>
             <th>{{ t.admin.percentage }}</th>
             <th>{{ t.admin.type }}</th>
             <th class="sticky-col">{{ t.admin.actions }}</th>
@@ -30,9 +30,9 @@
         <tbody>
           <tr v-for="skill in rows" :key="skill.id">
             <td>{{ skill.id }}</td>
-            <td>{{ skill.name.es }}</td>
+            <td>{{ skill.name[lang] ?? skill.name.es }}</td>
             <td>{{ skill.category }}</td>
-            <td>{{ skill.level.es }}</td>
+            <td>{{ skill.level[lang] ?? skill.level.es }}</td>
             <td>
               <div class="progress-bar">
                 <div class="progress-fill" :style="{ width: skill.percentage + '%' }" />
@@ -59,7 +59,8 @@ import { useTechnicalSkillsStore, useMainStore } from '../../stores'
 const emit = defineEmits(['create', 'edit', 'duplicate', 'delete'])
 const technicalStore = useTechnicalSkillsStore()
 const mainStore = useMainStore()
-const { t } = storeToRefs(mainStore)
+const { t, currentLanguage } = storeToRefs(mainStore)
+const lang = currentLanguage
 const { items } = storeToRefs(technicalStore)
 
 const sortKey = ref<'id' | 'name'>('id')
@@ -68,8 +69,8 @@ const sortAsc = ref(true)
 const rows = computed(() => {
   return [...items.value].sort((a, b) => {
     if (sortKey.value === 'name') {
-      const aName = a.name.es.toLowerCase()
-      const bName = b.name.es.toLowerCase()
+      const aName = (a.name[lang.value] ?? a.name.es).toLowerCase()
+      const bName = (b.name[lang.value] ?? b.name.es).toLowerCase()
       return sortAsc.value
         ? aName.localeCompare(bName)
         : bName.localeCompare(aName)

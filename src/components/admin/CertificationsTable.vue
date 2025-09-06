@@ -13,7 +13,8 @@
         <thead>
             <tr>
               <th>ID</th>
-              <th>{{ t.admin.titleEs }}</th>
+              <th>{{ t.admin.title }}</th>
+              <th>{{ t.admin.description }}</th>
               <th>{{ t.admin.provider }}</th>
               <th>{{ t.admin.icon }}</th>
               <th class="sticky-col">{{ t.admin.actions }}</th>
@@ -22,7 +23,8 @@
         <tbody>
             <tr v-for="cert in rows" :key="cert.id">
               <td>{{ cert.id }}</td>
-              <td>{{ cert.title.es }}</td>
+              <td>{{ cert.title[lang] ?? cert.title.es }}</td>
+              <td>{{ cert.description[lang] ?? cert.description.es }}</td>
               <td>{{ cert.provider }}</td>
               <td>{{ cert.icon }}</td>
               <td class="actions sticky-col">
@@ -45,7 +47,8 @@ import { storeToRefs } from 'pinia'
 const emit = defineEmits(['create', 'edit', 'duplicate', 'delete'])
 const certificationStore = useCertificationStore()
 const mainStore = useMainStore()
-const { t } = storeToRefs(mainStore)
+const { t, currentLanguage } = storeToRefs(mainStore)
+const lang = currentLanguage
 const { publicList } = storeToRefs(certificationStore)
 
 const rows = publicList
