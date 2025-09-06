@@ -23,9 +23,9 @@
             </div>
             
             <div class="skills-list">
-              <SkillBar 
-                v-for="skill in skillsData.technical.frontend"
-                :key="skill.name.en"
+              <SkillBar
+                v-for="skill in frontendSkills"
+                :key="skill.id"
                 :skill="skill"
               />
             </div>
@@ -41,9 +41,9 @@
             </div>
             
             <div class="skills-list">
-              <SkillBar 
-                v-for="skill in skillsData.technical.backend"
-                :key="skill.name.en"
+              <SkillBar
+                v-for="skill in backendSkills"
+                :key="skill.id"
                 :skill="skill"
               />
             </div>
@@ -56,37 +56,23 @@
         <div class="tools-content">
           <h2 class="section-title">{{ t.skills.toolsTech }}</h2>
           <div class="tools-grid">
-            <div class="tool-category">
+            <div
+              class="tool-category"
+              v-for="(list, cat) in toolsByCategory"
+              :key="cat"
+            >
               <div class="category-icon">
                 <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2Z"/>
                 </svg>
               </div>
-              <h3>{{ t.skills.tools }}</h3>
+              <h3>{{ t.skills[cat] || cat }}</h3>
               <div class="tools-list">
                 <TechBadge
-                  v-for="tool in skillsData.tools"
-                  :key="tool.name.en"
+                  v-for="tool in list"
+                  :key="tool.id"
                   :label="tool.name[currentLanguage]"
                   :title="tool.description[currentLanguage]"
-                  size="sm"
-                />
-              </div>
-            </div>
-
-            <div class="tool-category">
-              <div class="category-icon">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M16,4C18.11,4 20.11,4.89 21.61,6.39C23.11,7.89 24,9.89 24,12A8,8 0 0,1 16,20H5A5,5 0 0,1 0,15A5,5 0 0,1 5,10C5.59,10 6.16,10.13 6.69,10.36C7.61,7.24 10.57,5 14,5C14.68,5 15.34,5.11 16,5.28V4Z"/>
-                </svg>
-              </div>
-              <h3>{{ t.skills.methodologies }}</h3>
-              <div class="tools-list">
-                <TechBadge
-                  v-for="methodology in skillsData.methodologies"
-                  :key="methodology.name.en"
-                  :label="methodology.name[currentLanguage]"
-                  :title="methodology.description[currentLanguage]"
                   size="sm"
                 />
               </div>
@@ -100,8 +86,8 @@
         <h2 class="section-title">{{ t.skills.soft }}</h2>
         <div class="soft-skills-grid">
           <div
-            v-for="skill in skillsData.soft"
-            :key="skill.name.en"
+            v-for="skill in softItems"
+            :key="skill.id"
             class="soft-skill-item animate-fadeInUp"
           >
             <div class="skill-content">
@@ -117,18 +103,38 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 import { useMainStore } from '../stores/main'
-import { useSkillsStore } from '../stores/skills'
+import {
+  useTechnicalSkillsStore,
+  useToolStore,
+  useSoftSkillStore
+} from '../stores'
 import SkillBar from '../components/SkillBar.vue'
 import TechBadge from '../components/TechBadge.vue'
-import type { SkillsData } from '../interfaces'
+import type { ToolEntry } from '../interfaces'
 
-// Stores para obtener traducciones y habilidades
 const mainStore = useMainStore()
-const skillsStore = useSkillsStore()
+const techStore = useTechnicalSkillsStore()
+const toolStore = useToolStore()
+const softStore = useSoftSkillStore()
 const { t, currentLanguage } = storeToRefs(mainStore)
-const { getSkills } = storeToRefs(skillsStore)
-const skillsData: SkillsData = getSkills.value
+const { frontendSkills, backendSkills } = storeToRefs(techStore)
+const { items: toolItems } = storeToRefs(toolStore)
+const { items: softItems } = storeToRefs(softStore)
+
+techStore.ensureLoaded()
+toolStore.ensureLoaded()
+softStore.ensureLoaded()
+
+const toolsByCategory = computed(() => {
+  const grouped: Record<string, ToolEntry[]> = {}
+  for (const t of toolItems.value) {
+    grouped[t.category] = grouped[t.category] || []
+    grouped[t.category].push(t)
+  }
+  return grouped
+})
 </script>
 
 <style scoped>

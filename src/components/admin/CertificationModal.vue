@@ -56,7 +56,6 @@
     </teleport>
   </template>
 
-
 <script setup lang="ts">
 import { reactive, ref, watch, computed, nextTick, onUnmounted, onMounted } from 'vue'
 import { useCertificationStore, useMainStore } from '../../stores'

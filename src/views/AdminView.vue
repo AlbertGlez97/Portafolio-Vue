@@ -31,6 +31,30 @@
       v-model="modalCertOpen"
       :certification="selectedCertification"
     />
+    <TechnicalSkillsTable
+      @create="openCreateTech"
+      @edit="openEditTech"
+      @duplicate="openDuplicateTech"
+      @delete="confirmDeleteTech"
+    />
+    <TechnicalSkillsModal
+      v-model="modalTechOpen"
+      :skill="selectedTechSkill"
+    />
+    <ToolsTable
+      @create="openCreateTool"
+      @edit="openEditTool"
+      @duplicate="openDuplicateTool"
+      @delete="confirmDeleteTool"
+    />
+    <ToolsModal v-model="modalToolOpen" :tool="selectedTool" />
+    <SoftSkillsTable
+      @create="openCreateSoft"
+      @edit="openEditSoft"
+      @duplicate="openDuplicateSoft"
+      @delete="confirmDeleteSoft"
+    />
+    <SoftSkillsModal v-model="modalSoftOpen" :skill="selectedSoftSkill" />
     <button class="btn btn-secondary logout" @click="handleLogout">
       {{ t.actions.signOut }}
     </button>
@@ -41,14 +65,35 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useAuthStore } from '../stores/auth'
 import { useRouter } from 'vue-router'
-import { useProjectsStore, useMainStore, useExperienceStore, useCertificationStore } from '../stores'
+import {
+  useProjectsStore,
+  useMainStore,
+  useExperienceStore,
+  useCertificationStore,
+  useTechnicalSkillsStore,
+  useToolStore,
+  useSoftSkillStore
+} from '../stores'
 import ProjectsTable from '../components/admin/ProjectsTable.vue'
 import ProjectModal from '../components/admin/ProjectModal.vue'
 import ExperienceTable from '../components/admin/ExperienceTable.vue'
 import ExperienceModal from '../components/admin/ExperienceModal.vue'
 import CertificationsTable from '../components/admin/CertificationsTable.vue'
 import CertificationModal from '../components/admin/CertificationModal.vue'
-import type { Project, Experience, Certification } from '../interfaces'
+import TechnicalSkillsTable from '../components/admin/TechnicalSkillsTable.vue'
+import TechnicalSkillsModal from '../components/admin/TechnicalSkillsModal.vue'
+import ToolsTable from '../components/admin/ToolsTable.vue'
+import ToolsModal from '../components/admin/ToolsModal.vue'
+import SoftSkillsTable from '../components/admin/SoftSkillsTable.vue'
+import SoftSkillsModal from '../components/admin/SoftSkillsModal.vue'
+import type {
+  Project,
+  Experience,
+  Certification,
+  TechnicalSkill,
+  ToolEntry,
+  SoftSkillEntry
+} from '../interfaces'
 import { storeToRefs } from 'pinia'
 
 const auth = useAuthStore()
@@ -56,6 +101,9 @@ const router = useRouter()
 const projectsStore = useProjectsStore()
 const experienceStore = useExperienceStore()
 const certificationStore = useCertificationStore()
+const technicalStore = useTechnicalSkillsStore()
+const toolStore = useToolStore()
+const softStore = useSoftSkillStore()
 const mainStore = useMainStore()
 const { t } = storeToRefs(mainStore)
 
@@ -68,6 +116,15 @@ const selectedExperience = ref<Experience | null>(null)
 
 const modalCertOpen = ref(false)
 const selectedCertification = ref<Certification | null>(null)
+
+const modalTechOpen = ref(false)
+const selectedTechSkill = ref<TechnicalSkill | null>(null)
+
+const modalToolOpen = ref(false)
+const selectedTool = ref<ToolEntry | null>(null)
+
+const modalSoftOpen = ref(false)
+const selectedSoftSkill = ref<SoftSkillEntry | null>(null)
 
 const handleLogout = () => {
   auth.logout()
@@ -160,6 +217,78 @@ const confirmDeleteCert = (id: number) => {
   }
 }
 
+const openCreateTech = () => {
+  selectedTechSkill.value = null
+  modalTechOpen.value = true
+}
+const openEditTech = (id: number) => {
+  const skill = technicalStore.getById(id)
+  if (skill) {
+    selectedTechSkill.value = skill
+    modalTechOpen.value = true
+  }
+}
+const openDuplicateTech = (id: number) => {
+  const newId = technicalStore.duplicate(id)
+  if (newId !== undefined) {
+    selectedTechSkill.value = technicalStore.getById(newId) || null
+    modalTechOpen.value = true
+  }
+}
+const confirmDeleteTech = (id: number) => {
+  if (window.confirm(t.value.admin.confirmDelete)) {
+    technicalStore.remove(id)
+  }
+}
+
+const openCreateTool = () => {
+  selectedTool.value = null
+  modalToolOpen.value = true
+}
+const openEditTool = (id: number) => {
+  const tool = toolStore.getById(id)
+  if (tool) {
+    selectedTool.value = tool
+    modalToolOpen.value = true
+  }
+}
+const openDuplicateTool = (id: number) => {
+  const newId = toolStore.duplicate(id)
+  if (newId !== undefined) {
+    selectedTool.value = toolStore.getById(newId) || null
+    modalToolOpen.value = true
+  }
+}
+const confirmDeleteTool = (id: number) => {
+  if (window.confirm(t.value.admin.confirmDelete)) {
+    toolStore.remove(id)
+  }
+}
+
+const openCreateSoft = () => {
+  selectedSoftSkill.value = null
+  modalSoftOpen.value = true
+}
+const openEditSoft = (id: number) => {
+  const skill = softStore.getById(id)
+  if (skill) {
+    selectedSoftSkill.value = skill
+    modalSoftOpen.value = true
+  }
+}
+const openDuplicateSoft = (id: number) => {
+  const newId = softStore.duplicate(id)
+  if (newId !== undefined) {
+    selectedSoftSkill.value = softStore.getById(newId) || null
+    modalSoftOpen.value = true
+  }
+}
+const confirmDeleteSoft = (id: number) => {
+  if (window.confirm(t.value.admin.confirmDelete)) {
+    softStore.remove(id)
+  }
+}
+
 const handleShortcut = (e: KeyboardEvent) => {
   if (e.altKey && (e.key === 'n' || e.key === 'N')) {
     e.preventDefault()
@@ -170,6 +299,9 @@ const handleShortcut = (e: KeyboardEvent) => {
 onMounted(async () => {
   await experienceStore.ensureLoaded()
   await certificationStore.ensureLoaded()
+  await technicalStore.ensureLoaded()
+  await toolStore.ensureLoaded()
+  await softStore.ensureLoaded()
   window.addEventListener('keydown', handleShortcut)
 })
 onBeforeUnmount(() => window.removeEventListener('keydown', handleShortcut))

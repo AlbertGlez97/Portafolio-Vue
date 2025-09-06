@@ -8,7 +8,10 @@ export type {
   SoftSkill,
   TechnicalSkills,
   SkillsData,
-  SkillBarProps
+  SkillBarProps,
+  TechnicalSkill,
+  ToolEntry,
+  SoftSkillEntry
 } from './Skills'
 
 // Education interfaces

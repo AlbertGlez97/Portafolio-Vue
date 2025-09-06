@@ -6,7 +6,6 @@ import type { Certification } from '@/interfaces'
 // helper to flush debounce timers
 const flush = () => vi.runAllTimers()
 
-
 describe('certification store', () => {
   beforeEach(() => {
     setActivePinia(createPinia())
