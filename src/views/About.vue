@@ -62,7 +62,7 @@
           v-if="journeyItems.value.length"
         >
           <div
-            v-for="(item, index) in journeyItems.value"
+            v-for="(item, index) in journeyItems"
             :key="index"
             class="timeline-item"
             :class="index % 2 === 0 ? 'animate-fadeInLeft' : 'animate-fadeInRight'"
@@ -266,7 +266,7 @@ const journeyItems = computed(() => {
   width: 300px;
   height: 300px;
   border-radius: var(--border-radius-full);
-  background-image: url("/src/assets/img/fotoPerfil2.jpg");
+  background-image: url("@/assets/img/fotoPerfil2.jpg");
   background-size: cover;
   border: 3px dashed var(--primary-light);
   display: flex;
