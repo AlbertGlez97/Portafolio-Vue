@@ -27,7 +27,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="exp in exps.value" :key="exp.id">
+          <tr v-for="exp in rows.value" :key="exp.id">
             <td>{{ exp.id }}</td>
             <td>{{ formatPeriod(exp) }}</td>
             <td>{{ exp.role.es }}</td>
@@ -57,8 +57,8 @@ const experienceStore = useExperienceStore()
 const mainStore = useMainStore()
 const { t } = storeToRefs(mainStore)
 
-// Obtiene la lista ordenada directamente del store
-const exps = computed(() => experienceStore.sortedByPeriod)
+// Lista reactiva de experiencias del store
+const rows = computed(() => experienceStore.sortedByPeriod.value)
 
 onMounted(async () => {
   await experienceStore.ensureLoaded()

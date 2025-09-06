@@ -41,8 +41,13 @@ export const useExperienceStore = defineStore('experience', () => {
     if (typeof window === 'undefined') return
     if (saveTimer) clearTimeout(saveTimer)
     saveTimer = window.setTimeout(() => {
+      let parsed: AppStorage = {}
       const raw = localStorage.getItem('app')
-      const parsed: AppStorage = raw ? JSON.parse(raw) : {}
+      try {
+        parsed = raw ? JSON.parse(raw) : {}
+      } catch {
+        parsed = {}
+      }
       parsed.experience = items.value
       localStorage.setItem('app', JSON.stringify(parsed))
     }, SAVE_DELAY)
