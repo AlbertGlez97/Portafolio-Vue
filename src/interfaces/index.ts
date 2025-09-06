@@ -15,7 +15,7 @@ export type {
 export type {
   Subject,
   AcademicEducation,
-  Certification,
+  EducationCertification,
   Philosophy,
   Goal,
   EducationData,
@@ -36,4 +36,7 @@ export type {
   Experience,
   ExperiencesData
 } from './Experience'
+
+// Certification interfaces (admin)
+export type { Certification } from './Certification'
 
