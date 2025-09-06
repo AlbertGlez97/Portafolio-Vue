@@ -66,10 +66,13 @@
           >
             <div class="timeline-marker"></div>
             <div class="timeline-content">
-              <div class="timeline-date">{{ item.date }}</div>
+              <div class="timeline-date">{{ item.period }}</div>
               <h3>{{ item.role }}</h3>
               <h4>{{ item.company }}</h4>
               <p>{{ item.description }}</p>
+              <ul class="timeline-tech">
+                <li v-for="tech in item.technologies" :key="tech">{{ tech }}</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -188,6 +191,7 @@
 import { computed } from "vue";
 import { useMainStore } from "../stores/main";
 import { usePersonalStore } from "../stores/personal";
+import { useExperienceStore } from "../stores";
 // Importamos el modelo del dominio
 import type { PersonalData } from "../domain/personal/Personal";
 import { storeToRefs } from "pinia";
@@ -201,11 +205,17 @@ const { getPersonal } = storeToRefs(personalStore);
 // Datos personales provenientes de la capa de dominio
 const personalData: PersonalData = getPersonal.value;
 
-// Lista de eventos de la línea de tiempo profesional
-const journeyItems = computed(() => {
-  const { title, ...items } = t.value.about.journey;
-  return Object.values(items);
-});
+// Lista de eventos de la línea de tiempo profesional sincronizada con el store
+const experienceStore = useExperienceStore();
+const journeyItems = computed(() =>
+  experienceStore.publicList.value.map(exp => ({
+    period: `${exp.start} - ${exp.current || !exp.end ? t.value.admin.present : exp.end}`,
+    role: getTranslatedText(exp.role),
+    company: exp.company,
+    description: getTranslatedText(exp.summary),
+    technologies: exp.technologies
+  }))
+);
 </script>
 
 <style scoped>
@@ -417,6 +427,23 @@ const journeyItems = computed(() => {
   color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
+}
+
+.timeline-tech {
+  margin-top: var(--spacing-sm);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  padding: 0;
+  list-style: none;
+}
+
+.timeline-tech li {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-sm);
 }
 
 .goals {
