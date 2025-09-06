@@ -216,10 +216,9 @@ router.afterEach((to, from) => {
 // Manejo de errores de navegación para chunks dinámicos
 router.onError((error) => {
   console.error('Error de navegación:', error)
-  
-  // Redirigir a página de error si es necesario
+
   if (error.message.includes('Loading chunk')) {
-    window.location.reload()
+    router.replace('/')
   }
 })
 

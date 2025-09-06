@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+import { ref, computed, type ComputedRef } from 'vue'
 import type { Experience } from '../interfaces'
 import experienceData from '../data/experience.json'
 
@@ -29,10 +29,15 @@ export const useExperienceStore = defineStore('experience', () => {
     return experienceData as Experience[]
   }
 
-  const ensureLoaded = async () => {
+  const ensureLoaded = async (): Promise<void> => {
     if (initialized.value) return
-    items.value = load()
-    initialized.value = true
+    try {
+      items.value = load()
+    } catch {
+      items.value = []
+    } finally {
+      initialized.value = true
+    }
   }
 
   // Persist to localStorage with a small debounce
@@ -54,15 +59,17 @@ export const useExperienceStore = defineStore('experience', () => {
   }
 
   // --- Getters ----------------------------------------------------------
-  const all = computed(() => items.value)
-  const sortedByPeriod = computed(() =>
+  const all: ComputedRef<Experience[]> = computed(() => items.value)
+  const sortedByPeriod: ComputedRef<Experience[]> = computed(() =>
     [...items.value].sort((a, b) => {
       if (a.current !== b.current) return a.current ? -1 : 1
       return b.start.localeCompare(a.start)
     })
   )
   // Lista pública usada por el timeline
-  const publicList = computed(() => sortedByPeriod.value)
+  const publicList: ComputedRef<Experience[]> = computed(() =>
+    sortedByPeriod.value ?? []
+  )
 
   const getExperienceById = (id: number): Experience | undefined =>
     items.value.find(e => e.id === id)
