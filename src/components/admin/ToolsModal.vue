@@ -54,7 +54,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, watch, computed, nextTick } from 'vue'
+import { reactive, ref, watch, computed, nextTick, onUnmounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useToolStore, useMainStore } from '../../stores'
 import type { ToolEntry } from '../../interfaces'
@@ -80,6 +80,7 @@ const categorySelection = ref('')
 const isEdit = computed(() => !!props.tool)
 
 const firstInput = ref<HTMLInputElement | null>(null)
+const modalRef = ref<HTMLElement | null>(null)
 
 watch(
   () => props.tool,
@@ -111,7 +112,36 @@ const save = () => {
   categorySelection.value = ''
 }
 
-const cancel = () => emit('update:modelValue', false)
+const cancel = () => {
+  emit('update:modelValue', false)
+  Object.assign(form, { ...emptyForm })
+  categorySelection.value = ''
+}
+
+const handleKey = (e: KeyboardEvent) => {
+  if (e.key === 'Escape') cancel()
+  trapFocus(e)
+}
+
+const trapFocus = (e: KeyboardEvent) => {
+  if (e.key !== 'Tab' || !modalRef.value) return
+  const focusables = modalRef.value.querySelectorAll<HTMLElement>(
+    'input, textarea, button, select, a[href], [tabindex]:not([tabindex="-1"])'
+  )
+  const first = focusables[0]
+  const last = focusables[focusables.length - 1]
+  if (e.shiftKey) {
+    if (document.activeElement === first) {
+      e.preventDefault()
+      ;(last as HTMLElement).focus()
+    }
+  } else {
+    if (document.activeElement === last) {
+      e.preventDefault()
+      ;(first as HTMLElement).focus()
+    }
+  }
+}
 
 watch(
   () => props.modelValue,
@@ -119,13 +149,85 @@ watch(
     if (val) {
       await nextTick()
       firstInput.value?.focus()
+      window.addEventListener('keydown', handleKey)
+      document.body.style.overflow = 'hidden'
+    } else {
+      window.removeEventListener('keydown', handleKey)
+      document.body.style.overflow = ''
     }
-  },
-  { immediate: true }
+  }
 )
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKey)
+  document.body.style.overflow = ''
+})
 </script>
 
 <style scoped>
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-bg);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+  z-index: var(--z-overlay);
+}
+.modal {
+  position: relative;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  padding: var(--spacing-2xl);
+  border-radius: var(--border-radius-lg);
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-md);
+  border: 1px solid color-mix(in srgb, var(--primary-color), transparent 90%);
+  transition: all var(--transition-normal);
+  z-index: var(--z-modal);
+}
+.form-section {
+  margin-bottom: var(--spacing-lg);
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-md);
+}
+.form-group label {
+  margin-bottom: var(--spacing-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 2px solid color-mix(in srgb, var(--primary-color), transparent 80%);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+.form-group textarea {
+  min-height: 80px;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-color), transparent 90%);
+}
 .buttons {
   display: flex;
   justify-content: flex-end;
@@ -135,5 +237,13 @@ watch(
 }
 .buttons .btn {
   flex: 1 1 auto;
+}
+@media (max-width: 480px) {
+  .buttons {
+    flex-direction: column;
+  }
+  .buttons .btn {
+    width: 100%;
+  }
 }
 </style>
