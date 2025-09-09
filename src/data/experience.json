@@ -3,12 +3,42 @@
     "id": 1,
     "start": "2023-01",
     "current": true,
-    "role": { "es": "Desarrollador Frontend", "en": "Frontend Developer" },
+    "role": {
+      "es": "Desarrollador Frontend",
+      "en": "Frontend Developer"
+    },
     "company": "Tech Corp",
     "location": "Remote",
-    "summary": { "es": "Trabajo en frontend", "en": "Working on frontend" },
-    "technologies": ["Vue", "TypeScript"],
+    "summary": {
+      "es": "Trabajo en frontend",
+      "en": "Working on frontend"
+    },
+    "technologies": [
+      "Vue",
+      "TypeScript"
+    ],
     "featured": false,
     "updatedAt": "2024-01-01"
+  },
+  {
+    "start": "2025-02",
+    "end": "2025-11",
+    "current": false,
+    "role": {
+      "es": "Desarrollador Frontend",
+      "en": "Frontend Developer Supremo "
+    },
+    "company": "Tech Corp 25",
+    "location": "Remote",
+    "summary": {
+      "es": "Resumen ",
+      "en": "Resumen "
+    },
+    "technologies": [
+      "tec"
+    ],
+    "featured": false,
+    "id": 2,
+    "updatedAt": "2025-09-09T03:57:17.207Z"
   }
 ]

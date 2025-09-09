@@ -2,18 +2,39 @@
   "featured": [
     {
       "id": 1,
-      "title": { "es": "Atotonilco Estudio", "en": "Atotonilco Studio" },
-      "type": { "es": "Destacado", "en": "Featured" },
+      "title": {
+        "es": "Atotonilco Estudio",
+        "en": "Atotonilco Studio"
+      },
+      "type": {
+        "es": "Destacado",
+        "en": "Featured"
+      },
       "description": {
         "es": "Sitio web profesional creado para promocionar los servicios de un estudio fotográfico. Desarrollado con enfoque en la experiencia visual y diseño responsivo para mostrar el portafolio de manera atractiva.",
         "en": "Professional website created to promote the services of a photo studio. Developed with focus on visual experience and responsive design to showcase the portfolio attractively."
       },
       "features": [
-        { "es": "Diseño responsivo y moderno", "en": "Responsive and modern design" },
-        { "es": "Galería de imágenes optimizada", "en": "Optimized image gallery" },
-        { "es": "Formulario de contacto funcional", "en": "Functional contact form" },
-        { "es": "Optimización SEO", "en": "SEO optimization" },
-        { "es": "Carga rápida de imágenes", "en": "Fast image loading" }
+        {
+          "es": "Diseño responsivo y moderno",
+          "en": "Responsive and modern design"
+        },
+        {
+          "es": "Galería de imágenes optimizada",
+          "en": "Optimized image gallery"
+        },
+        {
+          "es": "Formulario de contacto funcional",
+          "en": "Functional contact form"
+        },
+        {
+          "es": "Optimización SEO",
+          "en": "SEO optimization"
+        },
+        {
+          "es": "Carga rápida de imágenes",
+          "en": "Fast image loading"
+        }
       ],
       "technologies": [
         "HTML5",
@@ -27,7 +48,10 @@
       "metrics": {
         "responsive": "100%",
         "performance": "A+",
-        "seo": { "es": "SEO Optimizado", "en": "SEO Optimized" }
+        "seo": {
+          "es": "SEO Optimizado",
+          "en": "SEO Optimized"
+        }
       },
       "image": "/projects/atotonilco.jpg",
       "url": "https://www.atotonilcoestudio.com/",
@@ -35,18 +59,39 @@
     },
     {
       "id": 2,
-      "title": { "es": "Carnal MX", "en": "Carnal MX" },
-      "type": { "es": "Destacado", "en": "Featured" },
+      "title": {
+        "es": "Carnal MX",
+        "en": "Carnal MX"
+      },
+      "type": {
+        "es": "Destacado",
+        "en": "Featured"
+      },
       "description": {
         "es": "Plataforma web con panel administrativo para gestión de registros, desarrollada con Node.js y Express. Incluye automatización de tareas mediante n8n e integración de servicios como Gmail, Slack y WhatsApp.",
         "en": "Web platform with an admin panel for record management, built with Node.js and Express. Includes task automation through n8n and integration of services like Gmail, Slack and WhatsApp."
       },
       "features": [
-        { "es": "Panel administrativo para gestión de registros", "en": "Admin panel for record management" },
-        { "es": "Automatización de tareas con n8n integrando Gmail, Slack y WhatsApp", "en": "Task automation with n8n integrating Gmail, Slack and WhatsApp" },
-        { "es": "Integración de APIs de terceros para procesos optimizados", "en": "Integration of third-party APIs for optimized processes" },
-        { "es": "Uso de IA generativa y prompts estratégicos para documentación y código", "en": "Use of generative AI and strategic prompts for documentation and code" },
-        { "es": "Galería interactiva de contenido", "en": "Interactive content gallery" }
+        {
+          "es": "Panel administrativo para gestión de registros",
+          "en": "Admin panel for record management"
+        },
+        {
+          "es": "Automatización de tareas con n8n integrando Gmail, Slack y WhatsApp",
+          "en": "Task automation with n8n integrating Gmail, Slack and WhatsApp"
+        },
+        {
+          "es": "Integración de APIs de terceros para procesos optimizados",
+          "en": "Integration of third-party APIs for optimized processes"
+        },
+        {
+          "es": "Uso de IA generativa y prompts estratégicos para documentación y código",
+          "en": "Use of generative AI and strategic prompts for documentation and code"
+        },
+        {
+          "es": "Galería interactiva de contenido",
+          "en": "Interactive content gallery"
+        }
       ],
       "technologies": [
         "Vue.js",
@@ -65,7 +110,10 @@
       "metrics": {
         "responsive": "100%",
         "performance": "A",
-        "seo": { "es": "Optimizado", "en": "Optimized" }
+        "seo": {
+          "es": "Optimizado",
+          "en": "Optimized"
+        }
       },
       "image": "/projects/carnal-mx.jpg",
       "url": "https://carnalmx.com/",
@@ -75,18 +123,39 @@
   "other": [
     {
       "id": 3,
-      "title": { "es": "Sistema SICOJ - Módulo Consultas", "en": "SICOJ System - Consultations Module" },
-      "type": { "es": "Profesional", "en": "Professional" },
+      "title": {
+        "es": "Sistema SICOJ - Módulo Consultas",
+        "en": "SICOJ System - Consultations Module"
+      },
+      "type": {
+        "es": "Profesional",
+        "en": "Professional"
+      },
       "description": {
         "es": "Módulo de consultas jurídicas para el Sistema Integral de Control de Juicios del SAT. Desarrollo completo del frontend con componentes reutilizables y gestión de estado avanzada.",
         "en": "Legal consultation module for the SAT's Comprehensive Control of Trials System. Complete frontend development with reusable components and advanced state management."
       },
       "features": [
-        { "es": "Componentes reutilizables en Svelte", "en": "Reusable components in Svelte" },
-        { "es": "Gestión de estado con Redux", "en": "State management with Redux" },
-        { "es": "Integración con APIs .NET", "en": "Integration with .NET APIs" },
-        { "es": "Validaciones dinámicas", "en": "Dynamic validations" },
-        { "es": "Manejo de errores robusto", "en": "Robust error handling" }
+        {
+          "es": "Componentes reutilizables en Svelte",
+          "en": "Reusable components in Svelte"
+        },
+        {
+          "es": "Gestión de estado con Redux",
+          "en": "State management with Redux"
+        },
+        {
+          "es": "Integración con APIs .NET",
+          "en": "Integration with .NET APIs"
+        },
+        {
+          "es": "Validaciones dinámicas",
+          "en": "Dynamic validations"
+        },
+        {
+          "es": "Manejo de errores robusto",
+          "en": "Robust error handling"
+        }
       ],
       "technologies": [
         "Svelte",
@@ -101,18 +170,39 @@
     },
     {
       "id": 4,
-      "title": { "es": "ShoppingCart System", "en": "ShoppingCart System" },
-      "type": { "es": "Profesional", "en": "Professional" },
+      "title": {
+        "es": "ShoppingCart System",
+        "en": "ShoppingCart System"
+      },
+      "type": {
+        "es": "Profesional",
+        "en": "Professional"
+      },
       "description": {
         "es": "Sistema de cobranza y carrito de compras para empresa de impresión. Desarrollo con Vue.js puro y integración con sistemas de pago.",
         "en": "Billing and shopping cart system for a printing company. Developed with pure Vue.js and integration with payment systems."
       },
       "features": [
-        { "es": "Carrito de compras dinámico", "en": "Dynamic shopping cart" },
-        { "es": "Integración con pasarelas de pago", "en": "Integration with payment gateways" },
-        { "es": "Gestión de inventario", "en": "Inventory management" },
-        { "es": "Panel administrativo", "en": "Admin panel" },
-        { "es": "Reportes de ventas", "en": "Sales reports" }
+        {
+          "es": "Carrito de compras dinámico",
+          "en": "Dynamic shopping cart"
+        },
+        {
+          "es": "Integración con pasarelas de pago",
+          "en": "Integration with payment gateways"
+        },
+        {
+          "es": "Gestión de inventario",
+          "en": "Inventory management"
+        },
+        {
+          "es": "Panel administrativo",
+          "en": "Admin panel"
+        },
+        {
+          "es": "Reportes de ventas",
+          "en": "Sales reports"
+        }
       ],
       "technologies": [
         "Vue.js",

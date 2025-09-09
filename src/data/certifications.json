@@ -1,9 +1,15 @@
 [
   {
     "id": 1,
-    "title": { "es": "Certificación Vue", "en": "Vue Certification" },
+    "title": {
+      "es": "Certificación Vue",
+      "en": "Vue Certification"
+    },
     "provider": "Vue School",
     "icon": "vuejs",
-    "description": { "es": "Curso avanzado de Vue", "en": "Advanced Vue course" }
+    "description": {
+      "es": "Curso avanzado de Vue",
+      "en": "Advanced Vue course"
+    }
   }
 ]
