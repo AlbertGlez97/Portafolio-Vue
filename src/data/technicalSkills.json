@@ -1,8 +1,14 @@
 [
   {
     "id": 1,
-    "name": { "es": "Vue.js", "en": "Vue.js" },
-    "level": { "es": "Avanzado", "en": "Advanced" },
+    "name": {
+      "es": "Vue.js",
+      "en": "Vue.js"
+    },
+    "level": {
+      "es": "Avanzado",
+      "en": "Advanced"
+    },
     "percentage": 90,
     "description": {
       "es": "Framework progresivo para construir interfaces de usuario",
@@ -13,8 +19,14 @@
   },
   {
     "id": 2,
-    "name": { "es": "Node.js", "en": "Node.js" },
-    "level": { "es": "Intermedio", "en": "Intermediate" },
+    "name": {
+      "es": "Node.js",
+      "en": "Node.js"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
     "percentage": 70,
     "description": {
       "es": "Entorno de ejecución para JavaScript del lado del servidor",

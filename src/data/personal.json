@@ -1,61 +1,17 @@
 {
-  "profile": {
-    "name": "Albert González",
-    "title": { "es": "Desarrollador Full Stack", "en": "Full Stack Developer" },
-    "description": {
-      "es": "Desarrollador Full Stack con más de 3 años de experiencia. Experto en Front-End con Svelte, Vue.js, TypeScript, CSS3 y Redux; y con práctica en Back-End utilizando .NET 6 MVC, Entity Framework, LINQ, asincronía, inyección de dependencias y APIs REST. Domino Node.js con Express, tengo conocimientos en Nest.js y trabajo con SQL Server, MongoDB y PostgreSQL. También soy Prompt Engineer capaz de crear prompts efectivos para diversas IAs, optimizando flujos de trabajo y aumentando la productividad. Me mantengo en constante actualización adoptando herramientas y frameworks de vanguardia para ser más eficiente y preciso en mis proyectos.",
-      "en": "Full Stack Developer with over 3 years of experience. Expert in Front-End using Svelte, Vue.js, TypeScript, CSS3 and Redux, and with hands-on Back-End work with .NET 6 MVC, Entity Framework, LINQ, async programming, dependency injection and REST APIs. Proficient in Node.js with Express, knowledgeable in Nest.js and experienced with SQL Server, MongoDB and PostgreSQL. Also a Prompt Engineer able to craft effective prompts for different AIs, optimizing workflows and boosting productivity. I stay constantly updated, adopting cutting-edge tools and frameworks to be more efficient and precise in my projects."
-    },
-    "image": "/profile/albert-gonzalez.jpg"
-  },
   "contact": {
-    "email": "albert.gonzalez@email.com",
-    "phone": "+52 (555) 123-4567",
-    "location": { "es": "Ciudad de México, México", "en": "Mexico City, Mexico" },
+    "emails": [
+      "albert.gonzalez@email.com"
+    ],
+    "phones": [
+      "+52 (555) 123-4567"
+    ],
+    "location": {
+      "es": "Ciudad de México, México",
+      "en": "Mexico City, Mexico"
+    },
     "linkedin": "linkedin.com/in/albertglez97",
-    "github": "github.com/albertglez97"
-  },
-  "about": {
-    "goals": {
-      "shortTerm": {
-        "es": "Consolidarme como Full Stack Developer con enfoque en IA y automatización, aprovechando mis habilidades en Prompt Engineering y flujos automatizados para aportar mayor valor a las empresas.",
-        "en": "Establish myself as a Full Stack Developer focused on AI and automation, leveraging my Prompt Engineering skills and automated workflows to deliver greater value to companies."
-      },
-      "longTerm": {
-        "es": "Convertirme en líder tecnológico especializado en arquitectura de microservicios, sistemas escalables y adopción de IA aplicada a entornos empresariales, participando en proyectos internacionales de alto impacto.",
-        "en": "Become a technology leader specialized in microservices architecture, scalable systems and the adoption of AI in enterprise environments, working on high-impact international projects."
-      }
-    },
-    "interests": [
-      {
-        "title": { "es": "Componentes Reutilizables", "en": "Reusable Components" },
-        "description": { "es": "Diseño de componentes que beneficien múltiples módulos y mejoren la eficiencia del desarrollo.", "en": "Designing components that benefit multiple modules and improve development efficiency." },
-        "icon": "components"
-      },
-      {
-        "title": { "es": "Reuniones con Clientes", "en": "Client Meetings" },
-        "description": { "es": "Participar en reuniones para comprender a fondo el negocio y los procesos de los clientes.", "en": "Participating in meetings to deeply understand business and client processes." },
-        "icon": "meetings"
-      },
-      {
-        "title": { "es": "Inteligencia Artificial", "en": "Artificial Intelligence" },
-        "description": { "es": "Explorar herramientas de IA y crear asistentes inteligentes para mejorar la experiencia del usuario.", "en": "Exploring AI tools and creating intelligent assistants to improve user experience." },
-        "icon": "ai"
-      }
-    ]
-  },
-  "achievements": [
-    {
-      "title": { "es": "Reconocimiento por liderar solo el desarrollo del módulo Consultas en el SAT", "en": "Recognition for single-handedly leading the development of the Queries module at SAT" },
-      "description": { "es": "Manteniendo alto rendimiento y entregando el módulo más avanzado del proyecto.", "en": "Maintaining high performance and delivering the most advanced module of the project." }
-    },
-    {
-      "title": { "es": "Considerado clave durante recorte de personal", "en": "Considered key during staff reduction" },
-      "description": { "es": "Por desempeño destacado y contribuciones esenciales al equipo.", "en": "Due to outstanding performance and essential contributions to the team." }
-    },
-    {
-      "title": { "es": "Asignación de tareas adicionales", "en": "Assignment of additional tasks" },
-      "description": { "es": "Por ser resolutivo ante problemas técnicos complejos.", "en": "For being resourceful in solving complex technical problems." }
-    }
-  ]
+    "github": "github.com/albertglez97",
+    "otherLinks": {}
+  }
 }

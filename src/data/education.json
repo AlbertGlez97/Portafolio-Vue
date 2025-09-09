@@ -1,25 +1,85 @@
 {
-    "academic": {
-      "degree": { "es": "Ingeniería en Informática", "en": "Computer Engineering" },
-      "institution": "Tecnológico de Estudios Superiores de Ecatepec",
-      "period": "2016 - 2022",
-      "status": { "es": "Titulado", "en": "Graduated" },
-      "description": {
-        "es": "Formación sólida en desarrollo de software, bases de datos, metodologías de desarrollo y fundamentos de la informática. Titulado con cédula profesional, con enfoque en tecnologías modernas y mejores prácticas de desarrollo.",
-        "en": "Solid training in software development, databases, development methodologies and computer science fundamentals. Graduated with professional license, focused on modern technologies and best development practices."
-      },
-      "subjects": [
-        { "name": { "es": "Desarrollo de Software", "en": "Software Development" }, "icon": "code" },
-        { "name": { "es": "Bases de Datos", "en": "Databases" }, "icon": "database" },
-        { "name": { "es": "Metodologías Ágiles", "en": "Agile Methodologies" }, "icon": "agile" },
-        { "name": { "es": "Arquitectura de Software", "en": "Software Architecture" }, "icon": "architecture" },
-        { "name": { "es": "Algoritmos y Estructuras", "en": "Algorithms and Structures" }, "icon": "algorithm" },
-        { "name": { "es": "Redes y Sistemas", "en": "Networks and Systems" }, "icon": "network" }
-      ]
+  "academic": {
+    "degree": {
+      "es": "Ingeniería en Informática",
+      "en": "Computer Engineering"
     },
+    "institution": "Tecnológico de Estudios Superiores de Ecatepec",
+    "period": "2016 - 2022",
+    "status": {
+      "es": "Titulado",
+      "en": "Graduated"
+    },
+    "description": {
+      "es": "Formación sólida en desarrollo de software, bases de datos, metodologías de desarrollo y fundamentos de la informática. Titulado con cédula profesional, con enfoque en tecnologías modernas y mejores prácticas de desarrollo.",
+      "en": "Solid training in software development, databases, development methodologies and computer science fundamentals. Graduated with professional license, focused on modern technologies and best development practices."
+    },
+    "subjects": [
+      {
+        "name": {
+          "es": "Desarrollo de Software",
+          "en": "Software Development"
+        },
+        "icon": "code"
+      },
+      {
+        "name": {
+          "es": "Bases de Datos",
+          "en": "Databases"
+        },
+        "icon": "database"
+      },
+      {
+        "name": {
+          "es": "Metodologías Ágiles",
+          "en": "Agile Methodologies"
+        },
+        "icon": "agile"
+      },
+      {
+        "name": {
+          "es": "Arquitectura de Software",
+          "en": "Software Architecture"
+        },
+        "icon": "architecture"
+      },
+      {
+        "name": {
+          "es": "Algoritmos y Estructuras",
+          "en": "Algorithms and Structures"
+        },
+        "icon": "algorithm"
+      },
+      {
+        "name": {
+          "es": "Redes y Sistemas",
+          "en": "Networks and Systems"
+        },
+        "icon": "network"
+      }
+    ]
+  },
+  "certifications": [
+    {
+      "id": 1,
+      "title": {
+        "es": "Certificación Vue",
+        "en": "Vue Certification"
+      },
+      "provider": "Vue School",
+      "icon": "vuejs",
+      "description": {
+        "es": "Curso avanzado de Vue",
+        "en": "Advanced Vue course"
+      }
+    }
+  ],
   "philosophy": [
     {
-      "title": { "es": "Aprendizaje Continuo", "en": "Continuous Learning" },
+      "title": {
+        "es": "Aprendizaje Continuo",
+        "en": "Continuous Learning"
+      },
       "icon": "learning",
       "description": {
         "es": "Mantengo una mentalidad de crecimiento constante, siempre buscando nuevas tecnologías y metodologías para mejorar mis habilidades profesionales.",
@@ -27,7 +87,10 @@
       }
     },
     {
-      "title": { "es": "Aprendizaje Práctico", "en": "Practical Learning" },
+      "title": {
+        "es": "Aprendizaje Práctico",
+        "en": "Practical Learning"
+      },
       "icon": "practice",
       "description": {
         "es": "Prefiero el aprendizaje hands-on, aplicando inmediatamente los conocimientos adquiridos en proyectos reales para consolidar el aprendizaje.",
@@ -35,7 +98,10 @@
       }
     },
     {
-      "title": { "es": "Compartir Conocimiento", "en": "Sharing Knowledge" },
+      "title": {
+        "es": "Compartir Conocimiento",
+        "en": "Sharing Knowledge"
+      },
       "icon": "share",
       "description": {
         "es": "Creo en el poder de compartir conocimiento con la comunidad, participando activamente en foros y ayudando a otros desarrolladores.",
@@ -46,8 +112,14 @@
   "goals": [
     {
       "id": 1,
-      "title": { "es": "Inglés Técnico Avanzado", "en": "Advanced Technical English" },
-      "period": { "es": "Corto Plazo (6 meses)", "en": "Short Term (6 months)" },
+      "title": {
+        "es": "Inglés Técnico Avanzado",
+        "en": "Advanced Technical English"
+      },
+      "period": {
+        "es": "Corto Plazo (6 meses)",
+        "en": "Short Term (6 months)"
+      },
       "description": {
         "es": "Fortalecer mi inglés técnico para comunicación efectiva en equipos internacionales y acceso a documentación técnica avanzada.",
         "en": "Strengthen my technical English for effective communication in international teams and access to advanced technical documentation."
@@ -55,8 +127,14 @@
     },
     {
       "id": 2,
-      "title": { "es": "Inteligencia Artificial y Machine Learning", "en": "Artificial Intelligence and Machine Learning" },
-      "period": { "es": "Mediano Plazo (1 año)", "en": "Mid Term (1 year)" },
+      "title": {
+        "es": "Inteligencia Artificial y Machine Learning",
+        "en": "Artificial Intelligence and Machine Learning"
+      },
+      "period": {
+        "es": "Mediano Plazo (1 año)",
+        "en": "Mid Term (1 year)"
+      },
       "description": {
         "es": "Explorar tecnologías emergentes de IA para crear asistentes inteligentes y mejorar la experiencia del usuario en aplicaciones web.",
         "en": "Explore emerging AI technologies to create intelligent assistants and improve user experience in web applications."
@@ -64,8 +142,14 @@
     },
     {
       "id": 3,
-      "title": { "es": "Microservicios y Arquitectura Backend", "en": "Microservices and Backend Architecture" },
-      "period": { "es": "Largo Plazo (2 años)", "en": "Long Term (2 years)" },
+      "title": {
+        "es": "Microservicios y Arquitectura Backend",
+        "en": "Microservices and Backend Architecture"
+      },
+      "period": {
+        "es": "Largo Plazo (2 años)",
+        "en": "Long Term (2 years)"
+      },
       "description": {
         "es": "Especializarme en arquitectura de microservicios, contenedores y tecnologías cloud para desarrollo backend escalable.",
         "en": "Specialize in microservices architecture, containers and cloud technologies for scalable backend development."
