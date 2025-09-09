@@ -300,8 +300,38 @@
     "errorInvalid": "Credenciales inválidas",
     "hintDemo": "Demo: admin/admin"
   },
+  "git": {
+    "modal": {
+      "title": "Subir Datos a Git",
+      "cancel": "Cancelar",
+      "upload": "Subir a Git",
+      "uploading": "Subiendo..."
+    },
+    "fields": {
+      "token": "Token de Acceso Personal",
+      "tokenPlaceholder": "ghp_xxxxxxxxxxxxxxxxxxxx",
+      "tokenHint": "Token de GitHub con permisos de escritura al repositorio",
+      "repository": "URL del Repositorio",
+      "repositoryPlaceholder": "https://github.com/usuario/repositorio",
+      "repositoryHint": "URL completa del repositorio de GitHub",
+      "branch": "Rama",
+      "branchPlaceholder": "main",
+      "branchHint": "Rama donde subir los cambios (por defecto: main)",
+      "commitMessage": "Mensaje del Commit",
+      "commitPlaceholder": "feat: actualizar datos del portafolio desde panel admin",
+      "filesToUpload": "Archivos a Subir",
+      "selectAll": "Seleccionar Todo",
+      "deselectAll": "Deseleccionar Todo"
+    },
+    "status": {
+      "preparing": "Preparando archivos para subir...",
+      "success": "¡Datos subidos exitosamente a Git!",
+      "error": "Error al subir los datos. Verifica tus credenciales y permisos."
+    }
+  },
   "actions": {
     "signOut": "Salir del modo administrador",
-    "editProfile": "Editar información del perfil"
+    "editProfile": "Editar información del perfil",
+    "uploadToGit": "Subir a Git"
   }
 }

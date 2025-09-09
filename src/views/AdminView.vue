@@ -56,12 +56,18 @@
     />
     <SoftSkillsModal v-model="modalSoftOpen" :skill="selectedSoftSkill" />
     <ProfileModal v-model="modalProfileOpen" />
-    <button class="btn btn-secondary edit-profile" @click="openEditProfile">
-      {{ t.actions.editProfile }}
-    </button>
-    <button class="btn btn-secondary logout" @click="handleLogout">
-      {{ t.actions.signOut }}
-    </button>
+    <GitUploadModal v-model="modalGitOpen" />
+    <div class="admin-actions">
+      <button class="btn btn-secondary" @click="openEditProfile">
+        {{ t.actions.editProfile }}
+      </button>
+      <button class="btn btn-secondary" @click="openGitUpload">
+        {{ t.actions.uploadToGit }}
+      </button>
+      <button class="btn btn-secondary" @click="handleLogout">
+        {{ t.actions.signOut }}
+      </button>
+    </div>
   </div>
 </template>
 
@@ -92,6 +98,7 @@ import ToolsModal from '../components/admin/ToolsModal.vue'
 import SoftSkillsTable from '../components/admin/SoftSkillsTable.vue'
 import SoftSkillsModal from '../components/admin/SoftSkillsModal.vue'
 import ProfileModal from '../components/admin/ProfileModal.vue'
+import GitUploadModal from '../components/admin/GitUploadModal.vue'
 import type {
   Project,
   Experience,
@@ -133,6 +140,7 @@ const selectedTool = ref<ToolEntry | null>(null)
 const modalSoftOpen = ref(false)
 const selectedSoftSkill = ref<SoftSkillEntry | null>(null)
 const modalProfileOpen = ref(false)
+const modalGitOpen = ref(false)
 
 const handleLogout = () => {
   auth.logout()
@@ -141,6 +149,10 @@ const handleLogout = () => {
 
 const openEditProfile = () => {
   modalProfileOpen.value = true
+}
+
+const openGitUpload = () => {
+  modalGitOpen.value = true
 }
 
 const openCreate = () => {
@@ -326,10 +338,11 @@ onBeforeUnmount(() => window.removeEventListener('keydown', handleShortcut))
   flex-direction: column;
   gap: var(--spacing-lg);
 }
-.logout {
-  align-self: flex-end;
-}
-.edit-profile {
-  align-self: flex-end;
+.admin-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin-top: auto;
+  flex-wrap: wrap;
 }
 </style>

@@ -1,5 +1,10 @@
 <template>
-  <div class="navbar-logo" @click="handleClick">
+  <div 
+    class="navbar-logo" 
+    @click="handleClick"
+    @touchend="handleTouch"
+    @touchstart="preventScroll"
+  >
     <span class="logo-text">AG</span>
   </div>
 </template>
@@ -13,26 +18,73 @@ const router = useRouter()
 
 const clicks = ref(0)
 let timer: ReturnType<typeof setTimeout> | null = null
+let touchHandled = ref(false)
 
-const handleClick = () => {
+// Prevenir scroll accidental en touch
+const preventScroll = (event: TouchEvent) => {
+  touchHandled.value = false
+}
+
+// Manejar eventos touch específicamente en móvil
+const handleTouch = (event: TouchEvent) => {
+  event.preventDefault()
+  event.stopPropagation()
+  
+  if (touchHandled.value) return
+  touchHandled.value = true
+  
+  console.log('AG Logo: Touch event handled')
+  processClick()
+}
+
+// Manejar clicks de mouse/desktop
+const handleClick = (event: Event) => {
+  // Si ya se manejó con touch, evitar doble procesamiento
+  if (touchHandled.value) {
+    touchHandled.value = false
+    return
+  }
+  
+  event.preventDefault()
+  event.stopPropagation()
+  
+  console.log('AG Logo: Click event handled')
+  processClick()
+}
+
+// Lógica principal de procesamiento de clicks/touches
+const processClick = () => {
   clicks.value++
+  console.log(`AG Logo clicked. Clicks: ${clicks.value}, Current path: ${router.currentRoute.value.path}`)
+  
   if (!timer) {
+    // Aumentar tiempo de espera para dispositivos móviles
+    const delay = window.innerWidth <= 768 ? 800 : 500
+    
     timer = setTimeout(() => {
       if (clicks.value === 1) {
-        router.push('/')
-        emit('navigate-home')
+        // Solo navegar si estamos en una ruta diferente
+        if (router.currentRoute.value.path !== '/') {
+          console.log('AG Logo: Navigating to home from', router.currentRoute.value.path)
+          router.push('/')
+          emit('navigate-home')
+        } else {
+          console.log('AG Logo: Already on home page, no navigation needed')
+        }
       }
       clicks.value = 0
       timer = null
-    }, 500)
+    }, delay)
   }
 
+  // Para abrir login necesitas 3 clicks rápidos
   if (clicks.value === 3) {
     if (timer) {
       clearTimeout(timer)
       timer = null
     }
     clicks.value = 0
+    console.log('AG Logo: Opening login modal')
     emit('open-login')
   }
 }
@@ -44,6 +96,26 @@ const handleClick = () => {
   align-items: center;
   text-decoration: none;
   cursor: pointer;
+  padding: var(--spacing-xs);
+  border-radius: var(--border-radius-md);
+  transition: all var(--transition-fast);
+  /* Mejorar area de toque en móvil */
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+  /* Prevenir selección de texto */
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.navbar-logo:hover {
+  background-color: rgba(76, 175, 80, 0.1);
+  transform: scale(1.05);
+}
+
+.navbar-logo:active {
+  transform: scale(0.98);
 }
 
 .logo-text {

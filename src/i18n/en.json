@@ -300,8 +300,38 @@
     "errorInvalid": "Invalid credentials",
     "hintDemo": "Demo: admin/admin"
   },
+  "git": {
+    "modal": {
+      "title": "Upload Data to Git",
+      "cancel": "Cancel",
+      "upload": "Upload to Git",
+      "uploading": "Uploading..."
+    },
+    "fields": {
+      "token": "Personal Access Token",
+      "tokenPlaceholder": "ghp_xxxxxxxxxxxxxxxxxxxx",
+      "tokenHint": "GitHub token with write permissions to the repository",
+      "repository": "Repository URL",
+      "repositoryPlaceholder": "https://github.com/username/repository",
+      "repositoryHint": "Complete GitHub repository URL",
+      "branch": "Branch",
+      "branchPlaceholder": "main",
+      "branchHint": "Branch to upload changes to (default: main)",
+      "commitMessage": "Commit Message",
+      "commitPlaceholder": "feat: update portfolio data from admin panel",
+      "filesToUpload": "Files to Upload",
+      "selectAll": "Select All",
+      "deselectAll": "Deselect All"
+    },
+    "status": {
+      "preparing": "Preparing files to upload...",
+      "success": "Data successfully uploaded to Git!",
+      "error": "Error uploading data. Check your credentials and permissions."
+    }
+  },
   "actions": {
     "signOut": "Sign out of admin mode",
-    "editProfile": "Edit profile information"
+    "editProfile": "Edit profile information",
+    "uploadToGit": "Upload to Git"
   }
 }
