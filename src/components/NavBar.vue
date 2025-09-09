@@ -178,6 +178,9 @@ onUnmounted(() => {
   justify-content: space-between;
   padding: var(--spacing-sm) 0;
   min-height: 70px;
+  /* Prevenir overflow en móvil */
+  overflow: visible;
+  width: 100%;
 }
 
 
@@ -225,6 +228,9 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
+  flex-shrink: 0;
+  /* Asegurar que no se comprima ni se solape */
+  min-width: fit-content;
 }
 
 .control-btn {
@@ -239,8 +245,9 @@ onUnmounted(() => {
   justify-content: center;
   min-width: 40px;
   height: 40px;
-  /* Remover z-index problemático */
   position: relative;
+  /* Asegurar que no se solapen entre sí */
+  flex-shrink: 0;
 }
 
 .control-btn:hover {
@@ -261,8 +268,9 @@ onUnmounted(() => {
   display: none;
   flex-direction: column;
   gap: 4px;
-  /* Asegurar que no se solape con el logo */
-  margin-left: auto;
+  /* Asegurar que no se solape con otros elementos */
+  flex-shrink: 0;
+  position: relative;
 }
 
 .mobile-menu-btn span {
@@ -354,11 +362,15 @@ onUnmounted(() => {
     gap: var(--spacing-xs);
     /* Asegurar que los controles no se solapen con el logo */
     flex-shrink: 0;
+    /* Reducir espacio en móvil si es necesario */
+    min-width: fit-content;
   }
 
   .control-btn {
     min-width: 35px;
     height: 35px;
+    /* Reducir padding en móvil para ganar espacio */
+    padding: calc(var(--spacing-xs) / 1.5);
   }
 
   .navbar-content {
@@ -367,6 +379,21 @@ onUnmounted(() => {
     align-items: center;
     justify-content: space-between;
     gap: var(--spacing-sm);
+    /* Forzar que los elementos se mantengan en su lugar */
+    flex-wrap: nowrap;
+  }
+
+  /* Asegurar que el logo esté a la izquierda */
+  .navbar-content > *:first-child {
+    order: 1;
+    flex-shrink: 0;
+  }
+
+  /* Asegurar que los controles estén a la derecha */
+  .navbar-content > *:last-child {
+    order: 3;
+    flex-shrink: 0;
+    margin-left: auto;
   }
 }
 
@@ -376,5 +403,26 @@ onUnmounted(() => {
     min-height: 60px;
   }
 
+  .navbar-controls {
+    /* En pantallas muy pequeñas, reducir aún más el gap */
+    gap: calc(var(--spacing-xs) / 2);
+  }
+
+  .control-btn {
+    /* Botones más pequeños en pantallas muy pequeñas */
+    min-width: 32px;
+    height: 32px;
+    padding: 2px;
+  }
+
+  .language-btn {
+    /* Reducir tamaño de fuente en móvil pequeño */
+    font-size: calc(var(--font-size-sm) * 0.9);
+  }
+
+  .theme-btn {
+    /* Reducir tamaño de emoji en móvil pequeño */
+    font-size: calc(var(--font-size-lg) * 0.9);
+  }
 }
 </style>

@@ -32,9 +32,10 @@
             <td>{{ tool.category }}</td>
             <td>{{ tool.level[lang] ?? tool.level.es }}</td>
             <td class="actions sticky-col">
-              <button class="btn btn-secondary" @click="$emit('edit', tool.id)">{{ t.admin.edit }}</button>
-              <button class="btn btn-secondary" @click="$emit('duplicate', tool.id)">{{ t.admin.duplicate }}</button>
-              <button class="btn btn-secondary" @click="$emit('delete', tool.id)">{{ t.admin.delete }}</button>
+              <ActionMenu
+                :actions="getActionsForTool(tool.id)"
+                @action="handleAction($event, tool.id)"
+              />
             </td>
           </tr>
         </tbody>
@@ -47,6 +48,7 @@
 import { onMounted, ref, computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useToolStore, useMainStore } from '../../stores'
+import ActionMenu from './ActionMenu.vue'
 
 const emit = defineEmits(['create', 'edit', 'duplicate', 'delete'])
 const toolStore = useToolStore()
@@ -82,6 +84,28 @@ const toggleSort = (key: 'id' | 'name') => {
 onMounted(async () => {
   await toolStore.ensureLoaded()
 })
+
+// Generar acciones disponibles para cada herramienta
+const getActionsForTool = (toolId: number) => [
+  { key: 'edit', label: t.value.admin.edit, icon: '✏️' },
+  { key: 'duplicate', label: t.value.admin.duplicate, icon: '📋' },
+  { key: 'delete', label: t.value.admin.delete, icon: '🗑️' }
+]
+
+// Manejar acción seleccionada
+const handleAction = (actionKey: string, toolId: number) => {
+  switch (actionKey) {
+    case 'edit':
+      emit('edit', toolId)
+      break
+    case 'duplicate':
+      emit('duplicate', toolId)
+      break
+    case 'delete':
+      emit('delete', toolId)
+      break
+  }
+}
 </script>
 
 <style scoped>
@@ -123,11 +147,38 @@ onMounted(async () => {
 }
 .actions {
   display: flex;
-  gap: var(--spacing-xs);
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-xs);
 }
 .sticky-col {
   position: sticky;
   right: 0;
   background: var(--bg-primary);
+  width: 200px;
+  min-width: 200px;
+}
+
+/* Ajustes para desktop */
+@media (min-width: 769px) {
+  .actions {
+    gap: var(--spacing-xs);
+  }
+}
+
+/* Ajustes para móvil */
+@media (max-width: 768px) {
+  .admin-table {
+    min-width: 600px;
+  }
+  
+  .sticky-col {
+    width: 50px;
+    min-width: 50px;
+  }
+  
+  .actions {
+    padding: var(--spacing-xs);
+  }
 }
 </style>

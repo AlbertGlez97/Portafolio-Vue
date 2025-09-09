@@ -28,9 +28,10 @@
               <td>{{ cert.provider }}</td>
               <td>{{ cert.icon }}</td>
               <td class="actions sticky-col">
-                <button class="btn btn-secondary" @click="$emit('edit', cert.id)">{{ t.admin.edit }}</button>
-                <button class="btn btn-secondary" @click="$emit('duplicate', cert.id)">{{ t.admin.duplicate }}</button>
-                <button class="btn btn-secondary" @click="$emit('delete', cert.id)">{{ t.admin.delete }}</button>
+                <ActionMenu
+                  :actions="getActionsForCertification(cert.id)"
+                  @action="handleAction($event, cert.id)"
+                />
               </td>
             </tr>
         </tbody>
@@ -43,6 +44,7 @@
 import { onMounted } from 'vue'
 import { useCertificationStore, useMainStore } from '../../stores'
 import { storeToRefs } from 'pinia'
+import ActionMenu from './ActionMenu.vue'
 
 const emit = defineEmits(['create', 'edit', 'duplicate', 'delete'])
 const certificationStore = useCertificationStore()
@@ -56,6 +58,28 @@ const rows = publicList
 onMounted(async () => {
   await certificationStore.ensureLoaded()
 })
+
+// Generar acciones disponibles para cada certificación
+const getActionsForCertification = (certId: number) => [
+  { key: 'edit', label: t.value.admin.edit, icon: '✏️' },
+  { key: 'duplicate', label: t.value.admin.duplicate, icon: '📋' },
+  { key: 'delete', label: t.value.admin.delete, icon: '🗑️' }
+]
+
+// Manejar acción seleccionada
+const handleAction = (actionKey: string, certId: number) => {
+  switch (actionKey) {
+    case 'edit':
+      emit('edit', certId)
+      break
+    case 'duplicate':
+      emit('duplicate', certId)
+      break
+    case 'delete':
+      emit('delete', certId)
+      break
+  }
+}
 </script>
 
 <style scoped>
@@ -97,11 +121,38 @@ onMounted(async () => {
 }
 .actions {
   display: flex;
-  gap: var(--spacing-xs);
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-xs);
 }
 .sticky-col {
   position: sticky;
   right: 0;
   background: var(--bg-primary);
+  width: 200px;
+  min-width: 200px;
+}
+
+/* Ajustes para desktop */
+@media (min-width: 769px) {
+  .actions {
+    gap: var(--spacing-xs);
+  }
+}
+
+/* Ajustes para móvil */
+@media (max-width: 768px) {
+  .admin-table {
+    min-width: 600px;
+  }
+  
+  .sticky-col {
+    width: 50px;
+    min-width: 50px;
+  }
+  
+  .actions {
+    padding: var(--spacing-xs);
+  }
 }
 </style>

@@ -34,9 +34,10 @@
             <td>{{ exp.current ? t.admin.yes : t.admin.no }}</td>
             <td>{{ exp.featured ? t.admin.yes : t.admin.no }}</td>
             <td class="actions sticky-col">
-              <button class="btn btn-secondary" @click="$emit('edit', exp.id)">{{ t.admin.edit }}</button>
-              <button class="btn btn-secondary" @click="$emit('duplicate', exp.id)">{{ t.admin.duplicate }}</button>
-              <button class="btn btn-secondary" @click="$emit('delete', exp.id)">{{ t.admin.delete }}</button>
+              <ActionMenu
+                :actions="getActionsForExperience(exp.id)"
+                @action="handleAction($event, exp.id)"
+              />
             </td>
           </tr>
         </tbody>
@@ -49,6 +50,7 @@
 import { onMounted } from 'vue'
 import { useExperienceStore, useMainStore } from '../../stores'
 import { storeToRefs } from 'pinia'
+import ActionMenu from './ActionMenu.vue'
 
 const emit = defineEmits(['create', 'edit', 'duplicate', 'delete'])
 const experienceStore = useExperienceStore()
@@ -67,6 +69,28 @@ onMounted(async () => {
 const formatPeriod = (exp: any) => {
   const end = exp.current || !exp.end ? t.value.admin.present : exp.end
   return `${exp.start} - ${end}`
+}
+
+// Generar acciones disponibles para cada experiencia
+const getActionsForExperience = (expId: number) => [
+  { key: 'edit', label: t.value.admin.edit, icon: '✏️' },
+  { key: 'duplicate', label: t.value.admin.duplicate, icon: '📋' },
+  { key: 'delete', label: t.value.admin.delete, icon: '🗑️' }
+]
+
+// Manejar acción seleccionada
+const handleAction = (actionKey: string, expId: number) => {
+  switch (actionKey) {
+    case 'edit':
+      emit('edit', expId)
+      break
+    case 'duplicate':
+      emit('duplicate', expId)
+      break
+    case 'delete':
+      emit('delete', expId)
+      break
+  }
 }
 </script>
 
@@ -109,11 +133,38 @@ const formatPeriod = (exp: any) => {
 }
 .actions {
   display: flex;
-  gap: var(--spacing-xs);
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-xs);
 }
 .sticky-col {
   position: sticky;
   right: 0;
   background: var(--bg-primary);
+  width: 200px;
+  min-width: 200px;
+}
+
+/* Ajustes para desktop */
+@media (min-width: 769px) {
+  .actions {
+    gap: var(--spacing-xs);
+  }
+}
+
+/* Ajustes para móvil */
+@media (max-width: 768px) {
+  .admin-table {
+    min-width: 600px;
+  }
+  
+  .sticky-col {
+    width: 50px;
+    min-width: 50px;
+  }
+  
+  .actions {
+    padding: var(--spacing-xs);
+  }
 }
 </style>

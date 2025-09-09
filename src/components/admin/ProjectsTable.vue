@@ -34,9 +34,10 @@
             <td>{{ isFeatured(project.id) ? t.admin.yes : t.admin.no }}</td>
             <td>{{ project.technologies.join(', ') }}</td>
             <td class="actions sticky-col">
-              <button class="btn btn-secondary" @click="$emit('edit', project.id)">{{ t.admin.edit }}</button>
-              <button class="btn btn-secondary" @click="$emit('duplicate', project.id)">{{ t.admin.duplicate }}</button>
-              <button class="btn btn-secondary" @click="$emit('delete', project.id)">{{ t.admin.delete }}</button>
+              <ActionMenu
+                :actions="getActionsForProject(project.id)"
+                @action="handleAction($event, project.id)"
+              />
             </td>
           </tr>
         </tbody>
@@ -49,6 +50,7 @@
 import { computed, ref } from 'vue'
 import { useProjectsStore, useMainStore } from '../../stores'
 import { storeToRefs } from 'pinia'
+import ActionMenu from './ActionMenu.vue'
 
 const emit = defineEmits(['create', 'edit', 'duplicate', 'delete'])
 const projectsStore = useProjectsStore()
@@ -83,6 +85,28 @@ const toggleSort = (key: 'id' | 'title') => {
 }
 
 const isFeatured = (id: number) => projectsStore.isFeatured(id)
+
+// Generar acciones disponibles para cada proyecto
+const getActionsForProject = (projectId: number) => [
+  { key: 'edit', label: t.value.admin.edit, icon: '✏️' },
+  { key: 'duplicate', label: t.value.admin.duplicate, icon: '📋' },
+  { key: 'delete', label: t.value.admin.delete, icon: '🗑️' }
+]
+
+// Manejar acción seleccionada
+const handleAction = (actionKey: string, projectId: number) => {
+  switch (actionKey) {
+    case 'edit':
+      emit('edit', projectId)
+      break
+    case 'duplicate':
+      emit('duplicate', projectId)
+      break
+    case 'delete':
+      emit('delete', projectId)
+      break
+  }
+}
 </script>
 
 <style scoped>
@@ -124,11 +148,38 @@ const isFeatured = (id: number) => projectsStore.isFeatured(id)
 }
 .actions {
   display: flex;
-  gap: var(--spacing-xs);
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-xs);
 }
 .sticky-col {
   position: sticky;
   right: 0;
   background: var(--bg-primary);
+  width: 200px; /* Más ancho para desktop */
+  min-width: 200px;
+}
+
+/* Ajustes para desktop */
+@media (min-width: 769px) {
+  .actions {
+    gap: var(--spacing-xs);
+  }
+}
+
+/* Ajustes para móvil */
+@media (max-width: 768px) {
+  .admin-table {
+    min-width: 600px; /* Reducir ancho mínimo */
+  }
+  
+  .sticky-col {
+    width: 50px;
+    min-width: 50px;
+  }
+  
+  .actions {
+    padding: var(--spacing-xs);
+  }
 }
 </style>
