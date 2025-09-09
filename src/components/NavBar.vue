@@ -151,7 +151,7 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   right: 0;
-  z-index: var(--z-header);
+  z-index: 1000; /* Z-index específico para navbar */
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   transition: all var(--transition-normal);
@@ -305,6 +305,7 @@ onUnmounted(() => {
   transform: translateY(-100%);
   opacity: 0;
   transition: all var(--transition-normal);
+  z-index: 999; /* Ligeramente menos que navbar pero más que contenido */
 }
 
 .mobile-menu.active {
@@ -378,22 +379,27 @@ onUnmounted(() => {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-xs); /* Gap más pequeño en móvil */
     /* Forzar que los elementos se mantengan en su lugar */
     flex-wrap: nowrap;
+    /* Padding horizontal para evitar solapamiento en los bordes */
+    padding-left: var(--spacing-xs);
+    padding-right: var(--spacing-xs);
   }
 
   /* Asegurar que el logo esté a la izquierda */
   .navbar-content > *:first-child {
     order: 1;
     flex-shrink: 0;
+    /* Margen derecho automático para empujar controles a la derecha */
+    margin-right: auto;
   }
 
   /* Asegurar que los controles estén a la derecha */
   .navbar-content > *:last-child {
     order: 3;
     flex-shrink: 0;
-    margin-left: auto;
+    /* Sin margin-left auto ya que lo maneja justify-content */
   }
 }
 

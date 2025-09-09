@@ -189,15 +189,17 @@ onUnmounted(() => {
   position: absolute;
   top: 100%;
   right: 0;
-  z-index: 1000;
+  z-index: 9999; /* Muy alto para estar sobre todo */
   background: var(--bg-primary);
   border: 1px solid color-mix(in srgb, var(--primary-color), transparent 70%);
   border-radius: var(--border-radius-md);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg); /* Sombra más prominente */
   min-width: 140px;
   margin-top: var(--spacing-xs);
   overflow: hidden;
   animation: slideDown var(--transition-fast) ease-out;
+  /* Asegurar que esté por encima de otros elementos sticky */
+  transform: translateZ(0);
 }
 
 @keyframes slideDown {
@@ -255,6 +257,20 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .mobile-only .desktop-actions {
     display: none;
+  }
+  
+  /* En móvil, asegurar que los dropdowns tengan suficiente espacio */
+  .action-dropdown {
+    /* Ajustar posición si está muy cerca del borde */
+    right: 0;
+    min-width: 120px;
+    /* Mejor sombra para distinguir del fondo */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Prevenir overflow horizontal en móvil */
+  .action-menu {
+    overflow: visible;
   }
 }
 </style>

@@ -145,6 +145,7 @@ const handleAction = (actionKey: string, projectId: number) => {
   top: 0;
   background: var(--bg-secondary);
   cursor: pointer;
+  z-index: 100; /* Z-index para header sticky */
 }
 .actions {
   display: flex;
@@ -158,6 +159,12 @@ const handleAction = (actionKey: string, projectId: number) => {
   background: var(--bg-primary);
   width: 200px; /* Más ancho para desktop */
   min-width: 200px;
+  z-index: 50; /* Z-index para columna sticky */
+}
+
+/* Z-index más alto para header sticky en columna de acciones */
+.admin-table th.sticky-col {
+  z-index: 150; /* Más alto que elementos normales pero menos que dropdowns */
 }
 
 /* Ajustes para desktop */

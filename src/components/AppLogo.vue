@@ -100,9 +100,9 @@ const processClick = () => {
   user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
-  /* Asegurar que esté por encima de otros elementos */
+  /* Asegurar que esté por encima de otros elementos pero no del navbar */
   position: relative;
-  z-index: 10;
+  z-index: 5;
 }
 
 .navbar-logo:hover {
