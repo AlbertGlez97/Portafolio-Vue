@@ -33,7 +33,6 @@ const handleTouch = (event: TouchEvent) => {
   if (touchHandled.value) return
   touchHandled.value = true
   
-  console.log('AG Logo: Touch event handled')
   processClick()
 }
 
@@ -48,14 +47,12 @@ const handleClick = (event: Event) => {
   event.preventDefault()
   event.stopPropagation()
   
-  console.log('AG Logo: Click event handled')
   processClick()
 }
 
 // Lógica principal de procesamiento de clicks/touches
 const processClick = () => {
   clicks.value++
-  console.log(`AG Logo clicked. Clicks: ${clicks.value}, Current path: ${router.currentRoute.value.path}`)
   
   if (!timer) {
     // Aumentar tiempo de espera para dispositivos móviles
@@ -65,11 +62,8 @@ const processClick = () => {
       if (clicks.value === 1) {
         // Solo navegar si estamos en una ruta diferente
         if (router.currentRoute.value.path !== '/') {
-          console.log('AG Logo: Navigating to home from', router.currentRoute.value.path)
           router.push('/')
           emit('navigate-home')
-        } else {
-          console.log('AG Logo: Already on home page, no navigation needed')
         }
       }
       clicks.value = 0
@@ -84,7 +78,6 @@ const processClick = () => {
       timer = null
     }
     clicks.value = 0
-    console.log('AG Logo: Opening login modal')
     emit('open-login')
   }
 }
@@ -107,6 +100,9 @@ const processClick = () => {
   user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
+  /* Asegurar que esté por encima de otros elementos */
+  position: relative;
+  z-index: 10;
 }
 
 .navbar-logo:hover {

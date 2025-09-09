@@ -239,7 +239,8 @@ onUnmounted(() => {
   justify-content: center;
   min-width: 40px;
   height: 40px;
-  z-index: calc(var(--z-header) - 1);
+  /* Remover z-index problemático */
+  position: relative;
 }
 
 .control-btn:hover {
@@ -260,6 +261,8 @@ onUnmounted(() => {
   display: none;
   flex-direction: column;
   gap: 4px;
+  /* Asegurar que no se solape con el logo */
+  margin-left: auto;
 }
 
 .mobile-menu-btn span {
@@ -349,11 +352,21 @@ onUnmounted(() => {
 
   .navbar-controls {
     gap: var(--spacing-xs);
+    /* Asegurar que los controles no se solapen con el logo */
+    flex-shrink: 0;
   }
 
   .control-btn {
     min-width: 35px;
     height: 35px;
+  }
+
+  .navbar-content {
+    /* Asegurar distribución correcta en móvil */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
   }
 }
 
