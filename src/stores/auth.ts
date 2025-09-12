@@ -12,7 +12,11 @@ export const useAuthStore = defineStore('auth', {
   },
   actions: {
     login(username: string, password: string) {
-      if (username === 'admin' && password === 'admin') {
+
+      let adminUsername = import.meta.env.VITE_ADMIN_USERNAME;
+      let adminPassword = import.meta.env.VITE_ADMIN_PASSWORD;
+
+      if (username === adminUsername && password === adminPassword) {
         this.isLoggedIn = true
         this.username = username
         localStorage.setItem('app.auth.username', username)

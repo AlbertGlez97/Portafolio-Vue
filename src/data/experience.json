@@ -1,44 +1,104 @@
 [
   {
     "id": 1,
-    "start": "2023-01",
+    "start": "2024-06",
     "current": true,
     "role": {
       "es": "Desarrollador Frontend",
-      "en": "Frontend Developer"
+      "en": "Front-End Developer"
     },
-    "company": "Tech Corp",
-    "location": "Remote",
+    "company": "Sye Software",
+    "location": "Ciudad de México",
     "summary": {
-      "es": "Trabajo en frontend",
-      "en": "Working on frontend"
+      "es": "Desarrollo de interfaces de usuario con Svelte y componentes reutilizables. Liderazgo en el módulo de Consultas, colaborando con backend y QA. Consumo de APIs REST y manejo de estado con Redux.",
+      "en": "User interface development with Svelte and reusable components. Leadership in the Queries module, collaborating with backend and QA. REST API consumption and state management with Redux."
     },
     "technologies": [
-      "Vue",
-      "TypeScript"
+      "Svelte",
+      "Redux",
+      "APIs REST",
+      "GitLab",
+      "Docker",
+      "Scrum"
     ],
-    "featured": false,
-    "updatedAt": "2024-01-01"
+    "featured": true,
+    "updatedAt": "2024-09-12T00:00:00.000Z"
   },
   {
-    "start": "2025-02",
-    "end": "2025-11",
+    "id": 2,
+    "start": "2022-05",
+    "end": "2024-05",
     "current": false,
     "role": {
-      "es": "Desarrollador Frontend",
-      "en": "Frontend Developer Supremo "
+      "es": "Desarrollador Full Stack (Frontend)",
+      "en": "Full Stack Developer (Front-End)"
     },
-    "company": "Tech Corp 25",
-    "location": "Remote",
+    "company": "Towa Software",
+    "location": "Remoto",
     "summary": {
-      "es": "Resumen ",
-      "en": "Resumen "
+      "es": "Desarrollo Front y Back con .NET MVC. Creación de componentes con Vue.js y Bootstrap. Automatización de pruebas con Selenium. Control de versiones con GitLab y gestión ágil con Jira/Trello.",
+      "en": "Front and Back development with .NET MVC. Component creation with Vue.js and Bootstrap. Test automation with Selenium. Version control with GitLab and agile management with Jira/Trello."
     },
     "technologies": [
-      "tec"
+      ".NET MVC",
+      "Vue.js",
+      "Bootstrap",
+      "Selenium",
+      "GitLab",
+      "Jira",
+      "Trello"
+    ],
+    "featured": true,
+    "updatedAt": "2024-05-31T00:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "start": "2021-09",
+    "end": "2022-01",
+    "current": false,
+    "role": {
+      "es": "Desarrollador de Software (Prácticas Profesionales)",
+      "en": "Software Developer (Professional Internship)"
+    },
+    "company": "StrApps Consulting",
+    "location": "Remoto",
+    "summary": {
+      "es": "Desarrollo de vistas con .NET Core MVC, jQuery y Bootstrap. Participación en la construcción de sitio web informativo con WordPress. Gestión de versiones con GitHub y trabajo bajo metodología Scrum.",
+      "en": "View development with .NET Core MVC, jQuery and Bootstrap. Participation in building informational website with WordPress. Version management with GitHub and work under Scrum methodology."
+    },
+    "technologies": [
+      ".NET Core MVC",
+      "jQuery",
+      "Bootstrap",
+      "WordPress",
+      "GitHub",
+      "Scrum"
     ],
     "featured": false,
-    "id": 2,
-    "updatedAt": "2025-09-09T03:57:17.207Z"
+    "updatedAt": "2022-01-31T00:00:00.000Z"
+  },
+  {
+    "id": 4,
+    "start": "2019-07",
+    "end": "2020-02",
+    "current": false,
+    "role": {
+      "es": "Soporte Técnico TI",
+      "en": "IT Technical Support"
+    },
+    "company": "Grupo Diamante Internacional",
+    "location": "Ciudad de México",
+    "summary": {
+      "es": "Instalación y mantenimiento de sistemas operativos y hardware. Resolución de incidencias, gestión de inventarios y consumibles. Atención a usuarios y configuración de equipos.",
+      "en": "Installation and maintenance of operating systems and hardware. Incident resolution, inventory and consumables management. User support and equipment configuration."
+    },
+    "technologies": [
+      "Windows",
+      "Linux",
+      "Hardware",
+      "Soporte Técnico"
+    ],
+    "featured": false,
+    "updatedAt": "2020-02-28T00:00:00.000Z"
   }
 ]
