@@ -3,56 +3,12 @@ import { ref, computed, type ComputedRef } from 'vue'
 import type { ToolEntry, TechnicalSkill } from '../interfaces'
 import data from '../data/tools.json'
 
-interface AppStorage {
-  tools?: ToolEntry[]
-}
-
-const SAVE_DELAY = 300
-
 export const useToolStore = defineStore('tool', () => {
-  const items = ref<ToolEntry[]>([])
-  const initialized = ref(false)
-
-  const load = (): ToolEntry[] => {
-    if (typeof window === 'undefined') return data as ToolEntry[]
-    try {
-      const raw = localStorage.getItem('app')
-      if (raw) {
-        const parsed = JSON.parse(raw) as AppStorage
-        if (parsed.tools) return parsed.tools
-      }
-    } catch {
-      /* ignore */
-    }
-    return data as ToolEntry[]
-  }
+  const items = ref<ToolEntry[]>(data as ToolEntry[])
+  const initialized = ref(true)
 
   const ensureLoaded = async (): Promise<void> => {
-    if (initialized.value) return
-    try {
-      items.value = load()
-    } catch {
-      items.value = []
-    } finally {
-      initialized.value = true
-    }
-  }
-
-  let saveTimer: number | null = null
-  const scheduleSave = () => {
-    if (typeof window === 'undefined') return
-    if (saveTimer) clearTimeout(saveTimer)
-    saveTimer = window.setTimeout(() => {
-      let parsed: AppStorage = {}
-      const raw = localStorage.getItem('app')
-      try {
-        parsed = raw ? JSON.parse(raw) : {}
-      } catch {
-        parsed = {}
-      }
-      parsed.tools = items.value
-      localStorage.setItem('app', JSON.stringify(parsed))
-    }, SAVE_DELAY)
+    // Data is already loaded from JSON import
   }
 
   const all: ComputedRef<ToolEntry[]> = computed(() => items.value)
@@ -73,14 +29,12 @@ export const useToolStore = defineStore('tool', () => {
   const create = (tool: Omit<ToolEntry, 'id'>) => {
     const newTool: ToolEntry = { ...tool, id: getNextId() }
     items.value.push(newTool)
-    scheduleSave()
   }
 
   const update = (tool: ToolEntry) => {
     const idx = items.value.findIndex(t => t.id === tool.id)
     if (idx !== -1) {
       items.value[idx] = { ...tool }
-      scheduleSave()
     }
   }
 
@@ -92,7 +46,6 @@ export const useToolStore = defineStore('tool', () => {
       id: getNextId()
     }
     items.value.push(copy)
-    scheduleSave()
     return copy.id
   }
 
@@ -100,7 +53,6 @@ export const useToolStore = defineStore('tool', () => {
     const idx = items.value.findIndex(t => t.id === id)
     if (idx !== -1) {
       items.value.splice(idx, 1)
-      scheduleSave()
     }
   }
 
@@ -125,7 +77,6 @@ export const useToolStore = defineStore('tool', () => {
         category
       })
     }
-    scheduleSave()
   }
 
   return {

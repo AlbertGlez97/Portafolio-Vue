@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref, computed, watch } from 'vue'
+import { ref, computed } from 'vue'
 import data from '../data/personal.json'
 
 export interface ContactInfo {
@@ -10,8 +10,6 @@ export interface ContactInfo {
   github: string
   otherLinks: Record<string, string>
 }
-
-const STORAGE_KEY = 'contactInfo'
 
 const adapt = (raw: any): ContactInfo => {
   const emails = Array.isArray(raw.emails)
@@ -34,19 +32,8 @@ const adapt = (raw: any): ContactInfo => {
   }
 }
 
-const load = (): ContactInfo => {
-  if (typeof window === 'undefined') return adapt(data.contact)
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY)
-    if (raw) return adapt(JSON.parse(raw))
-  } catch {
-    /* ignore */
-  }
-  return adapt(data.contact)
-}
-
 export const useContactStore = defineStore('contact', () => {
-  const contact = ref<ContactInfo>(load())
+  const contact = ref<ContactInfo>(adapt(data.contact))
 
   const getContact = computed(() => contact.value)
   const getEmails = computed(() => contact.value.emails)
@@ -60,21 +47,9 @@ export const useContactStore = defineStore('contact', () => {
     contact.value = { ...newContact }
   }
 
-  const saveContact = () => {
-    if (typeof window === 'undefined') return
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(contact.value))
-    } catch {
-      /* ignore */
-    }
-  }
-
   const resetContact = () => {
-    contact.value = load()
-    saveContact()
+    contact.value = adapt(data.contact)
   }
-
-  watch(contact, saveContact, { deep: true })
 
   return {
     contact,
@@ -86,7 +61,6 @@ export const useContactStore = defineStore('contact', () => {
     getGithub,
     getOtherLinks,
     updateContact,
-    saveContact,
     resetContact
   }
 })

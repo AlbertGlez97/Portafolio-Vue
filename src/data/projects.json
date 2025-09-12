@@ -11,8 +11,8 @@
         "en": "Featured"
       },
       "description": {
-        "es": "Sitio web profesional creado para promocionar los servicios de un estudio fotográfico. Desarrollado con enfoque en la experiencia visual y diseño responsivo para mostrar el portafolio de manera atractiva.",
-        "en": "Professional website created to promote the services of a photo studio. Developed with focus on visual experience and responsive design to showcase the portfolio attractively."
+        "es": "Sitio web creado para promocionar los servicios de un estudio fotográfico. Desarrollado con diseño responsivo y enfocado en experiencia visual para mostrar el portafolio de manera atractiva.",
+        "en": "Website created to promote the services of a photo studio. Developed with responsive design and focused on visual experience to showcase the portfolio attractively."
       },
       "features": [
         {
@@ -24,21 +24,21 @@
           "en": "Optimized image gallery"
         },
         {
-          "es": "Formulario de contacto funcional",
-          "en": "Functional contact form"
+          "es": "Interfaz centrada en experiencia visual",
+          "en": "Interface focused on visual experience"
         },
         {
-          "es": "Optimización SEO",
-          "en": "SEO optimization"
+          "es": "Promoción de servicios fotográficos",
+          "en": "Photography services promotion"
         },
         {
-          "es": "Carga rápida de imágenes",
-          "en": "Fast image loading"
+          "es": "Navegación intuitiva",
+          "en": "Intuitive navigation"
         }
       ],
       "technologies": [
-        "HTML5",
-        "CSS3",
+        "HTML",
+        "CSS",
         "JavaScript",
         "jQuery",
         "Bootstrap",
@@ -68,44 +68,40 @@
         "en": "Featured"
       },
       "description": {
-        "es": "Plataforma web con panel administrativo para gestión de registros, desarrollada con Node.js y Express. Incluye automatización de tareas mediante n8n e integración de servicios como Gmail, Slack y WhatsApp.",
-        "en": "Web platform with an admin panel for record management, built with Node.js and Express. Includes task automation through n8n and integration of services like Gmail, Slack and WhatsApp."
+        "es": "Sitio web para un proyecto artístico de crónica contemporánea sobre la Ciudad de México. Incluye una vista de administrador con CRUD y consumo de APIs REST conectadas a SQL Server.",
+        "en": "Website for an artistic project of contemporary chronicle about Mexico City. Includes an administrator view with CRUD and REST API consumption connected to SQL Server."
       },
       "features": [
         {
-          "es": "Panel administrativo para gestión de registros",
-          "en": "Admin panel for record management"
+          "es": "Vista de administrador con CRUD completo",
+          "en": "Administrator view with complete CRUD"
         },
         {
-          "es": "Automatización de tareas con n8n integrando Gmail, Slack y WhatsApp",
-          "en": "Task automation with n8n integrating Gmail, Slack and WhatsApp"
+          "es": "Consumo de APIs REST",
+          "en": "REST API consumption"
         },
         {
-          "es": "Integración de APIs de terceros para procesos optimizados",
-          "en": "Integration of third-party APIs for optimized processes"
+          "es": "Integración con SQL Server",
+          "en": "SQL Server integration"
         },
         {
-          "es": "Uso de IA generativa y prompts estratégicos para documentación y código",
-          "en": "Use of generative AI and strategic prompts for documentation and code"
+          "es": "Proyecto artístico y cultural",
+          "en": "Artistic and cultural project"
         },
         {
-          "es": "Galería interactiva de contenido",
-          "en": "Interactive content gallery"
+          "es": "Crónica contemporánea de CDMX",
+          "en": "Contemporary chronicle of Mexico City"
         }
       ],
       "technologies": [
-        "Vue.js",
-        "Nuxt.js",
-        "TypeScript",
-        "Sass",
-        "Node.js",
-        "Express.js",
-        "SQL Server",
-        "MongoDB",
-        "PostgreSQL",
-        "n8n",
-        "OpenAI",
-        "ElevenLabs"
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Bootstrap",
+        "C#",
+        ".NET MVC 6",
+        "APIs REST",
+        "SQL Server"
       ],
       "metrics": {
         "responsive": "100%",
@@ -116,7 +112,7 @@
         }
       },
       "image": "/projects/carnal-mx.jpg",
-      "url": "https://carnalmx.com/",
+      "url": "https://www.carnalmx.com/",
       "github": null
     }
   ],
@@ -132,8 +128,8 @@
         "en": "Professional"
       },
       "description": {
-        "es": "Módulo de consultas jurídicas para el Sistema Integral de Control de Juicios del SAT. Desarrollo completo del frontend con componentes reutilizables y gestión de estado avanzada.",
-        "en": "Legal consultation module for the SAT's Comprehensive Control of Trials System. Complete frontend development with reusable components and advanced state management."
+        "es": "Módulo de consultas desarrollado en Sye Software. Liderazgo en el desarrollo del módulo de Consultas, colaborando con equipos de backend y QA, utilizando componentes reutilizables.",
+        "en": "Consultation module developed at Sye Software. Leadership in the development of the Consultations module, collaborating with backend and QA teams, using reusable components."
       },
       "features": [
         {
@@ -145,74 +141,76 @@
           "en": "State management with Redux"
         },
         {
-          "es": "Integración con APIs .NET",
-          "en": "Integration with .NET APIs"
+          "es": "Colaboración con backend y QA",
+          "en": "Collaboration with backend and QA"
         },
         {
-          "es": "Validaciones dinámicas",
-          "en": "Dynamic validations"
+          "es": "Consumo de APIs REST",
+          "en": "REST API consumption"
         },
         {
-          "es": "Manejo de errores robusto",
-          "en": "Robust error handling"
+          "es": "Trabajo en equipo con metodología Scrum",
+          "en": "Teamwork with Scrum methodology"
         }
       ],
       "technologies": [
         "Svelte",
-        "TypeScript",
         "Redux",
-        ".NET 6 MVC",
+        "APIs REST",
         "GitLab",
-        "Docker"
+        "Docker",
+        "Scrum"
       ],
-      "company": "Sye Software (SAT)",
+      "company": "Sye Software",
       "confidential": true
     },
     {
       "id": 4,
       "title": {
-        "es": "ShoppingCart System",
-        "en": "ShoppingCart System"
+        "es": "Proyectos Full Stack - Towa Software",
+        "en": "Full Stack Projects - Towa Software"
       },
       "type": {
         "es": "Profesional",
         "en": "Professional"
       },
       "description": {
-        "es": "Sistema de cobranza y carrito de compras para empresa de impresión. Desarrollo con Vue.js puro y integración con sistemas de pago.",
-        "en": "Billing and shopping cart system for a printing company. Developed with pure Vue.js and integration with payment systems."
+        "es": "Desarrollo de aplicaciones Front y Back con .NET MVC. Creación de componentes con Vue.js y Bootstrap, automatización de pruebas con Selenium.",
+        "en": "Front and Back application development with .NET MVC. Component creation with Vue.js and Bootstrap, test automation with Selenium."
       },
       "features": [
         {
-          "es": "Carrito de compras dinámico",
-          "en": "Dynamic shopping cart"
+          "es": "Desarrollo Front y Back con .NET MVC",
+          "en": "Front and Back development with .NET MVC"
         },
         {
-          "es": "Integración con pasarelas de pago",
-          "en": "Integration with payment gateways"
+          "es": "Componentes con Vue.js y Bootstrap",
+          "en": "Components with Vue.js and Bootstrap"
         },
         {
-          "es": "Gestión de inventario",
-          "en": "Inventory management"
+          "es": "Automatización de pruebas con Selenium",
+          "en": "Test automation with Selenium"
         },
         {
-          "es": "Panel administrativo",
-          "en": "Admin panel"
+          "es": "Control de versiones con GitLab",
+          "en": "Version control with GitLab"
         },
         {
-          "es": "Reportes de ventas",
-          "en": "Sales reports"
+          "es": "Gestión ágil con Jira/Trello",
+          "en": "Agile management with Jira/Trello"
         }
       ],
       "technologies": [
+        ".NET MVC",
         "Vue.js",
-        "JavaScript",
-        ".NET 6",
-        "SQL Server",
-        "Bootstrap"
+        "Bootstrap",
+        "Selenium",
+        "GitLab",
+        "Jira",
+        "Trello"
       ],
       "company": "Towa Software",
-      "confidential": true
+      "confidential": false
     }
   ]
 }

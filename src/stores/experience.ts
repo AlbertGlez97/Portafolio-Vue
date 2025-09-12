@@ -3,60 +3,16 @@ import { ref, computed, type ComputedRef } from 'vue'
 import type { Experience } from '../interfaces'
 import experienceData from '../data/experience.json'
 
-interface AppStorage {
-  experience?: Experience[]
-}
-
-// Delay in ms for debounced localStorage writes
-const SAVE_DELAY = 300
 
 export const useExperienceStore = defineStore('experience', () => {
   // --- State -------------------------------------------------------------
-  const items = ref<Experience[]>([])
-  const initialized = ref(false)
-
-  const load = (): Experience[] => {
-    if (typeof window === 'undefined') return experienceData as Experience[]
-    try {
-      const raw = localStorage.getItem('app')
-      if (raw) {
-        const parsed = JSON.parse(raw) as AppStorage
-        if (parsed.experience) return parsed.experience
-      }
-    } catch {
-      /* ignore parse errors */
-    }
-    return experienceData as Experience[]
-  }
+  const items = ref<Experience[]>(experienceData as Experience[])
+  const initialized = ref(true)
 
   const ensureLoaded = async (): Promise<void> => {
-    if (initialized.value) return
-    try {
-      items.value = load()
-    } catch {
-      items.value = []
-    } finally {
-      initialized.value = true
-    }
+    // Data is already loaded from JSON import
   }
 
-  // Persist to localStorage with a small debounce
-  let saveTimer: number | null = null
-  const scheduleSave = () => {
-    if (typeof window === 'undefined') return
-    if (saveTimer) clearTimeout(saveTimer)
-    saveTimer = window.setTimeout(() => {
-      let parsed: AppStorage = {}
-      const raw = localStorage.getItem('app')
-      try {
-        parsed = raw ? JSON.parse(raw) : {}
-      } catch {
-        parsed = {}
-      }
-      parsed.experience = items.value
-      localStorage.setItem('app', JSON.stringify(parsed))
-    }, SAVE_DELAY)
-  }
 
   // --- Getters ----------------------------------------------------------
   const all: ComputedRef<Experience[]> = computed(() => items.value)
@@ -85,7 +41,6 @@ export const useExperienceStore = defineStore('experience', () => {
       updatedAt: new Date().toISOString()
     }
     items.value.push(newExp)
-    scheduleSave()
   }
 
   const update = (exp: Experience) => {
@@ -95,8 +50,7 @@ export const useExperienceStore = defineStore('experience', () => {
         ...exp,
         updatedAt: new Date().toISOString()
       }
-      scheduleSave()
-    }
+      }
   }
 
   const duplicate = (id: number): number | undefined => {
@@ -108,7 +62,6 @@ export const useExperienceStore = defineStore('experience', () => {
       updatedAt: new Date().toISOString()
     }
     items.value.push(copy)
-    scheduleSave()
     return copy.id
   }
 
@@ -116,8 +69,7 @@ export const useExperienceStore = defineStore('experience', () => {
     const idx = items.value.findIndex(e => e.id === id)
     if (idx !== -1) {
       items.value.splice(idx, 1)
-      scheduleSave()
-    }
+      }
   }
 
   const toggleFeatured = (id: number) => {
@@ -125,8 +77,7 @@ export const useExperienceStore = defineStore('experience', () => {
     if (exp) {
       exp.featured = !exp.featured
       exp.updatedAt = new Date().toISOString()
-      scheduleSave()
-    }
+      }
   }
 
   return {

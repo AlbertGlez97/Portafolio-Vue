@@ -2,12 +2,133 @@
   {
     "id": 1,
     "name": {
-      "es": "Comunicación efectiva",
-      "en": "Effective communication"
+      "es": "Liderazgo de Equipos",
+      "en": "Team Leadership"
     },
     "description": {
-      "es": "Transmito ideas técnicas de forma clara",
-      "en": "I convey technical ideas clearly"
+      "es": "Lidero el módulo de Consultas colaborando efectivamente con equipos de backend y QA",
+      "en": "I lead the Consultations module effectively collaborating with backend and QA teams"
+    }
+  },
+  {
+    "id": 2,
+    "name": {
+      "es": "Trabajo en Equipo",
+      "en": "Teamwork"
+    },
+    "description": {
+      "es": "Colaboro eficientemente en equipos multidisciplinarios usando metodologías ágiles como Scrum",
+      "en": "I collaborate efficiently in multidisciplinary teams using agile methodologies like Scrum"
+    }
+  },
+  {
+    "id": 3,
+    "name": {
+      "es": "Aprendizaje Constante",
+      "en": "Continuous Learning"
+    },
+    "description": {
+      "es": "Me mantengo actualizado con nuevas tecnologías y mejores prácticas de desarrollo",
+      "en": "I stay updated with new technologies and development best practices"
+    }
+  },
+  {
+    "id": 4,
+    "name": {
+      "es": "Innovación",
+      "en": "Innovation"
+    },
+    "description": {
+      "es": "Busco soluciones creativas y modernas para crear interfaces centradas en el usuario",
+      "en": "I seek creative and modern solutions to create user-centered interfaces"
+    }
+  },
+  {
+    "id": 5,
+    "name": {
+      "es": "Adaptabilidad",
+      "en": "Adaptability"
+    },
+    "description": {
+      "es": "Me adapto rápidamente a nuevos entornos de trabajo, desde presencial hasta remoto",
+      "en": "I quickly adapt to new work environments, from on-site to remote"
+    }
+  },
+  {
+    "id": 6,
+    "name": {
+      "es": "Resolución de Problemas",
+      "en": "Problem Solving"
+    },
+    "description": {
+      "es": "Analizo y resuelvo incidencias técnicas complejas de manera eficiente",
+      "en": "I analyze and solve complex technical issues efficiently"
+    }
+  },
+  {
+    "id": 7,
+    "name": {
+      "es": "Comunicación Efectiva",
+      "en": "Effective Communication"
+    },
+    "description": {
+      "es": "Transmito ideas técnicas de forma clara entre equipos de desarrollo y QA",
+      "en": "I convey technical ideas clearly between development and QA teams"
+    }
+  },
+  {
+    "id": 8,
+    "name": {
+      "es": "Orientación al Usuario",
+      "en": "User-Oriented"
+    },
+    "description": {
+      "es": "Desarrollo interfaces funcionales y modernas centradas en la experiencia del usuario",
+      "en": "I develop functional and modern interfaces focused on user experience"
+    }
+  },
+  {
+    "id": 9,
+    "name": {
+      "es": "Gestión de Proyectos",
+      "en": "Project Management"
+    },
+    "description": {
+      "es": "Organizo y coordino tareas usando herramientas como Jira y Trello en metodología Scrum",
+      "en": "I organize and coordinate tasks using tools like Jira and Trello in Scrum methodology"
+    }
+  },
+  {
+    "id": 10,
+    "name": {
+      "es": "Atención al Cliente",
+      "en": "Customer Service"
+    },
+    "description": {
+      "es": "Proporciono soporte técnico y atención personalizada a usuarios finales",
+      "en": "I provide technical support and personalized attention to end users"
+    }
+  },
+  {
+    "id": 11,
+    "name": {
+      "es": "Flexibilidad Geográfica",
+      "en": "Geographic Flexibility"
+    },
+    "description": {
+      "es": "Dispuesto a trabajar en cualquier parte de la República Mexicana",
+      "en": "Willing to work anywhere in the Mexican Republic"
+    }
+  },
+  {
+    "id": 12,
+    "name": {
+      "es": "Mentalidad de Crecimiento",
+      "en": "Growth Mindset"
+    },
+    "description": {
+      "es": "Busco constantemente nuevas oportunidades profesionales y desafíos técnicos",
+      "en": "I constantly seek new professional opportunities and technical challenges"
     }
   }
 ]

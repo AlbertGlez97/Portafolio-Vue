@@ -3,57 +3,15 @@ import { ref, computed, type ComputedRef } from 'vue'
 import type { Certification, EducationCertification } from '../interfaces'
 import certificationsData from '../data/certifications.json'
 
-interface AppStorage {
-  certifications?: Certification[]
-}
-
-const SAVE_DELAY = 300
 
 export const useCertificationStore = defineStore('certifications', () => {
-  const items = ref<Certification[]>([])
-  const initialized = ref(false)
-
-  const load = (): Certification[] => {
-    if (typeof window === 'undefined') return certificationsData as Certification[]
-    try {
-      const raw = localStorage.getItem('app')
-      if (raw) {
-        const parsed = JSON.parse(raw) as AppStorage
-        if (parsed.certifications) return parsed.certifications
-      }
-    } catch {
-      /* ignore */
-    }
-    return certificationsData as Certification[]
-  }
+  const items = ref<Certification[]>(certificationsData as Certification[])
+  const initialized = ref(true)
 
   const ensureLoaded = async (): Promise<void> => {
-    if (initialized.value) return
-    try {
-      items.value = load()
-    } catch {
-      items.value = []
-    } finally {
-      initialized.value = true
-    }
+    // Data is already loaded from JSON import
   }
 
-  let saveTimer: number | null = null
-  const scheduleSave = () => {
-    if (typeof window === 'undefined') return
-    if (saveTimer) clearTimeout(saveTimer)
-    saveTimer = window.setTimeout(() => {
-      let parsed: AppStorage = {}
-      const raw = localStorage.getItem('app')
-      try {
-        parsed = raw ? JSON.parse(raw) : {}
-      } catch {
-        parsed = {}
-      }
-      parsed.certifications = items.value
-      localStorage.setItem('app', JSON.stringify(parsed))
-    }, SAVE_DELAY)
-  }
 
   const all: ComputedRef<Certification[]> = computed(() => items.value)
   const publicList: ComputedRef<Certification[]> = computed(() =>
@@ -80,14 +38,12 @@ export const useCertificationStore = defineStore('certifications', () => {
       updatedAt: new Date().toISOString()
     }
     items.value.push(newCert)
-    scheduleSave()
   }
 
   const update = (cert: Certification) => {
     const idx = items.value.findIndex(c => c.id === cert.id)
     if (idx !== -1) {
       items.value[idx] = { ...cert, updatedAt: new Date().toISOString() }
-      scheduleSave()
     }
   }
 
@@ -108,7 +64,6 @@ export const useCertificationStore = defineStore('certifications', () => {
     const idx = items.value.findIndex(c => c.id === id)
     if (idx !== -1) {
       items.value.splice(idx, 1)
-      scheduleSave()
     }
   }
   return {

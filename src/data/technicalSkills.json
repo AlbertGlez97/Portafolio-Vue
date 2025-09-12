@@ -2,8 +2,44 @@
   {
     "id": 1,
     "name": {
-      "es": "Vue.js",
-      "en": "Vue.js"
+      "es": "JavaScript (ES6+)",
+      "en": "JavaScript (ES6+)"
+    },
+    "level": {
+      "es": "Avanzado",
+      "en": "Advanced"
+    },
+    "percentage": 85,
+    "description": {
+      "es": "Lenguaje de programación moderno para desarrollo web interactivo",
+      "en": "Modern programming language for interactive web development"
+    },
+    "category": "language",
+    "type": "core"
+  },
+  {
+    "id": 2,
+    "name": {
+      "es": "TypeScript",
+      "en": "TypeScript"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "percentage": 75,
+    "description": {
+      "es": "Superset tipado de JavaScript para desarrollo escalable",
+      "en": "Typed superset of JavaScript for scalable development"
+    },
+    "category": "language",
+    "type": "core"
+  },
+  {
+    "id": 3,
+    "name": {
+      "es": "HTML5",
+      "en": "HTML5"
     },
     "level": {
       "es": "Avanzado",
@@ -11,17 +47,35 @@
     },
     "percentage": 90,
     "description": {
-      "es": "Framework progresivo para construir interfaces de usuario",
-      "en": "Progressive framework for building user interfaces"
+      "es": "Lenguaje de marcado para estructura web semántica",
+      "en": "Markup language for semantic web structure"
     },
-    "category": "frontend",
-    "type": "tool"
+    "category": "language",
+    "type": "core"
   },
   {
-    "id": 2,
+    "id": 4,
     "name": {
-      "es": "Node.js",
-      "en": "Node.js"
+      "es": "CSS3",
+      "en": "CSS3"
+    },
+    "level": {
+      "es": "Avanzado",
+      "en": "Advanced"
+    },
+    "percentage": 85,
+    "description": {
+      "es": "Hojas de estilo para diseño y presentación web",
+      "en": "Stylesheets for web design and presentation"
+    },
+    "category": "language",
+    "type": "core"
+  },
+  {
+    "id": 5,
+    "name": {
+      "es": "C#",
+      "en": "C#"
     },
     "level": {
       "es": "Intermedio",
@@ -29,10 +83,334 @@
     },
     "percentage": 70,
     "description": {
-      "es": "Entorno de ejecución para JavaScript del lado del servidor",
-      "en": "JavaScript runtime for server-side"
+      "es": "Lenguaje de programación orientado a objetos de Microsoft",
+      "en": "Microsoft's object-oriented programming language"
+    },
+    "category": "language",
+    "type": "core"
+  },
+  {
+    "id": 6,
+    "name": {
+      "es": "T-SQL",
+      "en": "T-SQL"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "percentage": 70,
+    "description": {
+      "es": "Extensión de SQL para Microsoft SQL Server",
+      "en": "SQL extension for Microsoft SQL Server"
+    },
+    "category": "database",
+    "type": "core"
+  },
+  {
+    "id": 7,
+    "name": {
+      "es": "Svelte",
+      "en": "Svelte"
+    },
+    "level": {
+      "es": "Avanzado",
+      "en": "Advanced"
+    },
+    "percentage": 80,
+    "description": {
+      "es": "Framework compilado para interfaces de usuario reactivas",
+      "en": "Compiled framework for reactive user interfaces"
+    },
+    "category": "frontend",
+    "type": "framework"
+  },
+  {
+    "id": 8,
+    "name": {
+      "es": "Vue.js",
+      "en": "Vue.js"
+    },
+    "level": {
+      "es": "Avanzado",
+      "en": "Advanced"
+    },
+    "percentage": 85,
+    "description": {
+      "es": "Framework progresivo para construir interfaces de usuario",
+      "en": "Progressive framework for building user interfaces"
+    },
+    "category": "frontend",
+    "type": "framework"
+  },
+  {
+    "id": 9,
+    "name": {
+      "es": "Angular",
+      "en": "Angular"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "percentage": 65,
+    "description": {
+      "es": "Framework robusto para aplicaciones web empresariales",
+      "en": "Robust framework for enterprise web applications"
+    },
+    "category": "frontend",
+    "type": "framework"
+  },
+  {
+    "id": 10,
+    "name": {
+      "es": "React",
+      "en": "React"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "percentage": 65,
+    "description": {
+      "es": "Biblioteca para construir interfaces de usuario componentes",
+      "en": "Library for building component-based user interfaces"
+    },
+    "category": "frontend",
+    "type": "library"
+  },
+  {
+    "id": 11,
+    "name": {
+      "es": "jQuery",
+      "en": "jQuery"
+    },
+    "level": {
+      "es": "Avanzado",
+      "en": "Advanced"
+    },
+    "percentage": 80,
+    "description": {
+      "es": "Biblioteca JavaScript para manipulación del DOM",
+      "en": "JavaScript library for DOM manipulation"
+    },
+    "category": "frontend",
+    "type": "library"
+  },
+  {
+    "id": 12,
+    "name": {
+      "es": "Bootstrap",
+      "en": "Bootstrap"
+    },
+    "level": {
+      "es": "Avanzado",
+      "en": "Advanced"
+    },
+    "percentage": 85,
+    "description": {
+      "es": "Framework CSS para diseño responsivo rápido",
+      "en": "CSS framework for rapid responsive design"
+    },
+    "category": "frontend",
+    "type": "framework"
+  },
+  {
+    "id": 13,
+    "name": {
+      "es": "Tailwind CSS",
+      "en": "Tailwind CSS"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "percentage": 70,
+    "description": {
+      "es": "Framework CSS utility-first para diseños personalizados",
+      "en": "Utility-first CSS framework for custom designs"
+    },
+    "category": "frontend",
+    "type": "framework"
+  },
+  {
+    "id": 14,
+    "name": {
+      "es": ".NET Core MVC",
+      "en": ".NET Core MVC"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "percentage": 75,
+    "description": {
+      "es": "Framework web multiplataforma de Microsoft",
+      "en": "Microsoft's cross-platform web framework"
     },
     "category": "backend",
+    "type": "framework"
+  },
+  {
+    "id": 15,
+    "name": {
+      "es": "ASP.NET",
+      "en": "ASP.NET"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "percentage": 70,
+    "description": {
+      "es": "Framework web de Microsoft para aplicaciones robustas",
+      "en": "Microsoft's web framework for robust applications"
+    },
+    "category": "backend",
+    "type": "framework"
+  },
+  {
+    "id": 16,
+    "name": {
+      "es": "APIs RESTful",
+      "en": "RESTful APIs"
+    },
+    "level": {
+      "es": "Avanzado",
+      "en": "Advanced"
+    },
+    "percentage": 80,
+    "description": {
+      "es": "Arquitectura de servicios web para comunicación entre sistemas",
+      "en": "Web services architecture for system communication"
+    },
+    "category": "backend",
+    "type": "architecture"
+  },
+  {
+    "id": 17,
+    "name": {
+      "es": "SQL Server",
+      "en": "SQL Server"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "percentage": 75,
+    "description": {
+      "es": "Sistema de gestión de bases de datos relacionales",
+      "en": "Relational database management system"
+    },
+    "category": "database",
+    "type": "tool"
+  },
+  {
+    "id": 18,
+    "name": {
+      "es": "Redux",
+      "en": "Redux"
+    },
+    "level": {
+      "es": "Avanzado",
+      "en": "Advanced"
+    },
+    "percentage": 80,
+    "description": {
+      "es": "Contenedor de estado predecible para aplicaciones JavaScript",
+      "en": "Predictable state container for JavaScript applications"
+    },
+    "category": "frontend",
+    "type": "library"
+  },
+  {
+    "id": 19,
+    "name": {
+      "es": "Git",
+      "en": "Git"
+    },
+    "level": {
+      "es": "Avanzado",
+      "en": "Advanced"
+    },
+    "percentage": 85,
+    "description": {
+      "es": "Sistema de control de versiones distribuido",
+      "en": "Distributed version control system"
+    },
+    "category": "devops",
+    "type": "tool"
+  },
+  {
+    "id": 19,
+    "name": {
+      "es": "Docker",
+      "en": "Docker"
+    },
+    "level": {
+      "es": "Básico",
+      "en": "Basic"
+    },
+    "percentage": 40,
+    "description": {
+      "es": "Plataforma de contenedores para desarrollo y despliegue",
+      "en": "Container platform for development and deployment"
+    },
+    "category": "devops",
+    "type": "tool"
+  },
+  {
+    "id": 20,
+    "name": {
+      "es": "Selenium",
+      "en": "Selenium"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "percentage": 70,
+    "description": {
+      "es": "Framework para automatización de pruebas web",
+      "en": "Framework for web test automation"
+    },
+    "category": "testing",
+    "type": "tool"
+  },
+  {
+    "id": 21,
+    "name": {
+      "es": "WordPress",
+      "en": "WordPress"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "percentage": 70,
+    "description": {
+      "es": "Sistema de gestión de contenidos web",
+      "en": "Web content management system"
+    },
+    "category": "cms",
+    "type": "tool"
+  },
+  {
+    "id": 22,
+    "name": {
+      "es": "Joomla",
+      "en": "Joomla"
+    },
+    "level": {
+      "es": "Básico",
+      "en": "Basic"
+    },
+    "percentage": 50,
+    "description": {
+      "es": "Sistema de gestión de contenidos extensible",
+      "en": "Extensible content management system"
+    },
+    "category": "cms",
     "type": "tool"
   }
 ]

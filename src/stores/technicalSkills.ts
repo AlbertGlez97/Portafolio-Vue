@@ -4,12 +4,6 @@ import type { TechnicalSkill } from '../interfaces'
 import data from '../data/technicalSkills.json'
 import { useToolStore } from './tool'
 
-interface AppStorage {
-  technicalSkills?: TechnicalSkill[]
-}
-
-const SAVE_DELAY = 300
-
 export const levelToPercentage = (level: string): number => {
   const map: Record<string, number> = {
     Básico: 40,
@@ -23,49 +17,11 @@ export const levelToPercentage = (level: string): number => {
 }
 
 export const useTechnicalSkillsStore = defineStore('technicalSkills', () => {
-  const items = ref<TechnicalSkill[]>([])
-  const initialized = ref(false)
-
-  const load = (): TechnicalSkill[] => {
-    if (typeof window === 'undefined') return data as TechnicalSkill[]
-    try {
-      const raw = localStorage.getItem('app')
-      if (raw) {
-        const parsed = JSON.parse(raw) as AppStorage
-        if (parsed.technicalSkills) return parsed.technicalSkills
-      }
-    } catch {
-      /* ignore */
-    }
-    return data as TechnicalSkill[]
-  }
+  const items = ref<TechnicalSkill[]>(data as TechnicalSkill[])
+  const initialized = ref(true)
 
   const ensureLoaded = async (): Promise<void> => {
-    if (initialized.value) return
-    try {
-      items.value = load()
-    } catch {
-      items.value = []
-    } finally {
-      initialized.value = true
-    }
-  }
-
-  let saveTimer: number | null = null
-  const scheduleSave = () => {
-    if (typeof window === 'undefined') return
-    if (saveTimer) clearTimeout(saveTimer)
-    saveTimer = window.setTimeout(() => {
-      let parsed: AppStorage = {}
-      const raw = localStorage.getItem('app')
-      try {
-        parsed = raw ? JSON.parse(raw) : {}
-      } catch {
-        parsed = {}
-      }
-      parsed.technicalSkills = items.value
-      localStorage.setItem('app', JSON.stringify(parsed))
-    }, SAVE_DELAY)
+    // Data is already loaded from JSON import
   }
 
   const all: ComputedRef<TechnicalSkill[]> = computed(() => items.value)
@@ -99,7 +55,6 @@ export const useTechnicalSkillsStore = defineStore('technicalSkills', () => {
     }
     items.value.push(newSkill)
     syncWithTools(newSkill)
-    scheduleSave()
   }
 
   const update = (skill: TechnicalSkill) => {
@@ -107,7 +62,6 @@ export const useTechnicalSkillsStore = defineStore('technicalSkills', () => {
     if (idx !== -1) {
       items.value[idx] = { ...skill }
       syncWithTools(items.value[idx])
-      scheduleSave()
     }
   }
 
@@ -119,7 +73,6 @@ export const useTechnicalSkillsStore = defineStore('technicalSkills', () => {
       id: getNextId()
     }
     items.value.push(copy)
-    scheduleSave()
     return copy.id
   }
 
@@ -127,7 +80,6 @@ export const useTechnicalSkillsStore = defineStore('technicalSkills', () => {
     const idx = items.value.findIndex(s => s.id === id)
     if (idx !== -1) {
       items.value.splice(idx, 1)
-      scheduleSave()
     }
   }
 

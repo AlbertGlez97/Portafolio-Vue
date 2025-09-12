@@ -1,17 +1,18 @@
 {
   "contact": {
     "emails": [
-      "albert.gonzalez@email.com"
+      "albert.gonzalez0297@gmail.com",
+      "juan_alberto1997@hotmail.com"
     ],
     "phones": [
-      "+52 (555) 123-4567"
+      "+52 (557) 177-8779"
     ],
     "location": {
       "es": "Ciudad de México, México",
       "en": "Mexico City, Mexico"
     },
-    "linkedin": "linkedin.com/in/albertglez97",
-    "github": "github.com/albertglez97",
+    "linkedin": "https://www.linkedin.com/in/albertglez97/",
+    "github": "https://github.com/AlbertGlez97",
     "otherLinks": {}
   }
 }

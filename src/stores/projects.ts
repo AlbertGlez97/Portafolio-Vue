@@ -8,21 +8,7 @@ import projectsData from '../data/projects.json'
  */
 export const useProjectsStore = defineStore('projects', () => {
   // --- State ---
-  const load = (): ProjectsData => {
-    if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('projects')
-      if (stored) return JSON.parse(stored)
-    }
-    return projectsData
-  }
-
-  const projects = ref<ProjectsData>(load())
-
-  const save = () => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('projects', JSON.stringify(projects.value))
-    }
-  }
+  const projects = ref<ProjectsData>(projectsData)
 
   // --- Getters ---
   const getProjects = computed(() => projects.value)
@@ -103,7 +89,6 @@ export const useProjectsStore = defineStore('projects', () => {
   const addProject = (project: Project, featured = false) => {
     if (featured) projects.value.featured.push(project)
     else projects.value.other.push(project)
-    save()
   }
 
   const updateProject = (project: Project, featured = false) => {
@@ -128,7 +113,6 @@ export const useProjectsStore = defineStore('projects', () => {
         }
       }
     }
-    save()
   }
 
   const removeProject = (id: number) => {
@@ -138,7 +122,6 @@ export const useProjectsStore = defineStore('projects', () => {
       idx = projects.value.other.findIndex(p => p.id === id)
       if (idx !== -1) projects.value.other.splice(idx, 1)
     }
-    save()
   }
 
   const duplicateProject = (id: number): Project | null => {

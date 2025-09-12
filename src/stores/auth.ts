@@ -1,15 +1,12 @@
 import { defineStore } from 'pinia'
+import authData from '@/data/auth.json'
 
 export const useAuthStore = defineStore('auth', {
-  state: () => {
-    const username = localStorage.getItem('app.auth.username') || ''
-    const loginAt = localStorage.getItem('app.auth.loginAt') || ''
-    const isLoggedIn = username !== '' && loginAt !== ''
-    return {
-      isLoggedIn,
-      username: isLoggedIn ? username : ''
-    }
-  },
+  state: () => ({
+    isLoggedIn: authData.isLoggedIn,
+    username: authData.username,
+    loginAt: authData.loginAt
+  }),
   actions: {
     login(username: string, password: string) {
 
@@ -19,8 +16,7 @@ export const useAuthStore = defineStore('auth', {
       if (username === adminUsername && password === adminPassword) {
         this.isLoggedIn = true
         this.username = username
-        localStorage.setItem('app.auth.username', username)
-        localStorage.setItem('app.auth.loginAt', new Date().toISOString())
+        this.loginAt = new Date().toISOString()
         return { ok: true as const }
       }
       return { ok: false as const, error: 'Credenciales inválidas' }
@@ -28,8 +24,7 @@ export const useAuthStore = defineStore('auth', {
     logout() {
       this.isLoggedIn = false
       this.username = ''
-      localStorage.removeItem('app.auth.username')
-      localStorage.removeItem('app.auth.loginAt')
+      this.loginAt = ''
     }
   }
 })
