@@ -63,14 +63,53 @@
     {
       "id": 1,
       "title": {
-        "es": "Certificación Vue",
-        "en": "Vue Certification"
+        "es": "Engineering Warrior Training Program",
+        "en": "Engineering Warrior Training Program"
       },
-      "provider": "Vue School",
+      "provider": "Towasoftware",
+      "icon": "code",
+      "description": {
+        "es": "Programa intensivo de entrenamiento en ingeniería de software y mejores prácticas de desarrollo",
+        "en": "Intensive training program in software engineering and development best practices"
+      }
+    },
+    {
+      "id": 2,
+      "title": {
+        "es": "Curso Profesional de JavaScript",
+        "en": "Professional JavaScript Course"
+      },
+      "provider": "Platzi",
+      "icon": "javascript",
+      "description": {
+        "es": "Curso completo de JavaScript moderno, ES6+, programación asíncrona y mejores prácticas",
+        "en": "Complete modern JavaScript course, ES6+, asynchronous programming and best practices"
+      }
+    },
+    {
+      "id": 3,
+      "title": {
+        "es": "Curso de Backend con Node.js: API REST con Express.js",
+        "en": "Backend Course with Node.js: REST API with Express.js"
+      },
+      "provider": "Platzi",
+      "icon": "nodejs",
+      "description": {
+        "es": "Desarrollo de APIs REST con Node.js y Express.js, autenticación, bases de datos y deployment",
+        "en": "REST API development with Node.js and Express.js, authentication, databases and deployment"
+      }
+    },
+    {
+      "id": 4,
+      "title": {
+        "es": "Vue.js 3 - La Guía Completa - Composition Pinia MEVN 10 Apps",
+        "en": "Vue.js 3 - The Complete Guide - Composition Pinia MEVN 10 Apps"
+      },
+      "provider": "Udemy",
       "icon": "vuejs",
       "description": {
-        "es": "Curso avanzado de Vue",
-        "en": "Advanced Vue course"
+        "es": "Curso completo de Vue.js 3 con Composition API, Pinia para estado global, stack MEVN y desarrollo de 10 aplicaciones",
+        "en": "Complete Vue.js 3 course with Composition API, Pinia for global state, MEVN stack and development of 10 applications"
       }
     }
   ],

@@ -14,8 +14,8 @@
       "es": "Lenguaje de programación moderno para desarrollo web interactivo",
       "en": "Modern programming language for interactive web development"
     },
-    "category": "language",
-    "type": "core"
+    "category": "frontend",
+    "type": "tool"
   },
   {
     "id": 2,
@@ -32,8 +32,8 @@
       "es": "Superset tipado de JavaScript para desarrollo escalable",
       "en": "Typed superset of JavaScript for scalable development"
     },
-    "category": "language",
-    "type": "core"
+    "category": "frontend",
+    "type": "tool"
   },
   {
     "id": 3,
@@ -50,8 +50,8 @@
       "es": "Lenguaje de marcado para estructura web semántica",
       "en": "Markup language for semantic web structure"
     },
-    "category": "language",
-    "type": "core"
+    "category": "frontend",
+    "type": "tool"
   },
   {
     "id": 4,
@@ -68,8 +68,8 @@
       "es": "Hojas de estilo para diseño y presentación web",
       "en": "Stylesheets for web design and presentation"
     },
-    "category": "language",
-    "type": "core"
+    "category": "frontend",
+    "type": "tool"
   },
   {
     "id": 5,
@@ -86,8 +86,8 @@
       "es": "Lenguaje de programación orientado a objetos de Microsoft",
       "en": "Microsoft's object-oriented programming language"
     },
-    "category": "language",
-    "type": "core"
+    "category": "backend",
+    "type": "tool"
   },
   {
     "id": 6,
@@ -104,8 +104,8 @@
       "es": "Extensión de SQL para Microsoft SQL Server",
       "en": "SQL extension for Microsoft SQL Server"
     },
-    "category": "database",
-    "type": "core"
+    "category": "backend",
+    "type": "tool"
   },
   {
     "id": 7,
@@ -139,24 +139,6 @@
     "description": {
       "es": "Framework progresivo para construir interfaces de usuario",
       "en": "Progressive framework for building user interfaces"
-    },
-    "category": "frontend",
-    "type": "framework"
-  },
-  {
-    "id": 9,
-    "name": {
-      "es": "Angular",
-      "en": "Angular"
-    },
-    "level": {
-      "es": "Intermedio",
-      "en": "Intermediate"
-    },
-    "percentage": 65,
-    "description": {
-      "es": "Framework robusto para aplicaciones web empresariales",
-      "en": "Robust framework for enterprise web applications"
     },
     "category": "frontend",
     "type": "framework"

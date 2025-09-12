@@ -30,5 +30,117 @@
       "en": "Agile framework for development"
     },
     "category": "methodologies"
+  },
+  {
+    "id": 3,
+    "name": {
+      "es": "JavaScript (ES6+)",
+      "en": "JavaScript (ES6+)"
+    },
+    "level": {
+      "es": "Avanzado",
+      "en": "Advanced"
+    },
+    "description": {
+      "es": "Lenguaje de programación moderno para desarrollo web interactivo",
+      "en": "Modern programming language for interactive web development"
+    },
+    "category": "tools"
+  },
+  {
+    "id": 4,
+    "name": {
+      "es": "TypeScript",
+      "en": "TypeScript"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "description": {
+      "es": "Superset tipado de JavaScript para desarrollo escalable",
+      "en": "Typed superset of JavaScript for scalable development"
+    },
+    "category": "tools"
+  },
+  {
+    "id": 5,
+    "name": {
+      "es": "HTML5",
+      "en": "HTML5"
+    },
+    "level": {
+      "es": "Avanzado",
+      "en": "Advanced"
+    },
+    "description": {
+      "es": "Lenguaje de marcado para estructura web semántica",
+      "en": "Markup language for semantic web structure"
+    },
+    "category": "tools"
+  },
+  {
+    "id": 6,
+    "name": {
+      "es": "CSS3",
+      "en": "CSS3"
+    },
+    "level": {
+      "es": "Avanzado",
+      "en": "Advanced"
+    },
+    "description": {
+      "es": "Hojas de estilo para diseño y presentación web",
+      "en": "Stylesheets for web design and presentation"
+    },
+    "category": "tools"
+  },
+  {
+    "id": 7,
+    "name": {
+      "es": "C#",
+      "en": "C#"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "description": {
+      "es": "Lenguaje de programación orientado a objetos de Microsoft",
+      "en": "Microsoft's object-oriented programming language"
+    },
+    "category": "tools"
+  },
+  {
+    "id": 8,
+    "name": {
+      "es": "T-SQL",
+      "en": "T-SQL"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "description": {
+      "es": "Extensión de SQL para Microsoft SQL Server",
+      "en": "SQL extension for Microsoft SQL Server"
+    },
+    "category": "tools"
+  },
+  {
+    "id": 9,
+    "name": {
+      "es": "Bootstrap",
+      "en": "Bootstrap"
+    },
+    "level": {
+      "es": "Avanzado",
+      "en": "Avanzado"
+    },
+    "description": {
+      "es": "Framework CSS para diseño responsivo rápido",
+      "en": "CSS framework for rapid responsive design"
+    },
+    "category": "framework"
   }
 ]
