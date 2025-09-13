@@ -6,12 +6,12 @@
       "en": "Git"
     },
     "level": {
-      "es": "Avanzado",
-      "en": "Advanced"
+      "es": "Intermedio-Avanzado",
+      "en": "Intermediate-Advanced"
     },
     "description": {
-      "es": "Control de versiones",
-      "en": "Version control"
+      "es": "Sistema de control de versiones distribuido",
+      "en": "Distributed version control system"
     },
     "category": "tools"
   },
@@ -173,7 +173,7 @@
       "es": "Framework progresivo para construir interfaces de usuario",
       "en": "Progressive framework for building user interfaces"
     },
-    "category": "Framework"
+    "category": "Framework "
   },
   {
     "id": 12,
@@ -206,5 +206,53 @@
       "en": "Utility-first CSS framework for custom designs"
     },
     "category": "Framework "
+  },
+  {
+    "id": "b7918efe-9110-4750-b17a-767a6bd30d97",
+    "name": {
+      "es": "Docker",
+      "en": "Docker"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "description": {
+      "es": "Plataforma de contenedores para desarrollo y despliegue",
+      "en": "Container platform for development and deployment"
+    },
+    "category": "tools"
+  },
+  {
+    "id": "134e273c-8f61-4f4f-8f28-d259149d4278",
+    "name": {
+      "es": "Redux",
+      "en": "Redux"
+    },
+    "level": {
+      "es": "Básico-Intermedio",
+      "en": "Basic-Intermediate"
+    },
+    "description": {
+      "es": "Contenedor de estado predecible para aplicaciones JavaScript",
+      "en": "Predictable state container for JavaScript applications"
+    },
+    "category": "tools"
+  },
+  {
+    "id": "379adc7e-ef1f-4baa-ab09-7ccb2d6d0cf3",
+    "name": {
+      "es": "APIs RESTful",
+      "en": "RESTful APIs"
+    },
+    "level": {
+      "es": "Intermedio-Avanzado",
+      "en": "Intermediate-Advanced"
+    },
+    "description": {
+      "es": "Arquitectura de servicios web para comunicación entre sistemas",
+      "en": "Web services architecture for system communication"
+    },
+    "category": "tools"
   }
 ]
