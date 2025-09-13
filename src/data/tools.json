@@ -38,8 +38,8 @@
       "en": "JavaScript (ES6+)"
     },
     "level": {
-      "es": "Avanzado",
-      "en": "Advanced"
+      "es": "Intermedio-Avanzado",
+      "en": "Intermediate-Advanced"
     },
     "description": {
       "es": "Lenguaje de programación moderno para desarrollo web interactivo",
@@ -86,8 +86,8 @@
       "en": "CSS3"
     },
     "level": {
-      "es": "Avanzado",
-      "en": "Advanced"
+      "es": "Intermedio-Avanzado",
+      "en": "Intermediate-Advanced"
     },
     "description": {
       "es": "Hojas de estilo para diseño y presentación web",
@@ -134,13 +134,77 @@
       "en": "Bootstrap"
     },
     "level": {
-      "es": "Avanzado",
-      "en": "Avanzado"
+      "es": "Intermedio-Avanzado",
+      "en": "Intermediate-Advanced"
     },
     "description": {
       "es": "Framework CSS para diseño responsivo rápido",
       "en": "CSS framework for rapid responsive design"
     },
-    "category": "framework"
+    "category": "Framework "
+  },
+  {
+    "id": 10,
+    "name": {
+      "es": "Svelte",
+      "en": "Svelte"
+    },
+    "level": {
+      "es": "Intermedio-Avanzado",
+      "en": "Intermediate-Advanced"
+    },
+    "description": {
+      "es": "Framework compilado para interfaces de usuario reactivas",
+      "en": "Compiled framework for reactive user interfaces"
+    },
+    "category": "tools"
+  },
+  {
+    "id": 11,
+    "name": {
+      "es": "Vue.js",
+      "en": "Vue.js"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "description": {
+      "es": "Framework progresivo para construir interfaces de usuario",
+      "en": "Progressive framework for building user interfaces"
+    },
+    "category": "Framework"
+  },
+  {
+    "id": 12,
+    "name": {
+      "es": "jQuery",
+      "en": "jQuery"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "description": {
+      "es": "Biblioteca JavaScript para manipulación del DOM",
+      "en": "JavaScript library for DOM manipulation"
+    },
+    "category": "Library "
+  },
+  {
+    "id": 13,
+    "name": {
+      "es": "Tailwind CSS",
+      "en": "Tailwind CSS"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "description": {
+      "es": "Framework CSS utility-first para diseños personalizados",
+      "en": "Utility-first CSS framework for custom designs"
+    },
+    "category": "Framework "
   }
 ]

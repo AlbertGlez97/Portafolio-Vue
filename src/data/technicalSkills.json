@@ -6,10 +6,10 @@
       "en": "JavaScript (ES6+)"
     },
     "level": {
-      "es": "Avanzado",
-      "en": "Advanced"
+      "es": "Intermedio-Avanzado",
+      "en": "Intermediate-Advanced"
     },
-    "percentage": 85,
+    "percentage": 70,
     "description": {
       "es": "Lenguaje de programación moderno para desarrollo web interactivo",
       "en": "Modern programming language for interactive web development"
@@ -60,10 +60,10 @@
       "en": "CSS3"
     },
     "level": {
-      "es": "Avanzado",
-      "en": "Advanced"
+      "es": "Intermedio-Avanzado",
+      "en": "Intermediate-Advanced"
     },
-    "percentage": 85,
+    "percentage": 70,
     "description": {
       "es": "Hojas de estilo para diseño y presentación web",
       "en": "Stylesheets for web design and presentation"
@@ -114,10 +114,10 @@
       "en": "Svelte"
     },
     "level": {
-      "es": "Avanzado",
-      "en": "Advanced"
+      "es": "Intermedio-Avanzado",
+      "en": "Intermediate-Advanced"
     },
-    "percentage": 80,
+    "percentage": 70,
     "description": {
       "es": "Framework compilado para interfaces de usuario reactivas",
       "en": "Compiled framework for reactive user interfaces"
@@ -132,34 +132,17 @@
       "en": "Vue.js"
     },
     "level": {
-      "es": "Avanzado",
-      "en": "Advanced"
-    },
-    "percentage": 85,
-    "description": {
-      "es": "Framework progresivo para construir interfaces de usuario",
-      "en": "Progressive framework for building user interfaces"
-    },
-    "category": "frontend",
-    "type": "framework"
-  },
-  {
-    "id": 10,
-    "name": {
-      "es": "React",
-      "en": "React"
-    },
-    "level": {
       "es": "Intermedio",
       "en": "Intermediate"
     },
     "percentage": 65,
     "description": {
-      "es": "Biblioteca para construir interfaces de usuario componentes",
-      "en": "Library for building component-based user interfaces"
+      "es": "Framework progresivo para construir interfaces de usuario",
+      "en": "Progressive framework for building user interfaces"
     },
     "category": "frontend",
-    "type": "library"
+    "type": "custom",
+    "customCategory": "Framework"
   },
   {
     "id": 11,
@@ -168,16 +151,17 @@
       "en": "jQuery"
     },
     "level": {
-      "es": "Avanzado",
-      "en": "Advanced"
+      "es": "Intermedio",
+      "en": "Intermediate"
     },
-    "percentage": 80,
+    "percentage": 60,
     "description": {
       "es": "Biblioteca JavaScript para manipulación del DOM",
       "en": "JavaScript library for DOM manipulation"
     },
     "category": "frontend",
-    "type": "library"
+    "type": "custom",
+    "customCategory": "Library "
   },
   {
     "id": 12,
@@ -186,16 +170,17 @@
       "en": "Bootstrap"
     },
     "level": {
-      "es": "Avanzado",
-      "en": "Advanced"
+      "es": "Intermedio-Avanzado",
+      "en": "Intermediate-Advanced"
     },
-    "percentage": 85,
+    "percentage": 50,
     "description": {
       "es": "Framework CSS para diseño responsivo rápido",
       "en": "CSS framework for rapid responsive design"
     },
     "category": "frontend",
-    "type": "framework"
+    "type": "custom",
+    "customCategory": "Framework "
   },
   {
     "id": 13,
@@ -213,7 +198,8 @@
       "en": "Utility-first CSS framework for custom designs"
     },
     "category": "frontend",
-    "type": "framework"
+    "type": "custom",
+    "customCategory": "Framework "
   },
   {
     "id": 14,
