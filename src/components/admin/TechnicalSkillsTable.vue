@@ -94,14 +94,14 @@ onMounted(async () => {
 })
 
 // Generar acciones disponibles para cada habilidad
-const getActionsForSkill = (skillId: number) => [
+const getActionsForSkill = (skillId: string | number) => [
   { key: 'edit', label: t.value.admin.edit, icon: '✏️' },
   { key: 'duplicate', label: t.value.admin.duplicate, icon: '📋' },
   { key: 'delete', label: t.value.admin.delete, icon: '🗑️' }
 ]
 
 // Manejar acción seleccionada
-const handleAction = (actionKey: string, skillId: number) => {
+const handleAction = (actionKey: string, skillId: string | number) => {
   switch (actionKey) {
     case 'edit':
       emit('edit', skillId)

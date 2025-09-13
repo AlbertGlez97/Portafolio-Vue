@@ -142,7 +142,7 @@
     },
     "category": "frontend",
     "type": "custom",
-    "customCategory": "Framework"
+    "customCategory": "Framework "
   },
   {
     "id": 11,
@@ -310,7 +310,7 @@
     "type": "tool"
   },
   {
-    "id": 19,
+    "id": 23,
     "name": {
       "es": "Docker",
       "en": "Docker"

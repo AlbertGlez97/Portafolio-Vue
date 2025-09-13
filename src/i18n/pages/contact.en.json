@@ -13,7 +13,8 @@
     "cta": {
       "title": "Ready to work together?",
       "description": "I'm available for new projects and collaboration opportunities.",
-      "downloadCV": "Download CV",
+      "downloadCV": "CV Preview",
+      "openingPreview": "Opening preview...",
       "connectLinkedIn": "Connect on LinkedIn"
     },
     "form": {

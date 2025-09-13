@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed, type ComputedRef } from 'vue'
+import { v4 as uuidv4 } from 'uuid'
 import type { ToolEntry, TechnicalSkill } from '../interfaces'
 import data from '../data/tools.json'
 
@@ -22,12 +23,11 @@ export const useToolStore = defineStore('tool', () => {
     Array.from(new Set(items.value.map(i => i.category)))
   )
 
-  const getById = (id: number): ToolEntry | undefined =>
+  const getById = (id: string | number): ToolEntry | undefined =>
     items.value.find(t => t.id === id)
-  const getNextId = (): number => Math.max(0, ...items.value.map(t => t.id)) + 1
 
   const create = (tool: Omit<ToolEntry, 'id'>) => {
-    const newTool: ToolEntry = { ...tool, id: getNextId() }
+    const newTool: ToolEntry = { ...tool, id: uuidv4() }
     items.value.push(newTool)
   }
 
@@ -38,18 +38,18 @@ export const useToolStore = defineStore('tool', () => {
     }
   }
 
-  const duplicate = (id: number): number | undefined => {
+  const duplicate = (id: string | number): string | undefined => {
     const original = getById(id)
     if (!original) return
     const copy: ToolEntry = {
       ...JSON.parse(JSON.stringify(original)),
-      id: getNextId()
+      id: uuidv4()
     }
     items.value.push(copy)
     return copy.id
   }
 
-  const remove = (id: number) => {
+  const remove = (id: string | number) => {
     const idx = items.value.findIndex(t => t.id === id)
     if (idx !== -1) {
       items.value.splice(idx, 1)
@@ -70,7 +70,7 @@ export const useToolStore = defineStore('tool', () => {
       existing.category = category
     } else {
       items.value.push({
-        id: getNextId(),
+        id: uuidv4(),
         name: skill.name,
         level: skill.level,
         description: skill.description,
@@ -90,7 +90,6 @@ export const useToolStore = defineStore('tool', () => {
     duplicate,
     remove,
     upsertFromSkill,
-    getById,
-    getNextId
+    getById
   }
 })

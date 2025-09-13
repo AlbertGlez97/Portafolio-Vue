@@ -90,7 +90,7 @@ const mainStore = useMainStore()
 const { t } = storeToRefs(mainStore)
 
 const emptyForm: TechnicalSkill = {
-  id: 0,
+  id: '',
   name: { es: '', en: '' },
   level: { es: '', en: '' },
   percentage: 0,
@@ -106,11 +106,15 @@ const firstInput = ref<HTMLInputElement | null>(null)
 
 watch(
   () => props.skill,
-  val => {
-    if (val) Object.assign(form, val)
-    else Object.assign(form, { ...emptyForm })
+  (val) => {
+    if (val) {
+      // Hacer una copia profunda para evitar problemas de reactividad
+      Object.assign(form, JSON.parse(JSON.stringify(val)))
+    } else {
+      Object.assign(form, { ...emptyForm })
+    }
   },
-  { immediate: true }
+  { immediate: true, deep: true }
 )
 
 const updatePercentage = () => {

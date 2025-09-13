@@ -11,13 +11,26 @@ const translations = messages
  */
 export const useMainStore = defineStore('main', () => {
 
+  // --- Helpers para localStorage ---
+  const getStoredLanguage = (): 'es' | 'en' => {
+    const stored = localStorage.getItem('portfolio-language')
+    return stored === 'en' || stored === 'es' ? stored : 'es'
+  }
+
+  const saveLanguage = (lang: 'es' | 'en') => {
+    localStorage.setItem('portfolio-language', lang)
+  }
+
   // --- State ---
-  // Idioma actual de la interfaz
-  const currentLanguage = ref<'es' | 'en'>('es')
+  // Idioma actual de la interfaz (inicializado desde localStorage)
+  const currentLanguage = ref<'es' | 'en'>(getStoredLanguage())
   // Preferencia de modo oscuro
   const isDarkMode = ref(window.matchMedia('(prefers-color-scheme: dark)').matches)
   // Visibilidad del menú móvil
   const isMenuOpen = ref(false)
+
+  // Inicializar i18n con el idioma guardado
+  i18n.global.locale.value = currentLanguage.value
 
   // --- Getters ---
   // Acceso rápido a las cadenas traducidas
@@ -35,12 +48,14 @@ export const useMainStore = defineStore('main', () => {
   const toggleLanguage = () => {
     currentLanguage.value = currentLanguage.value === 'es' ? 'en' : 'es'
     i18n.global.locale.value = currentLanguage.value
+    saveLanguage(currentLanguage.value)
   }
 
   // Fija un idioma específico
   const setLanguage = (lang: 'es' | 'en') => {
     currentLanguage.value = lang
     i18n.global.locale.value = lang
+    saveLanguage(lang)
   }
 
   // Cambia modo oscuro/claro y actualiza clase del DOM

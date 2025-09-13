@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed, type ComputedRef } from 'vue'
+import { v4 as uuidv4 } from 'uuid'
 import type { Experience } from '../interfaces'
 import experienceData from '../data/experience.json'
 
@@ -30,14 +31,12 @@ export const useExperienceStore = defineStore('experience', () => {
   const getExperienceById = (id: number): Experience | undefined =>
     items.value.find(e => e.id === id)
 
-  const getNextId = (): number =>
-    Math.max(0, ...items.value.map(e => e.id)) + 1
 
   // --- Actions ---------------------------------------------------------
   const create = (exp: Omit<Experience, 'id' | 'updatedAt'>) => {
     const newExp: Experience = {
       ...exp,
-      id: getNextId(),
+      id: uuidv4(),
       updatedAt: new Date().toISOString()
     }
     items.value.push(newExp)
@@ -53,12 +52,12 @@ export const useExperienceStore = defineStore('experience', () => {
       }
   }
 
-  const duplicate = (id: number): number | undefined => {
+  const duplicate = (id: number): string | undefined => {
     const original = getExperienceById(id)
     if (!original) return
     const copy: Experience = {
       ...JSON.parse(JSON.stringify(original)),
-      id: getNextId(),
+      id: uuidv4(),
       updatedAt: new Date().toISOString()
     }
     items.value.push(copy)
@@ -94,7 +93,6 @@ export const useExperienceStore = defineStore('experience', () => {
     duplicate,
     remove,
     toggleFeatured,
-    getExperienceById,
-    getNextId
+    getExperienceById
   }
 })

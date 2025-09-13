@@ -13,7 +13,8 @@
     "cta": {
       "title": "¿Listo para trabajar juntos?",
       "description": "Estoy disponible para nuevos proyectos y oportunidades de colaboración.",
-      "downloadCV": "Descargar CV",
+      "downloadCV": "Vista Previa CV",
+      "openingPreview": "Abriendo vista previa...",
       "connectLinkedIn": "Conectar en LinkedIn"
     },
     "form": {

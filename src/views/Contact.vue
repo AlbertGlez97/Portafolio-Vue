@@ -213,16 +213,16 @@
           <h2>{{ t.contact.cta.title }}</h2>
           <p>{{ t.contact.cta.description }}</p>
             <div class="cta-actions">
-            <a 
-              href="/CV_Albert_Gonzalez.pdf" 
-              download 
+            <button 
+              @click="openCVPreview" 
               class="btn btn-secondary"
+              :disabled="isOpeningPreview"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
               </svg>
-              {{ t.contact.cta.downloadCV }}
-            </a>
+              {{ isOpeningPreview ? t.contact.cta.openingPreview : t.contact.cta.downloadCV }}
+            </button>
             <a
               :href="formatLink(contact.linkedin)"
               target="_blank"
@@ -274,6 +274,9 @@ const errors = reactive({
 const isLoading = ref(false)
 const successMessage = ref('')
 const errorMessage = ref('')
+
+// Estado para la apertura de vista previa del CV
+const isOpeningPreview = ref(false)
 
 // Validation functions
 const validateEmail = (email: string): boolean => {
@@ -368,6 +371,36 @@ const onSubmit = async () => {
     }, 5000)
   }
 }
+
+// Función para abrir vista previa del CV
+const openCVPreview = async () => {
+  try {
+    isOpeningPreview.value = true;
+    
+    // Abrir el CV HTML sin auto-descarga (vista previa)
+    const cvWindow = window.open('/cv.html', '_blank', 'width=1200,height=800,scrollbars=yes');
+    
+    if (!cvWindow) {
+      throw new Error('No se pudo abrir la ventana del CV. Verifique que su navegador permita ventanas emergentes.');
+    }
+
+    // Habilitar el botón inmediatamente después de abrir la ventana
+    setTimeout(() => {
+      isOpeningPreview.value = false;
+    }, 500);
+
+  } catch (error) {
+    console.error('Error al abrir vista previa del CV:', error);
+    
+    const userLanguage = currentLanguage.value === 'es' ? 'es' : 'en';
+    const message = userLanguage === 'es'
+      ? 'No se pudo abrir la vista previa del CV. Por favor, verifique que su navegador permita ventanas emergentes o intente nuevamente.'
+      : 'Could not open CV preview. Please check that your browser allows pop-ups or try again.';
+    alert(message);
+    
+    isOpeningPreview.value = false;
+  }
+};
 
 const formatLink = (url: string): string => {
   if (!url) return '#'
@@ -646,6 +679,18 @@ const formatLink = (url: string): string => {
 
 .cta-actions .btn-primary:hover {
   background-color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-actions .btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.cta-actions .btn:disabled:hover {
+  transform: none !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
 }
 
 /* Responsive */

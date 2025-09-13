@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
+import { v4 as uuidv4 } from 'uuid'
 import type { ProjectsData, Project, TechnologyBubble } from '../interfaces'
 import projectsData from '../data/projects.json'
 
@@ -80,11 +81,6 @@ export const useProjectsStore = defineStore('projects', () => {
   const isFeatured = (id: number): boolean =>
     projects.value.featured.some(p => p.id === id)
 
-  const getNextId = (): number => {
-    return (
-      Math.max(0, ...getAllProjects.value.map(p => p.id)) + 1
-    )
-  }
 
   const addProject = (project: Project, featured = false) => {
     if (featured) projects.value.featured.push(project)
@@ -128,7 +124,7 @@ export const useProjectsStore = defineStore('projects', () => {
     const original = getProjectById(id)
     if (!original) return null
     const copy: Project = JSON.parse(JSON.stringify(original))
-    copy.id = getNextId()
+    copy.id = uuidv4()
     return copy
   }
 
@@ -151,7 +147,6 @@ export const useProjectsStore = defineStore('projects', () => {
     getProjectsByTechnology,
     getProjectsByType,
     isFeatured,
-    getNextId,
     addProject,
     updateProject,
     removeProject,

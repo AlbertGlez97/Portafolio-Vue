@@ -46,7 +46,7 @@ export interface SkillBarProps {
  * para sincronizarse con el store de herramientas/metodologías.
  */
 export interface TechnicalSkill extends Skill {
-  id: number
+  id: string | number
   category: 'frontend' | 'backend'
   type?: 'tool' | 'methodology' | 'custom'
   customCategory?: string
@@ -54,7 +54,7 @@ export interface TechnicalSkill extends Skill {
 
 /** Entrada de herramienta o metodología administrable */
 export interface ToolEntry {
-  id: number
+  id: string | number
   name: MultiLanguageText
   level: MultiLanguageText
   description: MultiLanguageText
@@ -63,5 +63,5 @@ export interface ToolEntry {
 
 /** Habilidad blanda con identificador para CRUD */
 export interface SoftSkillEntry extends SoftSkill {
-  id: number
+  id: string | number
 }

@@ -11,10 +11,10 @@
             <p class="hero-description">{{ t.hero.description }}</p>
 
             <div class="hero-actions">
-              <a
-                href="/CV_Albert_Gonzalez.pdf"
-                download
+              <button
+                @click="downloadCV"
                 class="btn btn-primary"
+                :disabled="isDownloading"
               >
                 <svg
                   width="20"
@@ -23,11 +23,11 @@
                   fill="currentColor"
                 >
                   <path
-                    d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"
+                    d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"
                   />
                 </svg>
-                {{ t.hero.downloadCV }}
-              </a>
+                {{ isDownloading ? t.hero.generatingCV : t.hero.downloadCV }}
+              </button>
               <router-link to="/contact" class="btn btn-secondary">
                 {{ t.hero.contactMe }}
               </router-link>
@@ -103,6 +103,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import { useMainStore } from "../stores/main";
 import { storeToRefs } from "pinia";
 import OverviewCard from "../components/OverviewCard.vue";
@@ -113,6 +114,39 @@ import projectsData from "../data/projects.json";
 const store = useMainStore();
 const { t } = storeToRefs(store);
 const { getTranslatedText } = store;
+
+// Estado para la apertura de vista previa del CV
+const isDownloading = ref(false);
+
+// Función para abrir vista previa del CV
+const downloadCV = async () => {
+  try {
+    isDownloading.value = true;
+    
+    // Abrir el CV HTML sin auto-descarga (vista previa)
+    const cvWindow = window.open('/cv.html', '_blank', 'width=1200,height=800,scrollbars=yes');
+    
+    if (!cvWindow) {
+      throw new Error('No se pudo abrir la ventana del CV. Verifique que su navegador permita ventanas emergentes.');
+    }
+
+    // Habilitar el botón inmediatamente después de abrir la ventana
+    setTimeout(() => {
+      isDownloading.value = false;
+    }, 500);
+
+  } catch (error) {
+    console.error('Error al abrir vista previa del CV:', error);
+    
+    const userLanguage = store.currentLanguage === 'es' ? 'es' : 'en';
+    const message = userLanguage === 'es'
+      ? 'No se pudo abrir la vista previa del CV. Por favor, verifique que su navegador permita ventanas emergentes o intente nuevamente.'
+      : 'Could not open CV preview. Please check that your browser allows pop-ups or try again.';
+    alert(message);
+    
+    isDownloading.value = false;
+  }
+};
 
 // Función para hacer scroll suave a la sección overview
 const scrollToOverview = () => {
@@ -259,6 +293,16 @@ const featuredProjects = projectsData.featured.slice(0, 2).map(project => ({
   display: flex;
   gap: var(--spacing-md);
   margin-top: var(--spacing-lg);
+}
+
+.hero-actions .btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.hero-actions .btn:disabled:hover {
+  transform: none !important;
 }
 
 .hero-image {

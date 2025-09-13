@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Alberto González - CV</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: white;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #8B0000;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .message {
+            font-size: 16px;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        .language-selector {
+            margin-top: 30px;
+            display: none;
+        }
+
+        .language-btn {
+            background: #8B0000;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .language-btn:hover {
+            background: #660000;
+        }
+
+        .manual-selection {
+            margin-top: 20px;
+            color: #888;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Juan Alberto González - CV</h1>
+    <div class="loader"></div>
+    <div class="message" id="message">Loading CV with portfolio language / Cargando CV con idioma del portafolio...</div>
+
+    <div class="language-selector" id="languageSelector">
+        <p class="manual-selection">Choose your preferred language / Elige tu idioma preferido:</p>
+        <button class="language-btn" onclick="loadCV('en')">English</button>
+        <button class="language-btn" onclick="loadCV('es')">Español</button>
+    </div>
+
+    <script>
+        // Función para detectar el idioma del portafolio
+        function detectLanguage() {
+            // 1. Prioridad: Parámetro de URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const langParam = urlParams.get('lang');
+            if (langParam && (langParam === 'es' || langParam === 'en')) {
+                return langParam;
+            }
+
+            // 2. Segunda prioridad: Idioma guardado en el portafolio
+            const portfolioLang = localStorage.getItem('portfolio-language');
+            if (portfolioLang === 'es' || portfolioLang === 'en') {
+                return portfolioLang;
+            }
+
+            // 3. Fallback: Idioma del navegador
+            const browserLang = navigator.language || navigator.userLanguage;
+            const langCode = browserLang.substring(0, 2).toLowerCase();
+            return langCode === 'es' ? 'es' : 'en';
+        }
+
+        // Función para cargar el CV correcto
+        function loadCV(language) {
+            const cvFile = language === 'es' ? 'cv-es.html' : 'cv-en.html';
+
+            // Mantener parámetros de URL existentes
+            const currentParams = new URLSearchParams(window.location.search);
+            const newUrl = `${cvFile}${currentParams.toString() ? '?' + currentParams.toString() : ''}`;
+
+            window.location.href = newUrl;
+        }
+
+        // Función para mostrar el selector manual después de un tiempo
+        function showLanguageSelector() {
+            document.getElementById('message').textContent = 'Please select your language / Por favor selecciona tu idioma:';
+            document.getElementById('languageSelector').style.display = 'block';
+            document.querySelector('.loader').style.display = 'none';
+        }
+
+        // Detectar idioma automáticamente al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verificar si hay algún parámetro especial (como autodownload)
+            const urlParams = new URLSearchParams(window.location.search);
+            const hasSpecialParams = urlParams.has('autodownload');
+
+            if (hasSpecialParams) {
+                // Si hay parámetros especiales, redirigir inmediatamente
+                const detectedLang = detectLanguage();
+                loadCV(detectedLang);
+            } else {
+                // Esperar un momento para mostrar el loader, luego redirigir
+                setTimeout(() => {
+                    const detectedLang = detectLanguage();
+                    const portfolioLang = localStorage.getItem('portfolio-language');
+
+                    // Mostrar mensaje específico del idioma detectado
+                    if (detectedLang === 'es') {
+                        if (portfolioLang === 'es') {
+                            document.getElementById('message').textContent = 'Usando idioma del portafolio: Español. Cargando CV...';
+                        } else {
+                            document.getElementById('message').textContent = 'Idioma detectado: Español. Cargando CV...';
+                        }
+                    } else {
+                        if (portfolioLang === 'en') {
+                            document.getElementById('message').textContent = 'Using portfolio language: English. Loading CV...';
+                        } else {
+                            document.getElementById('message').textContent = 'Language detected: English. Loading CV...';
+                        }
+                    }
+
+                    // Redirigir después de mostrar el mensaje
+                    setTimeout(() => {
+                        loadCV(detectedLang);
+                    }, 1000);
+
+                }, 1500);
+
+                // Mostrar selector manual como fallback después de 5 segundos
+                setTimeout(showLanguageSelector, 5000);
+            }
+        });
+
+        // Función global para ser llamada desde otras páginas
+        window.downloadCVByLanguage = function(language) {
+            const cvFile = language === 'es' ? 'cv-es.html' : 'cv-en.html';
+            const cvWindow = window.open(`${cvFile}?autodownload=true`, '_blank');
+
+            if (!cvWindow) {
+                // Si se bloquean las ventanas emergentes, redirigir en la misma ventana
+                window.location.href = `${cvFile}?autodownload=true`;
+            }
+        };
+
+        // Función para descargar CV basado en idioma detectado automáticamente
+        window.downloadCV = function() {
+            const detectedLang = detectLanguage();
+            window.downloadCVByLanguage(detectedLang);
+        };
+    </script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed, type ComputedRef } from 'vue'
+import { v4 as uuidv4 } from 'uuid'
 import type { TechnicalSkill } from '../interfaces'
 import data from '../data/technicalSkills.json'
 import { useToolStore } from './tool'
@@ -38,9 +39,8 @@ export const useTechnicalSkillsStore = defineStore('technicalSkills', () => {
     sortedByCategory.value.filter(s => s.category === 'backend')
   )
 
-  const getById = (id: number): TechnicalSkill | undefined =>
+  const getById = (id: string | number): TechnicalSkill | undefined =>
     items.value.find(s => s.id === id)
-  const getNextId = (): number => Math.max(0, ...items.value.map(s => s.id)) + 1
 
   const syncWithTools = (skill: TechnicalSkill) => {
     if (!skill.type) return
@@ -49,7 +49,7 @@ export const useTechnicalSkillsStore = defineStore('technicalSkills', () => {
   }
 
   const create = (skill: Omit<TechnicalSkill, 'id'>) => {
-    const newSkill: TechnicalSkill = { ...skill, id: getNextId() }
+    const newSkill: TechnicalSkill = { ...skill, id: uuidv4() }
     if (!newSkill.percentage) {
       newSkill.percentage = levelToPercentage(newSkill.level.es)
     }
@@ -65,18 +65,18 @@ export const useTechnicalSkillsStore = defineStore('technicalSkills', () => {
     }
   }
 
-  const duplicate = (id: number): number | undefined => {
+  const duplicate = (id: string): string | undefined => {
     const original = getById(id)
     if (!original) return
     const copy: TechnicalSkill = {
       ...JSON.parse(JSON.stringify(original)),
-      id: getNextId()
+      id: uuidv4()
     }
     items.value.push(copy)
     return copy.id
   }
 
-  const remove = (id: number) => {
+  const remove = (id: string | number) => {
     const idx = items.value.findIndex(s => s.id === id)
     if (idx !== -1) {
       items.value.splice(idx, 1)
@@ -95,7 +95,6 @@ export const useTechnicalSkillsStore = defineStore('technicalSkills', () => {
     duplicate,
     remove,
     getById,
-    getNextId,
     levelToPercentage
   }
 })

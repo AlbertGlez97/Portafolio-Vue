@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed, type ComputedRef } from 'vue'
+import { v4 as uuidv4 } from 'uuid'
 import type { Certification, EducationCertification } from '../interfaces'
 import certificationsData from '../data/certifications.json'
 
@@ -29,12 +30,11 @@ export const useCertificationStore = defineStore('certifications', () => {
   const getCertificationById = (id: number): Certification | undefined =>
     items.value.find(c => c.id === id)
 
-  const getNextId = (): number => Math.max(0, ...items.value.map(c => c.id)) + 1
 
   const create = (cert: Omit<Certification, 'id' | 'updatedAt'>) => {
     const newCert: Certification = {
       ...cert,
-      id: getNextId(),
+      id: uuidv4(),
       updatedAt: new Date().toISOString()
     }
     items.value.push(newCert)
@@ -47,16 +47,15 @@ export const useCertificationStore = defineStore('certifications', () => {
     }
   }
 
-  const duplicate = (id: number): number | undefined => {
+  const duplicate = (id: number): string | undefined => {
     const original = getCertificationById(id)
     if (!original) return
     const copy: Certification = {
       ...JSON.parse(JSON.stringify(original)),
-      id: getNextId(),
+      id: uuidv4(),
       updatedAt: new Date().toISOString()
     }
     items.value.push(copy)
-    scheduleSave()
     return copy.id
   }
 
@@ -76,7 +75,6 @@ export const useCertificationStore = defineStore('certifications', () => {
     update,
     duplicate,
     remove,
-    getCertificationById,
-    getNextId
+    getCertificationById
   }
 })
