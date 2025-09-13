@@ -244,10 +244,10 @@
       "en": "RESTful APIs"
     },
     "level": {
-      "es": "Avanzado",
-      "en": "Advanced"
+      "es": "Intermedio-Avanzado",
+      "en": "Intermediate-Advanced"
     },
-    "percentage": 80,
+    "percentage": 72,
     "description": {
       "es": "Arquitectura de servicios web para comunicación entre sistemas",
       "en": "Web services architecture for system communication"
@@ -280,16 +280,16 @@
       "en": "Redux"
     },
     "level": {
-      "es": "Avanzado",
-      "en": "Advanced"
+      "es": "Básico-Intermedio",
+      "en": "Basic-Intermediate"
     },
-    "percentage": 80,
+    "percentage": 50,
     "description": {
       "es": "Contenedor de estado predecible para aplicaciones JavaScript",
       "en": "Predictable state container for JavaScript applications"
     },
     "category": "frontend",
-    "type": "library"
+    "type": "tool"
   },
   {
     "id": 19,
@@ -298,10 +298,10 @@
       "en": "Git"
     },
     "level": {
-      "es": "Avanzado",
-      "en": "Advanced"
+      "es": "Intermedio-Avanzado",
+      "en": "Intermediate-Advanced"
     },
-    "percentage": 85,
+    "percentage": 50,
     "description": {
       "es": "Sistema de control de versiones distribuido",
       "en": "Distributed version control system"
@@ -316,10 +316,10 @@
       "en": "Docker"
     },
     "level": {
-      "es": "Básico",
-      "en": "Basic"
+      "es": "Intermedio",
+      "en": "Intermediate"
     },
-    "percentage": 40,
+    "percentage": 60,
     "description": {
       "es": "Plataforma de contenedores para desarrollo y despliegue",
       "en": "Container platform for development and deployment"
