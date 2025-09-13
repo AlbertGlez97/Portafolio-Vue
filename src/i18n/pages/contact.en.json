@@ -1,0 +1,41 @@
+{
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's talk about your next project",
+    "info": "Contact Information",
+    "details": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "linkedin": "LinkedIn"
+    },
+    "follow": "Follow me on:",
+    "cta": {
+      "title": "Ready to work together?",
+      "description": "I'm available for new projects and collaboration opportunities.",
+      "downloadCV": "Download CV",
+      "connectLinkedIn": "Connect on LinkedIn"
+    },
+    "form": {
+      "title": "Send me a message",
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! I will contact you soon.",
+      "error": "There was an error sending the message. Please try again.",
+      "errors": {
+        "nameRequired": "Name is required",
+        "nameMin": "Name must be at least 2 characters",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email",
+        "subjectRequired": "Subject is required",
+        "subjectMin": "Subject must be at least 5 characters",
+        "messageRequired": "Message is required",
+        "messageMin": "Message must be at least 10 characters"
+      }
+    }
+  }
+}

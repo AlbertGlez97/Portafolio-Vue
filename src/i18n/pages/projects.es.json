@@ -1,0 +1,19 @@
+{
+  "projects": {
+    "subtitle": "Proyectos destacados y desarrollos profesionales",
+    "featured": "Proyectos Destacados",
+    "others": "Otros Proyectos",
+    "stats": "Estadísticas de Proyectos",
+    "completed": "Proyectos Completados",
+    "technologiesUsed": "Tecnologías Utilizadas",
+    "featuredCount": "Proyectos Destacados",
+    "responsive": "Diseño Responsivo",
+    "techSection": "Tecnologías en Proyectos"
+  },
+  "projectCard": {
+    "features": "Características Principales:",
+    "technologies": "Tecnologías Utilizadas:",
+    "viewProject": "Ver Proyecto",
+    "confidential": "Proyecto confidencial"
+  }
+}

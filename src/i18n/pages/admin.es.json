@@ -1,0 +1,177 @@
+{
+  "admin": {
+    "projects": {
+      "header": "Gestión de Proyectos del Portafolio",
+      "new": "Nuevo Proyecto",
+      "newAria": "Crear un nuevo proyecto",
+      "newHint": "Crear un nuevo proyecto (Alt + N)"
+    },
+    "experience": {
+      "header": "Gestión de Experiencia Profesional",
+      "new": "Nueva Experiencia",
+      "modal": {
+        "titleNew": "Nueva Experiencia",
+        "titleEdit": "Editar Experiencia",
+        "save": "Guardar",
+        "cancel": "Cancelar",
+        "addTech": "Agregar"
+      }
+    },
+    "certifications": {
+      "header": "Gestión de Certificaciones",
+      "new": "Nueva Certificación",
+      "modal": {
+        "titleNew": "Nueva Certificación",
+        "titleEdit": "Editar Certificación",
+        "save": "Guardar",
+        "cancel": "Cancelar"
+      }
+    },
+    "technicalSkills": {
+      "header": "Gestión de Habilidades Técnicas",
+      "new": "Nueva Habilidad",
+      "modal": {
+        "titleNew": "Nueva Habilidad Técnica",
+        "titleEdit": "Editar Habilidad Técnica",
+        "save": "Guardar",
+        "cancel": "Cancelar"
+      }
+    },
+    "tools": {
+      "header": "Gestión de Herramientas",
+      "new": "Nueva Herramienta",
+      "modal": {
+        "titleNew": "Nueva Herramienta",
+        "titleEdit": "Editar Herramienta",
+        "save": "Guardar",
+        "cancel": "Cancelar"
+      }
+    },
+    "softSkills": {
+      "header": "Gestión de Habilidades Blandas",
+      "new": "Nueva Habilidad Blanda",
+      "modal": {
+        "titleNew": "Nueva Habilidad Blanda",
+        "titleEdit": "Editar Habilidad Blanda",
+        "save": "Guardar",
+        "cancel": "Cancelar"
+      }
+    },
+    "profile": {
+      "modal": {
+        "title": "Editar información del perfil",
+        "save": "Guardar",
+        "cancel": "Cancelar"
+      },
+      "fields": {
+        "email": "Correo electrónico",
+        "phone": "Teléfono",
+        "locationEs": "Ubicación (ES)",
+        "locationEn": "Ubicación (EN)",
+        "linkedin": "LinkedIn",
+        "github": "GitHub",
+        "otherLinks": "Otros enlaces",
+        "add": "Añadir",
+        "addEmail": "Añadir correo",
+        "addPhone": "Añadir teléfono",
+        "remove": "Eliminar"
+      }
+    },
+    "title": "Título",
+    "role": "Puesto",
+    "description": "Descripción",
+    "name": "Nombre",
+    "level": "Nivel",
+    "titleEs": "Título ES",
+    "titleEn": "Título EN",
+    "company": "Empresa",
+    "featured": "Destacado",
+    "tech": "Tecnologías",
+    "actions": "Acciones",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "duplicate": "Duplicar",
+    "yes": "Sí",
+    "no": "No",
+    "confirmDelete": "¿Seguro que deseas eliminar este proyecto?",
+    "period": "Periodo",
+    "start": "Inicio",
+    "end": "Fin",
+    "present": "Presente",
+    "roleEs": "Puesto ES",
+    "roleEn": "Puesto EN",
+    "current": "Actual",
+    "location": "Ubicación",
+    "summaryEs": "Resumen ES",
+    "summaryEn": "Resumen EN",
+    "provider": "Proveedor",
+    "icon": "Ícono",
+    "descriptionEs": "Descripción ES",
+    "descriptionEn": "Descripción EN",
+    "link": "Enlace",
+    "category": "Categoría",
+    "levelEs": "Nivel ES",
+    "levelEn": "Nivel EN",
+    "percentage": "Porcentaje",
+    "type": "Tipo",
+    "customCategory": "Nueva categoría",
+    "modal": {
+      "titleNew": "Nuevo Proyecto",
+      "titleEdit": "Editar Proyecto",
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "titleEs": "Título ES",
+      "titleEn": "Título EN",
+      "featured": "Destacado",
+      "confidential": "Confidencial",
+      "company": "Empresa",
+      "contentEs": "Contenido ES",
+      "contentEn": "Content EN",
+      "descriptionEs": "Descripción ES",
+      "descriptionEn": "Descripción EN",
+      "features": "Características",
+      "addFeature": "Agregar característica",
+      "technologies": "Tecnologías",
+      "addTech": "Agregar",
+      "links": "Vínculos",
+      "projectUrl": "URL del proyecto",
+      "githubUrl": "URL de GitHub",
+      "image": "Imagen",
+      "imagePath": "Ruta de imagen"
+    }
+  },
+  "git": {
+    "modal": {
+      "title": "Subir Datos a Git",
+      "cancel": "Cancelar",
+      "upload": "Subir a Git",
+      "uploading": "Subiendo..."
+    },
+    "fields": {
+      "token": "Token de Acceso Personal",
+      "tokenPlaceholder": "ghp_xxxxxxxxxxxxxxxxxxxx",
+      "tokenHint": "Token de GitHub con permisos de escritura al repositorio",
+      "repository": "URL del Repositorio",
+      "repositoryPlaceholder": "https://github.com/usuario/repositorio",
+      "repositoryHint": "URL completa del repositorio de GitHub",
+      "branch": "Rama",
+      "branchPlaceholder": "main",
+      "branchHint": "Rama donde subir los cambios (por defecto: main)",
+      "commitMessage": "Mensaje del Commit",
+      "commitPlaceholder": "feat: actualizar datos del portafolio desde panel admin",
+      "filesToUpload": "Archivos a Subir",
+      "selectAll": "Seleccionar Todo",
+      "deselectAll": "Deseleccionar Todo"
+    },
+    "status": {
+      "preparing": "Preparando archivos para subir...",
+      "success": "¡Datos subidos exitosamente a Git!",
+      "error": "Error al subir los datos. Verifica tus credenciales y permisos."
+    }
+  },
+  "actions": {
+    "signOut": "Salir del modo administrador",
+    "editProfile": "Editar información del perfil",
+    "uploadToGit": "Subir a Git"
+  }
+}

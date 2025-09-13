@@ -1,0 +1,9 @@
+{
+  "notFound": {
+    "title": "Page not found",
+    "description": "Sorry, the page you are looking for does not exist or has been moved.",
+    "goHome": "Go Home",
+    "goBack": "Go Back",
+    "usefulLinks": "Useful Links"
+  }
+}

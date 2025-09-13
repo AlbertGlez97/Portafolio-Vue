@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Mí",
+    "education": "Educación",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "adminPanel": "Panel Administrativo"
+  },
+  "footer": {
+    "description": "Full Stack Developer especializado en Svelte, Vue.js, Node.js y .NET, con enfoque en IA y automatización.",
+    "location": "Ciudad de México, México",
+    "rights": "Todos los derechos reservados",
+    "madeWith": "Hecho con",
+    "by": "por Albert González"
+  },
+  "navbar": {
+    "switchToEnglish": "Cambiar a Inglés",
+    "switchToSpanish": "Cambiar a Español",
+    "lightMode": "Modo Claro",
+    "darkMode": "Modo Oscuro"
+  },
+  "auth": {
+    "title": "Iniciar sesión",
+    "username": "Usuario",
+    "password": "Contraseña",
+    "cancel": "Cancelar",
+    "accept": "Aceptar",
+    "errorInvalid": "Credenciales inválidas",
+    "hintDemo": "Demo: admin/admin"
+  }
+}

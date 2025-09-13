@@ -1,0 +1,19 @@
+{
+  "projects": {
+    "subtitle": "Featured projects and professional developments",
+    "featured": "Featured Projects",
+    "others": "Other Projects",
+    "stats": "Project Statistics",
+    "completed": "Completed Projects",
+    "technologiesUsed": "Technologies Used",
+    "featuredCount": "Featured Projects",
+    "responsive": "Responsive Design",
+    "techSection": "Technologies in Projects"
+  },
+  "projectCard": {
+    "features": "Main Features:",
+    "technologies": "Technologies Used:",
+    "viewProject": "View Project",
+    "confidential": "Confidential project"
+  }
+}

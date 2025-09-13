@@ -1,0 +1,15 @@
+{
+  "hero": {
+    "greeting": "Hola, soy",
+    "position": "Full Stack Developer",
+    "description": "Ingeniero en Informática especializado como Desarrollador Full Stack con enfoque en Frontend. Con más de 3 años de experiencia profesional creando interfaces modernas y funcionales centradas en el usuario. Competente en Svelte, Vue.js, JavaScript (ES6+) y manejo de estado con Redux. Experiencia en desarrollo backend con .NET MVC y Node.js (Express), implementando APIs REST y arquitecturas escalables. Apasionado por la innovación, el aprendizaje constante y el trabajo colaborativo en equipos ágiles.",
+    "downloadCV": "Descargar CV",
+    "contactMe": "Contáctame"
+  },
+  "home": {
+    "featured": {
+      "title": "Proyectos Destacados",
+      "viewAll": "Ver Todos los Proyectos"
+    }
+  }
+}

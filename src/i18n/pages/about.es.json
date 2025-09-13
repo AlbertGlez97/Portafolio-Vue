@@ -1,0 +1,67 @@
+{
+  "about": {
+    "title": "Sobre Mí",
+    "description": "Ingeniero en Informática especializado como Desarrollador Full Stack con enfoque en Front-End. Con 3 años de experiencia profesional desarrollando interfaces modernas, funcionales y centradas en el usuario. Competente en Svelte, Vue.js, JavaScript (ES6+), CSS3 y manejo de estado con Redux. Experiencia en desarrollo Back-End con .NET Core MVC, ASP.NET, consumo de APIs REST y bases de datos SQL Server. También soy Prompt Engineer, capaz de crear prompts útiles para IA que automatizan áreas de trabajo y generan ideas innovadoras. Me motiva la innovación, el trabajo en equipo y el aprendizaje constante en metodologías ágiles como Scrum.",
+    "goals": {
+      "shortTerm": "Consolidarme como Senior Full Stack Developer referente en Svelte y Vue.js, expandir mi liderazgo técnico gestionando equipos de 3-5 desarrolladores, convertirme en especialista empresarial en automatización con IA, y obtener una posición como Tech Lead en una empresa de mayor escala con certificaciones en cloud computing.",
+      "longTerm": "Evolucionar hacia Arquitecto de Software diseñando sistemas escalables y microservicios en cloud (Azure/AWS), asumir el rol de Tech Lead/Engineering Manager gestionando equipos de 10+ desarrolladores, liderar la implementación de IA a nivel empresarial con ROI medible, y opcionalmente emprender una startup tecnológica enfocada en automatización empresarial.",
+      "title": "Objetivos Profesionales",
+      "shortTitle": "Corto Plazo (1-2 años)",
+      "longTitle": "Largo Plazo (3-5 años)"
+    },
+    "journey": {
+      "title": "Mi Trayectoria Profesional",
+      "empty": "No hay experiencias registradas"
+    },
+    "interestsTitle": "Intereses y Pasiones",
+    "interests": {
+      "entrepreneurship": {
+        "title": "Emprendimiento Tecnológico",
+        "description": "Desarrollo proyectos independientes como Atotonilco Estudio y Carnal MX, combinando visión empresarial con desarrollo técnico."
+      },
+      "processOptimization": {
+        "title": "Optimización de Procesos",
+        "description": "Especializado en automatización mediante Prompt Engineering, buscando eficiencia en flujos de trabajo y procesos empresariales."
+      },
+      "continuousLearning": {
+        "title": "Aprendizaje Autodidacta",
+        "description": "Inversión constante en educación con múltiples certificaciones en JavaScript, Vue.js, Node.js y tecnologías emergentes."
+      },
+      "collaboration": {
+        "title": "Colaboración Multidisciplinaria",
+        "description": "Disfruto liderar equipos diversos con backend y QA, aplicando metodologías ágiles para crear soluciones innovadoras."
+      },
+      "problemSolving": {
+        "title": "Resolución Técnica Compleja",
+        "description": "Historial probado enfrentando desafíos técnicos diversos, desde soporte TI hasta arquitectura de software avanzada."
+      }
+    },
+    "softSkills": {
+      "title": "Habilidades Blandas",
+      "leadership": {
+        "title": "Liderazgo de Equipos",
+        "description": "Lidero el módulo de Consultas colaborando efectivamente con equipos de backend y QA."
+      },
+      "teamwork": {
+        "title": "Trabajo en Equipo",
+        "description": "Colaboro eficientemente en equipos multidisciplinarios usando metodologías ágiles como Scrum."
+      },
+      "learning": {
+        "title": "Aprendizaje Constante",
+        "description": "Me mantengo actualizado con nuevas tecnologías y mejores prácticas de desarrollo."
+      },
+      "innovation": {
+        "title": "Innovación",
+        "description": "Busco soluciones creativas y modernas para crear interfaces centradas en el usuario."
+      },
+      "problemSolving": {
+        "title": "Resolución de Problemas",
+        "description": "Analizo y resuelvo incidencias técnicas complejas de manera eficiente."
+      },
+      "communication": {
+        "title": "Comunicación Efectiva",
+        "description": "Transmito ideas técnicas de forma clara entre equipos de desarrollo y QA."
+      }
+    }
+  }
+}

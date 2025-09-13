@@ -1,0 +1,12 @@
+{
+  "skills": {
+    "subtitle": "Mi stack tecnológico y competencias profesionales",
+    "technical": "Habilidades Técnicas",
+    "toolsTech": "Herramientas y Tecnologías",
+    "tools": "Herramientas",
+    "methodologies": "Metodologías",
+    "soft": "Habilidades Blandas",
+    "frontend": "Desarrollo Frontend",
+    "backend": "Desarrollo Backend"
+  }
+}

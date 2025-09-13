@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "education": "Education",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "adminPanel": "Admin Panel"
+  },
+  "footer": {
+    "description": "Full Stack Developer specialized in Svelte, Vue.js, Node.js and .NET, focused on AI and automation.",
+    "location": "Mexico City, Mexico",
+    "rights": "All rights reserved",
+    "madeWith": "Made with",
+    "by": "by Albert González"
+  },
+  "navbar": {
+    "switchToEnglish": "Switch to English",
+    "switchToSpanish": "Switch to Spanish",
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode"
+  },
+  "auth": {
+    "title": "Sign in",
+    "username": "Username",
+    "password": "Password",
+    "cancel": "Cancel",
+    "accept": "Sign in",
+    "errorInvalid": "Invalid credentials",
+    "hintDemo": "Demo: admin/admin"
+  }
+}

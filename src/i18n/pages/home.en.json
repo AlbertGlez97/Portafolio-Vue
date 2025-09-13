@@ -1,0 +1,15 @@
+{
+  "hero": {
+    "greeting": "Hi, I'm",
+    "position": "Full Stack Developer",
+    "description": "Computer Engineering graduate specialized as a Full Stack Developer with Frontend focus. Over 3 years of professional experience creating modern, functional, and user-centered interfaces. Proficient in Svelte, Vue.js, JavaScript (ES6+) and state management with Redux. Experience in backend development with .NET MVC and Node.js (Express), implementing REST APIs and scalable architectures. Passionate about innovation, continuous learning and collaborative work in agile teams.",
+    "downloadCV": "Download CV",
+    "contactMe": "Contact Me"
+  },
+  "home": {
+    "featured": {
+      "title": "Featured Projects",
+      "viewAll": "View All Projects"
+    }
+  }
+}

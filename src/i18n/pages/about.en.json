@@ -1,0 +1,67 @@
+{
+  "about": {
+    "title": "About Me",
+    "description": "Computer Engineering graduate specialized as a Full Stack Developer with Front-End focus. 3 years of professional experience developing modern, functional, and user-centered interfaces. Proficient in Svelte, Vue.js, JavaScript (ES6+), CSS3 and state management with Redux. Experience in Back-End development with .NET Core MVC, ASP.NET, REST API consumption and SQL Server databases. Also a Prompt Engineer, capable of creating useful AI prompts that automate work areas and generate innovative ideas. Motivated by innovation, teamwork and continuous learning in agile methodologies like Scrum.",
+    "goals": {
+      "shortTerm": "Establish myself as a Senior Full Stack Developer expert in Svelte and Vue.js, expand my technical leadership managing 3-5 developer teams, become an enterprise specialist in AI automation, and secure a Tech Lead position at a larger-scale company with cloud computing certifications.",
+      "longTerm": "Evolve towards Software Architect designing scalable systems and cloud microservices (Azure/AWS), assume Tech Lead/Engineering Manager role managing 10+ developer teams, lead enterprise-level AI implementation with measurable ROI, and optionally launch a technology startup focused on enterprise automation.",
+      "title": "Professional Goals",
+      "shortTitle": "Short Term (1-2 years)",
+      "longTitle": "Long Term (3-5 years)"
+    },
+    "journey": {
+      "title": "My Professional Journey",
+      "empty": "No experiences recorded"
+    },
+    "interestsTitle": "Interests and Passions",
+    "interests": {
+      "entrepreneurship": {
+        "title": "Tech Entrepreneurship",
+        "description": "Developing independent projects like Atotonilco Estudio and Carnal MX, combining business vision with technical development."
+      },
+      "processOptimization": {
+        "title": "Process Optimization",
+        "description": "Specialized in automation through Prompt Engineering, seeking efficiency in workflows and business processes."
+      },
+      "continuousLearning": {
+        "title": "Self-Directed Learning",
+        "description": "Constant investment in education with multiple certifications in JavaScript, Vue.js, Node.js and emerging technologies."
+      },
+      "collaboration": {
+        "title": "Multidisciplinary Collaboration",
+        "description": "I enjoy leading diverse teams with backend and QA, applying agile methodologies to create innovative solutions."
+      },
+      "problemSolving": {
+        "title": "Complex Technical Resolution",
+        "description": "Proven track record facing diverse technical challenges, from IT support to advanced software architecture."
+      }
+    },
+    "softSkills": {
+      "title": "Soft Skills",
+      "leadership": {
+        "title": "Team Leadership",
+        "description": "I lead the Consultations module effectively collaborating with backend and QA teams."
+      },
+      "teamwork": {
+        "title": "Teamwork",
+        "description": "I collaborate efficiently in multidisciplinary teams using agile methodologies like Scrum."
+      },
+      "learning": {
+        "title": "Continuous Learning",
+        "description": "I stay updated with new technologies and development best practices."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "I seek creative and modern solutions to create user-centered interfaces."
+      },
+      "problemSolving": {
+        "title": "Problem Solving",
+        "description": "I analyze and solve complex technical issues efficiently."
+      },
+      "communication": {
+        "title": "Effective Communication",
+        "description": "I convey technical ideas clearly between development and QA teams."
+      }
+    }
+  }
+}

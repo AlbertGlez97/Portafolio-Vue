@@ -1,11 +1,9 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import i18n from '../i18n'
-import es from '../i18n/es.json'
-import en from '../i18n/en.json'
+import i18n, { messages } from '../i18n'
 
-// Diccionario de traducciones cargado desde JSON.
-const translations = { es, en }
+// Diccionario de traducciones cargado desde la nueva estructura por páginas
+const translations = messages
 
 /**
  * Store global de la aplicación.

@@ -114,7 +114,7 @@
               </svg>
             </div>
             <h3>{{ t.about.goals.shortTitle }}</h3>
-            <p>{{ getTranslatedText(personalData?.about?.goals?.shortTerm ?? '') }}</p>
+            <p>{{ t.about.goals.shortTerm }}</p>
           </div>
 
           <div class="goal-card animate-fadeInUp">
@@ -124,7 +124,7 @@
               </svg>
             </div>
             <h3>{{ t.about.goals.longTitle }}</h3>
-            <p>{{ getTranslatedText(personalData?.about?.goals?.longTerm ?? '') }}</p>
+            <p>{{ t.about.goals.longTerm }}</p>
           </div>
         </div>
       </section>
@@ -133,23 +133,61 @@
       <section class="interests section">
         <h2 class="section-title">{{ t.about.interestsTitle }}</h2>
         <div class="interests-grid">
-          <div
-            v-for="interest in personalData?.about?.interests ?? []"
-            :key="interest?.title?.en"
-            class="interest-card animate-fadeInUp"
-          >
+          <!-- Emprendimiento Tecnológico -->
+          <div class="interest-card animate-fadeInUp">
             <div class="interest-icon">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                <path v-if="interest.icon === 'components'"
-                  d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
-                <path v-else-if="interest.icon === 'meetings'"
-                  d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
-                <path v-else
-                  d="M17.5,12A1.5,1.5 0 0,1 16,10.5A1.5,1.5 0 0,1 17.5,9A1.5,1.5 0 0,1 19,10.5A1.5,1.5 0 0,1 17.5,12M14.5,8A1.5,1.5 0 0,1 13,6.5A1.5,1.5 0 0,1 14.5,5A1.5,1.5 0 0,1 16,6.5A1.5,1.5 0 0,1 14.5,8M9.5,8A1.5,1.5 0 0,1 8,6.5A1.5,1.5 0 0,1 9.5,5A1.5,1.5 0 0,1 11,6.5A1.5,1.5 0 0,1 9.5,8M6.5,12A1.5,1.5 0 0,1 5,10.5A1.5,1.5 0 0,1 6.5,9A1.5,1.5 0 0,1 8,10.5A1.5,1.5 0 0,1 6.5,12M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A8.5,8.5 0 0,0 20.5,12.5A8.5,8.5 0 0,0 12,3Z" />
+                <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,6L13,6V10.5L15.5,8L17,9.5L13.25,13.25L17,17L15.5,18.5L11,14V18L9,18V10L11,6Z" />
               </svg>
             </div>
-            <h3>{{ getTranslatedText(interest?.title ?? '') }}</h3>
-            <p>{{ getTranslatedText(interest?.description ?? '') }}</p>
+            <h3>{{ t.about.interests.entrepreneurship.title }}</h3>
+            <p>{{ t.about.interests.entrepreneurship.description }}</p>
+          </div>
+
+
+          <!-- Optimización de Procesos -->
+          <div class="interest-card animate-fadeInUp">
+            <div class="interest-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22A1,1 0 0,1 23,15V18A1,1 0 0,1 22,19H21V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V19H2A1,1 0 0,1 1,18V15A1,1 0 0,1 2,14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2M7.5,13A0.5,0.5 0 0,0 7,13.5A0.5,0.5 0 0,0 7.5,14A0.5,0.5 0 0,0 8,13.5A0.5,0.5 0 0,0 7.5,13M16.5,13A0.5,0.5 0 0,0 16,13.5A0.5,0.5 0 0,0 16.5,14A0.5,0.5 0 0,0 17,13.5A0.5,0.5 0 0,0 16.5,13Z" />
+              </svg>
+            </div>
+            <h3>{{ t.about.interests.processOptimization.title }}</h3>
+            <p>{{ t.about.interests.processOptimization.description }}</p>
+          </div>
+
+          <!-- Aprendizaje Autodidacta -->
+          <div class="interest-card animate-fadeInUp">
+            <div class="interest-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z" />
+              </svg>
+            </div>
+            <h3>{{ t.about.interests.continuousLearning.title }}</h3>
+            <p>{{ t.about.interests.continuousLearning.description }}</p>
+          </div>
+
+
+          <!-- Colaboración Multidisciplinaria -->
+          <div class="interest-card animate-fadeInUp">
+            <div class="interest-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16,4C18.22,4 20.03,5.2 20.69,7H23V9H20.69C20.03,10.8 18.22,12 16,12C13.78,12 11.97,10.8 11.31,9H3V7H11.31C11.97,5.2 13.78,4 16,4M16,6A2,2 0 0,0 14,8A2,2 0 0,0 16,10A2,2 0 0,0 18,8A2,2 0 0,0 16,6M8,13C10.22,13 12.03,14.2 12.69,16H21V18H12.69C12.03,19.8 10.22,21 8,21C5.78,21 3.97,19.8 3.31,18H1V16H3.31C3.97,14.2 5.78,13 8,13M8,15A2,2 0 0,0 6,17A2,2 0 0,0 8,19A2,2 0 0,0 10,17A2,2 0 0,0 8,15Z" />
+              </svg>
+            </div>
+            <h3>{{ t.about.interests.collaboration.title }}</h3>
+            <p>{{ t.about.interests.collaboration.description }}</p>
+          </div>
+
+          <!-- Resolución Técnica Compleja -->
+          <div class="interest-card animate-fadeInUp">
+            <div class="interest-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+              </svg>
+            </div>
+            <h3>{{ t.about.interests.problemSolving.title }}</h3>
+            <p>{{ t.about.interests.problemSolving.description }}</p>
           </div>
         </div>
       </section>
@@ -191,8 +229,8 @@
               </svg>
             </div>
             <div class="skill-content">
-              <h3>{{ t.about.softSkills.analytical.title }}</h3>
-              <p>{{ t.about.softSkills.analytical.description }}</p>
+              <h3>{{ t.about.softSkills.problemSolving.title }}</h3>
+              <p>{{ t.about.softSkills.problemSolving.description }}</p>
             </div>
           </div>
 
@@ -204,8 +242,8 @@
               </svg>
             </div>
             <div class="skill-content">
-              <h3>{{ t.about.softSkills.timeManagement.title }}</h3>
-              <p>{{ t.about.softSkills.timeManagement.description }}</p>
+              <h3>{{ t.about.softSkills.communication.title }}</h3>
+              <p>{{ t.about.softSkills.communication.description }}</p>
             </div>
           </div>
         </div>
