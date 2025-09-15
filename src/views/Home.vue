@@ -226,6 +226,7 @@ const featuredProjects = projectsData.featured.slice(0, 2).map(project => ({
   );
   position: relative;
   overflow: hidden;
+  padding-top: 20px;
 }
 
 .hero::before {
