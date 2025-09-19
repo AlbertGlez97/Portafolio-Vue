@@ -43,7 +43,8 @@
         "jQuery",
         "Bootstrap",
         "C#",
-        ".NET MVC 6"
+        ".NET MVC 6",
+        "Razor"
       ],
       "metrics": {
         "responsive": "100%",
@@ -100,6 +101,7 @@
         "Bootstrap",
         "C#",
         ".NET MVC 6",
+        "Razor",
         "APIs REST",
         "SQL Server"
       ],

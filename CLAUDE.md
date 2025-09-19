@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```bash
 npm run dev
 ```
-Runs on http://localhost:5173
+Runs on http://localhost:5173 (configured in vite.config.ts with host: true for network access)
 
 **Build for production:**
 ```bash
@@ -24,7 +24,7 @@ npm run preview
 ```bash
 npm run test
 ```
-Uses Vitest for unit testing
+Uses Vitest for unit testing with jsdom environment. Tests are located in the `tests/` directory and cover components, stores, and router functionality.
 
 ## Architecture Overview
 
@@ -87,19 +87,31 @@ The **TechGalaxy** component creates a 3D sphere of technology names:
 
 - Default language: Spanish (`es`)
 - Fallback: English (`en`)
-- Translation files: `src/i18n/es.json`, `src/i18n/en.json`
-- Language switching handled by main store
+- **Page-based translation structure**: Translation files are organized by page in `src/i18n/pages/`
+  - Each page has separate `.es.json` and `.en.json` files (e.g., `home.es.json`, `about.en.json`)
+  - Common translations in `common.es.json` and `common.en.json`
+  - All translations are merged in `src/i18n/index.ts` using the `messages` export
+- Language switching handled by main store with localStorage persistence
+- Uses Vue I18n in Composition API mode (legacy: false)
 
 ## Router Structure
 
-Routes are lazy-loaded for optimal bundle splitting:
+Routes are lazy-loaded for optimal bundle splitting (except Home which loads directly):
 - `/` - Home with TechGalaxy
-- `/about` - Professional timeline
-- `/skills` - Technical and soft skills
-- `/projects` - Portfolio showcase
-- `/education` - Academic background
-- `/contact` - Contact form
-- `/admin` - Content management panel
+- `/sobre-mi` - Professional timeline (redirects from `/about`)
+- `/habilidades` - Technical and soft skills (redirects from `/skills`)
+- `/proyectos` - Portfolio showcase (redirects from `/projects`)
+- `/educacion` - Academic background (redirects from `/education`)
+- `/contacto` - Contact form (redirects from `/contact`)
+- `/admin` - Content management panel (requires authentication)
+- `/:pathMatch(.*)*` - 404 Not Found page
+
+The router includes:
+- Enhanced scroll behavior with smooth scrolling and header offset
+- Meta tags for SEO (title, description)
+- Authentication guards for admin routes
+- Automatic menu closing on navigation
+- Route metadata for navigation display
 
 ## File Paths and Imports
 
@@ -120,7 +132,12 @@ The admin interface (`/admin`) provides:
 
 ## Testing
 
-- **Vitest** for unit tests
+- **Vitest** for unit tests with jsdom environment
 - **@vue/test-utils** for Vue component testing
 - **jsdom** for DOM simulation
-- Test files should be placed in `tests/` directory
+- Test files are located in `tests/` directory
+- Current test coverage includes:
+  - Component tests (TechBadge, CertificationsTable)
+  - Store tests (certification, softSkill, technicalSkills, tool stores)
+  - Router configuration and navigation tests
+- Test configuration is defined in vite.config.ts with `test.environment: 'jsdom'`

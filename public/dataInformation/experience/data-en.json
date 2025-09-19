@@ -1,0 +1,49 @@
+{
+  "title": "Experience",
+  "experiences": [
+    {
+      "id": "sye-frontend-2024",
+      "position": "Frontend Developer",
+      "company": "Sye Software",
+      "location": "Mexico City, Mexico",
+      "startDate": "June 2024",
+      "endDate": "Present",
+      "current": true,
+      "responsibilities": [
+        "Developed user interfaces using Svelte and reusable components",
+        "Led technical development of Queries module, coordinating with backend and QA teams",
+        "Implemented REST API consumption and global state management with Redux",
+        "Collaborated using GitLab, Docker, and Scrum methodologies"
+      ]
+    },
+    {
+      "id": "towa-fullstack-2022",
+      "position": "Full Stack Developer (Frontend Focus)",
+      "company": "Towa Software",
+      "location": "Mexico City, Mexico",
+      "startDate": "May 2022",
+      "endDate": "May 2024",
+      "current": false,
+      "responsibilities": [
+        "Developed frontend and backend solutions using .NET MVC with scalable architecture",
+        "Created dynamic components with Vue.js and Bootstrap",
+        "Implemented test automation using Selenium",
+        "Managed projects using GitLab and Jira"
+      ]
+    },
+    {
+      "id": "strapps-intern-2021",
+      "position": "Software Developer (Internship)",
+      "company": "StrApps Consulting",
+      "location": "Mexico City, Mexico",
+      "startDate": "September 2021",
+      "endDate": "January 2022",
+      "current": false,
+      "responsibilities": [
+        "Developed responsive views using .NET Core MVC, jQuery, and Bootstrap",
+        "Built informational website using WordPress",
+        "Collaborated using GitHub for version control"
+      ]
+    }
+  ]
+}

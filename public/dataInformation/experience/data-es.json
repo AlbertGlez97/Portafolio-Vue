@@ -1,0 +1,49 @@
+{
+  "title": "Experiencia",
+  "experiences": [
+    {
+      "id": "sye-frontend-2024",
+      "position": "Desarrollador Frontend",
+      "company": "Sye Software",
+      "location": "Ciudad de México, México",
+      "startDate": "Junio 2024",
+      "endDate": "Presente",
+      "current": true,
+      "responsibilities": [
+        "Desarrollé interfaces de usuario utilizando Svelte y componentes reutilizables",
+        "Lideré el desarrollo técnico del módulo de Consultas, coordinando con equipos de backend y QA",
+        "Implementé consumo de APIs REST y manejo de estado global con Redux",
+        "Colaboré utilizando GitLab, Docker y metodologías Scrum"
+      ]
+    },
+    {
+      "id": "towa-fullstack-2022",
+      "position": "Desarrollador Full Stack (Enfoque Frontend)",
+      "company": "Towa Software",
+      "location": "Ciudad de México, México",
+      "startDate": "Mayo 2022",
+      "endDate": "Mayo 2024",
+      "current": false,
+      "responsibilities": [
+        "Desarrollé soluciones frontend y backend usando .NET MVC con arquitectura escalable",
+        "Creé componentes dinámicos con Vue.js y Bootstrap",
+        "Implementé automatización de pruebas usando Selenium",
+        "Gestioné proyectos usando GitLab y Jira"
+      ]
+    },
+    {
+      "id": "strapps-intern-2021",
+      "position": "Desarrollador de Software (Prácticas)",
+      "company": "StrApps Consulting",
+      "location": "Ciudad de México, México",
+      "startDate": "Septiembre 2021",
+      "endDate": "Enero 2022",
+      "current": false,
+      "responsibilities": [
+        "Desarrollé vistas responsivas usando .NET Core MVC, jQuery y Bootstrap",
+        "Construí sitio web informativo usando WordPress",
+        "Colaboré usando GitHub para control de versiones"
+      ]
+    }
+  ]
+}

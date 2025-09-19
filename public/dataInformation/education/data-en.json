@@ -1,0 +1,14 @@
+{
+  "title": "Education",
+  "education": [
+    {
+      "id": "computer-engineering-2022",
+      "degree": "Bachelor of Computer Engineering",
+      "institution": "Tecnológico de Estudios Superiores de Ecatepec",
+      "location": "Mexico",
+      "startDate": "2016",
+      "endDate": "2022",
+      "graduated": true
+    }
+  ]
+}

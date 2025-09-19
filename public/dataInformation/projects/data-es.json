@@ -1,0 +1,49 @@
+{
+  "title": "Proyectos Destacados",
+  "projects": [
+    {
+      "id": "atotonilco-studio",
+      "name": "Atotonilco Estudio",
+      "description": "Sitio web creado para promocionar los servicios de un estudio fotográfico. Desarrollado con diseño responsivo y enfocado en experiencia visual para mostrar el portafolio de manera atractiva.",
+      "technologies": [
+        "HTML/CSS",
+        "JavaScript",
+        "jQuery",
+        "Bootstrap",
+        "C# .NET MVC",
+        "Razor",
+        "Diseño Responsivo"
+      ],
+      "highlights": [
+        "Galería de imágenes optimizada",
+        "Interfaz centrada en experiencia visual",
+        "SEO optimizado",
+        "Performance A+"
+      ],
+      "url": "https://www.atotonilcoestudio.com/",
+      "type": "Sitio Web Comercial"
+    },
+    {
+      "id": "carnal-mx",
+      "name": "Carnal MX",
+      "description": "Sitio web para un proyecto artístico de crónica contemporánea sobre la Ciudad de México. Incluye vista de administrador con CRUD completo y consumo de APIs REST conectadas a SQL Server.",
+      "technologies": [
+        "HTML/CSS",
+        "JavaScript",
+        "Bootstrap",
+        "C# .NET MVC",
+        "Razor",
+        "APIs REST",
+        "SQL Server"
+      ],
+      "highlights": [
+        "Panel administrativo con CRUD completo",
+        "Integración con APIs REST",
+        "Base de datos SQL Server",
+        "Proyecto artístico y cultural"
+      ],
+      "url": "https://www.carnalmx.com/",
+      "type": "Sitio Web Cultural"
+    }
+  ]
+}

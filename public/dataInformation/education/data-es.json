@@ -1,0 +1,14 @@
+{
+  "title": "Educación",
+  "education": [
+    {
+      "id": "computer-engineering-2022",
+      "degree": "Licenciatura en Ingeniería en Informática",
+      "institution": "Tecnológico de Estudios Superiores de Ecatepec",
+      "location": "México",
+      "startDate": "2016",
+      "endDate": "2022",
+      "graduated": true
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "title": "Technical Skills",
+  "skills": [
+    {
+      "category": "languages",
+      "name": "Programming Languages",
+      "items": [
+        "JavaScript (ES6+)",
+        "TypeScript",
+        "C# / .NET",
+        "HTML5/CSS3"
+      ]
+    },
+    {
+      "category": "frameworks",
+      "name": "Frameworks and Libraries",
+      "items": [
+        "Vue.js",
+        "Svelte",
+        "Redux",
+        "Bootstrap"
+      ]
+    },
+    {
+      "category": "backend",
+      "name": "Backend and Databases",
+      "items": [
+        "Node.js",
+        "REST APIs",
+        "SQL Server"
+      ]
+    },
+    {
+      "category": "tools",
+      "name": "Tools and Methodologies",
+      "items": [
+        "Docker",
+        "Git (GitLab/GitHub)",
+        "Selenium",
+        "Agile/Scrum"
+      ]
+    }
+  ]
+}

@@ -3,7 +3,10 @@
     "allow": [
       "Bash(npm run dev:*)",
       "Bash(sort:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(move cv-styles.css styles )",
+      "Bash(move cv-es.html cv )",
+      "Bash(move cv-en.html cv)"
     ],
     "deny": [],
     "ask": []

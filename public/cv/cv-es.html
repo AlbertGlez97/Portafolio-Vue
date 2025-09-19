@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Alberto González - CV</title>
+    <link rel="stylesheet" href="../styles/cv-styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="download-section">
+        <button class="download-btn" onclick="downloadPDF()">
+            Descargar PDF
+        </button>
+    </div>
+
+    <div class="cv-container" id="cv-content">
+        <header>
+            <!-- Header content loaded dynamically from JSON -->
+            <div class="header-loading" style="text-align: center; padding: 20px; color: #666;">
+                <p>Cargando información personal...</p>
+            </div>
+        </header>
+
+        <main>
+            <!-- El contenido se carga dinámicamente desde JSON -->
+            <div class="loading-placeholder" style="text-align: center; padding: 40px; color: #666;">
+                <p>Cargando información del CV...</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts compartidos para funcionalidad CV -->
+    <script src="../scripts/cv-pdf-generator.js"></script>
+    <script src="../scripts/cv-event-handlers.js"></script>
+    <script src="../scripts/cv-auto-download.js"></script>
+    <script src="../scripts/cv-data-loader.js"></script>
+    <script src="../scripts/cv-renderer.js"></script>
+    <script src="../scripts/cv-es-config.js"></script>
+</body>
+</html>

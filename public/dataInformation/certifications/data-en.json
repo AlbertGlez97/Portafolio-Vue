@@ -1,0 +1,35 @@
+{
+  "title": "Certifications",
+  "certifications": [
+    {
+      "id": "towa-warrior-2023",
+      "name": "Engineering Warrior Training Program",
+      "issuer": "Towa Software",
+      "type": "professional"
+    },
+    {
+      "id": "platzi-js-2022",
+      "name": "Professional JavaScript Course",
+      "issuer": "Platzi",
+      "type": "online"
+    },
+    {
+      "id": "platzi-node-2022",
+      "name": "Backend with Node.js: REST API",
+      "issuer": "Platzi",
+      "type": "online"
+    },
+    {
+      "id": "udemy-vue-2021",
+      "name": "Vue.js 3 - Complete Guide",
+      "issuer": "Udemy",
+      "type": "online"
+    },
+    {
+      "id": "udemy-aspnet-mvc9",
+      "name": "Learn ASP.NET Core MVC 9 Building Projects From Scratch",
+      "issuer": "Udemy",
+      "type": "online"
+    }
+  ]
+}
