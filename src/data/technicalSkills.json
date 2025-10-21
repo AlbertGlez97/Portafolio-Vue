@@ -328,6 +328,60 @@
     "type": "tool"
   },
   {
+    "id": 24,
+    "name": {
+      "es": "NestJS",
+      "en": "NestJS"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "percentage": 70,
+    "description": {
+      "es": "Framework progresivo de Node.js para aplicaciones backend escalables",
+      "en": "Progressive Node.js framework for scalable backend applications"
+    },
+    "category": "backend",
+    "type": "framework"
+  },
+  {
+    "id": 25,
+    "name": {
+      "es": "PostgreSQL",
+      "en": "PostgreSQL"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "percentage": 65,
+    "description": {
+      "es": "Sistema de base de datos relacional avanzado y de código abierto",
+      "en": "Advanced open-source relational database system"
+    },
+    "category": "database",
+    "type": "tool"
+  },
+  {
+    "id": 26,
+    "name": {
+      "es": "MongoDB",
+      "en": "MongoDB"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "percentage": 65,
+    "description": {
+      "es": "Base de datos NoSQL orientada a documentos",
+      "en": "Document-oriented NoSQL database"
+    },
+    "category": "database",
+    "type": "tool"
+  },
+  {
     "id": 20,
     "name": {
       "es": "Selenium",

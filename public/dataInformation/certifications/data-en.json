@@ -30,6 +30,12 @@
       "name": "Learn ASP.NET Core MVC 9 Building Projects From Scratch",
       "issuer": "Udemy",
       "type": "online"
+    },
+    {
+      "id": "devtalles-nest-2024",
+      "name": "Nest: Scalable Backend Development with Node",
+      "issuer": "Fernando Herrera / DevTalles",
+      "type": "online"
     }
   ]
 }

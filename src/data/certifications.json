@@ -63,5 +63,18 @@
       "es": "Curso completo de ASP.NET Core MVC 9, desarrollo de aplicaciones web modernas desde cero con patrones MVC y mejores prácticas",
       "en": "Complete ASP.NET Core MVC 9 course, modern web application development from scratch with MVC patterns and best practices"
     }
+  },
+  {
+    "id": 6,
+    "title": {
+      "es": "Nest: Desarrollo backend escalable con Node",
+      "en": "Nest: Scalable Backend Development with Node"
+    },
+    "provider": "Fernando Herrera / DevTalles",
+    "icon": "nodejs",
+    "description": {
+      "es": "Curso completo de NestJS (+200 lecciones) con TypeScript, APIs REST robustas, PostgreSQL, MongoDB, WebSockets, autenticación JWT, patrones de diseño, Clean Code, Docker y buenas prácticas modulares para desarrollo backend escalable",
+      "en": "Complete NestJS course (+200 lessons) with TypeScript, robust REST APIs, PostgreSQL, MongoDB, WebSockets, JWT authentication, design patterns, Clean Code, Docker and modular best practices for scalable backend development"
+    }
   }
 ]
