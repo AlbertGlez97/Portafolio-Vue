@@ -100,9 +100,16 @@ const processClick = () => {
   user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
-  /* Asegurar que esté por encima de otros elementos pero no del navbar */
+  /* Asegurar que esté por encima de mobile-menu */
   position: relative;
-  z-index: 5;
+  z-index: 10;
+  /* Asegurar captura de eventos */
+  pointer-events: auto;
+  /* Mejorar respuesta táctil en móvil */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(76, 175, 80, 0.1);
+  /* No permitir shrink */
+  flex-shrink: 0;
 }
 
 .navbar-logo:hover {

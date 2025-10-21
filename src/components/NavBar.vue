@@ -151,11 +151,13 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000; /* Z-index específico para navbar */
+  z-index: var(--z-header); /* 1000 - Usar variable CSS para consistencia */
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   transition: all var(--transition-normal);
   border-bottom: 1px solid transparent;
+  /* Importante: permitir que elementos hijos controlen pointer-events */
+  pointer-events: auto;
 }
 
 .navbar-scrolled {
@@ -181,6 +183,11 @@ onUnmounted(() => {
   /* Prevenir overflow en móvil */
   overflow: visible;
   width: 100%;
+  /* Asegurar que sea un contenedor de posicionamiento relativo */
+  position: relative;
+  z-index: 2; /* Por encima del mobile-menu */
+  /* Todos los elementos dentro deben responder a eventos */
+  pointer-events: auto;
 }
 
 
@@ -231,6 +238,11 @@ onUnmounted(() => {
   flex-shrink: 0;
   /* Asegurar que no se comprima ni se solape */
   min-width: fit-content;
+  /* Posicionamiento relativo con z-index alto para asegurar accesibilidad */
+  position: relative;
+  z-index: 10; /* Mayor que mobile-menu para asegurar clics */
+  /* Permitir todos los eventos de puntero */
+  pointer-events: auto;
 }
 
 .control-btn {
@@ -248,6 +260,13 @@ onUnmounted(() => {
   position: relative;
   /* Asegurar que no se solapen entre sí */
   flex-shrink: 0;
+  /* Z-index individual para cada botón */
+  z-index: 11;
+  /* Asegurar que capture eventos táctiles y de mouse */
+  pointer-events: auto;
+  /* Mejorar área táctil en móvil */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .control-btn:hover {
@@ -271,6 +290,10 @@ onUnmounted(() => {
   /* Asegurar que no se solape con otros elementos */
   flex-shrink: 0;
   position: relative;
+  /* Z-index más alto que otros controles */
+  z-index: 12;
+  /* Capturar todos los eventos */
+  pointer-events: auto;
 }
 
 .mobile-menu-btn span {
@@ -305,12 +328,20 @@ onUnmounted(() => {
   transform: translateY(-100%);
   opacity: 0;
   transition: all var(--transition-normal);
-  z-index: 999; /* Ligeramente menos que navbar pero más que contenido */
+  /* Z-index menor que navbar-content para no bloquear controles */
+  z-index: 1;
+  /* CRÍTICO: Cuando está cerrado, no debe capturar eventos */
+  pointer-events: none;
+  /* Máximo altura para evitar solapamiento excesivo */
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
 }
 
 .mobile-menu.active {
   transform: translateY(0);
   opacity: 1;
+  /* CRÍTICO: Cuando está abierto, SÍ debe capturar eventos */
+  pointer-events: auto;
 }
 
 .mobile-menu-list {
@@ -385,6 +416,10 @@ onUnmounted(() => {
     /* Padding horizontal para evitar solapamiento en los bordes */
     padding-left: var(--spacing-xs);
     padding-right: var(--spacing-xs);
+    /* Mantener z-index más alto en móvil */
+    z-index: 10;
+    /* Asegurar que capture eventos en toda su área */
+    pointer-events: auto;
   }
 
   /* Asegurar que el logo esté a la izquierda */
@@ -393,6 +428,9 @@ onUnmounted(() => {
     flex-shrink: 0;
     /* Margen derecho automático para empujar controles a la derecha */
     margin-right: auto;
+    /* Z-index para asegurar clics */
+    position: relative;
+    z-index: 15;
   }
 
   /* Asegurar que los controles estén a la derecha */
@@ -400,6 +438,9 @@ onUnmounted(() => {
     order: 3;
     flex-shrink: 0;
     /* Sin margin-left auto ya que lo maneja justify-content */
+    /* Z-index para asegurar clics */
+    position: relative;
+    z-index: 15;
   }
 }
 

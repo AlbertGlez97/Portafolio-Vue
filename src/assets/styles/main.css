@@ -210,6 +210,10 @@ a:hover {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 var(--spacing-md);
+  /* CRÍTICO: Prevenir overflow horizontal */
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .section {
@@ -380,18 +384,28 @@ a:hover {
     --spacing-2xl: 3rem;
     --spacing-xl: 2rem;
   }
-  
+
   .container {
     padding: 0 var(--spacing-sm);
+    /* CRÍTICO: Asegurar que no haya overflow en móvil */
+    max-width: 100vw;
+    width: 100%;
+    overflow-x: hidden;
   }
-  
+
   .section {
     padding: var(--spacing-xl) 0;
+    /* Prevenir overflow en secciones */
+    overflow-x: hidden;
+    max-width: 100%;
   }
-  
+
   .btn {
     padding: var(--spacing-xs) var(--spacing-md);
     font-size: var(--font-size-sm);
+    /* Asegurar que los botones no causen overflow */
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }
 

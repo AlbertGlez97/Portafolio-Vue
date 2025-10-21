@@ -29,20 +29,37 @@ const showLoginModal = ref(false)
   box-sizing: border-box;
 }
 
+html {
+  /* CRÍTICO: Prevenir scroll horizontal en toda la página */
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
   color: #333;
+  /* CRÍTICO: Prevenir scroll horizontal */
   overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
 }
 
 #app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  /* CRÍTICO: Prevenir overflow en el contenedor principal */
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
 }
 
 main {
   flex: 1;
+  /* Asegurar que main no cause overflow */
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 </style>

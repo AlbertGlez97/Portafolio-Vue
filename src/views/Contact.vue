@@ -411,6 +411,10 @@ const formatLink = (url: string): string => {
 <style scoped>
 .contact {
   padding-top: 70px;
+  /* CRÍTICO: Prevenir scroll horizontal */
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 .contact-hero {
@@ -435,6 +439,9 @@ const formatLink = (url: string): string => {
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-2xl);
   align-items: start;
+  /* Prevenir que el grid cause overflow */
+  width: 100%;
+  max-width: 100%;
 }
 
 .contact-info {
@@ -442,6 +449,11 @@ const formatLink = (url: string): string => {
   padding: var(--spacing-2xl);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-sm);
+  /* Prevenir overflow */
+  width: 100%;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .contact-info h2 {
@@ -538,6 +550,10 @@ const formatLink = (url: string): string => {
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-md);
   border: 1px solid rgba(76, 175, 80, 0.1);
+  /* CRÍTICO: Prevenir overflow del formulario */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .contact-form h2 {
@@ -569,6 +585,11 @@ const formatLink = (url: string): string => {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   transition: all var(--transition-fast);
+  /* CRÍTICO: Asegurar que no cause overflow */
+  box-sizing: border-box;
+  max-width: 100%;
+  /* Prevenir resize que puede causar overflow */
+  resize: vertical;
 }
 
 .form-group input:focus,
@@ -695,47 +716,96 @@ const formatLink = (url: string): string => {
 
 /* Responsive */
 @media (max-width: 768px) {
+  /* CRÍTICO: Asegurar que no haya overflow en móvil */
+  .contact {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
   .contact-grid {
     grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
+    /* Reducir gap en móvil */
+    width: 100%;
+    max-width: 100%;
   }
 
   .contact-info,
   .contact-form-container {
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    /* Asegurar que el padding no cause overflow */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .social-buttons {
     flex-direction: column;
+    /* Asegurar que no cause overflow */
+    width: 100%;
   }
 
   .social-btn {
     justify-content: center;
+    /* Asegurar que los botones no se salgan */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .cta-actions {
     flex-direction: column;
     align-items: center;
+    /* Asegurar que no cause overflow */
+    width: 100%;
   }
 
   .cta-actions .btn {
     width: 100%;
     max-width: 300px;
+    box-sizing: border-box;
+  }
+
+  /* Asegurar que el formulario no cause overflow */
+  .contact-form {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .form-group {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
 @media (max-width: 480px) {
   .contact-info,
   .contact-form-container {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
+    /* Reducir padding en pantallas muy pequeñas */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .info-items {
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
+    width: 100%;
   }
 
   .info-item {
     padding: var(--spacing-sm);
+    /* Asegurar que el texto largo se rompa */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .info-content p {
+    /* Prevenir que URLs largas causen overflow */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
   }
 
   .cta-content h2 {
@@ -744,6 +814,17 @@ const formatLink = (url: string): string => {
 
   .cta-content p {
     font-size: var(--font-size-base);
+  }
+
+  /* Ajustar padding del formulario para pantallas muy pequeñas */
+  .form-group input,
+  .form-group textarea {
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+  }
+
+  .submit-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
   }
 }
 </style>
