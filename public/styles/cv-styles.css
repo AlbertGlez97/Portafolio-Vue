@@ -148,8 +148,8 @@ section:last-child {
 }
 
 .skills-list {
-    columns: 2;
-    column-gap: 30pt;
+    columns: 3;
+    column-gap: 20pt;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -218,6 +218,42 @@ section:last-child {
     a {
         color: inherit;
         text-decoration: none;
+    }
+
+    /* CRÍTICO: Forzar 3 columnas en PDF independientemente del dispositivo */
+    .skills-list {
+        columns: 3 !important;
+        column-gap: 18pt !important;
+    }
+
+    .skills-list li {
+        font-size: 9pt;
+        margin-bottom: 1pt;
+        break-inside: avoid;
+    }
+
+    /* CRÍTICO: Forzar formato desktop del header en PDF */
+    .contact-info {
+        text-align: center !important;
+    }
+
+    .contact-item {
+        display: inline !important;
+        margin-right: 20pt !important;
+        margin-bottom: 0 !important;
+        text-align: center !important;
+    }
+
+    .contact-item:last-child {
+        margin-right: 0 !important;
+    }
+
+    /* Forzar que entry-header se mantenga en línea */
+    .entry-header {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: baseline !important;
     }
 }
 
