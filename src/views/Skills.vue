@@ -143,16 +143,22 @@ const toolsByCategory = computed(() => {
 }
 
 .skills-hero {
-  background: linear-gradient(135deg, 
-    rgba(76, 175, 80, 0.05) 0%, 
-    rgba(255, 193, 7, 0.05) 100%);
+  background: transparent;
   text-align: center;
 }
 
+.skills-hero .section-title {
+  font-style: italic;
+}
+
 .hero-subtitle {
-  font-size: var(--font-size-xl);
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
   color: var(--text-secondary);
   margin-top: var(--spacing-md);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .technical-skills {
@@ -169,15 +175,15 @@ const toolsByCategory = computed(() => {
   background-color: var(--bg-primary);
   padding: var(--spacing-2xl);
   border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-md);
-  border: 1px solid rgba(76, 175, 80, 0.1);
-  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.4s var(--ease-out-expo);
 }
 
 .skill-category:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--primary-light);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(76, 175, 80, 0.15);
 }
 
 .category-header {
@@ -186,7 +192,7 @@ const toolsByCategory = computed(() => {
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-xl);
   padding-bottom: var(--spacing-md);
-  border-bottom: 2px solid rgba(76, 175, 80, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .category-header svg {
@@ -222,14 +228,14 @@ const toolsByCategory = computed(() => {
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-sm);
   text-align: center;
-  transition: all var(--transition-normal);
-  border: 1px solid rgba(76, 175, 80, 0.1);
+  transition: all 0.4s var(--ease-out-expo);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .tool-category:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-  border-color: var(--primary-light);
+  border-color: rgba(76, 175, 80, 0.15);
 }
 
 .category-icon {
@@ -273,14 +279,14 @@ const toolsByCategory = computed(() => {
   padding: var(--spacing-lg);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
-  border: 1px solid rgba(76, 175, 80, 0.1);
+  transition: all 0.4s var(--ease-out-expo);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .soft-skill-item:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-  border-color: var(--primary-light);
+  border-color: rgba(76, 175, 80, 0.15);
 }
 
 .skill-content h3 {

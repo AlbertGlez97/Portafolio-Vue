@@ -307,9 +307,7 @@ const journeyItems = computed(() => {
 }
 
 .about-hero {
-  background: linear-gradient(135deg,
-      rgba(76, 175, 80, 0.05) 0%,
-      rgba(255, 193, 7, 0.05) 100%);
+  background: transparent;
 }
 
 .hero-content {
@@ -321,11 +319,13 @@ const journeyItems = computed(() => {
 
 .hero-text h1 {
   margin-bottom: var(--spacing-lg);
+  font-style: italic;
 }
 
 .hero-description {
+  font-family: var(--font-body);
   font-size: var(--font-size-lg);
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--text-secondary);
 }
 
@@ -336,33 +336,33 @@ const journeyItems = computed(() => {
 
 .image-placeholder {
   width: 300px;
-  height: 300px;
-  border-radius: var(--border-radius-full);
+  height: 380px;
+  border-radius: 20px;
   background-image: url("@/assets/img/fotoPerfil2.jpg");
   background-size: cover;
-  border: 3px dashed var(--primary-light);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-md);
-  transition: all var(--transition-normal);
+  background-position: center;
+  border: none;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.5s var(--ease-out-expo);
+}
+
+.image-placeholder::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border: 1.5px solid rgba(76, 175, 80, 0.2);
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+.image-placeholder:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
 }
 
 .placeholder-content {
-  text-align: center;
-  color: var(--primary-color);
-}
-
-.placeholder-content svg {
-  margin-bottom: var(--spacing-sm);
-  opacity: 0.7;
-}
-
-.placeholder-content p {
-  font-size: var(--font-size-sm);
-  color: var(--text-light);
-  margin: 0;
+  display: none;
 }
 
 .personal-info {
@@ -389,14 +389,14 @@ const journeyItems = computed(() => {
   border-radius: var(--border-radius-lg);
   text-align: center;
   box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
-  border: 1px solid rgba(76, 175, 80, 0.1);
+  transition: all 0.4s var(--ease-out-expo);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .info-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-md);
-  border-color: var(--primary-light);
+  border-color: rgba(76, 175, 80, 0.15);
 }
 
 .card-icon {
@@ -474,15 +474,15 @@ const journeyItems = computed(() => {
   background-color: var(--bg-primary);
   padding: var(--spacing-lg);
   border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-md);
-  border: 1px solid rgba(76, 175, 80, 0.1);
-  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.4s var(--ease-out-expo);
 }
 
 .timeline-content:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--primary-light);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(76, 175, 80, 0.15);
 }
 
 .timeline-date {

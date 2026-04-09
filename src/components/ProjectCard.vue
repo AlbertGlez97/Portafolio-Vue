@@ -128,38 +128,33 @@ const badgeClass = computed(() => {
 <style scoped>
 .project-card {
   background-color: var(--bg-primary);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-md);
-  border: 1px solid rgba(76, 175, 80, 0.1);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   overflow: hidden;
-  transition: all var(--transition-normal);
+  transition: all 0.4s var(--ease-out-expo);
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--primary-light);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(76, 175, 80, 0.15);
 }
 
 .featured {
-  border-color: var(--primary-color);
-  background: linear-gradient(135deg, 
-    rgba(76, 175, 80, 0.05), 
-    rgba(255, 193, 7, 0.05));
+  border-color: rgba(76, 175, 80, 0.2);
 }
 
 .project-image {
   height: 200px;
-  background: linear-gradient(135deg, 
-    rgba(76, 175, 80, 0.1), 
-    rgba(255, 193, 7, 0.1));
+  background: var(--bg-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid rgba(76, 175, 80, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .image-placeholder {

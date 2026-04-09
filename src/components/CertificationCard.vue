@@ -42,17 +42,17 @@ const { getTranslatedText } = mainStore
   padding: var(--spacing-xl);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
-  border: 1px solid rgba(76, 175, 80, 0.1);
+  transition: all 0.4s var(--ease-out-expo);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .certification-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-  border-color: var(--primary-light);
+  border-color: rgba(76, 175, 80, 0.15);
 }
 
 .cert-header {

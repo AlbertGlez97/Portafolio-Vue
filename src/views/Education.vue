@@ -151,16 +151,18 @@ const educationData = getEducation
 }
 
 .education-hero {
-  background: linear-gradient(135deg, 
-    rgba(76, 175, 80, 0.05) 0%, 
-    rgba(255, 193, 7, 0.05) 100%);
+  background: transparent;
   text-align: center;
 }
 
 .hero-subtitle {
-  font-size: var(--font-size-xl);
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
   color: var(--text-secondary);
   margin-top: var(--spacing-md);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .academic-section {
@@ -169,17 +171,17 @@ const educationData = getEducation
 
 .education-card {
   background-color: var(--bg-primary);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-lg);
-  border: 2px solid var(--primary-light);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   overflow: hidden;
-  transition: all var(--transition-normal);
+  transition: all 0.4s var(--ease-out-expo);
 }
 
 .education-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(76, 175, 80, 0.15);
 }
 
 .main-degree {
@@ -325,15 +327,15 @@ const educationData = getEducation
   padding: var(--spacing-2xl);
   border-radius: var(--border-radius-lg);
   text-align: center;
-  box-shadow: var(--shadow-md);
-  transition: all var(--transition-normal);
-  border: 1px solid rgba(76, 175, 80, 0.1);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.4s var(--ease-out-expo);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .philosophy-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--primary-light);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(76, 175, 80, 0.15);
 }
 
 .philosophy-icon {

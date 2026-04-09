@@ -51,9 +51,11 @@ const levelClass = computed(() => {
 }
 
 .skill-name {
+  font-family: var(--font-body);
   font-weight: var(--font-weight-semibold);
   color: var(--text-primary);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.01em;
 }
 
 .skill-level {
@@ -85,7 +87,7 @@ const levelClass = computed(() => {
 
 .progress-bar {
   width: 100%;
-  height: 8px;
+  height: 4px;
   background-color: var(--bg-secondary);
   border-radius: var(--border-radius-full);
   overflow: hidden;

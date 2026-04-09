@@ -151,27 +151,28 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   right: 0;
-  z-index: var(--z-header); /* 1000 - Usar variable CSS para consistencia */
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  z-index: var(--z-header);
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px) saturate(1.8);
+  -webkit-backdrop-filter: blur(16px) saturate(1.8);
   transition: all var(--transition-normal);
   border-bottom: 1px solid transparent;
-  /* Importante: permitir que elementos hijos controlen pointer-events */
   pointer-events: auto;
 }
 
 .navbar-scrolled {
-  background-color: rgba(255, 255, 255, 0.98);
-  box-shadow: var(--shadow-sm);
-  border-bottom-color: rgba(76, 175, 80, 0.1);
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  border-bottom-color: rgba(0, 0, 0, 0.04);
 }
 
 .dark .navbar {
-  background-color: rgba(33, 33, 33, 0.95);
+  background-color: rgba(26, 26, 26, 0.9);
 }
 
 .dark .navbar-scrolled {
-  background-color: rgba(33, 33, 33, 0.98);
+  background-color: rgba(26, 26, 26, 0.95);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .navbar-content {
@@ -201,32 +202,34 @@ onUnmounted(() => {
 }
 
 .navbar-link {
-  color: var(--text-primary);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
   font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.02em;
   padding: var(--spacing-xs) var(--spacing-sm);
-  border-radius: var(--border-radius-md);
-  transition: all var(--transition-fast);
+  border-radius: 100px;
+  transition: all 0.3s var(--ease-out-expo);
   position: relative;
 }
 
 .navbar-link:hover {
-  color: var(--primary-color);
-  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--text-primary);
 }
 
 .navbar-link.active {
   color: var(--primary-color);
-  background-color: rgba(76, 175, 80, 0.15);
+  font-weight: var(--font-weight-semibold);
 }
 
 .navbar-link.active::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 20px;
-  height: 2px;
+  width: 4px;
+  height: 4px;
   background-color: var(--primary-color);
   border-radius: var(--border-radius-full);
 }

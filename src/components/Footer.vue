@@ -78,29 +78,32 @@ const formatLink = (url: string): string => {
 
 <style scoped>
 .footer {
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+  background: var(--bg-dark);
   color: var(--text-white);
   margin-top: auto;
 }
 
 .footer-top {
-  padding: var(--spacing-lg) 0;
+  padding: var(--spacing-xl) 0 var(--spacing-lg);
   text-align: center;
 }
 
 .footer-name {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-bold);
-  background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-normal);
+  color: var(--text-white);
+  -webkit-text-fill-color: unset;
+  background: none;
 }
 
 .footer-description {
-  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-body);
+  color: rgba(255, 255, 255, 0.5);
   margin-top: var(--spacing-xs);
   margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-sm);
 }
 
 .social-links {
@@ -113,25 +116,26 @@ const formatLink = (url: string): string => {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: var(--border-radius-full);
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--text-white);
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s var(--ease-out-expo);
 }
 
 .social-link:hover,
 .social-link:focus {
-  background-color: var(--accent-color);
-  color: var(--text-primary);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--text-white);
   transform: translateY(-2px);
   outline: none;
 }
 
 .footer-bottom {
-  background-color: var(--primary-dark);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: var(--spacing-sm) 0;
 }
 
@@ -141,8 +145,10 @@ const formatLink = (url: string): string => {
   align-items: center;
   flex-wrap: wrap;
   gap: var(--spacing-sm);
-  font-size: var(--font-size-sm);
-  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.35);
 }
 
 .footer-nav {
@@ -151,13 +157,16 @@ const formatLink = (url: string): string => {
 }
 
 .footer-nav-link {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.03em;
   transition: color var(--transition-fast);
 }
 
 .footer-nav-link:hover,
 .footer-nav-link:focus {
-  color: var(--accent-color);
+  color: var(--primary-color);
   outline: none;
 }
 

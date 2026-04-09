@@ -128,16 +128,18 @@ const technologyNames = computed(() =>
 }
 
 .projects-hero {
-  background: linear-gradient(135deg, 
-    rgba(76, 175, 80, 0.05) 0%, 
-    rgba(255, 193, 7, 0.05) 100%);
+  background: transparent;
   text-align: center;
 }
 
 .hero-subtitle {
-  font-size: var(--font-size-xl);
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
   color: var(--text-secondary);
   margin-top: var(--spacing-md);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .featured-projects {
@@ -176,15 +178,15 @@ const technologyNames = computed(() =>
   padding: var(--spacing-2xl);
   border-radius: var(--border-radius-lg);
   text-align: center;
-  box-shadow: var(--shadow-md);
-  transition: all var(--transition-normal);
-  border: 1px solid rgba(76, 175, 80, 0.1);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.4s var(--ease-out-expo);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .stat-item:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--primary-light);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(76, 175, 80, 0.15);
 }
 
 .stat-icon {
@@ -195,18 +197,16 @@ const technologyNames = computed(() =>
 }
 
 .stat-number {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--text-primary);
-  margin-bottom: var(--spacing-sm);
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-family: var(--font-display);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-normal);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-xs);
 }
 
 .stat-label {
-  font-size: var(--font-size-md);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
   color: var(--text-secondary);
   font-weight: var(--font-weight-medium);
 }

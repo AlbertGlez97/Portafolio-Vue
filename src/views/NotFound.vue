@@ -102,23 +102,23 @@ const goBack = () => {
 
 /* Número de error grande */
 .error-number {
-  font-size: 8rem;
-  font-weight: 900;
+  font-family: var(--font-display);
+  font-size: 10rem;
+  font-weight: 400;
+  font-style: italic;
   color: var(--primary-color);
   line-height: 1;
   margin-bottom: var(--spacing-md);
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  opacity: 0.8;
 }
 
 /* Título del error */
 .error-title {
+  font-family: var(--font-display);
   font-size: var(--font-size-3xl);
   color: var(--text-primary);
   margin-bottom: var(--spacing-md);
-  font-weight: 700;
+  font-weight: 400;
 }
 
 /* Descripción del error */

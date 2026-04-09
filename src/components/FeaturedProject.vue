@@ -55,26 +55,22 @@ const { getTranslatedText } = mainStore
 <style scoped>
 .project-card {
   background-color: var(--bg-primary);
-  border-radius: var(--border-radius-lg);
+  border-radius: var(--border-radius-xl);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
-  transition: all var(--transition-normal);
-  border: 1px solid rgba(76, 175, 80, 0.1);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.4s var(--ease-out-expo);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--primary-light);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(76, 175, 80, 0.15);
 }
 
 .project-image {
   height: 200px;
-  background: linear-gradient(
-    135deg,
-    rgba(76, 175, 80, 0.1),
-    rgba(255, 193, 7, 0.1)
-  );
+  background: var(--bg-secondary);
   display: flex;
   align-items: center;
   justify-content: center;

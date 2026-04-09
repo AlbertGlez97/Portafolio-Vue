@@ -27,14 +27,14 @@ defineProps<Props>()
   border-radius: var(--border-radius-lg);
   text-align: center;
   box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
-  border: 1px solid rgba(76, 175, 80, 0.1);
+  transition: all 0.4s var(--ease-out-expo);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .overview-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--primary-light);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(76, 175, 80, 0.15);
 }
 
 .card-icon {

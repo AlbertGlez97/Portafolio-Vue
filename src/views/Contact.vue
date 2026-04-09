@@ -418,16 +418,18 @@ const formatLink = (url: string): string => {
 }
 
 .contact-hero {
-  background: linear-gradient(135deg, 
-    rgba(76, 175, 80, 0.05) 0%, 
-    rgba(255, 193, 7, 0.05) 100%);
+  background: transparent;
   text-align: center;
 }
 
 .hero-subtitle {
-  font-size: var(--font-size-xl);
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
   color: var(--text-secondary);
   margin-top: var(--spacing-md);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .contact-content {
@@ -547,10 +549,9 @@ const formatLink = (url: string): string => {
 .contact-form-container {
   background-color: var(--bg-primary);
   padding: var(--spacing-2xl);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-md);
-  border: 1px solid rgba(76, 175, 80, 0.1);
-  /* CRÍTICO: Prevenir overflow del formulario */
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -577,18 +578,16 @@ const formatLink = (url: string): string => {
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: var(--spacing-md);
-  border: 2px solid rgba(76, 175, 80, 0.2);
+  padding: 0.875rem 1rem;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
   border-radius: var(--border-radius-md);
   font-size: var(--font-size-base);
-  font-family: inherit;
+  font-family: var(--font-body);
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition: all var(--transition-fast);
-  /* CRÍTICO: Asegurar que no cause overflow */
+  transition: all 0.3s var(--ease-out-expo);
   box-sizing: border-box;
   max-width: 100%;
-  /* Prevenir resize que puede causar overflow */
   resize: vertical;
 }
 
@@ -596,7 +595,7 @@ const formatLink = (url: string): string => {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.08);
 }
 
 .form-group input.error,
@@ -654,7 +653,7 @@ const formatLink = (url: string): string => {
 }
 
 .cta-section {
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  background: var(--primary-dark);
   color: var(--text-white);
   text-align: center;
 }
