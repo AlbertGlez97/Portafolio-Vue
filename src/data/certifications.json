@@ -76,5 +76,83 @@
       "es": "Curso completo de NestJS (+200 lecciones) con TypeScript, APIs REST robustas, PostgreSQL, MongoDB, WebSockets, autenticación JWT, patrones de diseño, Clean Code, Docker y buenas prácticas modulares para desarrollo backend escalable",
       "en": "Complete NestJS course (+200 lessons) with TypeScript, robust REST APIs, PostgreSQL, MongoDB, WebSockets, JWT authentication, design patterns, Clean Code, Docker and modular best practices for scalable backend development"
     }
+  },
+  {
+    "id": 7,
+    "title": {
+      "es": "Desarrollo Seguro V4.0",
+      "en": "Secure Software Development V4.0"
+    },
+    "provider": "Net4skills",
+    "icon": "security",
+    "description": {
+      "es": "Certificación en prácticas de desarrollo de software seguro, cubriendo OWASP Top 10 y seguridad de aplicaciones.",
+      "en": "Certification in secure software development practices, covering OWASP Top 10 and application security."
+    }
+  },
+  {
+    "id": 8,
+    "title": {
+      "es": "Scrum Fundamentals Certified",
+      "en": "Scrum Fundamentals Certified"
+    },
+    "provider": "SCRUMstudy Mexico by SIXD",
+    "icon": "scrum",
+    "description": {
+      "es": "Certificación en fundamentos de metodología Scrum y prácticas ágiles.",
+      "en": "Certification in Scrum methodology fundamentals and agile practices."
+    }
+  },
+  {
+    "id": 9,
+    "title": {
+      "es": "Normativa y Testing",
+      "en": "Compliance and Testing"
+    },
+    "provider": "BBVA",
+    "icon": "testing",
+    "description": {
+      "es": "Certificación interna BBVA sobre normativa corporativa y procesos de testing.",
+      "en": "Internal BBVA certification on corporate compliance and testing processes."
+    }
+  },
+  {
+    "id": 10,
+    "title": {
+      "es": "CELLS Framework",
+      "en": "CELLS Framework"
+    },
+    "provider": "BBVA",
+    "icon": "code",
+    "description": {
+      "es": "Certificación interna BBVA sobre el framework Cells para desarrollo de micro-frontends.",
+      "en": "Internal BBVA certification on the Cells framework for micro-frontend development."
+    }
+  },
+  {
+    "id": 11,
+    "title": {
+      "es": "ONE",
+      "en": "ONE"
+    },
+    "provider": "BBVA",
+    "icon": "code",
+    "description": {
+      "es": "Certificación interna BBVA sobre la metodología y herramientas ONE.",
+      "en": "Internal BBVA certification on ONE methodology and tooling."
+    }
+  },
+  {
+    "id": 12,
+    "title": {
+      "es": "Jira (90/100)",
+      "en": "Jira (90/100)"
+    },
+    "provider": "BBVA",
+    "icon": "jira",
+    "description": {
+      "es": "Certificación interna BBVA sobre gestión de proyectos con Jira.",
+      "en": "Internal BBVA certification on project management with Jira."
+    }
   }
 ]

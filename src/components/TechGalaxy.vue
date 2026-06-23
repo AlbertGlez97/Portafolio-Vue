@@ -293,7 +293,9 @@ function animate() {
     const maxScale = 1.2
     const minScale = 0.6 // nunca más pequeño para preservar legibilidad
     const scale = minScale + (maxScale - minScale) * (1 - eased)
-    sprite.scale.setScalar(scale)
+    const isHovered = sprite === hovered
+    const finalScale = isHovered ? scale * 1.2 : scale
+    sprite.scale.setScalar(finalScale)
     const material = sprite.material as any
     material.opacity = 1 - t * 0.6
     const nextMap = t > 0.7 ? sprite.userData.blurMap : sprite.userData.normalMap
@@ -327,13 +329,10 @@ function onPointerMove(event: PointerEvent) {
   if (intersects.length > 0) {
     const sprite = intersects[0].object as Sprite
     if (hovered !== sprite) {
-      if (hovered) hovered.scale.divideScalar(1.2)
       hovered = sprite
-      hovered.scale.multiplyScalar(1.2)
       if (canvas.value) canvas.value.title = sprite.userData.text || ''
     }
   } else if (hovered) {
-    hovered.scale.divideScalar(1.2)
     hovered = null
     if (canvas.value) canvas.value.title = ''
   }

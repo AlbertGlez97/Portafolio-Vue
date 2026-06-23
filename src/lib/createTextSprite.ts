@@ -24,13 +24,36 @@ function toPx(value: string): number {
   return parseFloat(trimmed)
 }
 
-function hexToRgba(hex: string, alpha: number): string {
-  const h = hex.replace('#', '')
-  const bigint = parseInt(h, 16)
-  const r = (bigint >> 16) & 255
-  const g = (bigint >> 8) & 255
-  const b = bigint & 255
-  return `rgba(${r},${g},${b},${alpha})`
+/**
+ * Resuelve una variable CSS (incluyendo cadenas var()) al valor rgb final
+ * usando el mecanismo de computación del propio navegador.
+ * Retorna el color en formato "rgb(r, g, b)" o el fallback si falla.
+ */
+function resolveColor(cssVar: string, fallback: string): string {
+  const el = document.createElement('span')
+  el.style.display = 'none'
+  el.style.color = `var(${cssVar}, ${fallback})`
+  document.body.appendChild(el)
+  const computed = getComputedStyle(el).color
+  document.body.removeChild(el)
+  // Si el browser no pudo resolver, devuelve vacío o "rgb(0,0,0)"
+  return computed || fallback
+}
+
+/**
+ * Convierte un string "rgb(r, g, b)" a "rgba(r, g, b, alpha)".
+ * También acepta directamente un valor hex como fallback.
+ */
+function withAlpha(color: string, alpha: number): string {
+  const match = color.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/)
+  if (match) return `rgba(${match[1]},${match[2]},${match[3]},${alpha})`
+  // Fallback: intentar parsear hex 6 dígitos
+  const h = color.replace('#', '')
+  if (h.length === 6) {
+    const bigint = parseInt(h, 16)
+    return `rgba(${(bigint >> 16) & 255},${(bigint >> 8) & 255},${bigint & 255},${alpha})`
+  }
+  return `rgba(0,0,0,${alpha})`
 }
 
 function drawRoundedRect(
@@ -78,8 +101,10 @@ export function createTextSprite(text: string): Sprite {
     const paddingX = toPx(root.getPropertyValue('--spacing-sm')) || 16
     const paddingY = toPx(root.getPropertyValue('--spacing-xs')) || 8
     const radius = toPx(root.getPropertyValue('--border-radius-md')) || 8
-    const textColor = root.getPropertyValue('--primary-dark').trim() || '#2E7D32'
-    const baseColor = root.getPropertyValue('--primary-color').trim() || '#4CAF50'
+    // Se resuelven los colores a través del DOM para que el navegador
+    // gestione las cadenas var(--x) y devuelva el valor rgb final.
+    const textColor = resolveColor('--primary-dark', '#2E7D32')
+    const baseColor  = resolveColor('--primary-color', '#4CAF50')
 
     ctx.font = `${fontSize}px ${fontFamily}`
     const textWidth = ctx.measureText(text).width
@@ -95,13 +120,13 @@ export function createTextSprite(text: string): Sprite {
     ctx.textBaseline = 'middle'
 
     // Fondo translúcido y borde suave para separar la etiqueta del fondo.
-    ctx.fillStyle = hexToRgba(baseColor, 0.15)
-    ctx.strokeStyle = hexToRgba(baseColor, 0.4)
+    ctx.fillStyle = withAlpha(baseColor, 0.15)
+    ctx.strokeStyle = withAlpha(baseColor, 0.4)
     ctx.lineWidth = 1
     drawRoundedRect(ctx, 0.5, 0.5, width - 1, height - 1, radius)
 
     // Halo de contraste que mejora la lectura sobre fondos cambiantes.
-    ctx.shadowColor = hexToRgba(baseColor, 0.4)
+    ctx.shadowColor = withAlpha(baseColor, 0.4)
     ctx.shadowBlur = 4
 
     ctx.fillStyle = textColor
