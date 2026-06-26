@@ -160,7 +160,9 @@ class CVRenderer {
         return `
             <section>
                 <h2 class="section-title">${data.title}</h2>
-                ${certificationsHtml}
+                <div class="certifications-grid">
+                    ${certificationsHtml}
+                </div>
             </section>
         `;
     }

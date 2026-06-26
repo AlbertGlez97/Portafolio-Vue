@@ -17,7 +17,7 @@
       "items": [
         "Vue.js",
         "Svelte",
-        "NestJS",
+        "LitElement / Web Components",
         "Redux",
         "Bootstrap"
       ]

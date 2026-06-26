@@ -161,6 +161,13 @@ section:last-child {
     break-inside: avoid;
 }
 
+.certifications-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24pt;
+    row-gap: 8pt;
+}
+
 .download-section {
     text-align: center;
     padding: 20px;
@@ -230,6 +237,12 @@ section:last-child {
         font-size: 9pt;
         margin-bottom: 1pt;
         break-inside: avoid;
+    }
+
+    .certifications-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        column-gap: 24pt !important;
     }
 
     /* CRÍTICO: Forzar formato desktop del header en PDF */
