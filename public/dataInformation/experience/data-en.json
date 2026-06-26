@@ -2,18 +2,36 @@
   "title": "Experience",
   "experiences": [
     {
+      "id": "babel-bbva-2026",
+      "position": "Frontend Developer",
+      "company": "Babel Group (client: BBVA México)",
+      "location": "Mexico City, Mexico",
+      "startDate": "February 2026",
+      "endDate": "Present",
+      "current": true,
+      "responsibilities": [
+        "Technology consultant at Babel assigned to the financial sector, working for BBVA México on the BTGE/Senda team",
+        "Building web components with LitElement and the proprietary Cells framework for enterprise banking solutions",
+        "Building and migrating reusable components under the @bbva-web-components standard library",
+        "Implementing CI/CD pipelines with CloudBees/Jenkins and resolving HTMLElement registration conflicts in micro-frontend environments",
+        "Participating in OWASP Top 10 security verification within institutional change request processes",
+        "Working under Scrum methodology in a cross-functional team (frontend, backend, QA)"
+      ]
+    },
+    {
       "id": "sye-frontend-2024",
       "position": "Frontend Developer",
       "company": "Sye Software",
       "location": "Mexico City, Mexico",
       "startDate": "May 2024",
-      "endDate": "Present",
-      "current": true,
+      "endDate": "November 2025",
+      "current": false,
       "responsibilities": [
         "Developed user interfaces using Svelte and reusable components",
         "Led technical development of Queries module, coordinating with backend and QA teams",
         "Implemented REST API consumption and global state management with Redux",
-        "Collaborated using GitLab, Docker, and Scrum methodologies"
+        "Collaborated using GitLab, Docker, and Scrum methodologies",
+        "Client: SAT (Servicio de Administración Tributaria)"
       ]
     },
     {

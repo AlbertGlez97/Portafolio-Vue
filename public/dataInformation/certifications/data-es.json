@@ -36,6 +36,42 @@
       "name": "Nest: Desarrollo backend escalable con Node",
       "issuer": "Fernando Herrera / DevTalles",
       "type": "online"
+    },
+    {
+      "id": "net4skills-secure-dev",
+      "name": "Desarrollo Seguro V4.0",
+      "issuer": "Net4skills",
+      "type": "professional"
+    },
+    {
+      "id": "scrumstudy-fundamentals",
+      "name": "Scrum Fundamentals Certified",
+      "issuer": "SCRUMstudy Mexico by SIXD",
+      "type": "professional"
+    },
+    {
+      "id": "bbva-normativa-testing",
+      "name": "Normativa y Testing",
+      "issuer": "BBVA",
+      "type": "professional"
+    },
+    {
+      "id": "bbva-cells-framework",
+      "name": "CELLS Framework",
+      "issuer": "BBVA",
+      "type": "professional"
+    },
+    {
+      "id": "bbva-one",
+      "name": "ONE",
+      "issuer": "BBVA",
+      "type": "professional"
+    },
+    {
+      "id": "bbva-jira",
+      "name": "Jira (90/100)",
+      "issuer": "BBVA",
+      "type": "professional"
     }
   ]
 }
