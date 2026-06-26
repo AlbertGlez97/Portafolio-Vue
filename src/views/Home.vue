@@ -118,10 +118,12 @@ import { storeToRefs } from "pinia";
 import OverviewCard from "../components/OverviewCard.vue";
 import FeaturedProject from "../components/FeaturedProject.vue";
 import projectsData from "../data/projects.json";
+import { useCvPdf } from "../composables/useCvPdf";
 
 const store = useMainStore();
 const { t } = storeToRefs(store);
 const { getTranslatedText } = store;
+const { downloadPdf } = useCvPdf();
 
 const isDownloading = ref(false);
 
@@ -135,26 +137,15 @@ onMounted(() => {
 const downloadCV = async () => {
   try {
     isDownloading.value = true;
-
-    const cvWindow = window.open('/cv.html', '_blank', 'width=1200,height=800,scrollbars=yes');
-
-    if (!cvWindow) {
-      throw new Error('No se pudo abrir la ventana del CV.');
-    }
-
-    setTimeout(() => {
-      isDownloading.value = false;
-    }, 500);
-
+    await downloadPdf();
   } catch (error) {
-    console.error('Error al abrir vista previa del CV:', error);
-
+    console.error('Error al generar el PDF:', error);
     const userLanguage = store.currentLanguage === 'es' ? 'es' : 'en';
     const message = userLanguage === 'es'
-      ? 'No se pudo abrir la vista previa del CV. Por favor, verifique que su navegador permita ventanas emergentes o intente nuevamente.'
-      : 'Could not open CV preview. Please check that your browser allows pop-ups or try again.';
+      ? 'No se pudo generar el PDF. Por favor intente nuevamente.'
+      : 'Could not generate PDF. Please try again.';
     alert(message);
-
+  } finally {
     isDownloading.value = false;
   }
 };
