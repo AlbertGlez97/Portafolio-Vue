@@ -5,6 +5,10 @@
     "toolsTech": "Tools & Technologies",
     "tools": "Tools",
     "methodologies": "Methodologies",
+    "devops": "DevOps & CI/CD",
+    "testing": "Testing",
+    "webtech": "Web Tech",
+    "cms": "CMS",
     "soft": "Soft Skills",
     "frontend": "Frontend Development",
     "backend": "Backend Development"

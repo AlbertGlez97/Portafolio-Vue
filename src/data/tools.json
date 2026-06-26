@@ -1,20 +1,83 @@
 [
   {
     "id": 1,
-    "name": {
-      "es": "Git",
-      "en": "Git"
-    },
-    "level": {
-      "es": "Intermedio-Avanzado",
-      "en": "Intermediate-Advanced"
-    },
-    "description": {
-      "es": "Sistema de control de versiones distribuido",
-      "en": "Distributed version control system"
-    },
-    "category": "tools"
+    "name": { "es": "Git (GitLab / GitHub)", "en": "Git (GitLab / GitHub)" },
+    "level": { "es": "Intermedio-Avanzado", "en": "Intermediate-Advanced" },
+    "description": { "es": "Control de versiones distribuido", "en": "Distributed version control" },
+    "category": "devops"
   },
+  {
+    "id": 2,
+    "name": { "es": "Docker", "en": "Docker" },
+    "level": { "es": "Intermedio", "en": "Intermediate" },
+    "description": { "es": "Plataforma de contenedores para desarrollo y despliegue", "en": "Container platform for development and deployment" },
+    "category": "devops"
+  },
+  {
+    "id": 3,
+    "name": { "es": "Jenkins / CloudBees CI", "en": "Jenkins / CloudBees CI" },
+    "level": { "es": "Básico-Intermedio", "en": "Basic-Intermediate" },
+    "description": { "es": "Pipelines CI/CD para integración y entrega continua", "en": "CI/CD pipelines for continuous integration and delivery" },
+    "category": "devops"
+  },
+  {
+    "id": 4,
+    "name": { "es": "Jira", "en": "Jira" },
+    "level": { "es": "Intermedio", "en": "Intermediate" },
+    "description": { "es": "Gestión de proyectos y seguimiento de tareas ágiles", "en": "Project management and agile task tracking" },
+    "category": "devops"
+  },
+  {
+    "id": 5,
+    "name": { "es": "Scrum", "en": "Scrum" },
+    "level": { "es": "Avanzado", "en": "Advanced" },
+    "description": { "es": "Marco de trabajo ágil para desarrollo iterativo", "en": "Agile framework for iterative development" },
+    "category": "methodologies"
+  },
+  {
+    "id": 6,
+    "name": { "es": "OWASP Top 10", "en": "OWASP Top 10" },
+    "level": { "es": "Básico-Intermedio", "en": "Basic-Intermediate" },
+    "description": { "es": "Estándar de seguridad para desarrollo de software seguro", "en": "Security standard for secure software development" },
+    "category": "methodologies"
+  },
+  {
+    "id": 7,
+    "name": { "es": "Selenium", "en": "Selenium" },
+    "level": { "es": "Intermedio", "en": "Intermediate" },
+    "description": { "es": "Automatización de pruebas para aplicaciones web", "en": "Test automation for web applications" },
+    "category": "testing"
+  },
+  {
+    "id": 8,
+    "name": { "es": "LitElement", "en": "LitElement" },
+    "level": { "es": "Intermedio", "en": "Intermediate" },
+    "description": { "es": "Librería para crear Web Components estándar y reutilizables", "en": "Library for building standard, reusable Web Components" },
+    "category": "webtech"
+  },
+  {
+    "id": 9,
+    "name": { "es": "Web Components", "en": "Web Components" },
+    "level": { "es": "Intermedio", "en": "Intermediate" },
+    "description": { "es": "Estándar web para componentes encapsulados e interoperables", "en": "Web standard for encapsulated, interoperable components" },
+    "category": "webtech"
+  },
+  {
+    "id": 10,
+    "name": { "es": "Cells Framework (BBVA)", "en": "Cells Framework (BBVA)" },
+    "level": { "es": "Intermedio", "en": "Intermediate" },
+    "description": { "es": "Framework propietario de BBVA para micro-frontends de banca", "en": "BBVA's proprietary framework for banking micro-frontends" },
+    "category": "webtech"
+  },
+  {
+    "id": 11,
+    "name": { "es": "WordPress", "en": "WordPress" },
+    "level": { "es": "Intermedio", "en": "Intermediate" },
+    "description": { "es": "Sistema de gestión de contenidos web", "en": "Web content management system" },
+    "category": "cms"
+  }
+]
+
   {
     "id": 2,
     "name": {
