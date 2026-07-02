@@ -434,5 +434,77 @@
     },
     "category": "cms",
     "type": "tool"
+  },
+  {
+    "id": 27,
+    "name": {
+      "es": "Node.js",
+      "en": "Node.js"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "percentage": 70,
+    "description": {
+      "es": "Entorno de ejecución JavaScript del lado del servidor",
+      "en": "Server-side JavaScript runtime environment"
+    },
+    "category": "backend",
+    "type": "tool"
+  },
+  {
+    "id": 28,
+    "name": {
+      "es": "Express.js",
+      "en": "Express.js"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "percentage": 70,
+    "description": {
+      "es": "Framework web minimalista para Node.js",
+      "en": "Minimalist web framework for Node.js"
+    },
+    "category": "backend",
+    "type": "tool"
+  },
+  {
+    "id": 29,
+    "name": {
+      "es": "Scrum",
+      "en": "Scrum"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "percentage": 75,
+    "description": {
+      "es": "Metodología ágil para gestión de proyectos",
+      "en": "Agile methodology for project management"
+    },
+    "category": "devops",
+    "type": "tool"
+  },
+  {
+    "id": 30,
+    "name": {
+      "es": "Jira",
+      "en": "Jira"
+    },
+    "level": {
+      "es": "Intermedio",
+      "en": "Intermediate"
+    },
+    "percentage": 75,
+    "description": {
+      "es": "Herramienta de gestión de proyectos ágiles",
+      "en": "Agile project management tool"
+    },
+    "category": "devops",
+    "type": "tool"
   }
 ]

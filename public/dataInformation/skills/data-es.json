@@ -31,7 +31,8 @@
         "APIs REST",
         "PostgreSQL",
         "MongoDB",
-        "SQL Server"
+        "SQL Server",
+        "Express.js"
       ]
     },
     {
@@ -41,7 +42,8 @@
         "Docker",
         "Git (GitLab/GitHub)",
         "Selenium",
-        "Agile/Scrum"
+        "Agile/Scrum",
+        "Jira"
       ]
     }
   ]

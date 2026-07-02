@@ -145,8 +145,8 @@
   {
     "id": 12,
     "title": {
-      "es": "Jira (90/100)",
-      "en": "Jira (90/100)"
+      "es": "Jira",
+      "en": "Jira"
     },
     "provider": "BBVA",
     "icon": "jira",
