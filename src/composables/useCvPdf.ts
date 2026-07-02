@@ -78,8 +78,8 @@ function buildDocDefinition(lang: Lang) {
 
   // Header
   const header = [
-    { text: 'Juan Alberto González', style: 'name' },
-    { text: t.title, style: 'subtitle', margin: [0, 2, 0, 6] as [number, number, number, number] },
+    { text: 'Ing. Alberto González', style: 'name', alignment: 'center' as const },
+    { text: t.title, style: 'subtitle', alignment: 'center' as const, margin: [0, 2, 0, 6] as [number, number, number, number] },
     {
       canvas: [{ type: 'line' as const, x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 1.5, lineColor: accentColor }],
       margin: [0, 0, 0, 6] as [number, number, number, number],

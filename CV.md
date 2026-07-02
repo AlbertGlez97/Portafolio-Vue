@@ -1,4 +1,4 @@
-# 💻 **Juan Alberto González** 
+# 💻 **Ing. Alberto González** 
 ## Desarrollador Full Stack | Frontend Specialist
 
 ---

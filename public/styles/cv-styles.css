@@ -38,6 +38,7 @@ header {
     border-bottom: 2px solid var(--primary-color);
     padding-bottom: 0.25in;
     margin-bottom: 0.25in;
+    text-align: center;
 }
 
 .name {

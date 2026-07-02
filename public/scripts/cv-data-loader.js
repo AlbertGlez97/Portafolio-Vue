@@ -88,7 +88,7 @@ class CVDataLoader {
     getFallbackData(section) {
         const fallbacks = {
             personal: {
-                name: "Juan Alberto González",
+                name: "Ing. Alberto González",
                 title: this.language === 'es' ? 'Desarrollador Full Stack' : 'Full Stack Developer',
                 contact: {
                     email: "albert.gonzalez0297@gmail.com",
