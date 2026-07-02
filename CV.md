@@ -5,7 +5,7 @@
 
 ### 📞 **Contacto**
 - 📧 **Email:** albert.gonzalez0297@gmail.com | juan_alberto1997@hotmail.com
-- 📱 **Teléfono:** +52 (557) 177-8779
+- 📱 **Teléfono:** +52 (553) 104-9130
 - 📍 **Ubicación:** Ciudad de México, México
 - 💼 **LinkedIn:** [albertglez97](https://www.linkedin.com/in/albertglez97/)
 - 🐙 **GitHub:** [AlbertGlez97](https://github.com/AlbertGlez97)
