@@ -123,7 +123,7 @@ import { useCvPdf } from "../composables/useCvPdf";
 const store = useMainStore();
 const { t } = storeToRefs(store);
 const { getTranslatedText } = store;
-const { downloadPdf } = useCvPdf();
+const { downloadPdf, previewPdf } = useCvPdf();
 
 const isDownloading = ref(false);
 
@@ -137,13 +137,13 @@ onMounted(() => {
 const downloadCV = async () => {
   try {
     isDownloading.value = true;
-    await downloadPdf();
+    await previewPdf();
   } catch (error) {
-    console.error('Error al generar el PDF:', error);
+    console.error('Error al abrir vista previa del CV:', error);
     const userLanguage = store.currentLanguage === 'es' ? 'es' : 'en';
     const message = userLanguage === 'es'
-      ? 'No se pudo generar el PDF. Por favor intente nuevamente.'
-      : 'Could not generate PDF. Please try again.';
+      ? 'No se pudo abrir la vista previa del CV. Por favor, verifique que su navegador permita ventanas emergentes.'
+      : 'Could not open CV preview. Please check that your browser allows pop-ups.';
     alert(message);
   } finally {
     isDownloading.value = false;

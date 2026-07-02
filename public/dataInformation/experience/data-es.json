@@ -27,11 +27,10 @@
       "endDate": "Noviembre 2025",
       "current": false,
       "responsibilities": [
-        "Desarrollé interfaces de usuario utilizando Svelte y componentes reutilizables",
-        "Lideré el desarrollo técnico del módulo de Consultas, coordinando con equipos de backend y QA",
-        "Implementé consumo de APIs REST y manejo de estado global con Redux",
-        "Colaboré utilizando GitLab, Docker y metodologías Scrum",
-        "Cliente: SAT (Servicio de Administración Tributaria)"
+        "Desarrollo de interfaces de usuario con Svelte y componentes reutilizables, asignado al cliente SAT (Servicio de Administración Tributaria)",
+        "Liderazgo técnico en el módulo de Consultas, colaborando con equipo de backend y QA",
+        "Consumo de APIs REST y manejo de estado con Redux",
+        "Control de versiones con GitLab, contenedores con Docker y trabajo bajo metodología Scrum"
       ]
     },
     {
@@ -43,10 +42,10 @@
       "endDate": "Mayo 2024",
       "current": false,
       "responsibilities": [
-        "Desarrollé soluciones frontend y backend usando .NET MVC con arquitectura escalable",
-        "Creé componentes dinámicos con Vue.js y Bootstrap",
-        "Implementé automatización de pruebas usando Selenium",
-        "Gestioné proyectos usando GitLab y Jira"
+        "Desarrollo front y back con .NET MVC asignado al cliente Marketing Ideas For Printers (MI4P), plataforma SaaS de marketing y web-to-print para la industria de impresión en EE.UU.",
+        "Creación de componentes de UI con Vue.js y Bootstrap para interfaces orientadas a imprentas y print buyers",
+        "Automatización de pruebas con Selenium para garantizar calidad en flujos de pedidos en línea",
+        "Control de versiones con GitLab y gestión ágil con Jira/Trello bajo metodología Scrum"
       ]
     },
     {

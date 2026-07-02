@@ -245,11 +245,13 @@ import { useContactStore } from '../stores/contact'
 import { storeToRefs } from 'pinia'
 // Service used to send the form data to Formspree
 import { sendContactForm, ContactFormData } from '../api/contact'
+import { useCvPdf } from '../composables/useCvPdf'
 
 const mainStore = useMainStore()
 const contactStore = useContactStore()
 const { t, currentLanguage } = storeToRefs(mainStore)
 const { contact } = storeToRefs(contactStore)
+const { previewPdf } = useCvPdf()
 
 const socialLinks = computed(() => ({
   linkedin: contact.value.linkedin,
@@ -372,23 +374,11 @@ const onSubmit = async () => {
   }
 }
 
-// Función para abrir vista previa del CV
+// Función para abrir vista previa del CV usando pdfmake
 const openCVPreview = async () => {
   try {
     isOpeningPreview.value = true;
-    
-    // Abrir el CV HTML sin auto-descarga (vista previa)
-    const cvWindow = window.open('/cv.html', '_blank', 'width=1200,height=800,scrollbars=yes');
-    
-    if (!cvWindow) {
-      throw new Error('No se pudo abrir la ventana del CV. Verifique que su navegador permita ventanas emergentes.');
-    }
-
-    // Habilitar el botón inmediatamente después de abrir la ventana
-    setTimeout(() => {
-      isOpeningPreview.value = false;
-    }, 500);
-
+    await previewPdf();
   } catch (error) {
     console.error('Error al abrir vista previa del CV:', error);
     
@@ -397,7 +387,7 @@ const openCVPreview = async () => {
       ? 'No se pudo abrir la vista previa del CV. Por favor, verifique que su navegador permita ventanas emergentes o intente nuevamente.'
       : 'Could not open CV preview. Please check that your browser allows pop-ups or try again.';
     alert(message);
-    
+  } finally {
     isOpeningPreview.value = false;
   }
 };

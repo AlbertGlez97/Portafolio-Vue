@@ -27,11 +27,10 @@
       "endDate": "November 2025",
       "current": false,
       "responsibilities": [
-        "Developed user interfaces using Svelte and reusable components",
-        "Led technical development of Queries module, coordinating with backend and QA teams",
-        "Implemented REST API consumption and global state management with Redux",
-        "Collaborated using GitLab, Docker, and Scrum methodologies",
-        "Client: SAT (Servicio de Administración Tributaria)"
+        "User interface development with Svelte and reusable components, assigned to the SAT (Servicio de Administración Tributaria) client",
+        "Technical leadership in the Queries module, collaborating with backend and QA teams",
+        "REST API consumption and state management with Redux",
+        "Version control with GitLab, containers with Docker, and work under Scrum methodology"
       ]
     },
     {
@@ -43,10 +42,10 @@
       "endDate": "May 2024",
       "current": false,
       "responsibilities": [
-        "Developed frontend and backend solutions using .NET MVC with scalable architecture",
-        "Created dynamic components with Vue.js and Bootstrap",
-        "Implemented test automation using Selenium",
-        "Managed projects using GitLab and Jira"
+        "Front and back-end development with .NET MVC assigned to the Marketing Ideas For Printers (MI4P) client, a SaaS marketing and web-to-print platform for the printing industry in the U.S.",
+        "UI component creation with Vue.js and Bootstrap for interfaces targeting print shops and print buyers",
+        "Test automation with Selenium to ensure quality in online ordering flows",
+        "Version control with GitLab and agile management with Jira/Trello under Scrum methodology"
       ]
     },
     {

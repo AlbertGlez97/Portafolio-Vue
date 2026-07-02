@@ -37,8 +37,8 @@
     "company": "Sye Software",
     "location": "Ciudad de México",
     "summary": {
-      "es": "Desarrollo de interfaces de usuario con Svelte y componentes reutilizables. Liderazgo en el módulo de Consultas, colaborando con backend y QA. Consumo de APIs REST y manejo de estado con Redux. Cliente: SAT (Servicio de Administración Tributaria).",
-      "en": "User interface development with Svelte and reusable components. Leadership in the Queries module, collaborating with backend and QA. REST API consumption and state management with Redux. Client: SAT (Servicio de Administración Tributaria)."
+      "es": "Desarrollo de interfaces de usuario con Svelte y componentes reutilizables, asignado al cliente SAT (Servicio de Administración Tributaria). Liderazgo técnico en el módulo de Consultas, colaborando con equipo de backend y QA. Consumo de APIs REST y manejo de estado con Redux. Control de versiones con GitLab, contenedores con Docker y trabajo bajo metodología Scrum.",
+      "en": "User interface development with Svelte and reusable components, assigned to the SAT (Servicio de Administración Tributaria) client. Technical leadership in the Queries module, collaborating with backend and QA teams. REST API consumption and state management with Redux. Version control with GitLab, containers with Docker, and work under Scrum methodology."
     },
     "technologies": [
       "Svelte",
@@ -63,8 +63,8 @@
     "company": "Towa Software",
     "location": "Remoto",
     "summary": {
-      "es": "Desarrollo Front y Back con .NET MVC. Creación de componentes con Vue.js y Bootstrap. Automatización de pruebas con Selenium. Control de versiones con GitLab y gestión ágil con Jira/Trello.",
-      "en": "Front and Back development with .NET MVC. Component creation with Vue.js and Bootstrap. Test automation with Selenium. Version control with GitLab and agile management with Jira/Trello."
+      "es": "Desarrollo front y back con .NET MVC asignado al cliente Marketing Ideas For Printers (MI4P), plataforma SaaS de marketing y web-to-print para la industria de impresión en EE.UU. Creación de componentes de UI con Vue.js y Bootstrap para interfaces orientadas a imprentas y print buyers. Automatización de pruebas con Selenium para garantizar calidad en flujos de pedidos en línea. Control de versiones con GitLab y gestión ágil con Jira/Trello bajo metodología Scrum.",
+      "en": "Front and back-end development with .NET MVC assigned to the Marketing Ideas For Printers (MI4P) client, a SaaS marketing and web-to-print platform for the printing industry in the U.S. UI component creation with Vue.js and Bootstrap for interfaces targeting print shops and print buyers. Test automation with Selenium to ensure quality in online ordering flows. Version control with GitLab and agile management with Jira/Trello under Scrum methodology."
     },
     "technologies": [
       ".NET MVC",

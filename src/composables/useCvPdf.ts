@@ -244,24 +244,36 @@ function buildDocDefinition(lang: Lang) {
 export function useCvPdf() {
   const store = useMainStore()
 
-  async function downloadPdf() {
-    // Dynamic import — zero bytes added to initial bundle
+  async function loadPdfMake() {
     const pdfMakeModule = await import('pdfmake/build/pdfmake')
     const pdfMake = pdfMakeModule.default || pdfMakeModule
     const pdfFontsModule = await import('pdfmake/build/vfs_fonts')
     const pdfFonts = pdfFontsModule.default || pdfFontsModule
 
-    // Register fonts
     if (pdfFonts.pdfMake?.vfs) {
       pdfMake.vfs = pdfFonts.pdfMake.vfs
     } else if (pdfFonts.vfs) {
       pdfMake.vfs = pdfFonts.vfs
     }
 
+    return pdfMake
+  }
+
+  /** Opens the PDF in a new browser tab for preview (uses browser's built-in PDF viewer) */
+  async function previewPdf() {
+    const pdfMake = await loadPdfMake()
+    const lang = (store.currentLanguage === 'es' ? 'es' : 'en') as Lang
+    const doc = buildDocDefinition(lang)
+    pdfMake.createPdf(doc).open()
+  }
+
+  /** Downloads the PDF directly */
+  async function downloadPdf() {
+    const pdfMake = await loadPdfMake()
     const lang = (store.currentLanguage === 'es' ? 'es' : 'en') as Lang
     const doc = buildDocDefinition(lang)
     pdfMake.createPdf(doc).download(`CV_Juan_Alberto_Gonzalez_${lang.toUpperCase()}.pdf`)
   }
 
-  return { downloadPdf }
+  return { previewPdf, downloadPdf }
 }
